@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.8.2)
+  - SwiftyDropbox (5.1.0):
+    - Alamofire (~> 4.8.2)
+
+DEPENDENCIES:
+  - SwiftyDropbox
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SwiftyDropbox
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  SwiftyDropbox: 7ca4961e0340c62c8d6d1ece91d67badfe4c0380
+
+PODFILE CHECKSUM: 04306e54c74ce533dabaacccc02851c26232447f
+
+COCOAPODS: 1.8.1

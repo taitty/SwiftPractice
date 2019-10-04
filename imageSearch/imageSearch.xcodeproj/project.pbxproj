@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62F123345BA621D616AB25D5 /* Pods_imageSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EF15CA4DA902C1509113891 /* Pods_imageSearch.framework */; };
 		BB284A67232AAB3D00C47FC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB284A66232AAB3D00C47FC4 /* AppDelegate.swift */; };
 		BB284A69232AAB3D00C47FC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB284A68232AAB3D00C47FC4 /* ViewController.swift */; };
 		BB284A6C232AAB3D00C47FC4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB284A6A232AAB3D00C47FC4 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4ACECD770C266CD9E6FDD693 /* Pods-imageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageSearch.debug.xcconfig"; path = "Target Support Files/Pods-imageSearch/Pods-imageSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		5F3A714CCE3B98E09EFEC9A0 /* Pods-imageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageSearch.release.xcconfig"; path = "Target Support Files/Pods-imageSearch/Pods-imageSearch.release.xcconfig"; sourceTree = "<group>"; };
+		9EF15CA4DA902C1509113891 /* Pods_imageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_imageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB284A63232AAB3D00C47FC4 /* imageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB284A66232AAB3D00C47FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB284A68232AAB3D00C47FC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F123345BA621D616AB25D5 /* Pods_imageSearch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4721B12CEE3BA47CA47EBCE4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4ACECD770C266CD9E6FDD693 /* Pods-imageSearch.debug.xcconfig */,
+				5F3A714CCE3B98E09EFEC9A0 /* Pods-imageSearch.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		55704ABBB7C1AAADF0ED6434 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EF15CA4DA902C1509113891 /* Pods_imageSearch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB284A5A232AAB3D00C47FC4 = {
 			isa = PBXGroup;
 			children = (
 				BB284A65232AAB3D00C47FC4 /* imageSearch */,
 				BB284A64232AAB3D00C47FC4 /* Products */,
+				4721B12CEE3BA47CA47EBCE4 /* Pods */,
+				55704ABBB7C1AAADF0ED6434 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB284A75232AAB3F00C47FC4 /* Build configuration list for PBXNativeTarget "imageSearch" */;
 			buildPhases = (
+				1DCD00BF5445EC05A0FB7E98 /* [CP] Check Pods Manifest.lock */,
 				BB284A5F232AAB3D00C47FC4 /* Sources */,
 				BB284A60232AAB3D00C47FC4 /* Frameworks */,
 				BB284A61232AAB3D00C47FC4 /* Resources */,
+				E8C145644E7EADE29A9CD54E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1DCD00BF5445EC05A0FB7E98 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-imageSearch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8C145644E7EADE29A9CD54E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageSearch/Pods-imageSearch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageSearch/Pods-imageSearch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-imageSearch/Pods-imageSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BB284A5F232AAB3D00C47FC4 /* Sources */ = {
@@ -280,6 +349,7 @@
 		};
 		BB284A76232AAB3F00C47FC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ACECD770C266CD9E6FDD693 /* Pods-imageSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +368,7 @@
 		};
 		BB284A77232AAB3F00C47FC4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F3A714CCE3B98E09EFEC9A0 /* Pods-imageSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
