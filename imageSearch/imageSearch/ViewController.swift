@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SwiftyDropbox
+
+//앱/com.taitty.imageSearch/test.jpg -> /get_file_metadata
 
 class ViewController: UIViewController {
 
@@ -21,6 +24,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+    }
+    
+    @IBAction func btnConnect(_ sender: Any) {
+        DropboxClientsManager.authorizeFromController(UIApplication.shared,
+                                                      controller: self,
+                                                      openURL: { (url: URL) -> Void in
+                                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                                                      })
+    }
+    
+    @IBAction func btnUpload(_ sender: Any) {
+        let client = DropboxClientsManager.authorizedClient
+        let sourceFile = (imgSource.image?.jpegData(compressionQuality: 1.0))!
+        let path = "/test.jpg"
+        client?.files.upload(path: path, input: sourceFile).response { response, error in
+            if let _ = response {
+                print(response)
+            } else {
+                print(error)
+            }
+        }
     }
     
     @IBAction func btnSearch(_ sender: UIButton) {
