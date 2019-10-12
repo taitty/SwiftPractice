@@ -9,15 +9,21 @@
 import UIKit
 import SwiftyDropbox
 
-//앱/com.taitty.imageSearch/test.jpg -> /get_file_metadata
-
 class ViewController: UIViewController {
 
+//    enum cloud {
+//        case dropbox
+//        case google
+//
+//
+//    }
+    
     @IBOutlet weak var txtResult: UITextView!
     @IBOutlet weak var imgSource: UIImageView!
     @IBOutlet weak var imgResult: UIImageView!
     
     let picker = UIImagePickerController()
+    let cloudHandler = DropboxController()
     var resultTxt: String?
     var resultImg: String?
     
@@ -27,24 +33,29 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btnConnect(_ sender: Any) {
-        DropboxClientsManager.authorizeFromController(UIApplication.shared,
-                                                      controller: self,
-                                                      openURL: { (url: URL) -> Void in
-                                                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                                                      })
+        cloudHandler.connect(controller: self)
     }
     
     @IBAction func btnUpload(_ sender: Any) {
-        let client = DropboxClientsManager.authorizedClient
-        let sourceFile = (imgSource.image?.jpegData(compressionQuality: 1.0))!
-        let path = "/test.jpg"
-        client?.files.upload(path: path, input: sourceFile).response { response, error in
-            if let _ = response {
-                print(response)
-            } else {
+        
+        let sourceFile = (imgResult.image?.jpegData(compressionQuality: 1.0))!
+        let path = "/test2.jpg"
+        
+        cloudHandler.uploadImage(path: path, file: sourceFile) { response, error in
+            if let error = error {
                 print(error)
+                return
             }
+            
+            print(response)
+            self.getPreview()
         }
+        
+    }
+    
+    @IBAction func btnCapture(_ sender: UIButton) {
+        picker.sourceType = .camera
+        present(picker, animated: false, completion: nil)
     }
     
     @IBAction func btnSearch(_ sender: UIButton) {
@@ -74,6 +85,19 @@ class ViewController: UIViewController {
             }
         }
         task.resume()
+    }
+    
+    func getPreview() {
+        let dropboxClient = DropboxClientsManager.authorizedClient
+        dropboxClient?.sharing.getFileMetadata(file: "/test2.jpg").response { response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print(response)
+            
+        }
     }
 
 }
