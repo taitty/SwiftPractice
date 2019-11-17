@@ -25,4 +25,17 @@ class DropboxController {
         let dropboxClient = DropboxClientsManager.authorizedClient
         dropboxClient?.files.upload(path: path, input: file).response(completionHandler: complection)
     }
+    
+    func getPreview() {
+        let dropboxClient = DropboxClientsManager.authorizedClient
+        dropboxClient?.sharing.getFileMetadata(file: "/test2.jpg").response { response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print(response)
+            
+        }
+    }
 }
