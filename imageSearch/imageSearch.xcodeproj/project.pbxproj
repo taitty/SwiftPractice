@@ -20,7 +20,7 @@
 		4ACECD770C266CD9E6FDD693 /* Pods-imageSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageSearch.debug.xcconfig"; path = "Target Support Files/Pods-imageSearch/Pods-imageSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		5F3A714CCE3B98E09EFEC9A0 /* Pods-imageSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imageSearch.release.xcconfig"; path = "Target Support Files/Pods-imageSearch/Pods-imageSearch.release.xcconfig"; sourceTree = "<group>"; };
 		9EF15CA4DA902C1509113891 /* Pods_imageSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_imageSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB284A63232AAB3D00C47FC4 /* imageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB284A63232AAB3D00C47FC4 /* ImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB284A66232AAB3D00C47FC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB284A68232AAB3D00C47FC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB284A6B232AAB3D00C47FC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		BB284A64232AAB3D00C47FC4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BB284A63232AAB3D00C47FC4 /* imageSearch.app */,
+				BB284A63232AAB3D00C47FC4 /* ImageSearch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +103,7 @@
 				BB284A60232AAB3D00C47FC4 /* Frameworks */,
 				BB284A61232AAB3D00C47FC4 /* Resources */,
 				E8C145644E7EADE29A9CD54E /* [CP] Embed Pods Frameworks */,
+				DC25EB616931047D9B1581A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,7 +111,7 @@
 			);
 			name = imageSearch;
 			productName = imageSearch;
-			productReference = BB284A63232AAB3D00C47FC4 /* imageSearch.app */;
+			productReference = BB284A63232AAB3D00C47FC4 /* ImageSearch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -180,6 +181,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC25EB616931047D9B1581A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageSearch/Pods-imageSearch-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-imageSearch/Pods-imageSearch-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-imageSearch/Pods-imageSearch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8C145644E7EADE29A9CD54E /* [CP] Embed Pods Frameworks */ = {
@@ -363,7 +381,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.taitty.imageSearch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ImageSearch;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,7 +400,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.taitty.imageSearch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ImageSearch;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

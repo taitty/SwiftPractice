@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyDropbox
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Error: \(description)")
             }
         }
-        return true
+        return GIDSignIn.sharedInstance().handle(url)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

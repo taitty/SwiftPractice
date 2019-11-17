@@ -7,4 +7,5 @@ target 'imageSearch' do
 
   # Pods for imageSearch
   pod 'SwiftyDropbox'
+  pod 'GoogleSignIn'
 end
