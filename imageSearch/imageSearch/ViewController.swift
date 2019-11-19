@@ -17,20 +17,20 @@ class ViewController: UIViewController {
     
     let picker = UIImagePickerController()
     let cloudHandler = DropboxController()
-    var resultTxt: String?
-    var resultImg: String?
-    var aToken: String = ""
+    var photoUrl: String?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
         resultWebview.navigationDelegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(uploadPhoto(notification:)), name: Notification.Name("dropbox_connect"), object: nil)
     }
     
     @IBAction func btnSearch(_ sender: UIButton) {
         
         /*
-         1. connect dropbox
          2. take a photo
          3. upload photo to dropbox
          4. get public link
@@ -38,36 +38,18 @@ class ViewController: UIViewController {
          6. get response with html
          7. parse name and photo
          */
-        
-        // 1. connect Dropbox --> from
-        cloudHandler.connect(controller: self)
-        // <-- to
 
         // 2. take a photo
-        //self.takePhoto()
+        takePhoto()
         
-        // 3. upload photo to dropbox --> from
-        /*
-        let sourceFile = (imgResult.image?.jpegData(compressionQuality: 1.0))!
-        let path = "/test2.jpg"
-        
-        cloudHandler.uploadImage(path: path, file: sourceFile) { response, error in
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            print(response)
-
-        }
-        */
-        // <-- to
+        // 3. upload photo to dropbox
+        //uploadPhoto()
         
         // 4. get public link
-        //self.getPreview()
+        //getPhotoUrl()
         
         // 5. go search to google image search
-        
+        //goSearch()
         
         // 6. get response with html
         
@@ -77,18 +59,88 @@ class ViewController: UIViewController {
 
     }
     
+    func getPhotoUrl (name: String) {
+        
+        print("start to get url of photo")
+        
+        cloudHandler.getPreview(name: name) { response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+
+            print("success to get url")
+            
+            if let rsp = response {
+                let url = rsp.url
+                let urlSeparator = url.firstIndex(of: "?") ?? url.endIndex
+                let publicUrl = url[..<urlSeparator]
+
+                self.photoUrl = String(publicUrl+"?raw=1")
+                
+                print("publicUrl = \(String(describing: self.photoUrl))")
+                
+                if let requestUrl = self.photoUrl {
+                    print(requestUrl)
+                    self.goSearch(photoUrl: requestUrl)
+                } else {
+                    print("fail to get final url")
+                    return
+                }
+            }
+        }
+    }
+    
+    func connectCloud() {
+        print("start to check connection")
+        cloudHandler.connect(controller: self)
+    }
+    
+    @objc func uploadPhoto(notification: Notification) {
+        
+        guard let sourceFile = imgSource.image?.jpegData(compressionQuality: 0.3) else {
+            print("no photo")
+            return
+        }
+
+        let timestamp = NSDate().timeIntervalSince1970
+        let path = "/\(timestamp)+test.jpg"
+        
+        print("start uploading photo")
+
+        cloudHandler.uploadImage(path: path, file: sourceFile) { response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            print("success upload photo")
+            
+            self.getPhotoUrl(name: path)
+        }
+    }
+    
     func takePhoto() {
-        picker.sourceType = .camera
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            picker.sourceType = .camera
+        } else {
+            picker.sourceType = .photoLibrary
+        }
         present(picker, animated: false, completion: nil)
     }
 
-    func goSearch(imgUrl : UIImage) {
+    func goSearch(photoUrl : String) {
       
-        guard let url = URL(string:"http://images.google.com/searchbyimage?image_url=https://www.dropbox.com/s/b6o6piwu8jn589r/toyStory.jpg?raw=1") else {return}
+        let baseUrl = "http://images.google.com/searchbyimage?image_url="
+        let searchUrl = baseUrl+photoUrl
+        guard let url = URL(string: searchUrl) else {
+            print("fail to get searchUrl")
+            return
+        }
 
+        print(url)
+        
         let request = URLRequest(url: url)
         resultWebview?.load(request)
-
     }
 }
 
@@ -97,9 +149,9 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imgSource.image = image
-            goSearch(imgUrl: image)
         }
         dismiss(animated: true, completion: nil)
+        self.connectCloud()
     }
 }
 

@@ -13,7 +13,7 @@ import SwiftyDropbox
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var connectStatus = [ "connect" : "false" ]
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,11 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch authResult {
             case .success:
                 print("Success! User is logged into Dropbox.")
+                connectStatus["connect"] = "true"
             case .cancel:
                 print("Authorization flow was manually canceled by user!")
+                connectStatus["connect"] = "false"
             case .error(_, let description):
                 print("Error: \(description)")
+                connectStatus["connect"] = "false"
             }
+            NotificationCenter.default.post(name: Notification.Name("dropbox_connect"), object: nil, userInfo: connectStatus)
         }
         return true
     }
