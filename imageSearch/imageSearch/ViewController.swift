@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgSource: UIImageView!
     @IBOutlet weak var resultWebview: WKWebView!
     @IBOutlet weak var resultString: UILabel!
+    @IBOutlet weak var resultImages: UICollectionView!
+    
     
     let picker = UIImagePickerController()
     let cloudHandler = DropboxController()
@@ -28,7 +30,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+
         resultWebview.navigationDelegate = self
+        resultWebview.isHidden = true
+        
+        resultImages.delegate = self
+        resultImages.dataSource = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(uploadPhoto(notification:)), name: Notification.Name("dropbox_connect"), object: nil)
     }
@@ -231,4 +238,22 @@ extension ViewController: WKNavigationDelegate {
             self.parseHtml()
         }
     }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    
+}
+
+extension ViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "resultCell", for: indexPath)
+        //cell.flagName.text = "resultCell \(indexPath.item)"
+        return cell
+    }
+    
 }
