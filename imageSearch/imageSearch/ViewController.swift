@@ -9,16 +9,21 @@
 import UIKit
 import SwiftyDropbox
 import WebKit
+import SwiftSoup
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var imgSource: UIImageView!
     @IBOutlet weak var resultWebview: WKWebView!
+    @IBOutlet weak var resultString: UILabel!
     
     let picker = UIImagePickerController()
     let cloudHandler = DropboxController()
-    var photoUrl: String?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    var photoUrl: String?
+    var photoPath: String?
+    var searchResult: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +57,33 @@ class ViewController: UIViewController {
         //goSearch()
         
         // 6. get response with html
-        
-        
+        //searchResult
         
         // 7. parse name and photo
-
+        //parseHtml
+        
+    }
+    
+    func parseHtml() {
+        do {
+            let doc: Document = try SwiftSoup.parse(searchResult!)
+            let htmlStr = try doc.text()
+            print(htmlStr)
+            
+            let test = try doc.getElementsByClass("r5a77d").text() // 검색결과를 Text 로 가지고 있는 Class : r5a77d
+            print(test)
+            resultString.text = test
+            
+            let imgs = try doc.select("img")
+            for element: Element in imgs.array() {
+                print(try? element.attr("src"))
+            }
+            
+        } catch Exception.Error(let type, let message) {
+            print("error type [\(type)], message [\(message)]")
+        } catch {
+            print("what???")
+        }
     }
     
     func getPhotoUrl (name: String) {
@@ -104,9 +131,14 @@ class ViewController: UIViewController {
         }
 
         let timestamp = NSDate().timeIntervalSince1970
-        let path = "/\(timestamp)+test.jpg"
+        self.photoPath = "/\(timestamp)+test.jpg"
         
         print("start uploading photo")
+        
+        guard let path = self.photoPath else {
+            print("fail to get photoPath")
+            return
+        }
 
         cloudHandler.uploadImage(path: path, file: sourceFile) { response, error in
             if let error = error {
@@ -116,6 +148,23 @@ class ViewController: UIViewController {
             print("success upload photo")
             
             self.getPhotoUrl(name: path)
+        }
+    }
+    
+    func deletePhoto() {
+        
+        guard let name = photoPath else {
+            print("no photo to delete")
+            return
+        }
+        
+        cloudHandler.deleteImage(name: name) { response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            print("success delete image")
         }
     }
     
@@ -144,7 +193,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+extension ViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -155,7 +204,7 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
     }
 }
 
-extension UIViewController: WKNavigationDelegate {
+extension ViewController: WKNavigationDelegate {
         
     public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         print("start loading")
@@ -167,18 +216,19 @@ extension UIViewController: WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("finished loading")
-        
-        
-        webView.evaluateJavaScript("document.body.innerHTML", completionHandler: { (value: Any!, error: Error!) -> Void in
+
+        webView.evaluateJavaScript("document.body.innerHTML") { value, error in
 
             if error != nil {
-                print(error)
+                print(error as Any)
                 return
             }
 
-            let result = value as? String
-            //Main logic
-            print(result)
-        })
+            self.searchResult = value as? String
+            //print(self.searchResult as Any)
+            
+            self.deletePhoto()
+            self.parseHtml()
+        }
     }
 }

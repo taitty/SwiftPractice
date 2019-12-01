@@ -36,37 +36,50 @@
                                 </connections>
                             </button>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbn-16-wYk">
-                                <rect key="frame" x="20" y="190" width="280" height="358"/>
+                                <rect key="frame" x="20" y="230" width="280" height="318"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPO-PC-SsD">
+                                <rect key="frame" x="20" y="180" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ha2-SY-Vsj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tbn-16-wYk" firstAttribute="top" secondItem="Ubj-OD-9N2" secondAttribute="bottom" constant="20" id="4F9-dq-ifh"/>
+                            <constraint firstItem="tbn-16-wYk" firstAttribute="top" secondItem="cPO-PC-SsD" secondAttribute="bottom" constant="10" id="4F9-dq-ifh"/>
                             <constraint firstItem="pqy-JO-kR0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DEw-rl-3Ld"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tbn-16-wYk" secondAttribute="trailing" constant="20" id="Dg8-MH-30j"/>
                             <constraint firstItem="tbn-16-wYk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="E1e-XO-Amm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cPO-PC-SsD" secondAttribute="trailing" constant="20" id="FNB-3K-7Fj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ubj-OD-9N2" secondAttribute="trailing" constant="20" id="Gjw-p7-7sH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tbn-16-wYk" secondAttribute="bottom" constant="20" id="H8S-Lv-WcE"/>
                             <constraint firstItem="pqy-JO-kR0" firstAttribute="centerY" secondItem="Ubj-OD-9N2" secondAttribute="centerY" id="Im4-GL-qc8"/>
+                            <constraint firstItem="cPO-PC-SsD" firstAttribute="top" secondItem="Ubj-OD-9N2" secondAttribute="bottom" constant="10" id="SAQ-JI-N9O"/>
                             <constraint firstItem="Ubj-OD-9N2" firstAttribute="leading" secondItem="pqy-JO-kR0" secondAttribute="trailing" constant="20" id="acR-bs-sNr"/>
                             <constraint firstItem="Ubj-OD-9N2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="v1b-Rh-x8c"/>
+                            <constraint firstItem="cPO-PC-SsD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xgm-2I-6Hf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qIH-gj-Nwf"/>
                     <connections>
                         <outlet property="imgSource" destination="Ubj-OD-9N2" id="EJJ-bh-hC6"/>
+                        <outlet property="resultString" destination="cPO-PC-SsD" id="H1u-eL-9bC"/>
                         <outlet property="resultWebview" destination="tbn-16-wYk" id="cqg-du-QAV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.2" y="111.99400299850076"/>
+            <point key="canvasLocation" x="1046.25" y="111.97183098591549"/>
         </scene>
     </scenes>
     <resources>
