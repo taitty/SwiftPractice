@@ -8,4 +8,5 @@ target 'imageSearch' do
   # Pods for imageSearch
   pod 'SwiftyDropbox'
   pod 'SwiftSoup'
+  pod 'SDWebImage', '~> 4.0'
 end

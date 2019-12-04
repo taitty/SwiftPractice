@@ -1,24 +1,30 @@
 PODS:
   - Alamofire (4.8.2)
+  - SDWebImage (4.4.7):
+    - SDWebImage/Core (= 4.4.7)
+  - SDWebImage/Core (4.4.7)
   - SwiftSoup (2.2.2)
   - SwiftyDropbox (5.1.0):
     - Alamofire (~> 4.8.2)
 
 DEPENDENCIES:
+  - SDWebImage (~> 4.0)
   - SwiftSoup
   - SwiftyDropbox
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - SDWebImage
     - SwiftSoup
     - SwiftyDropbox
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  SDWebImage: c10d14a8883ebd89664f02a422006f66a85c0c5d
   SwiftSoup: 77147d707df716eb6dbd06c5c24d35ad5ba62ee1
   SwiftyDropbox: 7ca4961e0340c62c8d6d1ece91d67badfe4c0380
 
-PODFILE CHECKSUM: 3ace498ccf6b5b59d7fcd8b0a44a7e7ffc1febd7
+PODFILE CHECKSUM: 7d2bc4a506cd5cbc1710cc2bae2df9df3c607062
 
 COCOAPODS: 1.8.4

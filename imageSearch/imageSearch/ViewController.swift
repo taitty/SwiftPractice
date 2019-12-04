@@ -10,6 +10,7 @@ import UIKit
 import SwiftyDropbox
 import WebKit
 import SwiftSoup
+import SDWebImage
 
 class ViewController: UIViewController {
     
@@ -26,6 +27,7 @@ class ViewController: UIViewController {
     var photoUrl: String?
     var photoPath: String?
     var searchResult: String?
+    var searchImageUrls: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,16 +76,23 @@ class ViewController: UIViewController {
     func parseHtml() {
         do {
             let doc: Document = try SwiftSoup.parse(searchResult!)
-            let htmlStr = try doc.text()
-            print(htmlStr)
             
-            let test = try doc.getElementsByClass("r5a77d").text() // 검색결과를 Text 로 가지고 있는 Class : r5a77d
-            print(test)
-            resultString.text = test
+            // parse result text
+            let resultText = try doc.getElementsByClass("r5a77d").text() // 검색결과를 Text 로 가지고 있는 Class : r5a77d
+            print(resultText)
+            resultString.text = resultText
             
+            // parse search images and titles
             let imgs = try doc.select("img")
             for element: Element in imgs.array() {
-                print(try? element.attr("src"))
+                if let url = try? element.attr("src"), url.hasPrefix("https://encrypted") {
+                    print(url)
+                    self.searchImageUrls.append(url)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.resultImages.reloadData()
             }
             
         } catch Exception.Error(let type, let message) {
@@ -247,12 +256,16 @@ extension ViewController: UICollectionViewDelegate {
 extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return self.searchImageUrls.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "resultCell", for: indexPath)
-        //cell.flagName.text = "resultCell \(indexPath.item)"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! searchResultCell
+        if self.searchImageUrls[indexPath.row].isEmpty {
+            print("image is empty")
+        } else {
+            cell.searchImage.sd_setImage(with: URL(string: self.searchImageUrls[indexPath.row]), completed: nil)
+        }
         return cell
     }
     
