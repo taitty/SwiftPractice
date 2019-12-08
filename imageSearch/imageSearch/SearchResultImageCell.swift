@@ -12,5 +12,17 @@ import UIKit
 class searchResultCell: UICollectionViewCell {
     
     @IBOutlet weak var searchImage: UIImageView!
-    
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    override func awakeFromNib() {
+
+        self.layoutIfNeeded()
+        
+        searchImage.layer.cornerRadius = searchImage.layer.frame.size.height / 15.0
+        searchImage.layer.masksToBounds = true
+        
+    }
 }

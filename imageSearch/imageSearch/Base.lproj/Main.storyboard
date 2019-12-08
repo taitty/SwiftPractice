@@ -17,9 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image you want to search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nD4-wa-imH">
+                                <rect key="frame" x="90" y="84.5" width="265" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-OD-9N2">
                                 <rect key="frame" x="90" y="20" width="265" height="150"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="fbn-CG-V0g"/>
                                 </constraints>
@@ -36,7 +41,7 @@
                                     <action selector="btnSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="USs-YH-iBh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPO-PC-SsD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPO-PC-SsD">
                                 <rect key="frame" x="20" y="190" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ha2-SY-Vsj"/>
@@ -87,21 +92,50 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8E-LR-BQ7" userLabel="Border">
+                                <rect key="frame" x="20" y="250" width="335" height="397"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Related Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUy-sR-7NW">
+                                <rect key="frame" x="0.0" y="438.5" width="375" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="dvQ-wr-ZQ6">
+                                <rect key="frame" x="162.5" y="423.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3dF-JV-KrI"/>
+                                    <constraint firstAttribute="width" constant="50" id="vtT-Rt-DlQ"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="VMQ-F6-VeB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="26z-rh-XR4"/>
+                            <constraint firstItem="Ubj-OD-9N2" firstAttribute="trailing" secondItem="nD4-wa-imH" secondAttribute="trailing" id="6CQ-w9-SRq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VMQ-F6-VeB" secondAttribute="bottom" constant="20" id="7Aj-LT-uja"/>
                             <constraint firstItem="tbn-16-wYk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7wK-OS-gVb"/>
+                            <constraint firstItem="sUy-sR-7NW" firstAttribute="centerY" secondItem="VMQ-F6-VeB" secondAttribute="centerY" id="B29-Hk-cZh"/>
                             <constraint firstItem="pqy-JO-kR0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DEw-rl-3Ld"/>
+                            <constraint firstItem="nD4-wa-imH" firstAttribute="leading" secondItem="Ubj-OD-9N2" secondAttribute="leading" id="Emp-iR-BGJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cPO-PC-SsD" secondAttribute="trailing" constant="20" id="FNB-3K-7Fj"/>
+                            <constraint firstItem="q8E-LR-BQ7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="GAU-Yw-DTR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ubj-OD-9N2" secondAttribute="trailing" constant="20" id="Gjw-p7-7sH"/>
                             <constraint firstItem="pqy-JO-kR0" firstAttribute="centerY" secondItem="Ubj-OD-9N2" secondAttribute="centerY" id="Im4-GL-qc8"/>
+                            <constraint firstItem="q8E-LR-BQ7" firstAttribute="top" secondItem="cPO-PC-SsD" secondAttribute="bottom" constant="20" id="NzU-yv-OKA"/>
                             <constraint firstItem="VMQ-F6-VeB" firstAttribute="top" secondItem="cPO-PC-SsD" secondAttribute="bottom" constant="20" id="PtH-Kz-4ky"/>
                             <constraint firstItem="cPO-PC-SsD" firstAttribute="top" secondItem="Ubj-OD-9N2" secondAttribute="bottom" constant="20" id="SAQ-JI-N9O"/>
+                            <constraint firstItem="nD4-wa-imH" firstAttribute="centerY" secondItem="Ubj-OD-9N2" secondAttribute="centerY" id="Sni-W6-YIA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sUy-sR-7NW" secondAttribute="trailing" id="TQj-xl-GRU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tbn-16-wYk" secondAttribute="trailing" constant="20" id="aTp-FZ-kRP"/>
                             <constraint firstItem="Ubj-OD-9N2" firstAttribute="leading" secondItem="pqy-JO-kR0" secondAttribute="trailing" constant="20" id="acR-bs-sNr"/>
                             <constraint firstItem="tbn-16-wYk" firstAttribute="top" secondItem="cPO-PC-SsD" secondAttribute="bottom" constant="20" id="cYQ-O9-Yl9"/>
+                            <constraint firstItem="dvQ-wr-ZQ6" firstAttribute="centerX" secondItem="VMQ-F6-VeB" secondAttribute="centerX" id="e25-F6-Ffp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q8E-LR-BQ7" secondAttribute="bottom" constant="20" id="i0Q-xt-4Wb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q8E-LR-BQ7" secondAttribute="trailing" constant="20" id="iB6-eQ-jGC"/>
+                            <constraint firstItem="dvQ-wr-ZQ6" firstAttribute="centerY" secondItem="VMQ-F6-VeB" secondAttribute="centerY" id="nss-Oz-BYg"/>
+                            <constraint firstItem="sUy-sR-7NW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qvs-Hm-GpG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tbn-16-wYk" secondAttribute="bottom" constant="20" id="rNp-IC-wGt"/>
                             <constraint firstItem="Ubj-OD-9N2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="v1b-Rh-x8c"/>
                             <constraint firstItem="cPO-PC-SsD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xgm-2I-6Hf"/>
@@ -112,7 +146,10 @@
                     <navigationItem key="navigationItem" id="qIH-gj-Nwf"/>
                     <connections>
                         <outlet property="imgSource" destination="Ubj-OD-9N2" id="EJJ-bh-hC6"/>
+                        <outlet property="loadingImage" destination="dvQ-wr-ZQ6" id="oI4-to-OWn"/>
                         <outlet property="resultImages" destination="VMQ-F6-VeB" id="0wM-YO-mG4"/>
+                        <outlet property="resultImagesBorder" destination="q8E-LR-BQ7" id="fzy-Ke-gfb"/>
+                        <outlet property="resultImagesPlaceholder" destination="sUy-sR-7NW" id="hUh-Oe-0Tx"/>
                         <outlet property="resultString" destination="cPO-PC-SsD" id="H1u-eL-9bC"/>
                         <outlet property="resultWebview" destination="tbn-16-wYk" id="cqg-du-QAV"/>
                     </connections>

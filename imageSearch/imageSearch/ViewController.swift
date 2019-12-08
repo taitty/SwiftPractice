@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultWebview: WKWebView!
     @IBOutlet weak var resultString: UILabel!
     @IBOutlet weak var resultImages: UICollectionView!
+    @IBOutlet weak var resultImagesBorder: UIView!
+    @IBOutlet weak var loadingImage: UIActivityIndicatorView!
+    @IBOutlet weak var resultImagesPlaceholder: UILabel!
     
     
     let picker = UIImagePickerController()
@@ -36,8 +39,18 @@ class ViewController: UIViewController {
         resultWebview.navigationDelegate = self
         resultWebview.isHidden = true
         
+        imgSource.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
+        imgSource.layer.borderWidth = 1.0
+        imgSource.layer.cornerRadius = imgSource.layer.frame.size.height / 15.0
+        imgSource.layer.masksToBounds = true
+        
         resultImages.delegate = self
         resultImages.dataSource = self
+
+        resultImagesBorder.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
+        resultImagesBorder.layer.borderWidth = 1.0
+        resultImagesBorder.layer.cornerRadius = imgSource.layer.frame.size.height / 15.0
+        resultImagesBorder.layer.masksToBounds = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(uploadPhoto(notification:)), name: Notification.Name("dropbox_connect"), object: nil)
     }
@@ -95,6 +108,8 @@ class ViewController: UIViewController {
                 self.resultImages.reloadData()
             }
             
+            loadingImage.stopAnimating()
+            
         } catch Exception.Error(let type, let message) {
             print("error type [\(type)], message [\(message)]")
         } catch {
@@ -145,7 +160,7 @@ class ViewController: UIViewController {
             print("no photo")
             return
         }
-
+        
         let timestamp = NSDate().timeIntervalSince1970
         self.photoPath = "/\(timestamp)+test.jpg"
         
@@ -155,6 +170,9 @@ class ViewController: UIViewController {
             print("fail to get photoPath")
             return
         }
+        
+        self.resultImagesPlaceholder.isHidden = true
+        loadingImage.startAnimating()
 
         cloudHandler.uploadImage(path: path, file: sourceFile) { response, error in
             if let error = error {
@@ -261,13 +279,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! searchResultCell
-        
-        if self.searchImageUrls[indexPath.row].isEmpty {
-            print("image is empty")
-        } else {
-            cell.searchImage.sd_setImage(with: URL(string: self.searchImageUrls[indexPath.row]), completed: nil)
-        }
-        
+        cell.searchImage.sd_setImage(with: URL(string: self.searchImageUrls[indexPath.row]), completed: nil)
         return cell
     }
     
