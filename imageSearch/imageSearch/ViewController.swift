@@ -39,13 +39,14 @@ class ViewController: UIViewController {
         resultWebview.navigationDelegate = self
         resultWebview.isHidden = true
         
+        loadingImage.isHidden = true
+        
+        resultImages.dataSource = self
+        
         imgSource.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
         imgSource.layer.borderWidth = 1.0
         imgSource.layer.cornerRadius = imgSource.layer.frame.size.height / 15.0
         imgSource.layer.masksToBounds = true
-        
-        resultImages.delegate = self
-        resultImages.dataSource = self
 
         resultImagesBorder.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
         resultImagesBorder.layer.borderWidth = 1.0
@@ -103,12 +104,13 @@ class ViewController: UIViewController {
                     self.searchImageUrls.append(url)
                 }
             }
-            
+
             DispatchQueue.main.async {
                 self.resultImages.reloadData()
             }
             
             loadingImage.stopAnimating()
+            loadingImage.isHidden = true
             
         } catch Exception.Error(let type, let message) {
             print("error type [\(type)], message [\(message)]")
@@ -172,6 +174,7 @@ class ViewController: UIViewController {
         }
         
         self.resultImagesPlaceholder.isHidden = true
+        loadingImage.isHidden = false
         loadingImage.startAnimating()
 
         cloudHandler.uploadImage(path: path, file: sourceFile) { response, error in
@@ -267,21 +270,16 @@ extension ViewController: WKNavigationDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
-    
-}
-
 extension ViewController: UICollectionViewDataSource {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.searchImageUrls.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchResultCell", for: indexPath) as! searchResultCell
         cell.searchImage.sd_setImage(with: URL(string: self.searchImageUrls[indexPath.row]), completed: nil)
         return cell
     }
-    
-}
 
+}

@@ -147,7 +147,7 @@
                     <connections>
                         <outlet property="imgSource" destination="Ubj-OD-9N2" id="EJJ-bh-hC6"/>
                         <outlet property="loadingImage" destination="dvQ-wr-ZQ6" id="oI4-to-OWn"/>
-                        <outlet property="resultImages" destination="VMQ-F6-VeB" id="0wM-YO-mG4"/>
+                        <outlet property="resultImages" destination="VMQ-F6-VeB" id="ama-m7-kib"/>
                         <outlet property="resultImagesBorder" destination="q8E-LR-BQ7" id="fzy-Ke-gfb"/>
                         <outlet property="resultImagesPlaceholder" destination="sUy-sR-7NW" id="hUh-Oe-0Tx"/>
                         <outlet property="resultString" destination="cPO-PC-SsD" id="H1u-eL-9bC"/>
