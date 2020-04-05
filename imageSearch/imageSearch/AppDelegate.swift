@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
         if let authResult = DropboxClientsManager.handleRedirectURL(url) {
             switch authResult {
             case .success:
@@ -36,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             NotificationCenter.default.post(name: Notification.Name("dropbox_connect"), object: nil, userInfo: connectStatus)
         }
+        
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

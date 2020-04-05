@@ -11,8 +11,6 @@ import SwiftyDropbox
 
 class DropboxController {
     
-    //let dropboxClient = DropboxClientsManager.authorizedClient
-    
     func connect(controller: UIViewController) {
         DropboxClientsManager.authorizeFromController(UIApplication.shared,
                                                       controller: controller,
@@ -40,5 +38,6 @@ class DropboxController {
         let dropboxClient = DropboxClientsManager.authorizedClient
         dropboxClient?.files.deleteV2(path: name).response(completionHandler: complection)
     }
+    
 }
 

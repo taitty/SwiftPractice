@@ -50,33 +50,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbn-16-wYk">
-                                <rect key="frame" x="20" y="250" width="335" height="397"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMQ-F6-VeB">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMQ-F6-VeB">
                                 <rect key="frame" x="20" y="250" width="335" height="397"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="35" minimumInteritemSpacing="0.0" id="He1-bD-NIo">
-                                    <size key="itemSize" width="300" height="300"/>
+                                    <size key="itemSize" width="335" height="300"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="18" minY="0.0" maxX="18" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchResultCell" id="Uji-oa-V9E" customClass="searchResultCell" customModule="ImageSearch" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="48.5" width="300" height="300"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="335" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lj7-eb-IBf">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x2m-vx-pBR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="300"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -115,7 +107,6 @@
                             <constraint firstItem="VMQ-F6-VeB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="26z-rh-XR4"/>
                             <constraint firstItem="Ubj-OD-9N2" firstAttribute="trailing" secondItem="nD4-wa-imH" secondAttribute="trailing" id="6CQ-w9-SRq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VMQ-F6-VeB" secondAttribute="bottom" constant="20" id="7Aj-LT-uja"/>
-                            <constraint firstItem="tbn-16-wYk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7wK-OS-gVb"/>
                             <constraint firstItem="sUy-sR-7NW" firstAttribute="centerY" secondItem="VMQ-F6-VeB" secondAttribute="centerY" id="B29-Hk-cZh"/>
                             <constraint firstItem="pqy-JO-kR0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DEw-rl-3Ld"/>
                             <constraint firstItem="nD4-wa-imH" firstAttribute="leading" secondItem="Ubj-OD-9N2" secondAttribute="leading" id="Emp-iR-BGJ"/>
@@ -128,15 +119,12 @@
                             <constraint firstItem="cPO-PC-SsD" firstAttribute="top" secondItem="Ubj-OD-9N2" secondAttribute="bottom" constant="20" id="SAQ-JI-N9O"/>
                             <constraint firstItem="nD4-wa-imH" firstAttribute="centerY" secondItem="Ubj-OD-9N2" secondAttribute="centerY" id="Sni-W6-YIA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sUy-sR-7NW" secondAttribute="trailing" id="TQj-xl-GRU"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tbn-16-wYk" secondAttribute="trailing" constant="20" id="aTp-FZ-kRP"/>
                             <constraint firstItem="Ubj-OD-9N2" firstAttribute="leading" secondItem="pqy-JO-kR0" secondAttribute="trailing" constant="20" id="acR-bs-sNr"/>
-                            <constraint firstItem="tbn-16-wYk" firstAttribute="top" secondItem="cPO-PC-SsD" secondAttribute="bottom" constant="20" id="cYQ-O9-Yl9"/>
                             <constraint firstItem="dvQ-wr-ZQ6" firstAttribute="centerX" secondItem="VMQ-F6-VeB" secondAttribute="centerX" id="e25-F6-Ffp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q8E-LR-BQ7" secondAttribute="bottom" constant="20" id="i0Q-xt-4Wb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q8E-LR-BQ7" secondAttribute="trailing" constant="20" id="iB6-eQ-jGC"/>
                             <constraint firstItem="dvQ-wr-ZQ6" firstAttribute="centerY" secondItem="VMQ-F6-VeB" secondAttribute="centerY" id="nss-Oz-BYg"/>
                             <constraint firstItem="sUy-sR-7NW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qvs-Hm-GpG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tbn-16-wYk" secondAttribute="bottom" constant="20" id="rNp-IC-wGt"/>
                             <constraint firstItem="Ubj-OD-9N2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="v1b-Rh-x8c"/>
                             <constraint firstItem="cPO-PC-SsD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xgm-2I-6Hf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VMQ-F6-VeB" secondAttribute="trailing" constant="20" id="yXz-4w-4Ab"/>
@@ -151,7 +139,6 @@
                         <outlet property="resultImagesBorder" destination="q8E-LR-BQ7" id="fzy-Ke-gfb"/>
                         <outlet property="resultImagesPlaceholder" destination="sUy-sR-7NW" id="hUh-Oe-0Tx"/>
                         <outlet property="resultString" destination="cPO-PC-SsD" id="H1u-eL-9bC"/>
-                        <outlet property="resultWebview" destination="tbn-16-wYk" id="cqg-du-QAV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

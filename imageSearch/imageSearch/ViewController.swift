@@ -12,20 +12,23 @@ import WebKit
 import SwiftSoup
 import SDWebImage
 
+enum Mode {
+    case OFF
+    case ON
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var imgSource: UIImageView!
-    @IBOutlet weak var resultWebview: WKWebView!
     @IBOutlet weak var resultString: UILabel!
     @IBOutlet weak var resultImages: UICollectionView!
     @IBOutlet weak var resultImagesBorder: UIView!
-    @IBOutlet weak var loadingImage: UIActivityIndicatorView!
     @IBOutlet weak var resultImagesPlaceholder: UILabel!
+    @IBOutlet weak var loadingImage: UIActivityIndicatorView!
     
-    
+    let searchWebview = WKWebView()
     let picker = UIImagePickerController()
     let cloudHandler = DropboxController()
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var photoUrl: String?
     var photoPath: String?
@@ -34,14 +37,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         picker.delegate = self
-
-        resultWebview.navigationDelegate = self
-        resultWebview.isHidden = true
-        
-        loadingImage.isHidden = true
-        
+        searchWebview.navigationDelegate = self
         resultImages.dataSource = self
+        
+        controlGuideText(mode: .ON)
+        controlLoadingView(mode: .OFF)
+        setBasicTemplate()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(uploadPhoto(notification:)), name: Notification.Name("dropbox_connect"), object: nil)
+    }
+    
+    func setBasicTemplate() {
         
         imgSource.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
         imgSource.layer.borderWidth = 1.0
@@ -53,38 +61,15 @@ class ViewController: UIViewController {
         resultImagesBorder.layer.cornerRadius = imgSource.layer.frame.size.height / 15.0
         resultImagesBorder.layer.masksToBounds = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(uploadPhoto(notification:)), name: Notification.Name("dropbox_connect"), object: nil)
     }
     
     @IBAction func btnSearch(_ sender: UIButton) {
-        
-        /*
-         2. take a photo
-         3. upload photo to dropbox
-         4. get public link
-         5. go search to google image search
-         6. get response with html
-         7. parse name and photo
-         */
-
-        // 2. take a photo
-        takePhoto()
-        
-        // 3. upload photo to dropbox
-        //uploadPhoto()
-        
-        // 4. get public link
-        //getPhotoUrl()
-        
-        // 5. go search to google image search
-        //goSearch()
-        
-        // 6. get response with html
-        //searchResult
-        
-        // 7. parse name and photo
-        //parseHtml
-        
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            picker.sourceType = .camera
+        } else {
+            picker.sourceType = .photoLibrary
+        }
+        present(picker, animated: false, completion: nil)
     }
     
     func parseHtml() {
@@ -105,12 +90,10 @@ class ViewController: UIViewController {
                 }
             }
 
+            controlLoadingView(mode: .OFF)
             DispatchQueue.main.async {
                 self.resultImages.reloadData()
             }
-            
-            loadingImage.stopAnimating()
-            loadingImage.isHidden = true
             
         } catch Exception.Error(let type, let message) {
             print("error type [\(type)], message [\(message)]")
@@ -158,6 +141,11 @@ class ViewController: UIViewController {
     
     @objc func uploadPhoto(notification: Notification) {
         
+        guard let userInfo = notification.userInfo, userInfo["connect"] as? String == "true" else {
+            print("failed to connect cloud")
+            return
+        }
+        
         guard let sourceFile = imgSource.image?.jpegData(compressionQuality: 0.3) else {
             print("no photo")
             return
@@ -173,9 +161,8 @@ class ViewController: UIViewController {
             return
         }
         
-        self.resultImagesPlaceholder.isHidden = true
-        loadingImage.isHidden = false
-        loadingImage.startAnimating()
+        controlGuideText(mode: .OFF)
+        controlLoadingView(mode: .ON)
 
         cloudHandler.uploadImage(path: path, file: sourceFile) { response, error in
             if let error = error {
@@ -185,6 +172,24 @@ class ViewController: UIViewController {
             print("success upload photo")
             
             self.getPhotoUrl(name: path)
+        }
+    }
+    
+    func controlGuideText(mode: Mode) {
+        if mode == .ON {
+            self.resultImagesPlaceholder.isHidden = false
+        } else {
+            self.resultImagesPlaceholder.isHidden = true
+        }
+    }
+    
+    func controlLoadingView(mode: Mode) {
+        if mode == .ON {
+            loadingImage.isHidden = false
+            loadingImage.startAnimating()
+        } else {
+            loadingImage.stopAnimating()
+            loadingImage.isHidden = true
         }
     }
     
@@ -204,15 +209,6 @@ class ViewController: UIViewController {
             print("success delete image")
         }
     }
-    
-    func takePhoto() {
-        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
-            picker.sourceType = .camera
-        } else {
-            picker.sourceType = .photoLibrary
-        }
-        present(picker, animated: false, completion: nil)
-    }
 
     func goSearch(photoUrl : String) {
       
@@ -226,7 +222,7 @@ class ViewController: UIViewController {
         print(url)
         
         let request = URLRequest(url: url)
-        resultWebview?.load(request)
+        searchWebview.load(request)
     }
 }
 
@@ -243,14 +239,14 @@ extension ViewController : UIImagePickerControllerDelegate, UINavigationControll
 
 extension ViewController: WKNavigationDelegate {
         
-    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        print("start loading")
-    }
-    
-    public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        print("start re-direction")
-    }
-    
+//    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+//        print("start loading")
+//    }
+//    
+//    public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+//        print("start re-direction")
+//    }
+//    
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         print("finished loading")
 
@@ -262,8 +258,6 @@ extension ViewController: WKNavigationDelegate {
             }
 
             self.searchResult = value as? String
-            //print(self.searchResult as Any)
-            
             self.deletePhoto()
             self.parseHtml()
         }
