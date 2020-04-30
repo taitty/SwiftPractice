@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 class ViewController: UIViewController {
-
+    
     var handler: GoogleSignInController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         handler = GoogleSignInController(viewController: self)
-
+        
     }
 
     @IBAction func btnSignIn(_ sender: UIButton) {
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     
     @IBAction func btnSignOut(_ sender: UIButton) {
         handler?.doSignOut()
+
     }
     
     

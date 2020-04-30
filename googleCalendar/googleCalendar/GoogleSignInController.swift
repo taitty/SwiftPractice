@@ -6,8 +6,11 @@
 //  Copyright © 2020 taitty. All rights reserved.
 //
 import GoogleSignIn
+import ReactiveSwift
 
 class GoogleSignInController: NSObject, GIDSignInDelegate {
+    
+    private var disposible = CompositeDisposable()
     
     init(viewController: ViewController) {
         super.init()

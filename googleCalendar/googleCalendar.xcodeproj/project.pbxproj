@@ -15,6 +15,8 @@
 		BB82C718243B861000903ED7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB82C716243B861000903ED7 /* Main.storyboard */; };
 		BB82C71A243B861500903ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB82C719243B861500903ED7 /* Assets.xcassets */; };
 		BB82C71D243B861500903ED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB82C71B243B861500903ED7 /* LaunchScreen.storyboard */; };
+		BBE1B2DE2459EA5600C4B1EE /* calendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE1B2DD2459EA5600C4B1EE /* calendarList.swift */; };
+		BBE1B2E22459F0D500C4B1EE /* failures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE1B2E12459F0D500C4B1EE /* failures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		BB82C719243B861500903ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB82C71C243B861500903ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB82C71E243B861500903ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBE1B2DD2459EA5600C4B1EE /* calendarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarList.swift; sourceTree = "<group>"; };
+		BBE1B2E12459F0D500C4B1EE /* failures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = failures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		BB82C704243B861000903ED7 = {
 			isa = PBXGroup;
 			children = (
+				BBE1B2DF2459F0AA00C4B1EE /* core */,
 				BB82C70F243B861000903ED7 /* googleCalendar */,
 				BB82C70E243B861000903ED7 /* Products */,
 				51FF88931EF15637ABC945F8 /* Pods */,
@@ -74,6 +79,9 @@
 		BB82C70F243B861000903ED7 /* googleCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				BBE1B2D22459DE1300C4B1EE /* presentation */,
+				BBE1B2D12459DE0C00C4B1EE /* data */,
+				BBE1B2D02459DDF000C4B1EE /* domain */,
 				BB542FBD243C32E600B518EA /* GoogleSignInController.swift */,
 				BB82C710243B861000903ED7 /* AppDelegate.swift */,
 				BB82C712243B861000903ED7 /* SceneDelegate.swift */,
@@ -84,6 +92,116 @@
 				BB82C71E243B861500903ED7 /* Info.plist */,
 			);
 			path = googleCalendar;
+			sourceTree = "<group>";
+		};
+		BBE1B2D02459DDF000C4B1EE /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				BBE1B2D52459DE4900C4B1EE /* usecases */,
+				BBE1B2D42459DE3900C4B1EE /* repositories */,
+				BBE1B2D32459DE2F00C4B1EE /* entities */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		BBE1B2D12459DE0C00C4B1EE /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BBE1B2DC2459DE9400C4B1EE /* repositories */,
+				BBE1B2DB2459DE8E00C4B1EE /* models */,
+				BBE1B2DA2459DE8400C4B1EE /* datasources */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		BBE1B2D22459DE1300C4B1EE /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				BBE1B2D92459DE7500C4B1EE /* widgets */,
+				BBE1B2D72459DE6600C4B1EE /* pages */,
+				BBE1B2D62459DE5A00C4B1EE /* bloc */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		BBE1B2D32459DE2F00C4B1EE /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				BBE1B2DD2459EA5600C4B1EE /* calendarList.swift */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
+		BBE1B2D42459DE3900C4B1EE /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
+		BBE1B2D52459DE4900C4B1EE /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = usecases;
+			sourceTree = "<group>";
+		};
+		BBE1B2D62459DE5A00C4B1EE /* bloc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = bloc;
+			sourceTree = "<group>";
+		};
+		BBE1B2D72459DE6600C4B1EE /* pages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		BBE1B2D92459DE7500C4B1EE /* widgets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = widgets;
+			sourceTree = "<group>";
+		};
+		BBE1B2DA2459DE8400C4B1EE /* datasources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = datasources;
+			sourceTree = "<group>";
+		};
+		BBE1B2DB2459DE8E00C4B1EE /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		BBE1B2DC2459DE9400C4B1EE /* repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = repositories;
+			sourceTree = "<group>";
+		};
+		BBE1B2DF2459F0AA00C4B1EE /* core */ = {
+			isa = PBXGroup;
+			children = (
+				BBE1B2E02459F0BC00C4B1EE /* error */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		BBE1B2E02459F0BC00C4B1EE /* error */ = {
+			isa = PBXGroup;
+			children = (
+				BBE1B2E12459F0D500C4B1EE /* failures.swift */,
+			);
+			path = error;
 			sourceTree = "<group>";
 		};
 		DB1EDA254E72B7C4C4CFE39F /* Frameworks */ = {
@@ -230,6 +348,8 @@
 				BB542FBE243C32E600B518EA /* GoogleSignInController.swift in Sources */,
 				BB82C715243B861000903ED7 /* ViewController.swift in Sources */,
 				BB82C711243B861000903ED7 /* AppDelegate.swift in Sources */,
+				BBE1B2DE2459EA5600C4B1EE /* calendarList.swift in Sources */,
+				BBE1B2E22459F0D500C4B1EE /* failures.swift in Sources */,
 				BB82C713243B861000903ED7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
