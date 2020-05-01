@@ -40,4 +40,13 @@ class googleCalendarTests: XCTestCase {
         
     }
     
+    func testGetCalendarList() {
+        
+        let mockInstance = mockGetCalendarList()
+        let list = mockInstance.mockGetCalendarList()
+        
+        XCTAssertNotNil(list, "list is nil")
+        
+    }
+    
 }
