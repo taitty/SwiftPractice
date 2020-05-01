@@ -10,4 +10,13 @@ import Foundation
 
 class getCalendarList {
     
+    func getCalendarData() -> [String: Any]? {
+        
+        return nil
+    }
+    
+    func getCalendarList() {
+        
+    }
+    
 }
