@@ -126,10 +126,27 @@
 		BBAB3BDD245B2ADE00D7ABB7 /* googleCalendarTests */ = {
 			isa = PBXGroup;
 			children = (
+				BBAB3BFD245DC95F00D7ABB7 /* domain */,
 				BBAB3BDE245B2ADE00D7ABB7 /* googleCalendarTests.swift */,
 				BBAB3BE0245B2ADE00D7ABB7 /* Info.plist */,
 			);
 			path = googleCalendarTests;
+			sourceTree = "<group>";
+		};
+		BBAB3BFD245DC95F00D7ABB7 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				BBAB3BFE245DC96C00D7ABB7 /* usecases */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		BBAB3BFE245DC96C00D7ABB7 /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+				BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */,
+			);
+			path = usecases;
 			sourceTree = "<group>";
 		};
 		BBE1B2D02459DDF000C4B1EE /* domain */ = {
@@ -182,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				BBAB3BB5245B259400D7ABB7 /* getCalendarList.swift */,
-				BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */,
 			);
 			path = usecases;
 			sourceTree = "<group>";

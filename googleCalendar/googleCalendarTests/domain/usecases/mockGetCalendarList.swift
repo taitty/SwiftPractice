@@ -148,27 +148,8 @@ class mockGetCalendarList {
     }
     
     func mockGetCalendarList() -> [[String: Any]]? {
-        print("\(#file) \(#line) \(#function)")
-        
-        guard let json = self.mockGetCalendarData() else {
-            print("failed to get calendar data")
-            return nil
-        }
-        
-        guard let items = json["items"] as? [[String: Any]] else {
-            print("failed to get items")
-            return nil
-        }
-        
-        var calendarList = [[String: Any]]()
-        for item in items {
-            var calendar = Dictionary<String, Any>()
-            calendar["id"] = item["id"]
-            calendar["summary"] = item["summary"]
-            calendarList.append(calendar)
-        }
-        
-        return calendarList
+        return nil
     }
+
     
 }
