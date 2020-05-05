@@ -19,6 +19,10 @@
 		BBAB3BB8245B25A100D7ABB7 /* getCalendarListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BB7245B25A100D7ABB7 /* getCalendarListRepository.swift */; };
 		BBAB3BDF245B2ADE00D7ABB7 /* googleCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BDE245B2ADE00D7ABB7 /* googleCalendarTests.swift */; };
 		BBAB3BF5245C66F300D7ABB7 /* mockGetCalendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */; };
+		BBAB3C00245F35ED00D7ABB7 /* getUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BFF245F35ED00D7ABB7 /* getUserData.swift */; };
+		BBAB3C02245F360D00D7ABB7 /* setUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C01245F360D00D7ABB7 /* setUserData.swift */; };
+		BBAB3C04245F378400D7ABB7 /* mockGetUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C03245F378400D7ABB7 /* mockGetUserData.swift */; };
+		BBAB3C06245F379200D7ABB7 /* mockSetUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C05245F379200D7ABB7 /* mockSetUserData.swift */; };
 		BBE1B2DE2459EA5600C4B1EE /* calendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE1B2DD2459EA5600C4B1EE /* calendarList.swift */; };
 		BBE1B2E22459F0D500C4B1EE /* failures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE1B2E12459F0D500C4B1EE /* failures.swift */; };
 /* End PBXBuildFile section */
@@ -52,6 +56,10 @@
 		BBAB3BDE245B2ADE00D7ABB7 /* googleCalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleCalendarTests.swift; sourceTree = "<group>"; };
 		BBAB3BE0245B2ADE00D7ABB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockGetCalendarList.swift; sourceTree = "<group>"; };
+		BBAB3BFF245F35ED00D7ABB7 /* getUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUserData.swift; sourceTree = "<group>"; };
+		BBAB3C01245F360D00D7ABB7 /* setUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setUserData.swift; sourceTree = "<group>"; };
+		BBAB3C03245F378400D7ABB7 /* mockGetUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockGetUserData.swift; sourceTree = "<group>"; };
+		BBAB3C05245F379200D7ABB7 /* mockSetUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockSetUserData.swift; sourceTree = "<group>"; };
 		BBE1B2DD2459EA5600C4B1EE /* calendarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarList.swift; sourceTree = "<group>"; };
 		BBE1B2E12459F0D500C4B1EE /* failures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = failures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */,
+				BBAB3C03245F378400D7ABB7 /* mockGetUserData.swift */,
+				BBAB3C05245F379200D7ABB7 /* mockSetUserData.swift */,
 			);
 			path = usecases;
 			sourceTree = "<group>";
@@ -199,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				BBAB3BB5245B259400D7ABB7 /* getCalendarList.swift */,
+				BBAB3BFF245F35ED00D7ABB7 /* getUserData.swift */,
+				BBAB3C01245F360D00D7ABB7 /* setUserData.swift */,
 			);
 			path = usecases;
 			sourceTree = "<group>";
@@ -433,12 +445,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBAB3BB8245B25A100D7ABB7 /* getCalendarListRepository.swift in Sources */,
+				BBAB3C00245F35ED00D7ABB7 /* getUserData.swift in Sources */,
 				BB542FBE243C32E600B518EA /* GoogleSignInController.swift in Sources */,
 				BB82C715243B861000903ED7 /* ViewController.swift in Sources */,
 				BB82C711243B861000903ED7 /* AppDelegate.swift in Sources */,
 				BBE1B2DE2459EA5600C4B1EE /* calendarList.swift in Sources */,
 				BBAB3BF5245C66F300D7ABB7 /* mockGetCalendarList.swift in Sources */,
 				BBE1B2E22459F0D500C4B1EE /* failures.swift in Sources */,
+				BBAB3C02245F360D00D7ABB7 /* setUserData.swift in Sources */,
 				BB82C713243B861000903ED7 /* SceneDelegate.swift in Sources */,
 				BBAB3BB6245B259400D7ABB7 /* getCalendarList.swift in Sources */,
 			);
@@ -449,6 +463,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBAB3BDF245B2ADE00D7ABB7 /* googleCalendarTests.swift in Sources */,
+				BBAB3C06245F379200D7ABB7 /* mockSetUserData.swift in Sources */,
+				BBAB3C04245F378400D7ABB7 /* mockGetUserData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
