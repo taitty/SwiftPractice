@@ -17,12 +17,15 @@
 		BB82C71D243B861500903ED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB82C71B243B861500903ED7 /* LaunchScreen.storyboard */; };
 		BBAB3BB6245B259400D7ABB7 /* getCalendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BB5245B259400D7ABB7 /* getCalendarList.swift */; };
 		BBAB3BB8245B25A100D7ABB7 /* calendarListRepositor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BB7245B25A100D7ABB7 /* calendarListRepositor.swift */; };
-		BBAB3BDF245B2ADE00D7ABB7 /* googleCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BDE245B2ADE00D7ABB7 /* googleCalendarTests.swift */; };
-		BBAB3BF5245C66F300D7ABB7 /* mockGetCalendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */; };
 		BBAB3C00245F35ED00D7ABB7 /* getUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3BFF245F35ED00D7ABB7 /* getUserData.swift */; };
 		BBAB3C02245F360D00D7ABB7 /* setUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C01245F360D00D7ABB7 /* setUserData.swift */; };
-		BBAB3C04245F378400D7ABB7 /* mockGetUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C03245F378400D7ABB7 /* mockGetUserData.swift */; };
-		BBAB3C06245F379200D7ABB7 /* mockSetUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C05245F379200D7ABB7 /* mockSetUserData.swift */; };
+		BBAB3C04245F378400D7ABB7 /* testGetUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C03245F378400D7ABB7 /* testGetUserData.swift */; };
+		BBAB3C06245F379200D7ABB7 /* testSetUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C05245F379200D7ABB7 /* testSetUserData.swift */; };
+		BBAB3C082461C0CC00D7ABB7 /* calendarListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C072461C0CC00D7ABB7 /* calendarListModel.swift */; };
+		BBAB3C0C2461C10800D7ABB7 /* testCalendarListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C0B2461C10800D7ABB7 /* testCalendarListModel.swift */; };
+		BBAB3C0F2461C18D00D7ABB7 /* mockCalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C0E2461C18D00D7ABB7 /* mockCalendarData.swift */; };
+		BBAB3C112461CE4700D7ABB7 /* testGetCalendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C102461CE4700D7ABB7 /* testGetCalendarList.swift */; };
+		BBAB3C132461D4A900D7ABB7 /* mockCalendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAB3C122461D4A900D7ABB7 /* mockCalendarList.swift */; };
 		BBE1B2DE2459EA5600C4B1EE /* calendarList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE1B2DD2459EA5600C4B1EE /* calendarList.swift */; };
 		BBE1B2E22459F0D500C4B1EE /* failures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE1B2E12459F0D500C4B1EE /* failures.swift */; };
 /* End PBXBuildFile section */
@@ -53,13 +56,16 @@
 		BBAB3BB5245B259400D7ABB7 /* getCalendarList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = getCalendarList.swift; sourceTree = "<group>"; };
 		BBAB3BB7245B25A100D7ABB7 /* calendarListRepositor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarListRepositor.swift; sourceTree = "<group>"; };
 		BBAB3BDC245B2ADE00D7ABB7 /* googleCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = googleCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBAB3BDE245B2ADE00D7ABB7 /* googleCalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = googleCalendarTests.swift; sourceTree = "<group>"; };
 		BBAB3BE0245B2ADE00D7ABB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockGetCalendarList.swift; sourceTree = "<group>"; };
 		BBAB3BFF245F35ED00D7ABB7 /* getUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getUserData.swift; sourceTree = "<group>"; };
 		BBAB3C01245F360D00D7ABB7 /* setUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setUserData.swift; sourceTree = "<group>"; };
-		BBAB3C03245F378400D7ABB7 /* mockGetUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockGetUserData.swift; sourceTree = "<group>"; };
-		BBAB3C05245F379200D7ABB7 /* mockSetUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockSetUserData.swift; sourceTree = "<group>"; };
+		BBAB3C03245F378400D7ABB7 /* testGetUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testGetUserData.swift; sourceTree = "<group>"; };
+		BBAB3C05245F379200D7ABB7 /* testSetUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testSetUserData.swift; sourceTree = "<group>"; };
+		BBAB3C072461C0CC00D7ABB7 /* calendarListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarListModel.swift; sourceTree = "<group>"; };
+		BBAB3C0B2461C10800D7ABB7 /* testCalendarListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testCalendarListModel.swift; sourceTree = "<group>"; };
+		BBAB3C0E2461C18D00D7ABB7 /* mockCalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockCalendarData.swift; sourceTree = "<group>"; };
+		BBAB3C102461CE4700D7ABB7 /* testGetCalendarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testGetCalendarList.swift; sourceTree = "<group>"; };
+		BBAB3C122461D4A900D7ABB7 /* mockCalendarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockCalendarList.swift; sourceTree = "<group>"; };
 		BBE1B2DD2459EA5600C4B1EE /* calendarList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarList.swift; sourceTree = "<group>"; };
 		BBE1B2E12459F0D500C4B1EE /* failures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = failures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,8 +140,8 @@
 		BBAB3BDD245B2ADE00D7ABB7 /* googleCalendarTests */ = {
 			isa = PBXGroup;
 			children = (
+				BBAB3C092461C0DD00D7ABB7 /* data */,
 				BBAB3BFD245DC95F00D7ABB7 /* domain */,
-				BBAB3BDE245B2ADE00D7ABB7 /* googleCalendarTests.swift */,
 				BBAB3BE0245B2ADE00D7ABB7 /* Info.plist */,
 			);
 			path = googleCalendarTests;
@@ -152,11 +158,36 @@
 		BBAB3BFE245DC96C00D7ABB7 /* usecases */ = {
 			isa = PBXGroup;
 			children = (
-				BBAB3BF4245C66F300D7ABB7 /* mockGetCalendarList.swift */,
-				BBAB3C03245F378400D7ABB7 /* mockGetUserData.swift */,
-				BBAB3C05245F379200D7ABB7 /* mockSetUserData.swift */,
+				BBAB3C102461CE4700D7ABB7 /* testGetCalendarList.swift */,
+				BBAB3C03245F378400D7ABB7 /* testGetUserData.swift */,
+				BBAB3C05245F379200D7ABB7 /* testSetUserData.swift */,
 			);
 			path = usecases;
+			sourceTree = "<group>";
+		};
+		BBAB3C092461C0DD00D7ABB7 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				BBAB3C0A2461C0EF00D7ABB7 /* models */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		BBAB3C0A2461C0EF00D7ABB7 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				BBAB3C0B2461C10800D7ABB7 /* testCalendarListModel.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		BBAB3C0D2461C13900D7ABB7 /* fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				BBAB3C0E2461C18D00D7ABB7 /* mockCalendarData.swift */,
+				BBAB3C122461D4A900D7ABB7 /* mockCalendarList.swift */,
+			);
+			path = fixtures;
 			sourceTree = "<group>";
 		};
 		BBE1B2D02459DDF000C4B1EE /* domain */ = {
@@ -246,6 +277,7 @@
 		BBE1B2DB2459DE8E00C4B1EE /* models */ = {
 			isa = PBXGroup;
 			children = (
+				BBAB3C072461C0CC00D7ABB7 /* calendarListModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -260,6 +292,7 @@
 		BBE1B2DF2459F0AA00C4B1EE /* core */ = {
 			isa = PBXGroup;
 			children = (
+				BBAB3C0D2461C13900D7ABB7 /* fixtures */,
 				BBE1B2E02459F0BC00C4B1EE /* error */,
 			);
 			path = core;
@@ -445,12 +478,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBAB3BB8245B25A100D7ABB7 /* calendarListRepositor.swift in Sources */,
+				BBAB3C082461C0CC00D7ABB7 /* calendarListModel.swift in Sources */,
 				BBAB3C00245F35ED00D7ABB7 /* getUserData.swift in Sources */,
 				BB542FBE243C32E600B518EA /* GoogleSignInController.swift in Sources */,
 				BB82C715243B861000903ED7 /* ViewController.swift in Sources */,
 				BB82C711243B861000903ED7 /* AppDelegate.swift in Sources */,
 				BBE1B2DE2459EA5600C4B1EE /* calendarList.swift in Sources */,
-				BBAB3BF5245C66F300D7ABB7 /* mockGetCalendarList.swift in Sources */,
 				BBE1B2E22459F0D500C4B1EE /* failures.swift in Sources */,
 				BBAB3C02245F360D00D7ABB7 /* setUserData.swift in Sources */,
 				BB82C713243B861000903ED7 /* SceneDelegate.swift in Sources */,
@@ -462,9 +495,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBAB3BDF245B2ADE00D7ABB7 /* googleCalendarTests.swift in Sources */,
-				BBAB3C06245F379200D7ABB7 /* mockSetUserData.swift in Sources */,
-				BBAB3C04245F378400D7ABB7 /* mockGetUserData.swift in Sources */,
+				BBAB3C06245F379200D7ABB7 /* testSetUserData.swift in Sources */,
+				BBAB3C132461D4A900D7ABB7 /* mockCalendarList.swift in Sources */,
+				BBAB3C04245F378400D7ABB7 /* testGetUserData.swift in Sources */,
+				BBAB3C0F2461C18D00D7ABB7 /* mockCalendarData.swift in Sources */,
+				BBAB3C112461CE4700D7ABB7 /* testGetCalendarList.swift in Sources */,
+				BBAB3C0C2461C10800D7ABB7 /* testCalendarListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

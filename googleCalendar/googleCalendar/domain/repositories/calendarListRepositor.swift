@@ -9,7 +9,7 @@
 import Foundation
 
 protocol calendarListRepository {
-    func getCalendarData()
+    func getCalendarList()
     func getUserData()
     func setUserData()
 }

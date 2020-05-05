@@ -1,16 +1,16 @@
 //
-//  mockGetCalendarList.swift
-//  googleCalendar
+//  mockCalendarData.swift
+//  googleCalendarTests
 //
-//  Created by 김희수 on 2020/05/01.
+//  Created by 김희수 on 2020/05/06.
 //  Copyright © 2020 taitty. All rights reserved.
 //
 
 import Foundation
 
-class mockGetCalendarList {
+class mockCalendarData {
     
-    let mockCalendarData: String = """
+    let sampleCalendarData: String = """
         {
          "kind": "calendar#calendarList",
          "etag": "p338b3jvjlq4ui0g",
@@ -132,10 +132,8 @@ class mockGetCalendarList {
         }
     """
     
-    func mockGetCalendarData() -> [String: Any]? {
-        print("\(#file) \(#line) \(#function)")
-        
-        let jsonData = Data(mockCalendarData.utf8)
+    func getMockCalendarData() -> [String: Any]? {
+        let jsonData = Data(sampleCalendarData.utf8)
         do {
             if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
                 return json
@@ -146,10 +144,4 @@ class mockGetCalendarList {
         
         return nil
     }
-    
-    func mockGetCalendarList() -> [[String: Any]]? {
-        return nil
-    }
-
-    
 }
