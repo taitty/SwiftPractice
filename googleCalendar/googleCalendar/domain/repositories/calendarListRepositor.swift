@@ -1,5 +1,5 @@
 //
-//  getCalendarListRepository.swift
+//  calendarListRepository.swift
 //  googleCalendar
 //
 //  Created by 김희수 on 2020/05/01.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol getCalendarListRepository {
+protocol calendarListRepository {
     func getCalendarData()
     func getUserData()
     func setUserData()
