@@ -8,8 +8,34 @@
 
 import Foundation
 
-protocol calendarListRepository {
-    func getCalendarList() -> [String: Any]?
-    func getUserData() -> [String: Any]?
-    func setUserData() -> Int
+class abstractCalendarListRepository {
+    
+    func getCalendarList() -> [String: Any]? {
+        print("\(#function) is not implemented...")
+        return nil
+    }
+    
+    func getUserData() -> [String: Any]? {
+        print("\(#function) is not implemented...")
+        return nil
+    }
+    
+    func setUserData() -> Int {
+        print("\(#function) is not implemented...")
+        return 0
+    }
+    
 }
+
+protocol calendarListRepository {
+    func resolve() -> abstractCalendarListRepository
+}
+
+extension calendarListRepository {
+    func resolve() -> abstractCalendarListRepository {
+        return abstractCalendarListRepository()
+    }
+}
+
+
+

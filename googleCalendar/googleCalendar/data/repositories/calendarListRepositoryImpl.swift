@@ -8,17 +8,17 @@
 
 import Foundation
 
-class calendarListRepositoryImpl: calendarListRepository {
+class calendarListRepositoryImpl: abstractCalendarListRepository {
     
-    func getCalendarList() -> [String: Any]? {
+    override func getCalendarList() -> [String: Any]? {
         return nil
     }
     
-    func getUserData() -> [String: Any]?  {
+    override func getUserData() -> [String: Any]?  {
         return nil
     }
     
-    func setUserData() -> Int {
+    override func setUserData() -> Int {
         return 0
     }
     

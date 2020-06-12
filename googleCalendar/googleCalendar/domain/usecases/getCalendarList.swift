@@ -10,14 +10,18 @@ import Foundation
 
 class getCalendarList {
     
-    func getCalendarList(list: [String: Any]?) -> [String: Any]? {
+//    func getCalendarList(list: [String: Any]?) -> [String: Any]? {
+    func getCalendarList() -> [String: Any]? {
         print("\(#file) \(#line) \(#function)")
         
-        guard let list = list else {
-            print("calendarList is nil")
-            return nil
-        }
+//        guard let list = list else {
+//            print("calendarList is nil")
+//            return nil
+//        }
 
+        let repository = abstractCalendarListRepository()
+        let list = repository.getCalendarList()
+        
         return list
     }
     
