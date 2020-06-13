@@ -9,7 +9,10 @@
 import UIKit
 
 protocol CreateOrderBusinessLogic {
+    var shippingMethods: [String] { get }
+    
     func doSomething(request: CreateOrder.Something.Request)
+    func formatExpirationDate(request: CreateOrder.FormatExpirationDate.Request)
 }
 
 protocol CreateOrderDataStore {
@@ -19,13 +22,23 @@ protocol CreateOrderDataStore {
 class CreateOrderInteractor: CreateOrderBusinessLogic, CreateOrderDataStore {
     var presenter: CreateOrderPresentationLogic?
     var worker: CreateOrderWorker?
+    var shippingMethods = [
+        "Standard Shipping",
+        "Two-Day Shipping",
+        "One-Day Shipping"
+    ]
     
     func doSomething(request: CreateOrder.Something.Request) {
         worker = CreateOrderWorker()
         worker?.doSomeWork()
         
         let response = CreateOrder.Something.Response()
-        presenter.presentSomething(response: response)
+        presenter?.presentSomething(response: response)
+    }
+    
+    func formatExpirationDate(request: CreateOrder.FormatExpirationDate.Request) {
+        let responde = CreateOrder.FormatExpirationDate.Response(date: request.date)
+        presenter?.presentExpirationDate(response: responde)
     }
 }
 

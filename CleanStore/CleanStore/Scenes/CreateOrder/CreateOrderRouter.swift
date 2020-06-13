@@ -21,24 +21,24 @@ class CreateOrderRouter: NSObject, CreateOrderRoutingLogic, CreateOrderDataPassi
     var dataStore: CreateOrderDataStore?
     
     func routeToSomewhere(segue: UIStoryboardSegue?) {
-        if let segue = segue {
-            let destinationVC = segue.description as! SomewhereViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-        } else {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-            navigateToSomewhere(source: viewController!, destination: destinationVC)
-        }
+//        if let segue = segue {
+//            let destinationVC = segue.description as! SomewhereViewController
+//            var destinationDS = destinationVC.router!.dataStore!
+//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+//        } else {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
+//            var destinationDS = destinationVC.router!.dataStore!
+//            passDataToSomewhere(source: dataStore!, destination: &destinationDS)
+//            navigateToSomewhere(source: viewController!, destination: destinationVC)
+//        }
     }
-    
-    func navigateToSomewhere(source: CreateOrderViewController, destination: SomewhereViewController) {
-        source.show(destination, sender: nil)
-    }
-    
-    func passDataToSomewhere(source: CreateOrderDataStore, destination: inout SomewhereDataStore) {
-        destination.name = source.name
-    }
+//
+//    func navigateToSomewhere(source: CreateOrderViewController, destination: SomewhereViewController) {
+//        source.show(destination, sender: nil)
+//    }
+//
+//    func passDataToSomewhere(source: CreateOrderDataStore, destination: inout SomewhereDataStore) {
+//        destination.name = source.name
+//    }
 }

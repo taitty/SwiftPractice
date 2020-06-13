@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB8F94FE249288E60086C77B /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F94FD249288E60086C77B /* model.swift */; };
+		BB8F94FE249288E60086C77B /* CreateOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F94FD249288E60086C77B /* CreateOrderModel.swift */; };
 		BBAAB8ED248D43130085BF52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAB8EC248D43130085BF52 /* AppDelegate.swift */; };
 		BBAAB8EF248D43130085BF52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAB8EE248D43130085BF52 /* SceneDelegate.swift */; };
 		BBAAB8F4248D43130085BF52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAAB8F2248D43130085BF52 /* Main.storyboard */; };
@@ -40,7 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BB8F94FD249288E60086C77B /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		BB8F94FD249288E60086C77B /* CreateOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderModel.swift; sourceTree = "<group>"; };
 		BBAAB8E9248D43130085BF52 /* CleanStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBAAB8EC248D43130085BF52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBAAB8EE248D43130085BF52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 				BBAAB922248E8AAD0085BF52 /* CreateOrderWorker.swift */,
 				BBAAB924248E8B8F0085BF52 /* CreateOrderPresenter.swift */,
 				BBAAB926248E91670085BF52 /* CreateOrderRouter.swift */,
-				BB8F94FD249288E60086C77B /* model.swift */,
+				BB8F94FD249288E60086C77B /* CreateOrderModel.swift */,
 			);
 			path = CreateOrder;
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 				BBAAB8EF248D43130085BF52 /* SceneDelegate.swift in Sources */,
 				BBAAB925248E8B8F0085BF52 /* CreateOrderPresenter.swift in Sources */,
 				BBAAB923248E8AAD0085BF52 /* CreateOrderWorker.swift in Sources */,
-				BB8F94FE249288E60086C77B /* model.swift in Sources */,
+				BB8F94FE249288E60086C77B /* CreateOrderModel.swift in Sources */,
 				BBAAB921248D484B0085BF52 /* CreateOrderInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
