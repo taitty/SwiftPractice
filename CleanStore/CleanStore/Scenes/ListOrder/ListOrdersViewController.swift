@@ -15,27 +15,6 @@ protocol ListOrdersDisplayLogic {
 class ListOrdersViewController: UITableViewController, ListOrdersDisplayLogic {
     var interactor: ListOrdersBusinessLogic?
     var displayedOrders: [ListOrders.FetchOrders.ViewModel.DisplayedOrder] = []
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    private func setup() {
-            let viewController = self
-            let interactor = ListOrdersInteractor()
-            let presenter = ListOrdersPresenter()
-
-            viewController.interactor = interactor
-        
-            interactor.presenter = presenter
-            presenter.viewController = viewController
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
