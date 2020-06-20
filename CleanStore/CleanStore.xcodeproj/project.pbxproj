@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BB8F94FE249288E60086C77B /* CreateOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F94FD249288E60086C77B /* CreateOrderModel.swift */; };
+		BB923610249D1A6600E54917 /* ListOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92360F249D1A6600E54917 /* ListOrdersViewController.swift */; };
+		BB923612249D1B9E00E54917 /* OrdersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB923611249D1B9E00E54917 /* OrdersWorker.swift */; };
+		BB923616249D1F5B00E54917 /* ListOrdersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB923615249D1F5B00E54917 /* ListOrdersInteractor.swift */; };
+		BB923618249D21CF00E54917 /* ListOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB923617249D21CF00E54917 /* ListOrderModel.swift */; };
+		BB92361A249D27FA00E54917 /* ListOrdersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB923619249D27FA00E54917 /* ListOrdersPresenter.swift */; };
+		BB92361C249E40A900E54917 /* OrdersMemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92361B249E40A900E54917 /* OrdersMemStore.swift */; };
 		BBAAB8ED248D43130085BF52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAB8EC248D43130085BF52 /* AppDelegate.swift */; };
 		BBAAB8EF248D43130085BF52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAB8EE248D43130085BF52 /* SceneDelegate.swift */; };
 		BBAAB8F4248D43130085BF52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAAB8F2248D43130085BF52 /* Main.storyboard */; };
@@ -41,6 +47,12 @@
 
 /* Begin PBXFileReference section */
 		BB8F94FD249288E60086C77B /* CreateOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderModel.swift; sourceTree = "<group>"; };
+		BB92360F249D1A6600E54917 /* ListOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersViewController.swift; sourceTree = "<group>"; };
+		BB923611249D1B9E00E54917 /* OrdersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersWorker.swift; sourceTree = "<group>"; };
+		BB923615249D1F5B00E54917 /* ListOrdersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersInteractor.swift; sourceTree = "<group>"; };
+		BB923617249D21CF00E54917 /* ListOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrderModel.swift; sourceTree = "<group>"; };
+		BB923619249D27FA00E54917 /* ListOrdersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersPresenter.swift; sourceTree = "<group>"; };
+		BB92361B249E40A900E54917 /* OrdersMemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersMemStore.swift; sourceTree = "<group>"; };
 		BBAAB8E9248D43130085BF52 /* CleanStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBAAB8EC248D43130085BF52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBAAB8EE248D43130085BF52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +98,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB92360E249D1A4000E54917 /* ListOrder */ = {
+			isa = PBXGroup;
+			children = (
+				BB92360F249D1A6600E54917 /* ListOrdersViewController.swift */,
+				BB923611249D1B9E00E54917 /* OrdersWorker.swift */,
+				BB923615249D1F5B00E54917 /* ListOrdersInteractor.swift */,
+				BB923617249D21CF00E54917 /* ListOrderModel.swift */,
+				BB923619249D27FA00E54917 /* ListOrdersPresenter.swift */,
+				BB92361B249E40A900E54917 /* OrdersMemStore.swift */,
+			);
+			path = ListOrder;
+			sourceTree = "<group>";
+		};
 		BBAAB8E0248D43130085BF52 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +166,7 @@
 		BBAAB91C248D43330085BF52 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BB92360E249D1A4000E54917 /* ListOrder */,
 				BBAAB91D248D433E0085BF52 /* CreateOrder */,
 			);
 			path = Scenes;
@@ -290,14 +316,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB923618249D21CF00E54917 /* ListOrderModel.swift in Sources */,
 				BBAAB91F248D43EB0085BF52 /* CreateOrderViewController.swift in Sources */,
+				BB92361C249E40A900E54917 /* OrdersMemStore.swift in Sources */,
+				BB923616249D1F5B00E54917 /* ListOrdersInteractor.swift in Sources */,
 				BBAAB8ED248D43130085BF52 /* AppDelegate.swift in Sources */,
 				BBAAB927248E91670085BF52 /* CreateOrderRouter.swift in Sources */,
+				BB923610249D1A6600E54917 /* ListOrdersViewController.swift in Sources */,
 				BBAAB8EF248D43130085BF52 /* SceneDelegate.swift in Sources */,
 				BBAAB925248E8B8F0085BF52 /* CreateOrderPresenter.swift in Sources */,
 				BBAAB923248E8AAD0085BF52 /* CreateOrderWorker.swift in Sources */,
 				BB8F94FE249288E60086C77B /* CreateOrderModel.swift in Sources */,
+				BB923612249D1B9E00E54917 /* OrdersWorker.swift in Sources */,
 				BBAAB921248D484B0085BF52 /* CreateOrderInteractor.swift in Sources */,
+				BB92361A249D27FA00E54917 /* ListOrdersPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
