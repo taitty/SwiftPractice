@@ -12,13 +12,14 @@ protocol ShowOrderBusinessLogic {
     func getOrder(request: ShowOrder.GetOrder.Request)
 }
 
-protocol ShowOrderDataSource {
-    
+protocol ShowOrderDataStore {
+    var order: Order { get set }
 }
 
-class ShowOrderInteractor: ShowOrderBusinessLogic, ShowOrderDataSource {
+class ShowOrderInteractor: ShowOrderBusinessLogic, ShowOrderDataStore {
+
     var presenter: ShowOrderPresentationLogic?
-    var order: Order!
+    var order: Order
     
     func getOrder(request: ShowOrder.GetOrder.Request) {
         let response = ShowOrder.GetOrder.Response(order: order)

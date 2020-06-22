@@ -36,4 +36,36 @@ enum CreateOrder {
             var date: String
         }
     }
+    
+    enum CreateOrder {
+        struct Request {
+            var orderFormFields: OrderFormFields
+        }
+        
+        struct Response {
+            var order: Order
+        }
+        
+        struct ViewModel {
+            var order: Order?
+        }
+    }
+    
+    enum OrderFormFields {
+        
+    }
+    
+    enum EditOrder {
+        struct Request {
+            var orderFormFields: OrderFormFields
+        }
+        
+        struct Response {
+            var order: Order
+        }
+        
+        struct ViewModel {
+            var order: Order?
+        }
+    }
 }

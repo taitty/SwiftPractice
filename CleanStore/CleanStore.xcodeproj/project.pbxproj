@@ -20,9 +20,11 @@
 		BB923626249E6B8F00E54917 /* ShowOrderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB923625249E6B8F00E54917 /* ShowOrderInteractor.swift */; };
 		BB923628249E6D1C00E54917 /* ShowOrderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB923627249E6D1C00E54917 /* ShowOrderPresenter.swift */; };
 		BB92362A249E712D00E54917 /* ShowOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB923629249E712D00E54917 /* ShowOrderModel.swift */; };
+		BB92362E249FB36B00E54917 /* ListOrdersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92362D249FB36B00E54917 /* ListOrdersRouter.swift */; };
+		BB923630249FB89600E54917 /* ShowOrderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB92362F249FB89600E54917 /* ShowOrderRouter.swift */; };
 		BBAAB8ED248D43130085BF52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAB8EC248D43130085BF52 /* AppDelegate.swift */; };
 		BBAAB8EF248D43130085BF52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAB8EE248D43130085BF52 /* SceneDelegate.swift */; };
-		BBAAB8F4248D43130085BF52 /* CreateOrder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAAB8F2248D43130085BF52 /* CreateOrder.storyboard */; };
+		BBAAB8F4248D43130085BF52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAAB8F2248D43130085BF52 /* Main.storyboard */; };
 		BBAAB8F6248D43150085BF52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBAAB8F5248D43150085BF52 /* Assets.xcassets */; };
 		BBAAB8F9248D43150085BF52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAAB8F7248D43150085BF52 /* LaunchScreen.storyboard */; };
 		BBAAB904248D43150085BF52 /* CleanStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAAB903248D43150085BF52 /* CleanStoreTests.swift */; };
@@ -65,10 +67,12 @@
 		BB923625249E6B8F00E54917 /* ShowOrderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderInteractor.swift; sourceTree = "<group>"; };
 		BB923627249E6D1C00E54917 /* ShowOrderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderPresenter.swift; sourceTree = "<group>"; };
 		BB923629249E712D00E54917 /* ShowOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderModel.swift; sourceTree = "<group>"; };
+		BB92362D249FB36B00E54917 /* ListOrdersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOrdersRouter.swift; sourceTree = "<group>"; };
+		BB92362F249FB89600E54917 /* ShowOrderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOrderRouter.swift; sourceTree = "<group>"; };
 		BBAAB8E9248D43130085BF52 /* CleanStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBAAB8EC248D43130085BF52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBAAB8EE248D43130085BF52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BBAAB8F3248D43130085BF52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CreateOrder.storyboard; sourceTree = "<group>"; };
+		BBAAB8F3248D43130085BF52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBAAB8F5248D43150085BF52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBAAB8F8248D43150085BF52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBAAB8FA248D43150085BF52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				BB923619249D27FA00E54917 /* ListOrdersPresenter.swift */,
 				BB92361B249E40A900E54917 /* OrdersMemStore.swift */,
 				BB92361F249E468F00E54917 /* ListOrders.storyboard */,
+				BB92362D249FB36B00E54917 /* ListOrdersRouter.swift */,
 			);
 			path = ListOrder;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				BB923625249E6B8F00E54917 /* ShowOrderInteractor.swift */,
 				BB923627249E6D1C00E54917 /* ShowOrderPresenter.swift */,
 				BB923629249E712D00E54917 /* ShowOrderModel.swift */,
+				BB92362F249FB89600E54917 /* ShowOrderRouter.swift */,
 			);
 			path = ShowOrder;
 			sourceTree = "<group>";
@@ -200,7 +206,7 @@
 		BBAAB91D248D433E0085BF52 /* CreateOrder */ = {
 			isa = PBXGroup;
 			children = (
-				BBAAB8F2248D43130085BF52 /* CreateOrder.storyboard */,
+				BBAAB8F2248D43130085BF52 /* Main.storyboard */,
 				BBAAB91E248D43EB0085BF52 /* CreateOrderViewController.swift */,
 				BBAAB920248D484B0085BF52 /* CreateOrderInteractor.swift */,
 				BBAAB922248E8AAD0085BF52 /* CreateOrderWorker.swift */,
@@ -317,7 +323,7 @@
 			files = (
 				BBAAB8F9248D43150085BF52 /* LaunchScreen.storyboard in Resources */,
 				BBAAB8F6248D43150085BF52 /* Assets.xcassets in Resources */,
-				BBAAB8F4248D43130085BF52 /* CreateOrder.storyboard in Resources */,
+				BBAAB8F4248D43130085BF52 /* Main.storyboard in Resources */,
 				BB923620249E468F00E54917 /* ListOrders.storyboard in Resources */,
 				BB923622249E47C800E54917 /* ShowOrder.storyboard in Resources */,
 			);
@@ -346,6 +352,7 @@
 			files = (
 				BB923618249D21CF00E54917 /* ListOrdersModel.swift in Sources */,
 				BBAAB91F248D43EB0085BF52 /* CreateOrderViewController.swift in Sources */,
+				BB923630249FB89600E54917 /* ShowOrderRouter.swift in Sources */,
 				BB92361C249E40A900E54917 /* OrdersMemStore.swift in Sources */,
 				BB923616249D1F5B00E54917 /* ListOrdersInteractor.swift in Sources */,
 				BB923628249E6D1C00E54917 /* ShowOrderPresenter.swift in Sources */,
@@ -356,6 +363,7 @@
 				BB92362A249E712D00E54917 /* ShowOrderModel.swift in Sources */,
 				BBAAB8EF248D43130085BF52 /* SceneDelegate.swift in Sources */,
 				BBAAB925248E8B8F0085BF52 /* CreateOrderPresenter.swift in Sources */,
+				BB92362E249FB36B00E54917 /* ListOrdersRouter.swift in Sources */,
 				BBAAB923248E8AAD0085BF52 /* CreateOrderWorker.swift in Sources */,
 				BB8F94FE249288E60086C77B /* CreateOrderModel.swift in Sources */,
 				BB923626249E6B8F00E54917 /* ShowOrderInteractor.swift in Sources */,
@@ -397,12 +405,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BBAAB8F2248D43130085BF52 /* CreateOrder.storyboard */ = {
+		BBAAB8F2248D43130085BF52 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BBAAB8F3248D43130085BF52 /* Base */,
 			);
-			name = CreateOrder.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		BBAAB8F7248D43150085BF52 /* LaunchScreen.storyboard */ = {

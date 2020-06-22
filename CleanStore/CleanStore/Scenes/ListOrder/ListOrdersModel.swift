@@ -9,12 +9,17 @@
 import Foundation
 
 struct Order {
-    var date: Date
-    var total: NSNumber
-    var email: String
+    var date: Date?
+    var total: NSNumber?
+    var email: String?
     var id: String?
-    var firstName: String
-    var lastName: String
+    var firstName: String?
+    var lastName: String?
+    var phone: String?
+    var billingAddress: Address
+    var paymentMethod: String?
+    var shipmentAddress: Address
+    var shipmentMethod: String?
 }
 
 enum ListOrders {

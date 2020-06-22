@@ -11,6 +11,8 @@ import UIKit
 protocol CreateOrderDisplayLogic {
     func displaySomething(viewModel: CreateOrder.Something.ViewModel)
     func displayExpirationDate(viewModel: CreateOrder.FormatExpirationDate.ViewModel)
+    func displayCreatedOrder(viewModel: CreateOrder.CreateOrder.ViewModel)
+    func displayOrderToEdit(viewModel: CreateOrder.EditOrder.ViewModel)
 }
 
 class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic {
@@ -68,9 +70,13 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic 
         
         configurePickers()
         doSomething()
+        showOrderToEdit()
     }
     
-    //@IBOutlet weak var nameTextField: UITextField!
+    func showOrderToEdit() {
+        let request = CreateOrder.EditOrder.Request()
+        interactor.showOrderToEdit(request: request)
+    }
     
     func doSomething() {
         let request = CreateOrder.Something.Request()
@@ -104,6 +110,28 @@ class CreateOrderViewController: UITableViewController, CreateOrderDisplayLogic 
                     textField.becomeFirstResponder()
                 }
             }
+        }
+    }
+    
+    func displayCreatedOrder(viewModel: CreateOrder.CreateOrder.ViewModel) {
+        if viewModel.order != nil {
+            router?.routeToListOrders(segue: nil)
+        } else {
+            showOrderFailureAlert(title: "Failed to create order",
+                                  message: "Please correct your order and submit again.")
+        }
+    }
+    
+    func displayOrderToEdit(viewModel: CreateOrder.EditOrder.ViewModel) {
+        
+    }
+    
+    func displayUpdatedOrder(viewModel: CreateOrder.UpdateOrder.ViewModel) {
+        if viewModel.order != nil {
+            router?.routeToShowOrder(segue: nil)
+        } else {
+            showOrderFailureAlert(title: "Failed to update order",
+                                  message: "Please correct your order and submit again.")
         }
     }
 }

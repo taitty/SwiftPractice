@@ -32,6 +32,22 @@ class CreateOrderPresenter: CreateOrderPresentationLogic {
         let viewModel = CreateOrder.FormatExpirationDate.ViewModel(date: date)
         viewController?.displayExpirationDate(viewModel: viewModel)
     }
+    
+    func presentCreateOrder(response: CreateOrder.CreateOrder.Response) {
+        let viewModel = CreateOrder.CreateOrder.ViewModel(order: response.order)
+        viewController?.displayCreatedOrder(viewModel: viewModel)
+    }
+    
+    func presentOrderToEdit(response: CreateOrder.EditOrder.Response) {
+        let orderToEdit = response.order
+        let viewModel = CreateOrder.EditOrder.ViewModel(orderFormFields: CreateOrder.OrderFormFields())
+        viewController?.displayOrderToEdit(viewModel: viewModel)
+    }
+    
+    func presentUpdatedOrder(response: CreateOrder.UpdateOrder.Response) {
+        let viewModel = CreateOrder.UpdateOrder.ViewModel(order: response.order)
+        viewController?.displayUpdatedOrder(viewModel: viewModel)
+    }
 }
 
 

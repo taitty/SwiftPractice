@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol CreateOrderRoutingLogic {
-    func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToListOrders(segue: UIStoryboardSegue?)
 }
 
 protocol CreateOrderDataPassing {
@@ -20,7 +20,7 @@ class CreateOrderRouter: NSObject, CreateOrderRoutingLogic, CreateOrderDataPassi
     weak var viewController: CreateOrderViewController?
     var dataStore: CreateOrderDataStore?
     
-    func routeToSomewhere(segue: UIStoryboardSegue?) {
+    func routeToListOrders(segue: UIStoryboardSegue?) {
 //        if let segue = segue {
 //            let destinationVC = segue.description as! SomewhereViewController
 //            var destinationDS = destinationVC.router!.dataStore!

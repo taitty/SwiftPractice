@@ -30,13 +30,13 @@ class ShowOrderPresenter: ShowOrderPresentationLogic {
     
     func presentOrder(response: ShowOrder.GetOrder.Response) {
         let order = response.order
-        let date = dateFormatter.string(from: order.date)
-        let total = currencyFormatter.string(from: order.total)!
+        let date = dateFormatter.string(from: order.date!)
+        let total = currencyFormatter.string(from: order.total!)!
         let displayedOrder = ShowOrder.GetOrder.ViewModel.DisplayedOrder(
             id: order.id!,
             date: date,
-            email: order.email,
-            name: "\(order.firstName) \(order.lastName)",
+            email: order.email!,
+            name: "\(String(describing: order.firstName)) \(String(describing: order.lastName))",
             total: total
         )
         let viewModel = ShowOrder.GetOrder.ViewModel(displayedOrder: displayedOrder)

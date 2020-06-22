@@ -13,13 +13,14 @@ protocol ListOrdersBusinessLogic {
 }
 
 protocol ListOrdersDataStore {
-    
+    var orders: [Order] { get set }
 }
 
 class ListOrdersInteractor: ListOrdersBusinessLogic, ListOrdersDataStore {
+    
     var presenter: ListOrdersPresentationLogic?
     var ordersWorker = OrdersWorker(ordersStore: OrdersMemStore())
-    var orders: [Order]?
+    var orders: [Order] = []
     
     func fetchOrders(request: ListOrders.FetchOrders.Request) {
         ordersWorker.fetchOrders { (orders) -> Void in
