@@ -14,7 +14,7 @@ a:hover{
     transition:all 0.5s;
 }
 body{
-    background:url(../image/bg1.jpg) no-repeat right top;
+    background:url(bg1.jpg) no-repeat right top;
     background-size:cover;
     padding:50px
     background-attachment:fixed;
