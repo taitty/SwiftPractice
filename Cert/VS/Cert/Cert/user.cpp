@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #define MAX_N 1000
 #define MAX_M 20
 
