@@ -1,0 +1,2 @@
+﻿  user.cpp
+C:\Users\taitt\Desktop\Homework\Cert\Project1\user.cpp(15,12): error C3863: 배열 형식 'int [1000][1000]'은(는) 할당할 수 없습니다.
