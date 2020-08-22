@@ -1,2 +1,4 @@
-﻿  user.cpp
-C:\Users\taitt\Desktop\Homework\Cert\Project1\user.cpp(15,12): error C3863: 배열 형식 'int [1000][1000]'은(는) 할당할 수 없습니다.
+﻿  main.cpp
+  user.cpp
+  코드를 생성하고 있습니다...
+  Project1.vcxproj -> C:\workSpace\Cert\VS\Debug\Project1.exe

@@ -10,7 +10,7 @@ int tStars[MAX_M][MAX_M];
 
 struct posi {
 	int x;
-	int y
+	int y;
 };
 
 struct stars_posi {
@@ -34,94 +34,115 @@ void init(int N, int M, int Map[MAX_N][MAX_N])
 
 void makeTable(int deg, int stars[MAX_M][MAX_M])
 {
-	stars_posi result;
-	int numOfstar = 0;
 
-	switch (deg) {
-	case 1://90
-		for (int i = 0; i < size_M; ++i) {
-			for (int j = size_M - 1; j > 0; --j) {
-				if (stars[i][j] == 0)
-					continue;
-
-				if (stars[i][j] == 9) {
-					result.std.x = j;
-					result.std.y = i;
-				}
-				else {
-					result.nor[numOfstar].x = j;
-					result.nor[numOfstar].y = i;
-					++numOfstar;
-				}
-			}
-		}
-		break;
-	case 2://180
-		for (int i = size_M - 1; i > 0; --i) {
-			for (int j = size_M - 1; j > 0; --j) {
-				if (stars[i][j] == 0)
-					continue;
-
-				if (stars[i][j] == 9) {
-					result.std.x = j;
-					result.std.y = i;
-				}
-				else {
-					result.nor[numOfstar].x = j;
-					result.nor[numOfstar].y = i;
-					++numOfstar;
-				}
-			}
-		}
-		break;
-	case 3://270
-		for (int i = size_M - 1; i > 0; --i) {
-			for (int j = 0; j < size_M; ++j) {
-				if (stars[i][j] == 0)
-					continue;
-
-				if (stars[i][j] == 9) {
-					result.std.x = j;
-					result.std.y = i;
-				}
-				else {
-					result.nor[numOfstar].x = j;
-					result.nor[numOfstar].y = i;
-					++numOfstar;
-				}
-			}
-		}
-		break;
-	default:// 0
-		for (int i = 0; i < size_M; ++i) {
-			for (int j = 0; j < size_M; ++j) {
-				if (stars[i][j] == 0)
-					continue;
-
-				if (stars[i][j] == 9) {
-					result.std.x = j;
-					result.std.y = i;
-				}
-				else {
-					result.nor[numOfstar].x = j;
-					result.nor[numOfstar].y = i;
-					++numOfstar;
-				}
-			}
-		}
-		break;
-	}
 }
 
 Result findConstellation(int stars[MAX_M][MAX_M])
 {
 	Result res;
 
+	res.y = res.x = 0;
+
 	for (int i = 0; i < 4; ++i) {
-		makeTable(i, starts)
-		matchConstellation();
+
+		stars_posi star_posi;
+		int numOfstar = 0;
+
+		switch (i) {
+		case 1://90
+			for (int i = 0; i < size_M; ++i) {
+				for (int j = size_M - 1; j > 0; --j) {
+					if (stars[i][j] == 0)
+						continue;
+
+					if (stars[i][j] == 9) {
+						star_posi.std.x = j;
+						star_posi.std.y = i;
+					}
+					else {
+						star_posi.nor[numOfstar].x = j;
+						star_posi.nor[numOfstar].y = i;
+						++numOfstar;
+					}
+				}
+			}
+			break;
+		case 2://180
+			for (int i = size_M - 1; i > 0; --i) {
+				for (int j = size_M - 1; j > 0; --j) {
+					if (stars[i][j] == 0)
+						continue;
+
+					if (stars[i][j] == 9) {
+						star_posi.std.x = j;
+						star_posi.std.y = i;
+					}
+					else {
+						star_posi.nor[numOfstar].x = j;
+						star_posi.nor[numOfstar].y = i;
+						++numOfstar;
+					}
+				}
+			}
+			break;
+		case 3://270
+			for (int i = size_M - 1; i > 0; --i) {
+				for (int j = 0; j < size_M; ++j) {
+					if (stars[i][j] == 0)
+						continue;
+
+					if (stars[i][j] == 9) {
+						star_posi.std.x = j;
+						star_posi.std.y = i;
+					}
+					else {
+						star_posi.nor[numOfstar].x = j;
+						star_posi.nor[numOfstar].y = i;
+						++numOfstar;
+					}
+				}
+			}
+			break;
+		default:// 0
+			for (int i = 0; i < size_M; ++i) {
+				for (int j = 0; j < size_M; ++j) {
+					if (stars[i][j] == 0)
+						continue;
+
+					if (stars[i][j] == 9) {
+						star_posi.std.x = j;
+						star_posi.std.y = i;
+					}
+					else {
+						star_posi.nor[numOfstar].x = j;
+						star_posi.nor[numOfstar].y = i;
+						++numOfstar;
+					}
+				}
+			}
+			break;
+		}
+
+		int y, x, cnt;
+		for (y = 0; y <= size_N - size_M; ++y) {
+			for (x = 0; x <= size_N - size_M; ++x) {
+				if (tMap[star_posi.std.x + x][star_posi.std.y + y]) {
+					for (cnt = 0; cnt < numOfstar; ++cnt) {
+						if (tMap[star_posi.nor[cnt].x + x][star_posi.nor[cnt].y + y])
+							continue;
+						else
+							break;
+					}
+				}
+			}
+
+			if (cnt == numOfstar) {
+				res.x = star_posi.std.x + x;
+				res.y = star_posi.std.y + y;
+				return res;
+			}
+		}
 	}
 
-	res.y = res.x = 0;
 	return res;
 }
