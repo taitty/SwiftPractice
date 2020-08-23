@@ -40,6 +40,7 @@ Result findConstellation(int stars[MAX_M][MAX_M])
 
 		stars_posi star_posi = { 0, };
 		int numOfstar = 0;
+		int used[MAX_M][MAX_M] = { 0, };
 
 		// make table
 		for (int i = 0; i < size_M; ++i) {
@@ -64,9 +65,11 @@ Result findConstellation(int stars[MAX_M][MAX_M])
 		int cnt = 0;
 		for (y = 0; y < size_N - size_M + 1; ++y) {
 			for (x = 0; x < size_N - size_M + 1; ++x) {
-				if (tMap[star_posi.std.y + y][star_posi.std.x + x]) {
+				if (tMap[star_posi.std.y + y][star_posi.std.x + x] &&
+					!used[star_posi.std.y + y][star_posi.std.x + x]) {
 					for (cnt = 0; cnt < numOfstar; ++cnt) {
-						if (tMap[star_posi.nor[cnt].y + y][star_posi.nor[cnt].x + x])
+						if (tMap[star_posi.nor[cnt].y + y][star_posi.nor[cnt].x + x] && 
+							!used[star_posi.nor[cnt].y + y][star_posi.nor[cnt].x + x])
 							continue;
 						else
 							break;
@@ -75,6 +78,11 @@ Result findConstellation(int stars[MAX_M][MAX_M])
 					if (cnt == numOfstar) {
 						res.x = star_posi.std.x + x;
 						res.y = star_posi.std.y + y;
+
+						used[res.y][res.x] = 1;
+						for (cnt = 0; cnt < numOfstar; ++cnt)
+							used[star_posi.nor[cnt].y + y][star_posi.nor[cnt].x + x] = 1;
+
 						return res;
 					}
 				}
