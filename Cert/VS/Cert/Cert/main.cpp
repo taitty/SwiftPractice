@@ -4,93 +4,140 @@
 
 #include <stdio.h>
 
-#define MAX_N 1000
-#define MAX_M 20
+typedef enum {
+    INIT,
+    EDIT,
+    EDITDONE,
+    ADD,
+    DELETE,
+    SUBSTITUTE
+} COMMAND;
 
-struct Result {
-	int y, x;
-};
-
-extern void init(int N, int M, int Map[MAX_N][MAX_N]);
-extern Result findConstellation(int stars[MAX_M][MAX_M]);
-
-/////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////
+extern void Init(int width, int length, char str[]);
+extern void Edit(int id, int row, int col);
+extern void Add(int id, int length, char str[]);
+extern void Delete(int id, int length);
+extern void Substitute(int id, int length, char str[]);
+extern int EditDone(int id);
 
 static int mSeed;
 static int pseudo_rand(void)
 {
-	mSeed = mSeed * 431345 + 2531999;
-	return mSeed & 0x7FFFFFFF;
+    mSeed = mSeed * 431345 + 2531999;
+    return mSeed & 0x7FFFFFFF;
 }
 
-static int Map[MAX_N][MAX_N];
-static int Stars[MAX_M][MAX_M];
-
-static int run(int Ans)
+static int initstr(char initbuf[], int N, int Max, int Min, int RatioN)
 {
-	int N, M, K;
-	scanf("%d %d %d", &N, &M, &K);
+    int line = 0;
+    int cnt = 0;
+    int idx = 0;
+    while (line <= N) {
+        if (cnt == Max || (Min < cnt && pseudo_rand() % 100 >= RatioN)) {
+            if (line == N) break;
+            initbuf[idx++] = '\n';
+            ++line;
+            cnt = 0;
+        }
+        else {
+            initbuf[idx++] = 'a' + pseudo_rand() % 26;
+            ++cnt;
+        }
+    }
+    return idx;
+}
 
-	for (int i = 0; i < N; ++i) {
-		int num;
-		int cnt = N / 30;
-		int idx = 0;
-		for (int k = 0; k < cnt; ++k) {
-			scanf("%d", &num);
-			for (int m = 0; m < 30; ++m) {
-				Map[i][idx++] = num & 0x01;
-				num = num >> 1;
-			}
-		}
+static int run()
+{
+    int cmd, p1, p2, p3, p4, p5, p6, result, length;
+    int sample_test;
+    char str[201];
+    char initbuf[100000];
 
-		if (N % 30) {
-			scanf("%d", &num);
-			for (int m = 0; m < (N % 30); ++m) {
-				Map[i][idx++] = num & 0x01;
-				num = num >> 1;
-			}
-		}
-	}
+    scanf("%d %d %d %d %d %d %d %d", &cmd, &p1, &p2, &p3, &p4, &p5, &p6, &sample_test);
+    if (sample_test == 1) {
+        length = p2;
+        scanf("%s", initbuf);
+        for (int i = 0; i < length; ++i)
+            if (initbuf[i] == 'N') initbuf[i] = '\n';
+    }
+    else {
+        mSeed = p2;
+        length = initstr(initbuf, p3, (p4 / 1000), (p4 % 1000), p5);
+    }
 
-	init(N, M, Map);
+    Init(p1, length, initbuf);
 
-	for (int t = 0; t < K; ++t) {
-		int num, sy, sx;
-		scanf("%d %d %d %d", &mSeed, &num, &sy, &sx);
+    int cmd_length = p6;
+    int answer = 100;
+    for (int i = 1; i < cmd_length; ++i) {
+        scanf("%d", &cmd);
 
-		for (int i = 0; i < M; ++i)
-			for (int k = 0; k < M; ++k)
-				Stars[i][k] = 0;
+        switch (cmd) {
+        case EDIT:
+            scanf("%d %d %d", &p1, &p2, &p3);
+            Edit(p1, p2, p3);
+            break;
 
-		int y = pseudo_rand() % M;
-		int x = pseudo_rand() % M;
-		Stars[y][x] = 9;
-		for (int i = 1; i < num; ++i) {
-			y = pseudo_rand() % M;
-			x = pseudo_rand() % M;
-			Stars[y][x] = 1;
-		}
+        case EDITDONE:
+            scanf("%d %d", &p1, &p2);
+            result = EditDone(p1);
+            if (result != p2)
+                answer = 0;
+            break;
 
-		Result answer = findConstellation(Stars);
-		if ((answer.y != sy) || (answer.x != sx))
-			Ans = 0;
-	}
+        case ADD:
+            scanf("%d %d %d", &p1, &p2, &p3);
+            if (sample_test == 1) {
+                scanf("%s", str);
+            }
+            else {
+                mSeed = p3;
+                for (int k = 0; k < p2; ++k)
+                    str[k] = 'a' + pseudo_rand() % 26;
+            }
+            Add(p1, p2, str);
+            break;
 
-	return Ans;
+        case DELETE:
+            scanf("%d %d", &p1, &p2);
+            Delete(p1, p2);
+            break;
+
+        case SUBSTITUTE:
+            scanf("%d %d %d", &p1, &p2, &p3);
+            if (sample_test == 1) {
+                scanf("%s", str);
+            }
+            else {
+                mSeed = p3;
+                for (int k = 0; k < p2; ++k)
+                    str[k] = 'a' + pseudo_rand() % 26;
+            }
+            Substitute(p1, p2, str);
+            break;
+
+        default:
+            printf("cmd error !!!\n");
+            break;
+        }
+    }
+
+    return answer;
 }
 
 int main()
 {
-	setbuf(stdout, NULL);
-	freopen("sample_input.txt", "r", stdin);
+    setbuf(stdout, NULL);
+    freopen("sample_input.txt", "r", stdin);
 
-	int T, Ans;
-	scanf("%d %d", &T, &Ans);
+    int T;
+    scanf("%d", &T);
 
-	for (int tc = 1; tc <= T; tc++) {
-		printf("#%d %d\n", tc, run(Ans));
-	}
+    for (int tc = 1; tc <= T; tc++) {
+        printf("#%d %d\n", tc, run());
+    }
 
-	return 0;
+    return 0;
 }
+

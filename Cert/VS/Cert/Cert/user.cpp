@@ -1,106 +1,63 @@
-#define MAX_N 1000
-#define MAX_M 20
+#define DOC_SIZE 100 * 100000 + 1
 
-int size_N;
-int size_M;
-int tMap[MAX_N][MAX_N];
-int temp[MAX_M][MAX_M];
-int used[MAX_N][MAX_N];
+int doc_width;
+int str_length;
 
-struct posi {
-	int x;
-	int y;
+struct data {
+    char value;
+    int id;
 };
+data doc[DOC_SIZE];
+char tmp[DOC_SIZE];
 
-struct stars_posi {
-	posi std;
-	posi nor[MAX_M];
+enum state {
+    IDLE,
+    EDITING,
+    CONFLICT,
 };
+int user[10000];
 
-struct Result {
-	int y, x;
-};
-
-void init(int N, int M, int Map[MAX_N][MAX_N])
+void Init(int width, int length, char str[])
 {
-	size_N = N;
-	size_M = M;
-	
-	for (int i = 0; i < size_N; ++i) {
-		for (int j = 0; j < size_N; ++j) {
-			tMap[i][j] = Map[i][j];
-			used[i][j] = 0;
-		}
-	}
+    for (int i = 0; i < DOC_SIZE; ++i)
+        doc[i].value = doc[i].id = 0;
+
+    for (int i = 0; i < 10000; ++i)
+        user[i] = IDLE;
+
+    doc_width = width;
+    str_length = length;
+
+    int idx = 0;
+    for (int i = 0; i < str_length; ++i) {
+        doc[idx++].value = str[i];
+        int pin = idx - 1;
+        if (str[i] == '\n') {
+            for (int j = 0; j < 5 - pin % 6; ++j)
+                doc[idx++].value = ' ';
+        }
+    }
 }
 
-Result findConstellation(int stars[MAX_M][MAX_M])
+void Edit(int id, int row, int col)
 {
-	Result res;
+    doc[row * 6 + col].id = id;
+    user[id] = EDITING;
+}
 
-	res.y = res.x = 0;
+void Add(int id, int length, char str[])
+{
+}
+  
+void Delete(int id, int length)
+{
+}
 
-	for (int i = 0; i < 4; ++i) {
+void Substitute(int id, int length, char str[])
+{
+}
 
-		stars_posi star_posi = { 0, };
-		int numOfstar = 0;
-
-		// make table
-		for (int i = 0; i < size_M; ++i) {
-			for (int j = 0; j < size_M; ++j) {
-				if (stars[i][j] == 0)
-					continue;
-
-				if (stars[i][j] == 9) {
-					star_posi.std.x = j;
-					star_posi.std.y = i;
-				}
-				else {
-					star_posi.nor[numOfstar].x = j;
-					star_posi.nor[numOfstar].y = i;
-					++numOfstar;
-				}
-			}
-		}
-
-		// match stars
-		int y, x;
-		int cnt = 0;
-		for (y = 0; y < size_N - size_M + 1; ++y) {
-			for (x = 0; x < size_N - size_M + 1; ++x) {
-				if (tMap[star_posi.std.y + y][star_posi.std.x + x] &&
-					!used[star_posi.std.y + y][star_posi.std.x + x]) {
-					for (cnt = 0; cnt < numOfstar; ++cnt) {
-						if (tMap[star_posi.nor[cnt].y + y][star_posi.nor[cnt].x + x] && 
-							!used[star_posi.nor[cnt].y + y][star_posi.nor[cnt].x + x])
-							continue;
-						else
-							break;
-					}
-
-					if (cnt == numOfstar) {
-						res.x = star_posi.std.x + x;
-						res.y = star_posi.std.y + y;
-
-						used[res.y][res.x] = 1;
-						for (cnt = 0; cnt < numOfstar; ++cnt)
-							used[star_posi.nor[cnt].y + y][star_posi.nor[cnt].x + x] = 1;
-
-						return res;
-					}
-				}
-			}
-		}
-
-		// rotate
-		for (int i = 0; i < size_M; ++i)
-			for (int j = 0; j < size_M; ++j)
-				temp[i][j] = stars[i][j];
-
-		for (int i = 0; i < size_M; ++i)
-			for (int j = 0; j < size_M; ++j)
-				stars[j][size_M - 1 - i] = temp[i][j];
-	}
-
-	return res;
+int EditDone(int id)
+{
+    return 0;
 }
