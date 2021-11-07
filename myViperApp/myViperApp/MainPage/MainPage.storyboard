@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a3r-Te-Xqf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Page View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MainPage" id="Y6W-OH-hqX" customClass="MainPageViewController" customModule="myViperApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRw-NE-x7O">
+                                <rect key="frame" x="50" y="288" width="314" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="change to 1st page"/>
+                                <connections>
+                                    <action selector="clickButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0be-JX-85K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UT-oW-qES">
+                                <rect key="frame" x="50" y="419" width="314" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="change to 2nd page"/>
+                                <connections>
+                                    <action selector="clickButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="12C-mh-oE1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4UT-oW-qES" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="UQL-MT-O2i"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cRw-NE-x7O" secondAttribute="trailing" constant="50" id="dEZ-1s-9bD"/>
+                            <constraint firstItem="cRw-NE-x7O" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="efg-oh-JOt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="4UT-oW-qES" secondAttribute="trailing" constant="50" id="s3L-5n-1Y9"/>
+                            <constraint firstItem="cRw-NE-x7O" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="200" id="sAu-1G-qkQ"/>
+                            <constraint firstItem="4UT-oW-qES" firstAttribute="top" secondItem="cRw-NE-x7O" secondAttribute="bottom" constant="100" id="snw-mL-7aF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wOH-5J-0nC"/>
+                    <connections>
+                        <outletCollection property="buttons" destination="cRw-NE-x7O" collectionClass="NSMutableArray" id="YDr-yG-R74"/>
+                        <outletCollection property="buttons" destination="4UT-oW-qES" collectionClass="NSMutableArray" id="v7v-1R-heJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886.95652173913049" y="81.696428571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2My-51-6hZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a3r-Te-Xqf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8t3-Wv-ECJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="OGw-pq-X9b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwS-0C-Vth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-23.188405797101453" y="81.696428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
