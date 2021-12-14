@@ -14,15 +14,15 @@ enum TableViewCellType: Int, CaseIterable {
 }
 
 protocol CustomTableViewCellProtocol {
-    func registerCell(on tableView: UITableView) -> CustomTableViewCellProtocol
-    func getCellForTableView(_ tableView: UITableView) -> CustomTableViewCellProtocol
+    func registerCell(on tableView: UITableView) -> UITableViewCell
+    func getCellForTableView(_ tableView: UITableView, data: String) -> UITableViewCell
     func didCellSelected(_ tableView: UITableView, indexPath: IndexPath)
 }
 
 class TableViewCellFactory {
     
     let tableView: UITableView
-    var tableViewCells: Array<CustomTableViewCellProtocol> = []
+    var tableViewCells: Array<UITableViewCell> = []
     
     init(tableView: UITableView) {
         self.tableView = tableView
@@ -35,12 +35,12 @@ class TableViewCellFactory {
         tableViewCells.append(SecondTableViewCell().registerCell(on: tableView))
     }
 
-    func getCellForTableView(cellType: TableViewCellType) -> CustomTableViewCellProtocol {
+    func getCellForTableView(cellType: TableViewCellType, data: String) -> UITableViewCell {
         switch cellType {
         case .FirstCellType:
-            return FirstTableViewCell().getCellForTableView(tableView)
+            return FirstTableViewCell().getCellForTableView(tableView, data: data)
         case .SecondCellType:
-            return SecondTableViewCell().getCellForTableView(tableView)
+            return SecondTableViewCell().getCellForTableView(tableView, data: data)
         }
     } 
     

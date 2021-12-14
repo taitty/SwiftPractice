@@ -36,16 +36,12 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let order = indexPath.row % 2
+        let order = indexPath.row % 3
         switch order {
         case 0:
-            let cell = cellFactory?.getCellForTableView(cellType: .FirstCellType)
-            cell.titleLabel.text = data[indexPath.row]
-            return cell
+            return cellFactory!.getCellForTableView(cellType: .FirstCellType, data: data[indexPath.row])
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "SecondTableViewCell") as! SecondTableViewCell
-            cell.resultLabel.text = data[indexPath.row]
-            return cell
+            return cellFactory!.getCellForTableView(cellType: .SecondCellType, data: data[indexPath.row])
         }
     }
     

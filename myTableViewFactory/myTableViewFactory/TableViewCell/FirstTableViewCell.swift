@@ -27,14 +27,15 @@ class FirstTableViewCell: UITableViewCell {
 
 extension FirstTableViewCell: CustomTableViewCellProtocol {
     
-    func registerCell(on tableView: UITableView) -> CustomTableViewCellProtocol {
+    func registerCell(on tableView: UITableView) -> UITableViewCell {
         let secondNibName = UINib(nibName: "FirstTableViewCell", bundle: nil)
         tableView.register(secondNibName, forCellReuseIdentifier: "FirstTableViewCell")
         return self
     }
     
-    func getCellForTableView(_ tableView: UITableView) -> CustomTableViewCellProtocol {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "FirstTableViewCell") as! SecondTableViewCell
+    func getCellForTableView(_ tableView: UITableView, data: String) -> UITableViewCell {
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "FirstTableViewCell") as! FirstTableViewCell
+        cell.titleLabel.text = data
         return cell
     }
     
