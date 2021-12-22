@@ -27,7 +27,7 @@ class SecondTableViewCell: UITableViewCell {
 
 extension SecondTableViewCell: CustomTableViewCellProtocol {
     
-    func registerCell(on tableView: UITableView) -> UITableViewCell {
+    static func registerCell(on tableView: UITableView) -> UITableViewCell {
         let secondNibName = UINib(nibName: "SecondTableViewCell", bundle: nil)
         tableView.register(secondNibName, forCellReuseIdentifier: "SecondTableViewCell")
         return self
