@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  myTableViewFactory
 //
-//  Created by 김희수 on 2021/12/14.
+//  Created by 김희수 on 2021/12/22.
 //
 
 import UIKit
