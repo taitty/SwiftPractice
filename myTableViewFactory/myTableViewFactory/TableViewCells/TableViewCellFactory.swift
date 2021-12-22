@@ -45,7 +45,7 @@ protocol TableViewCellProtocol {
 
 class TableViewCellFactory {
     
-    func registerCells(tableView: UITableView, data: [TableViewDataModel]) {
+    func registerCells(tableView: UITableView) {
         CellType.allCases.forEach { item in
             item.controller.registerCell(tableView: tableView)
         }

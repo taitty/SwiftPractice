@@ -12,9 +12,9 @@ class TableViewViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let dataManager = TableViewDataManager()
-    let cellFactory = TableViewCellFactory()
-    
     var viewData: [TableViewDataModel] = []
+    
+    let cellFactory = TableViewCellFactory()
     var cellController: [TableViewCellProtocol] = []
     
     override func viewDidLoad() {
@@ -24,10 +24,9 @@ class TableViewViewController: UIViewController {
         tableView.dataSource = self
         
         viewData = dataManager.getTableViewData()
-        cellFactory.registerCells(tableView: tableView, data: viewData)
+        cellFactory.registerCells(tableView: tableView)
         cellController = cellFactory.getCellController(data: viewData)
     }
-
 
 }
 
@@ -42,8 +41,7 @@ extension TableViewViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = cellController[indexPath.row].getCellForRow(tableView: tableView, data: viewData[indexPath.row])
-        return cell
+        return cellController[indexPath.row].getCellForRow(tableView: tableView, data: viewData[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

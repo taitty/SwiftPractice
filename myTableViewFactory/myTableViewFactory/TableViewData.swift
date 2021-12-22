@@ -51,23 +51,44 @@ let sampleData = """
             "type" : "subTableType",
             "item" : [
                 {
-                    "title" : "Friday",
+                    "title" : "Dog",
                     "type" : "buttonType",
                     "item" : []
                 },
                 {
-                    "title" : "Saturday",
+                    "title" : "Cat",
                     "type" : "labelType",
                     "item" : []
                 },
                 {
-                    "title" : "Morning",
+                    "title" : "Pig",
                     "type" : "buttonType",
                     "item" : []
                 },
                 {
-                    "title" : "Evening",
+                    "title" : "Chichen",
                     "type" : "labelType",
+                    "item" : []
+                }
+            ]
+        },
+        {
+            "title" : "Wednesday",
+            "type" : "subTableType",
+            "item" : [
+                {
+                    "title" : "Bus",
+                    "type" : "buttonType",
+                    "item" : []
+                },
+                {
+                    "title" : "Seden",
+                    "type" : "labelType",
+                    "item" : []
+                },
+                {
+                    "title" : "HatchBag",
+                    "type" : "buttonType",
                     "item" : []
                 }
             ]

@@ -11,12 +11,18 @@ class SubTableCell: UITableViewCell {
 
     @IBOutlet weak var tableView: UITableView!
     
+    let cellFactory = TableViewCellFactory()
+    
+    var viewData: [TableViewDataModel] = []
+    var cellController: [TableViewCellProtocol] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         tableView.delegate = self
         tableView.dataSource = self
-
+        
+        cellFactory.registerCells(tableView: tableView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,6 +42,9 @@ extension SubTableCell: TableViewCellProtocol {
     
     func getCellForRow(tableView: UITableView, data: TableViewDataModel) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubTableCell") as! SubTableCell
+        cell.viewData = data.item
+        cell.cellController = cellFactory.getCellController(data: cell.viewData)
+        self.cellController = cell.cellController
         return cell
     }
     
@@ -44,7 +53,11 @@ extension SubTableCell: TableViewCellProtocol {
     }
     
     func getCellHeight() -> CGFloat {
-        return 200.0
+        var height = 0.0
+        cellController.forEach { cell in
+            height += cell.getCellHeight()
+        }
+        return height
     }
     
 }
@@ -54,13 +67,17 @@ extension SubTableCell: UITableViewDelegate {
 }
 
 extension SubTableCell: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return cellController.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        return cellController[indexPath.row].getCellForRow(tableView: tableView, data: viewData[indexPath.row])
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellController[indexPath.row].getCellHeight()
+    }
+
 }
