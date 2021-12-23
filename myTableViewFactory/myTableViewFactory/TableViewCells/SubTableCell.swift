@@ -15,6 +15,7 @@ class SubTableCell: UITableViewCell {
     
     var viewData: [TableViewDataModel] = []
     var cellController: [TableViewCellProtocol] = []
+    var subItems: [TableViewCellProtocol] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,7 +45,7 @@ extension SubTableCell: TableViewCellProtocol {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubTableCell") as! SubTableCell
         cell.viewData = data.item
         cell.cellController = cellFactory.getCellController(data: cell.viewData)
-        self.cellController = cell.cellController
+        self.subItems = cell.cellController
         return cell
     }
     
@@ -54,7 +55,7 @@ extension SubTableCell: TableViewCellProtocol {
     
     func getCellHeight() -> CGFloat {
         var height = 0.0
-        cellController.forEach { cell in
+        subItems.forEach { cell in
             height += cell.getCellHeight()
         }
         return height

@@ -56,6 +56,54 @@ let sampleData = """
                     "item" : []
                 },
                 {
+                    "title" : "Chichen",
+                    "type" : "labelType",
+                    "item" : []
+                }
+            ]
+        },
+        {
+            "title" : "Wednesday",
+            "type" : "subTableType",
+            "item" : [
+                {
+                    "title" : "HatchBag",
+                    "type" : "buttonType",
+                    "item" : []
+                }
+            ]
+        },
+        {
+            "title" : "Thursday",
+            "type" : "buttonType",
+            "item" : []
+        }
+    ]
+"""
+
+let _sampleData = """
+    [
+        {
+            "title" : "Monday",
+            "type" : "buttonType",
+            "item" : []
+        },
+        {
+            "title" : "Tuesday",
+            "type" : "labelType",
+            "item" : []
+
+        },
+        {
+            "title" : "Wednesday",
+            "type" : "subTableType",
+            "item" : [
+                {
+                    "title" : "Dog",
+                    "type" : "buttonType",
+                    "item" : []
+                },
+                {
                     "title" : "Cat",
                     "type" : "labelType",
                     "item" : []
