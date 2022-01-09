@@ -36,41 +36,41 @@ class TableViewDataManager {
 let sampleData = """
     [
         {
-            "title" : "Monday",
+            "title" : "1",
             "type" : "buttonType",
             "item" : []
         },
         {
-            "title" : "Tuesday",
+            "title" : "2",
             "type" : "labelType",
             "item" : []
 
         },
         {
-            "title" : "Wednesday",
+            "title" : "3",
             "type" : "subTableType",
             "item" : [
                 {
-                    "title" : "Dog",
+                    "title" : "3-1",
                     "type" : "buttonType",
                     "item" : []
                 },
                 {
-                    "title" : "Chichen",
+                    "title" : "3-2",
                     "type" : "labelType",
                     "item" : []
                 },
                 {
-                    "title" : "Pig",
+                    "title" : "3-3",
                     "type" : "subTableType",
                     "item" : [
                         {
-                            "title" : "Ant",
+                            "title" : "3-3-1",
                             "type" : "buttonType",
                             "item" : []
                         },
                         {
-                            "title" : "Bee",
+                            "title" : "3-3-2",
                             "type" : "labelType",
                             "item" : []
                         }
@@ -79,91 +79,23 @@ let sampleData = """
             ]
         },
         {
-            "title" : "Wednesday",
+            "title" : "4",
             "type" : "subTableType",
             "item" : [
                 {
-                    "title" : "Bus",
+                    "title" : "4-1",
                     "type" : "buttonType",
                     "item" : []
                 },
                 {
-                    "title" : "Taxi",
+                    "title" : "4-2",
                     "type" : "buttonType",
                     "item" : []
                 }
             ]
         },
         {
-            "title" : "Thursday",
-            "type" : "buttonType",
-            "item" : []
-        }
-    ]
-"""
-
-let _sampleData = """
-    [
-        {
-            "title" : "Monday",
-            "type" : "buttonType",
-            "item" : []
-        },
-        {
-            "title" : "Tuesday",
-            "type" : "labelType",
-            "item" : []
-
-        },
-        {
-            "title" : "Wednesday",
-            "type" : "subTableType",
-            "item" : [
-                {
-                    "title" : "Dog",
-                    "type" : "buttonType",
-                    "item" : []
-                },
-                {
-                    "title" : "Cat",
-                    "type" : "labelType",
-                    "item" : []
-                },
-                {
-                    "title" : "Pig",
-                    "type" : "buttonType",
-                    "item" : []
-                },
-                {
-                    "title" : "Chichen",
-                    "type" : "labelType",
-                    "item" : []
-                }
-            ]
-        },
-        {
-            "title" : "Wednesday",
-            "type" : "subTableType",
-            "item" : [
-                {
-                    "title" : "Bus",
-                    "type" : "buttonType",
-                    "item" : []
-                },
-                {
-                    "title" : "Seden",
-                    "type" : "labelType",
-                    "item" : []
-                },
-                {
-                    "title" : "HatchBag",
-                    "type" : "buttonType",
-                    "item" : []
-                }
-            ]
-        },
-        {
-            "title" : "Thursday",
+            "title" : "5",
             "type" : "buttonType",
             "item" : []
         }
