@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StackButtonCell" customModule="myGenericViewFactory" customModuleProvider="target">
+            <connections>
+                <outlet property="cellButton" destination="piD-Ib-2ea" id="2sH-Uf-Frv"/>
+                <outlet property="cellLabel" destination="tqB-lK-9PO" id="T2V-if-XvK"/>
+                <outlet property="stackButtonCell" destination="D1a-Vd-FfM" id="qir-VC-CWU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="D1a-Vd-FfM">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piD-Ib-2ea">
+                    <rect key="frame" x="0.0" y="32.5" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Bj0-wx-drm"/>
+                        <constraint firstAttribute="width" constant="15" id="IJV-b4-KPP"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" image="Image">
+                        <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqB-lK-9PO">
+                    <rect key="frame" x="20" y="31.5" width="80" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="aAi-wz-Vph"/>
+            <color key="backgroundColor" systemColor="systemYellowColor"/>
+            <constraints>
+                <constraint firstItem="tqB-lK-9PO" firstAttribute="centerY" secondItem="D1a-Vd-FfM" secondAttribute="centerY" id="4xp-sV-Uml"/>
+                <constraint firstItem="piD-Ib-2ea" firstAttribute="leading" secondItem="aAi-wz-Vph" secondAttribute="leading" id="FKE-ma-E1N"/>
+                <constraint firstItem="tqB-lK-9PO" firstAttribute="leading" secondItem="piD-Ib-2ea" secondAttribute="trailing" constant="5" id="Ggb-nm-VwH"/>
+                <constraint firstItem="aAi-wz-Vph" firstAttribute="trailing" secondItem="tqB-lK-9PO" secondAttribute="trailing" id="Z3W-w2-kYf"/>
+                <constraint firstItem="piD-Ib-2ea" firstAttribute="centerY" secondItem="D1a-Vd-FfM" secondAttribute="centerY" id="rBD-qI-ke5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-17.39130434782609" y="300"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Image" width="7.5" height="7.5"/>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

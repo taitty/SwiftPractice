@@ -59,6 +59,22 @@ let sampleData = """
                     "title" : "Chichen",
                     "type" : "labelType",
                     "item" : []
+                },
+                {
+                    "title" : "Pig",
+                    "type" : "subTableType",
+                    "item" : [
+                        {
+                            "title" : "Ant",
+                            "type" : "buttonType",
+                            "item" : []
+                        },
+                        {
+                            "title" : "Bee",
+                            "type" : "labelType",
+                            "item" : []
+                        }
+                    ]
                 }
             ]
         },
@@ -67,7 +83,12 @@ let sampleData = """
             "type" : "subTableType",
             "item" : [
                 {
-                    "title" : "HatchBag",
+                    "title" : "Bus",
+                    "type" : "buttonType",
+                    "item" : []
+                },
+                {
+                    "title" : "Taxi",
                     "type" : "buttonType",
                     "item" : []
                 }
