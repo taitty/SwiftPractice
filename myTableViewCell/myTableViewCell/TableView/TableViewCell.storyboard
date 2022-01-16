@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Cell View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TableViewCell" id="Y6W-OH-hqX" customClass="TableViewCellViewController" customModule="myTableViewCell" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAB-4R-rpc" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Auf-xs-jdu">
+                                        <rect key="frame" x="20" y="15.5" width="374" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="2rs-fd-Wop"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" red="0.14509803921568626" green="0.14509803921568626" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Auf-xs-jdu" firstAttribute="leading" secondItem="nAB-4R-rpc" secondAttribute="leading" constant="20" id="4b1-Rg-3St"/>
+                                    <constraint firstAttribute="trailing" secondItem="Auf-xs-jdu" secondAttribute="trailing" constant="20" id="6Ah-uz-Tna"/>
+                                    <constraint firstItem="Auf-xs-jdu" firstAttribute="centerY" secondItem="nAB-4R-rpc" secondAttribute="centerY" id="IAJ-Gz-g7Y"/>
+                                    <constraint firstAttribute="height" constant="56" id="KX1-Gd-xBF"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-Dv-Tnh">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nAB-4R-rpc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4fq-eW-x1Y"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Zgn-Dv-Tnh" secondAttribute="bottom" id="NJl-x8-iCY"/>
+                            <constraint firstItem="Zgn-Dv-Tnh" firstAttribute="top" secondItem="nAB-4R-rpc" secondAttribute="bottom" id="Z72-2w-NKv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nAB-4R-rpc" secondAttribute="trailing" id="hC0-4I-fN5"/>
+                            <constraint firstItem="nAB-4R-rpc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="hPa-Rm-yxz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Zgn-Dv-Tnh" secondAttribute="trailing" id="qyq-DY-Ouc"/>
+                            <constraint firstItem="Zgn-Dv-Tnh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vNJ-sI-czC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Zgn-Dv-Tnh" id="bam-Qh-PHg"/>
+                        <outlet property="titleLabel" destination="Auf-xs-jdu" id="9yc-Wd-PX2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101" y="84"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

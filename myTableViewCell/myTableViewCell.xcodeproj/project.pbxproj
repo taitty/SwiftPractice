@@ -25,12 +25,12 @@
 		BB65E63227932CFD00CF7A6A /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E62427932CFD00CF7A6A /* DescriptionCell.swift */; };
 		BB65E63327932CFD00CF7A6A /* StackButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB65E62727932CFD00CF7A6A /* StackButtonCell.xib */; };
 		BB65E63427932CFD00CF7A6A /* StackButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E62827932CFD00CF7A6A /* StackButtonCell.swift */; };
-		BB65E63C27932D8400CF7A6A /* TableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E63627932D8400CF7A6A /* TableViewCellModel.swift */; };
-		BB65E63D27932D8400CF7A6A /* TableViewCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E63727932D8400CF7A6A /* TableViewCellViewController.swift */; };
-		BB65E63E27932D8400CF7A6A /* TableViewCellWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E63827932D8400CF7A6A /* TableViewCellWireframe.swift */; };
-		BB65E63F27932D8400CF7A6A /* TableViewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB65E63927932D8400CF7A6A /* TableViewCell.storyboard */; };
-		BB65E64027932D8400CF7A6A /* TableViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E63A27932D8400CF7A6A /* TableViewCellPresenter.swift */; };
-		BB65E64127932D8400CF7A6A /* TableViewCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E63B27932D8400CF7A6A /* TableViewCellInteractor.swift */; };
+		BB65E64827946A5900CF7A6A /* TableViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E64227946A5900CF7A6A /* TableViewCellPresenter.swift */; };
+		BB65E64927946A5900CF7A6A /* TableViewCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E64327946A5900CF7A6A /* TableViewCellViewController.swift */; };
+		BB65E64A27946A5900CF7A6A /* TableViewCellWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E64427946A5900CF7A6A /* TableViewCellWireframe.swift */; };
+		BB65E64B27946A5900CF7A6A /* TableViewCell.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB65E64527946A5900CF7A6A /* TableViewCell.storyboard */; };
+		BB65E64C27946A5900CF7A6A /* TableViewCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E64627946A5900CF7A6A /* TableViewCellInteractor.swift */; };
+		BB65E64D27946A5900CF7A6A /* TableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB65E64727946A5900CF7A6A /* TableViewCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,12 +54,12 @@
 		BB65E62427932CFD00CF7A6A /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		BB65E62727932CFD00CF7A6A /* StackButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StackButtonCell.xib; sourceTree = "<group>"; };
 		BB65E62827932CFD00CF7A6A /* StackButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackButtonCell.swift; sourceTree = "<group>"; };
-		BB65E63627932D8400CF7A6A /* TableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellModel.swift; path = ../../../_myTableViewCell/myTableViewCell/TableViewCellModel.swift; sourceTree = "<group>"; };
-		BB65E63727932D8400CF7A6A /* TableViewCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellViewController.swift; path = ../../../_myTableViewCell/myTableViewCell/TableViewCellViewController.swift; sourceTree = "<group>"; };
-		BB65E63827932D8400CF7A6A /* TableViewCellWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellWireframe.swift; path = ../../../_myTableViewCell/myTableViewCell/TableViewCellWireframe.swift; sourceTree = "<group>"; };
-		BB65E63927932D8400CF7A6A /* TableViewCell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TableViewCell.storyboard; path = ../../../_myTableViewCell/myTableViewCell/TableViewCell.storyboard; sourceTree = "<group>"; };
-		BB65E63A27932D8400CF7A6A /* TableViewCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellPresenter.swift; path = ../../../_myTableViewCell/myTableViewCell/TableViewCellPresenter.swift; sourceTree = "<group>"; };
-		BB65E63B27932D8400CF7A6A /* TableViewCellInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCellInteractor.swift; path = ../../../_myTableViewCell/myTableViewCell/TableViewCellInteractor.swift; sourceTree = "<group>"; };
+		BB65E64227946A5900CF7A6A /* TableViewCellPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellPresenter.swift; sourceTree = "<group>"; };
+		BB65E64327946A5900CF7A6A /* TableViewCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellViewController.swift; sourceTree = "<group>"; };
+		BB65E64427946A5900CF7A6A /* TableViewCellWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellWireframe.swift; sourceTree = "<group>"; };
+		BB65E64527946A5900CF7A6A /* TableViewCell.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TableViewCell.storyboard; sourceTree = "<group>"; };
+		BB65E64627946A5900CF7A6A /* TableViewCellInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellInteractor.swift; sourceTree = "<group>"; };
+		BB65E64727946A5900CF7A6A /* TableViewCellModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,14 +149,14 @@
 		BB65E63527932D6B00CF7A6A /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				BB65E61927932CFD00CF7A6A /* TableViewCell */,
 				BB65E62527932CFD00CF7A6A /* StackViewCell */,
-				BB65E63927932D8400CF7A6A /* TableViewCell.storyboard */,
-				BB65E63627932D8400CF7A6A /* TableViewCellModel.swift */,
-				BB65E63827932D8400CF7A6A /* TableViewCellWireframe.swift */,
-				BB65E63B27932D8400CF7A6A /* TableViewCellInteractor.swift */,
-				BB65E63A27932D8400CF7A6A /* TableViewCellPresenter.swift */,
-				BB65E63727932D8400CF7A6A /* TableViewCellViewController.swift */,
+				BB65E61927932CFD00CF7A6A /* TableViewCell */,
+				BB65E64527946A5900CF7A6A /* TableViewCell.storyboard */,
+				BB65E64627946A5900CF7A6A /* TableViewCellInteractor.swift */,
+				BB65E64727946A5900CF7A6A /* TableViewCellModel.swift */,
+				BB65E64227946A5900CF7A6A /* TableViewCellPresenter.swift */,
+				BB65E64327946A5900CF7A6A /* TableViewCellViewController.swift */,
+				BB65E64427946A5900CF7A6A /* TableViewCellWireframe.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 			files = (
 				BB65E62C27932CFD00CF7A6A /* BlankCell.xib in Resources */,
 				BB65E62D27932CFD00CF7A6A /* MainTitleCell.xib in Resources */,
-				BB65E63F27932D8400CF7A6A /* TableViewCell.storyboard in Resources */,
+				BB65E64B27946A5900CF7A6A /* TableViewCell.storyboard in Resources */,
 				BB65E61227932CE500CF7A6A /* LaunchScreen.storyboard in Resources */,
 				BB65E63327932CFD00CF7A6A /* StackButtonCell.xib in Resources */,
 				BB65E62B27932CFD00CF7A6A /* SliderCell.xib in Resources */,
@@ -239,19 +239,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB65E64127932D8400CF7A6A /* TableViewCellInteractor.swift in Sources */,
 				BB65E63127932CFD00CF7A6A /* MainTitleCell.swift in Sources */,
 				BB65E60A27932CE300CF7A6A /* ViewController.swift in Sources */,
-				BB65E64027932D8400CF7A6A /* TableViewCellPresenter.swift in Sources */,
 				BB65E60627932CE300CF7A6A /* AppDelegate.swift in Sources */,
 				BB65E62E27932CFD00CF7A6A /* BlankCell.swift in Sources */,
 				BB65E63227932CFD00CF7A6A /* DescriptionCell.swift in Sources */,
+				BB65E64D27946A5900CF7A6A /* TableViewCellModel.swift in Sources */,
 				BB65E62F27932CFD00CF7A6A /* SliderCell.swift in Sources */,
-				BB65E63D27932D8400CF7A6A /* TableViewCellViewController.swift in Sources */,
+				BB65E64927946A5900CF7A6A /* TableViewCellViewController.swift in Sources */,
+				BB65E64C27946A5900CF7A6A /* TableViewCellInteractor.swift in Sources */,
 				BB65E63427932CFD00CF7A6A /* StackButtonCell.swift in Sources */,
-				BB65E63E27932D8400CF7A6A /* TableViewCellWireframe.swift in Sources */,
-				BB65E63C27932D8400CF7A6A /* TableViewCellModel.swift in Sources */,
+				BB65E64A27946A5900CF7A6A /* TableViewCellWireframe.swift in Sources */,
 				BB65E60827932CE300CF7A6A /* SceneDelegate.swift in Sources */,
+				BB65E64827946A5900CF7A6A /* TableViewCellPresenter.swift in Sources */,
 				BB65E63027932CFD00CF7A6A /* ButtonCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
