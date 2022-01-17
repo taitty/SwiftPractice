@@ -1,6 +1,9 @@
 ## Summary
 * Swift 코딩 연습
 
+### Notes
+* Tip, Test, etc, ...
+
 ### myViperApp
 * VIPER Pattern 테스트
 
