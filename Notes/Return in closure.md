@@ -13,8 +13,11 @@
     
     print(description) // bus 가 찍히나?
 
+결과는,
+testA() 의 return type 이 Void 이기 때문에, description 의 String Type 과 맞지않아 Error
 
-> 테스트
+> 추가 테스트
+아래와 같이, callback 으로 정의된 func 내에서는 return type 이 없는 것이 이상적인 듯...
 
     var description: String? {
       var ret: String?
