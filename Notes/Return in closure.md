@@ -1,6 +1,7 @@
 ## callback 함수를 중복으로 사용하는 경우, callback 함수의 return 은 어디로 가나?
 
 > 하고 싶은거
+아래와 같이 callback closure 를 간소화해서 사용할 수 있다면...
 
     var description: String? {
       testA() { $0 ? "bus" : "taxi" }
@@ -11,6 +12,7 @@
     }
     
     print(description) // bus 가 찍히나?
+
 
 > 테스트
 
