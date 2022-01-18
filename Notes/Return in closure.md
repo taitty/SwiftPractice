@@ -22,7 +22,7 @@ callback 의 return value 는, testA() 내의 "callback(true)" 의 return value
 
 
 
-> 추가 테스트
+> 추가
 
 아래와 같이, callback 으로 정의된 func 내에서는 return type 이 없는 것이 이상적인 듯...
 callback 
@@ -48,3 +48,30 @@ callback
     }
 
     print(description)
+
+
+
+> 추가 테스트
+
+만약...callback 의 return type 이 func 이라면...?
+
+ex) https://devxoul.gitbooks.io/ios-with-swift-in-40-hours/content/Chapter-3/functions-and-closures.html
+
+
+    func helloGenerator(message: String) -> (String, String) -> String {
+      func hello(firstName: String, lastName: String) -> String {
+        return lastName + firstName + message
+      }
+      return hello
+    }
+
+    let hello = helloGenerator(message: "님 안녕하세요!")
+    hello("수열", "전")
+    
+간소화하면,
+
+
+    func helloGenerator(message: String) -> (String, String) -> String {
+      return { $1 + $0 + message }
+    }
+    
