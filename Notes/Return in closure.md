@@ -10,7 +10,7 @@
       callback(true)
     }
     
-    print(description) // bus??
+    print(description) // bus 가 찍히나?
 
 > 테스트
 
