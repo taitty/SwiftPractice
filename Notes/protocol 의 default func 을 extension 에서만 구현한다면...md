@@ -54,4 +54,4 @@ LIB 작성 혹은 Interface 정의 시, build break 방지를 위해 default fun
     // this is protocol
     
 
-## 편의상 protocol ㅇ
+### 편의상 protocol 에서의 선언을 생략한다면, class 내의 재정의된 func 가 불리지 않는 문제가 발생할 수 있음!!!
