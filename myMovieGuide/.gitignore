@@ -1,0 +1,4 @@
+## XCode
+xcuserdata/
+Pods/
+Podfile.lock
