@@ -9,7 +9,8 @@
 import ReactiveSwift
 
 protocol HomeScreenInteractorProtocol: AnyObject {
-    func requestHomeData()
+    func requestHomeData(completion: @escaping ([HomeScreenCategory]) -> Void)
+    func prepareChangeToDetailScreen(data: HomeScreenCategoryContent?)
 }
 
 final class HomeScreenInteractor {
@@ -21,26 +22,47 @@ final class HomeScreenInteractor {
         disposables.dispose()
         Log.Debug(.UI, "")
     }
+    
+    private func convertData(from: [MovieGuideContentList]) -> [HomeScreenCategory] {
+        from.compactMap {
+            HomeScreenCategory(type: $0.category,
+                               title: $0.category.titleString,
+                               contents: $0.data.compactMap {
+                HomeScreenCategoryContent(id: $0.id,
+                                  image: $0.imgPath,
+                                  title: $0.title,
+                                  releaseDate: $0.releaseDate,
+                                  voting: $0.voting)
+            })
+        }
+    }
 }
 
 extension HomeScreenInteractor: HomeScreenInteractorProtocol {
     
-    func requestHomeData() {
-        guard let useCase = try? DIContainer.resolve(GetTmdbDataUseCase.self) else {
+    func requestHomeData(completion: @escaping ([HomeScreenCategory]) -> Void) {
+        guard let useCase = try? DIContainer.resolve(GetTmdbCategoryDataUseCase.self) else {
             Log.Debug(.UI, "GetHomeDataUseCase is not registered")
             return
         }
 
-        self.disposables += useCase.execute(.contentList).startWithResult { result in
+        self.disposables += useCase.execute().startWithResult { result in
             switch result {
             case .success(let value):
-                Log.Debug(.UI, "\(value)")
-                Log.Debug(.UI, "\(value.count)")
-                Log.Debug(.UI, "\(String(describing: value[value.count-1].category))")
-                Log.Debug(.UI, "\(String(describing: value[value.count-1].data.count))")
+                completion(self.convertData(from: value))
             case .failure(let error):
                 Log.Debug(.UI, error.message)
             }
         }
+    }
+    
+    func prepareChangeToDetailScreen(data: HomeScreenCategoryContent?) {
+        guard let nextData = try? DIContainer.resolve(DetailScreenContent.self) else {
+            Log.Debug(.UI, "DetailScreenContent is not registered")
+            return
+        }
+        nextData.id = data?.id
+        nextData.title = data?.title
+        nextData.image = data?.image
     }
 }

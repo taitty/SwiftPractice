@@ -23,5 +23,9 @@ final class DetailScreenPresenter {
 // MARK: - PresenterProtocol
 
 extension DetailScreenPresenter: DetailScreenPresenterProtocol {
-    func onViewDidLoad() {}
+    func onViewDidLoad() {
+        interactor.requestDetailData() { data in
+            self.view.updateScreen(data: data)
+        }
+    }
 }

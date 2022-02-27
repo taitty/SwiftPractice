@@ -1,24 +1,24 @@
-# View Data
+# ViewModel
 ### Home Screen
 ```javascript
 content {
     id: Int
     image: String
     title: String
-    year: String
+    date: String
     voting: Int
 }
  
+ 
 section {
     title: String
-    [content]
+    contents: [content]
 }
 ```
 
 ### Detail Screen
 ```javascript
 {
-    id: Int
     title: String
     image: String
     director: String
@@ -31,13 +31,15 @@ section {
 # Entity
 ```javascript
 class Content {
-    id: Int
     title: String,
     image: String,
     director: String,
     player:[String],
     description: String,
     nowOn: [String]
+    year: String
+    voting: Int
+    date: String
 }
  
  

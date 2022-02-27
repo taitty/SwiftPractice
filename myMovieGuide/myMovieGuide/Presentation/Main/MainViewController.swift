@@ -16,11 +16,13 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpScreen()
+        setupScreen()
         presenter.onViewDidLoad()
     }
 
-    private func setUpScreen() {
+    private func setupScreen() {
+        setupNavigationBar()
+        
         let interactor = MainInteractor()
         let presenter = MainPresenter()
         let wireframe = MainWireframe()
@@ -30,6 +32,12 @@ final class MainViewController: UIViewController {
         presenter.interactor = interactor
         presenter.wireframe = wireframe
         interactor.presenter = presenter
+    }
+    
+    private func setupNavigationBar() {
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
 }

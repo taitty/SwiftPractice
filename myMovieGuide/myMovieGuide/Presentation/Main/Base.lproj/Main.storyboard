@@ -34,7 +34,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="aXo-H9-eu3"/>
+                    <navigationItem key="navigationItem" id="aXo-H9-eu3">
+                        <barButtonItem key="backBarButtonItem" title=" " id="rru-UO-bRB"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

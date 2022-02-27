@@ -11,7 +11,8 @@ import Swinject
 class UseCaseDependencyAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(GetTmdbDataUseCase.self) { _ in GetTmdbDataUseCase() }
+        container.register(GetTmdbCategoryDataUseCase.self) { _ in GetTmdbCategoryDataUseCase() }
+        container.register(GetTmdbDetailDataUseCase.self) { _ in GetTmdbDetailDataUseCase() }
     }
     
 }

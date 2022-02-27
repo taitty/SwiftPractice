@@ -12,7 +12,11 @@ class CellDependencyAssembly: Assembly {
     
     func assemble(container: Container) {
         container.register(SectionContentsCellController.self) { _ in SectionContentsCellController() }
-        container.register(ContentTileCellController.self) { _ in ContentTileCellController() }
+        container.register(PopularTileCellController.self) { _ in PopularTileCellController() }
+        container.register(NowPlayingTileCellController.self) { _ in NowPlayingTileCellController() }
+        container.register(UpComingTileCellController.self) { _ in UpComingTileCellController() }
+        container.register(HomeScreenCellDelegate.self) { _ in HomeScreenCellDelegate() }.inObjectScope(.container)
+        container.register(DetailScreenContent.self) { _ in DetailScreenContent() }.inObjectScope(.container)
     }
     
 }

@@ -7,24 +7,27 @@
 
 import UIKit
 
-class SectionContentsCellController: GenericCellController<UITableView, UITableViewCell, CGFloat> {
+//class SectionContentsCellController: GenericCellController<UITableView, UITableViewCell, CGFloat> {
+class SectionContentsCellController {
     
-    override var identifier: String {
+    var identifier: String {
         return String(describing: type(of: self)).components(separatedBy: "Controller").joined()
     }
     
-    override func registerCell(on: PARAM) {
+    func registerCell(on: UITableView) {
         let contentsNib = UINib(nibName: identifier, bundle: nil)
         on.register(contentsNib, forCellReuseIdentifier: identifier)
     }
     
-    override func configurationCell(on: PARAM, indexPath: IndexPath) -> VALUE {
-        let cell = on.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        //TODO: need to implement cell configuration
+    func configurationCell(on: UITableView, data: HomeScreenCategory) -> UITableViewCell {
+        let cell = on.dequeueReusableCell(withIdentifier: identifier) as! SectionContentsCell
+        cell.type = data.type
+        cell.titleLabel.text = data.title
+        cell.sectionData = data.contents ?? []
         return cell
     }
     
-    override func getHeight() -> SIZE {
+    func getHeight() -> CGFloat {
         return 160.0
     }
     

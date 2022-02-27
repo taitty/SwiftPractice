@@ -12,6 +12,7 @@ import ReactiveSwift
 
 protocol HomeScreenPresenterProtocol: AnyObject {
     func onViewDidLoad()
+    func touchedCell(data: HomeScreenCategoryContent?)
 }
 
 final class HomeScreenPresenter {
@@ -32,8 +33,15 @@ final class HomeScreenPresenter {
 // MARK: - PresenterProtocol
 
 extension HomeScreenPresenter: HomeScreenPresenterProtocol {
+    
     func onViewDidLoad() {
-        interactor.requestHomeData()
-//        wireframe.routeToDetailScreen(from: view as! UIViewController)
+        interactor.requestHomeData() { data in
+            self.view.updateScreen(data: data)
+        }
+    }
+    
+    func touchedCell(data: HomeScreenCategoryContent?) {
+        interactor.prepareChangeToDetailScreen(data: data)
+        wireframe.routeToDetailScreen(from: view as! UIViewController)
     }
 }

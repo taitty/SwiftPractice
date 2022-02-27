@@ -6,10 +6,7 @@
 //
 
 import UIKit
-
-enum ContentTileType: Int, CaseIterable {
-    case Poster
-}
+import ReactiveSwift
 
 class SectionContentsCell: UITableViewCell {
 
@@ -17,6 +14,16 @@ class SectionContentsCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let cellFactory = ContentTileFactory()
+    var sectionData: [HomeScreenCategoryContent] = []
+    var type: MovieGuideCategory?
+    
+    private var eventHandler: HomeScreenCellDelegate? {
+        guard let handler = try? DIContainer.resolve(HomeScreenCellDelegate.self) else {
+            Log.Debug(.UI, "HomeScreenCellDelegate is not registered")
+            return nil
+        }
+        return handler
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,8 +41,12 @@ class SectionContentsCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        ContentTileType.allCases.forEach { item in
-            cellFactory.registerCells(on: collectionView, type: item)
+        registerCells()
+    }
+    
+    private func registerCells() {
+        MovieGuideCategory.allCases.forEach { type in
+            cellFactory.registerCells(on: collectionView,type: type)
         }
     }
     
@@ -43,17 +54,23 @@ class SectionContentsCell: UITableViewCell {
 
 extension SectionContentsCell: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        eventHandler?.selectedContentTileCell.value = (true, sectionData[indexPath.row])
+    }
 }
 
 extension SectionContentsCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return sectionData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let type = ContentTileType.Poster
-        return cellFactory.configurationCell(on: collectionView, type: type, indexPath: indexPath)
+        guard let type = type else {
+            Log.Debug(.UI, "\(String(describing: type)) is not valid")
+            return UICollectionViewCell()
+        }
+        return cellFactory.configurationCell(on: collectionView, type: type, data: sectionData[indexPath.row], indexPath: indexPath)
     }
     
 }
@@ -61,7 +78,10 @@ extension SectionContentsCell: UICollectionViewDataSource {
 extension SectionContentsCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let type = ContentTileType.Poster
+        guard let type = type else {
+            Log.Debug(.UI, "\(String(describing: type)) is not valid")
+            return CGSize(width: 0.0, height: 0.0)
+        }
         return cellFactory.getHeight(type: type)
     }
     

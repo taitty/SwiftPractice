@@ -15,7 +15,7 @@ protocol GenericCellProtocol {
     associatedtype SIZE
     
     func registerCell(on: PARAM)
-    func configurationCell(on: PARAM, indexPath: IndexPath) -> VALUE
+    func configurationCell<T>(on: PARAM, data: T) -> VALUE
     func getHeight() -> SIZE
     
 }
@@ -31,7 +31,7 @@ class GenericCellController<PARAM, VALUE, SIZE>: GenericCellProtocol {
         Log.Debug(.UI, "need to be implemented")
     }
     
-    func configurationCell(on: PARAM, indexPath: IndexPath) -> VALUE {
+    func configurationCell<T>(on: PARAM, data: T) -> VALUE {        
         Log.Debug(.UI, "need to be implemented")
         return VALUE.self as! VALUE
     }
@@ -40,5 +40,5 @@ class GenericCellController<PARAM, VALUE, SIZE>: GenericCellProtocol {
         Log.Debug(.UI, "need to be implemented")
         return 0.0 as! SIZE
     }
-    
+
 }

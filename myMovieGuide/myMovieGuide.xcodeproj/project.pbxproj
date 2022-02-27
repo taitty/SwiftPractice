@@ -22,22 +22,32 @@
 		A55DFFA027A38D000090FB0E /* DetailScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFF9B27A38D000090FB0E /* DetailScreenInteractor.swift */; };
 		A55DFFA127A38D000090FB0E /* DetailScreenWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFF9C27A38D000090FB0E /* DetailScreenWireframe.swift */; };
 		A55DFFAA27A3A8AC0090FB0E /* UseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFA927A3A8AC0090FB0E /* UseCaseProtocol.swift */; };
-		A55DFFAC27A3A9010090FB0E /* GetTmdbDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFAB27A3A9010090FB0E /* GetTmdbDataUseCase.swift */; };
+		A55DFFAC27A3A9010090FB0E /* GetTmdbCategoryDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFAB27A3A9010090FB0E /* GetTmdbCategoryDataUseCase.swift */; };
 		A55DFFAE27A3ACCC0090FB0E /* UseCaseDependencyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFAD27A3ACCC0090FB0E /* UseCaseDependencyAssembly.swift */; };
 		A55DFFB027B0E4860090FB0E /* TmdbDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFAF27B0E4860090FB0E /* TmdbDataSource.swift */; };
 		A55DFFB227B0E54F0090FB0E /* TmdbDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFB127B0E54F0090FB0E /* TmdbDataSourceProtocol.swift */; };
 		A55DFFB527B23DA10090FB0E /* DataSourceDependencyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFB427B23DA10090FB0E /* DataSourceDependencyAssembly.swift */; };
 		A55DFFB827B3D3120090FB0E /* MovieGuideEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFB727B3D3120090FB0E /* MovieGuideEntity.swift */; };
-		A55DFFC627B9E6380090FB0E /* ContentTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFC427B9E6380090FB0E /* ContentTileCell.swift */; };
-		A55DFFC727B9E6380090FB0E /* ContentTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55DFFC527B9E6380090FB0E /* ContentTileCell.xib */; };
+		A55DFFC627B9E6380090FB0E /* PopularTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFC427B9E6380090FB0E /* PopularTileCell.swift */; };
+		A55DFFC727B9E6380090FB0E /* PopularTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55DFFC527B9E6380090FB0E /* PopularTileCell.xib */; };
 		A55DFFCA27B9F15E0090FB0E /* SectionContentsCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55DFFC827B9F15E0090FB0E /* SectionContentsCellController.swift */; };
 		A55DFFCB27B9F15E0090FB0E /* SectionContentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A55DFFC927B9F15E0090FB0E /* SectionContentsCell.xib */; };
+		A58AE9C527BF51C90053CDE7 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9C427BF51C90053CDE7 /* HomeScreenViewModel.swift */; };
+		A58AE9CC27C31C5D0053CDE7 /* UpComingTileCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9C627C31C5D0053CDE7 /* UpComingTileCellController.swift */; };
+		A58AE9CD27C31C5D0053CDE7 /* NowPlayingTileCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9C727C31C5D0053CDE7 /* NowPlayingTileCellController.swift */; };
+		A58AE9CE27C31C5D0053CDE7 /* NowPlayingTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9C827C31C5D0053CDE7 /* NowPlayingTileCell.swift */; };
+		A58AE9CF27C31C5D0053CDE7 /* NowPlayingTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A58AE9C927C31C5D0053CDE7 /* NowPlayingTileCell.xib */; };
+		A58AE9D027C31C5D0053CDE7 /* UpComingTileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9CA27C31C5D0053CDE7 /* UpComingTileCell.swift */; };
+		A58AE9D127C31C5D0053CDE7 /* UpComingTileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A58AE9CB27C31C5D0053CDE7 /* UpComingTileCell.xib */; };
+		A58AE9D527C474450053CDE7 /* HomeScreenCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9D427C474450053CDE7 /* HomeScreenCellDelegate.swift */; };
+		A58AE9D727C4956D0053CDE7 /* DetailScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9D627C4956D0053CDE7 /* DetailScreenViewModel.swift */; };
+		A58AE9DA27C4C3530053CDE7 /* GetTmdbDetailDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AE9D927C4C3530053CDE7 /* GetTmdbDetailDataUseCase.swift */; };
 		A5A2F3AD27BB6B5F007FDB37 /* SectionCategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F3AC27BB6B5F007FDB37 /* SectionCategoryFactory.swift */; };
 		A5A2F3B027BB8B04007FDB37 /* GenericCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F3AF27BB8B04007FDB37 /* GenericCellController.swift */; };
 		A5A2F3B227BB975B007FDB37 /* CellDependencyAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F3B127BB975B007FDB37 /* CellDependencyAssembly.swift */; };
 		A5A2F3B427BBA291007FDB37 /* ContentTileFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F3B327BBA291007FDB37 /* ContentTileFactory.swift */; };
 		A5A2F3B827BBB3DC007FDB37 /* SectionContentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F3B727BBB3DC007FDB37 /* SectionContentsCell.swift */; };
-		A5A2F3BA27BCB593007FDB37 /* ContentTileCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F3B927BCB593007FDB37 /* ContentTileCellController.swift */; };
+		A5A2F3BA27BCB593007FDB37 /* PopularTileCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A2F3B927BCB593007FDB37 /* PopularTileCellController.swift */; };
 		A5D83E9B27A10B0B009FEC09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D83E9A27A10B0B009FEC09 /* AppDelegate.swift */; };
 		A5D83E9D27A10B0B009FEC09 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D83E9C27A10B0B009FEC09 /* SceneDelegate.swift */; };
 		A5D83EA227A10B0B009FEC09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D83EA027A10B0B009FEC09 /* Main.storyboard */; };
@@ -67,22 +77,32 @@
 		A55DFF9B27A38D000090FB0E /* DetailScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenInteractor.swift; sourceTree = "<group>"; };
 		A55DFF9C27A38D000090FB0E /* DetailScreenWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenWireframe.swift; sourceTree = "<group>"; };
 		A55DFFA927A3A8AC0090FB0E /* UseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseProtocol.swift; sourceTree = "<group>"; };
-		A55DFFAB27A3A9010090FB0E /* GetTmdbDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTmdbDataUseCase.swift; sourceTree = "<group>"; };
+		A55DFFAB27A3A9010090FB0E /* GetTmdbCategoryDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTmdbCategoryDataUseCase.swift; sourceTree = "<group>"; };
 		A55DFFAD27A3ACCC0090FB0E /* UseCaseDependencyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseDependencyAssembly.swift; sourceTree = "<group>"; };
 		A55DFFAF27B0E4860090FB0E /* TmdbDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbDataSource.swift; sourceTree = "<group>"; };
 		A55DFFB127B0E54F0090FB0E /* TmdbDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmdbDataSourceProtocol.swift; sourceTree = "<group>"; };
 		A55DFFB427B23DA10090FB0E /* DataSourceDependencyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceDependencyAssembly.swift; sourceTree = "<group>"; };
 		A55DFFB727B3D3120090FB0E /* MovieGuideEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGuideEntity.swift; sourceTree = "<group>"; };
-		A55DFFC427B9E6380090FB0E /* ContentTileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTileCell.swift; sourceTree = "<group>"; };
-		A55DFFC527B9E6380090FB0E /* ContentTileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentTileCell.xib; sourceTree = "<group>"; };
+		A55DFFC427B9E6380090FB0E /* PopularTileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTileCell.swift; sourceTree = "<group>"; };
+		A55DFFC527B9E6380090FB0E /* PopularTileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularTileCell.xib; sourceTree = "<group>"; };
 		A55DFFC827B9F15E0090FB0E /* SectionContentsCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionContentsCellController.swift; sourceTree = "<group>"; };
 		A55DFFC927B9F15E0090FB0E /* SectionContentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionContentsCell.xib; sourceTree = "<group>"; };
+		A58AE9C427BF51C90053CDE7 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		A58AE9C627C31C5D0053CDE7 /* UpComingTileCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingTileCellController.swift; sourceTree = "<group>"; };
+		A58AE9C727C31C5D0053CDE7 /* NowPlayingTileCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingTileCellController.swift; sourceTree = "<group>"; };
+		A58AE9C827C31C5D0053CDE7 /* NowPlayingTileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingTileCell.swift; sourceTree = "<group>"; };
+		A58AE9C927C31C5D0053CDE7 /* NowPlayingTileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NowPlayingTileCell.xib; sourceTree = "<group>"; };
+		A58AE9CA27C31C5D0053CDE7 /* UpComingTileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpComingTileCell.swift; sourceTree = "<group>"; };
+		A58AE9CB27C31C5D0053CDE7 /* UpComingTileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpComingTileCell.xib; sourceTree = "<group>"; };
+		A58AE9D427C474450053CDE7 /* HomeScreenCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellDelegate.swift; sourceTree = "<group>"; };
+		A58AE9D627C4956D0053CDE7 /* DetailScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenViewModel.swift; sourceTree = "<group>"; };
+		A58AE9D927C4C3530053CDE7 /* GetTmdbDetailDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTmdbDetailDataUseCase.swift; sourceTree = "<group>"; };
 		A5A2F3AC27BB6B5F007FDB37 /* SectionCategoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCategoryFactory.swift; sourceTree = "<group>"; };
 		A5A2F3AF27BB8B04007FDB37 /* GenericCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCellController.swift; sourceTree = "<group>"; };
 		A5A2F3B127BB975B007FDB37 /* CellDependencyAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDependencyAssembly.swift; sourceTree = "<group>"; };
 		A5A2F3B327BBA291007FDB37 /* ContentTileFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTileFactory.swift; sourceTree = "<group>"; };
 		A5A2F3B727BBB3DC007FDB37 /* SectionContentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionContentsCell.swift; sourceTree = "<group>"; };
-		A5A2F3B927BCB593007FDB37 /* ContentTileCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTileCellController.swift; sourceTree = "<group>"; };
+		A5A2F3B927BCB593007FDB37 /* PopularTileCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTileCellController.swift; sourceTree = "<group>"; };
 		A5D83E9727A10B0B009FEC09 /* myMovieGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myMovieGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D83E9A27A10B0B009FEC09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5D83E9C27A10B0B009FEC09 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,10 +186,11 @@
 			isa = PBXGroup;
 			children = (
 				A55DFF9827A38D000090FB0E /* DetailScreen.storyboard */,
-				A55DFF9927A38D000090FB0E /* DetailScreenPresenter.swift */,
 				A55DFF9A27A38D000090FB0E /* DetailScreenViewController.swift */,
+				A55DFF9927A38D000090FB0E /* DetailScreenPresenter.swift */,
 				A55DFF9B27A38D000090FB0E /* DetailScreenInteractor.swift */,
 				A55DFF9C27A38D000090FB0E /* DetailScreenWireframe.swift */,
+				A58AE9D627C4956D0053CDE7 /* DetailScreenViewModel.swift */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -196,7 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				A55DFFA927A3A8AC0090FB0E /* UseCaseProtocol.swift */,
-				A55DFFAB27A3A9010090FB0E /* GetTmdbDataUseCase.swift */,
+				A55DFFAB27A3A9010090FB0E /* GetTmdbCategoryDataUseCase.swift */,
+				A58AE9D927C4C3530053CDE7 /* GetTmdbDetailDataUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -233,6 +255,7 @@
 				A55DFFC927B9F15E0090FB0E /* SectionContentsCell.xib */,
 				A55DFFC827B9F15E0090FB0E /* SectionContentsCellController.swift */,
 				A5A2F3AC27BB6B5F007FDB37 /* SectionCategoryFactory.swift */,
+				A58AE9D427C474450053CDE7 /* HomeScreenCellDelegate.swift */,
 			);
 			path = CategoryCells;
 			sourceTree = "<group>";
@@ -240,9 +263,15 @@
 		A5A2F3AB27BB6B40007FDB37 /* TileCells */ = {
 			isa = PBXGroup;
 			children = (
-				A55DFFC427B9E6380090FB0E /* ContentTileCell.swift */,
-				A55DFFC527B9E6380090FB0E /* ContentTileCell.xib */,
-				A5A2F3B927BCB593007FDB37 /* ContentTileCellController.swift */,
+				A58AE9C827C31C5D0053CDE7 /* NowPlayingTileCell.swift */,
+				A58AE9C927C31C5D0053CDE7 /* NowPlayingTileCell.xib */,
+				A58AE9CA27C31C5D0053CDE7 /* UpComingTileCell.swift */,
+				A58AE9CB27C31C5D0053CDE7 /* UpComingTileCell.xib */,
+				A55DFFC427B9E6380090FB0E /* PopularTileCell.swift */,
+				A55DFFC527B9E6380090FB0E /* PopularTileCell.xib */,
+				A58AE9C727C31C5D0053CDE7 /* NowPlayingTileCellController.swift */,
+				A58AE9C627C31C5D0053CDE7 /* UpComingTileCellController.swift */,
+				A5A2F3B927BCB593007FDB37 /* PopularTileCellController.swift */,
 				A5A2F3B327BBA291007FDB37 /* ContentTileFactory.swift */,
 			);
 			path = TileCells;
@@ -300,6 +329,7 @@
 				A5D83ED727A13F05009FEC09 /* HomeScreenPresenter.swift */,
 				A5D83ED927A13F05009FEC09 /* HomeScreenInteractor.swift */,
 				A5D83EDA27A13F05009FEC09 /* HomeScreenWireframe.swift */,
+				A58AE9C427BF51C90053CDE7 /* HomeScreenViewModel.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -373,12 +403,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58AE9D127C31C5D0053CDE7 /* UpComingTileCell.xib in Resources */,
 				A5D83EA727A10B16009FEC09 /* LaunchScreen.storyboard in Resources */,
 				A5D83EDB27A13F05009FEC09 /* HomeScreen.storyboard in Resources */,
 				A55DFF9D27A38D000090FB0E /* DetailScreen.storyboard in Resources */,
 				A5D83EA427A10B16009FEC09 /* Assets.xcassets in Resources */,
 				A55DFFCB27B9F15E0090FB0E /* SectionContentsCell.xib in Resources */,
-				A55DFFC727B9E6380090FB0E /* ContentTileCell.xib in Resources */,
+				A58AE9CF27C31C5D0053CDE7 /* NowPlayingTileCell.xib in Resources */,
+				A55DFFC727B9E6380090FB0E /* PopularTileCell.xib in Resources */,
 				A5D83EA227A10B0B009FEC09 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,29 +471,37 @@
 				A55DFF8527A150F90090FB0E /* ScreenDependencyAssembly.swift in Sources */,
 				A5D83EDC27A13F05009FEC09 /* HomeScreenPresenter.swift in Sources */,
 				A55DFFCA27B9F15E0090FB0E /* SectionContentsCellController.swift in Sources */,
-				A5A2F3BA27BCB593007FDB37 /* ContentTileCellController.swift in Sources */,
-				A55DFFAC27A3A9010090FB0E /* GetTmdbDataUseCase.swift in Sources */,
+				A5A2F3BA27BCB593007FDB37 /* PopularTileCellController.swift in Sources */,
+				A58AE9CC27C31C5D0053CDE7 /* UpComingTileCellController.swift in Sources */,
+				A55DFFAC27A3A9010090FB0E /* GetTmdbCategoryDataUseCase.swift in Sources */,
 				A55DFFA127A38D000090FB0E /* DetailScreenWireframe.swift in Sources */,
 				A55DFFAA27A3A8AC0090FB0E /* UseCaseProtocol.swift in Sources */,
 				A5D83E9B27A10B0B009FEC09 /* AppDelegate.swift in Sources */,
+				A58AE9D027C31C5D0053CDE7 /* UpComingTileCell.swift in Sources */,
 				A55DFFB027B0E4860090FB0E /* TmdbDataSource.swift in Sources */,
 				A5A2F3AD27BB6B5F007FDB37 /* SectionCategoryFactory.swift in Sources */,
 				A55DFF8E27A20D820090FB0E /* MainViewController.swift in Sources */,
 				A55DFF9327A262FA0090FB0E /* OSLog.swift in Sources */,
 				A55DFF9E27A38D000090FB0E /* DetailScreenPresenter.swift in Sources */,
+				A58AE9C527BF51C90053CDE7 /* HomeScreenViewModel.swift in Sources */,
+				A58AE9CD27C31C5D0053CDE7 /* NowPlayingTileCellController.swift in Sources */,
 				A55DFF8127A14CC80090FB0E /* AppDependency.swift in Sources */,
 				A55DFF8327A1509E0090FB0E /* BasicDependencyAssembly.swift in Sources */,
 				A5D83E9D27A10B0B009FEC09 /* SceneDelegate.swift in Sources */,
 				A55DFFB227B0E54F0090FB0E /* TmdbDataSourceProtocol.swift in Sources */,
 				A55DFF9F27A38D000090FB0E /* DetailScreenViewController.swift in Sources */,
-				A55DFFC627B9E6380090FB0E /* ContentTileCell.swift in Sources */,
+				A55DFFC627B9E6380090FB0E /* PopularTileCell.swift in Sources */,
 				A55DFF8D27A20D820090FB0E /* MainPresenter.swift in Sources */,
+				A58AE9DA27C4C3530053CDE7 /* GetTmdbDetailDataUseCase.swift in Sources */,
 				A5A2F3B827BBB3DC007FDB37 /* SectionContentsCell.swift in Sources */,
+				A58AE9D727C4956D0053CDE7 /* DetailScreenViewModel.swift in Sources */,
+				A58AE9CE27C31C5D0053CDE7 /* NowPlayingTileCell.swift in Sources */,
 				A5D83EDD27A13F05009FEC09 /* HomeScreenViewController.swift in Sources */,
 				A5D83EDE27A13F05009FEC09 /* HomeScreenInteractor.swift in Sources */,
 				A55DFFB527B23DA10090FB0E /* DataSourceDependencyAssembly.swift in Sources */,
 				A55DFFAE27A3ACCC0090FB0E /* UseCaseDependencyAssembly.swift in Sources */,
 				A55DFFA027A38D000090FB0E /* DetailScreenInteractor.swift in Sources */,
+				A58AE9D527C474450053CDE7 /* HomeScreenCellDelegate.swift in Sources */,
 				A5A2F3B427BBA291007FDB37 /* ContentTileFactory.swift in Sources */,
 				A55DFF8F27A20D820090FB0E /* MainInteractor.swift in Sources */,
 				A5D83EDF27A13F05009FEC09 /* HomeScreenWireframe.swift in Sources */,
