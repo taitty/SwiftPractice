@@ -15,3 +15,9 @@
 
 ### myGenericViewFactory
 * TableView, CollectionView, StackView 의 Cell 등록 및 사용 테스트
+
+### myMovieGuide
+* TMDB API 를 이용한 Netflix 앱 만들기
+* 다른 UI 구성을 가지는 Cell 관리
+* Alamofire / ReactiveSwift 활용
+* Swinject 적용
