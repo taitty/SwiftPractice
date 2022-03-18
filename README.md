@@ -1,7 +1,8 @@
 ## Summary
 * Swift 코딩 연습
+--------
 
-### Notes
+### [Notes](https://github.com/taitty/SwiftPractice/tree/master/Notes)
 * Tip, Test, etc, ...
 
 ### [myViperApp](https://github.com/taitty/SwiftPractice/tree/master/myViperApp)
