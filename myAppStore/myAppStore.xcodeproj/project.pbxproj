@@ -16,6 +16,8 @@
 		BB9BC33C27E4DB4100029FE5 /* myAppStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BC33B27E4DB4100029FE5 /* myAppStoreTests.swift */; };
 		BB9BC34627E4DB4100029FE5 /* myAppStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BC34527E4DB4100029FE5 /* myAppStoreUITests.swift */; };
 		BB9BC34827E4DB4100029FE5 /* myAppStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BC34727E4DB4100029FE5 /* myAppStoreUITestsLaunchTests.swift */; };
+		BBA0042927E4E71100FD5268 /* ReactiveSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA0042827E4E71100FD5268 /* ReactiveSwift.xcframework */; };
+		BBA0042A27E4E71100FD5268 /* ReactiveSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBA0042827E4E71100FD5268 /* ReactiveSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BBA0042B27E4E71100FD5268 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BBA0042A27E4E71100FD5268 /* ReactiveSwift.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		BB9BC32127E4DB3F00029FE5 /* myAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9BC32427E4DB3F00029FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,7 @@
 		BB9BC34127E4DB4100029FE5 /* myAppStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myAppStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9BC34527E4DB4100029FE5 /* myAppStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myAppStoreUITests.swift; sourceTree = "<group>"; };
 		BB9BC34727E4DB4100029FE5 /* myAppStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myAppStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BBA0042827E4E71100FD5268 /* ReactiveSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ReactiveSwift.xcframework; path = myAppStore/Frameworks/ReactiveSwift.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA0042927E4E71100FD5268 /* ReactiveSwift.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				BB9BC33A27E4DB4100029FE5 /* myAppStoreTests */,
 				BB9BC34427E4DB4100029FE5 /* myAppStoreUITests */,
 				BB9BC32227E4DB3F00029FE5 /* Products */,
+				BBA0042327E4E6A600FD5268 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +146,14 @@
 			path = myAppStoreUITests;
 			sourceTree = "<group>";
 		};
+		BBA0042327E4E6A600FD5268 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBA0042827E4E71100FD5268 /* ReactiveSwift.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +164,7 @@
 				BB9BC31D27E4DB3F00029FE5 /* Sources */,
 				BB9BC31E27E4DB3F00029FE5 /* Frameworks */,
 				BB9BC31F27E4DB3F00029FE5 /* Resources */,
+				BBA0042B27E4E71100FD5268 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

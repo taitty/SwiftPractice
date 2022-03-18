@@ -1,2 +1,4 @@
 ## XCode
 xcuserdata/
+Carthage/
+Cartfile.resolved
