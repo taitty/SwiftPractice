@@ -4,19 +4,19 @@
 ### Notes
 * Tip, Test, etc, ...
 
-### myViperApp
+### [myViperApp](https://github.com/taitty/SwiftPractice/tree/master/myViperApp)
 * VIPER Pattern 테스트
 
-### myTableViewCell
+### [myTableViewCell](https://github.com/taitty/SwiftPractice/tree/master/myTableViewCell)
 * TableViewCell 을 등록하고, ReusableCell 로 효율적으로 불러오는 방법
 
-### myTableViewFactory
+### [myTableViewFactory](https://github.com/taitty/SwiftPractice/tree/master/myTableViewFactory)
 * TableView 의 Cell 등록 및 사용 테스트
 
-### myGenericViewFactory
+### [myGenericViewFactory](https://github.com/taitty/SwiftPractice/tree/master/myGenericViewFactory)
 * TableView, CollectionView, StackView 의 Cell 등록 및 사용 테스트
 
-### myMovieGuide
+### [myMovieGuide](https://github.com/taitty/SwiftPractice/tree/master/myMovieGuide)
 * TMDB API 를 이용한 Netflix 앱 만들기
 * 다른 UI 구성을 가지는 Cell 관리
 * Alamofire / ReactiveSwift 활용
