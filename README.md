@@ -21,3 +21,6 @@
 * 다른 UI 구성을 가지는 Cell 관리
 * Alamofire / ReactiveSwift 활용
 * Swinject 적용
+
+### [myAppStore](https://github.com/taitty/SwiftPractice/tree/master/myAppStore)
+* iTunes Search API 를 이용해서, App Store 와 동일하게 만들기
