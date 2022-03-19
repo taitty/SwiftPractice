@@ -14,3 +14,7 @@ protocol SearchScreenInteractorProtocol {
 class SearchScreenInteractor {
     
 }
+
+extension SearchScreenInteractor: SearchScreenInteractorProtocol {
+    
+}

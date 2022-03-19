@@ -8,9 +8,19 @@
 import UIKit
 
 protocol SearchScreenPresenterProtocol {
-    
+    func onViewDidLoad()
 }
 
 class SearchScreenPresenter {
     
+    var interactor: SearchScreenInteractorProtocol?
+    var router: SearchScreenRouterProtocol?
+    
+}
+
+extension SearchScreenPresenter: SearchScreenPresenterProtocol {
+    
+    func onViewDidLoad() {
+        
+    }
 }

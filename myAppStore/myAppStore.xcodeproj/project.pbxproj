@@ -16,6 +16,9 @@
 		BB9BC34827E4DB4100029FE5 /* myAppStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BC34727E4DB4100029FE5 /* myAppStoreUITestsLaunchTests.swift */; };
 		BBA0042927E4E71100FD5268 /* ReactiveSwift.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA0042827E4E71100FD5268 /* ReactiveSwift.xcframework */; };
 		BBA0042A27E4E71100FD5268 /* ReactiveSwift.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBA0042827E4E71100FD5268 /* ReactiveSwift.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBC12D5F27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC12D5E27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift */; };
+		BBC12D6127E614430037B0B6 /* SearchDetailScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC12D6027E614430037B0B6 /* SearchDetailScreenInteractor.swift */; };
+		BBC12D6327E614520037B0B6 /* SearchDetailScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC12D6227E614520037B0B6 /* SearchDetailScreenRouter.swift */; };
 		BBE48E0227E5809500C9B905 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE48E0127E5809500C9B905 /* Main.storyboard */; };
 		BBE48E0527E580FA00C9B905 /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE48E0427E580FA00C9B905 /* SearchScreenViewController.swift */; };
 		BBE48E0727E5810A00C9B905 /* SearchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE48E0627E5810A00C9B905 /* SearchScreen.storyboard */; };
@@ -85,6 +88,9 @@
 		BB9BC34527E4DB4100029FE5 /* myAppStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myAppStoreUITests.swift; sourceTree = "<group>"; };
 		BB9BC34727E4DB4100029FE5 /* myAppStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myAppStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BBA0042827E4E71100FD5268 /* ReactiveSwift.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ReactiveSwift.xcframework; path = myAppStore/Frameworks/ReactiveSwift.xcframework; sourceTree = "<group>"; };
+		BBC12D5E27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreenPresenter.swift; sourceTree = "<group>"; };
+		BBC12D6027E614430037B0B6 /* SearchDetailScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreenInteractor.swift; sourceTree = "<group>"; };
+		BBC12D6227E614520037B0B6 /* SearchDetailScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreenRouter.swift; sourceTree = "<group>"; };
 		BBE48E0127E5809500C9B905 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BBE48E0427E580FA00C9B905 /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		BBE48E0627E5810A00C9B905 /* SearchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchScreen.storyboard; sourceTree = "<group>"; };
@@ -225,6 +231,9 @@
 			children = (
 				BBE48E1027E5827000C9B905 /* SearchDetailScreen.storyboard */,
 				BBE48E1227E5828400C9B905 /* SearchDetailScreenViewController.swift */,
+				BBC12D5E27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift */,
+				BBC12D6027E614430037B0B6 /* SearchDetailScreenInteractor.swift */,
+				BBC12D6227E614520037B0B6 /* SearchDetailScreenRouter.swift */,
 			);
 			path = SearchDetailScreen;
 			sourceTree = "<group>";
@@ -482,15 +491,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBE48E2F27E5A51E00C9B905 /* SearchScreenInteractor.swift in Sources */,
+				BBC12D5F27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift in Sources */,
 				BBE48E1927E5863B00C9B905 /* GameViewController.swift in Sources */,
 				BBE48E1327E5828400C9B905 /* SearchDetailScreenViewController.swift in Sources */,
 				BBE48E3127E5A53F00C9B905 /* SearchScreenRouter.swift in Sources */,
 				BBE48E3D27E5AA7E00C9B905 /* OSLog.swift in Sources */,
 				BBE48E1E27E586DD00C9B905 /* AppViewController.swift in Sources */,
+				BBC12D6327E614520037B0B6 /* SearchDetailScreenRouter.swift in Sources */,
 				BB9BC32527E4DB3F00029FE5 /* AppDelegate.swift in Sources */,
 				BBE48E2727E5947800C9B905 /* SearchResultCell.swift in Sources */,
 				BBE48E0527E580FA00C9B905 /* SearchScreenViewController.swift in Sources */,
 				BBE48E2D27E5A4EC00C9B905 /* SearchScreenPresenter.swift in Sources */,
+				BBC12D6127E614430037B0B6 /* SearchDetailScreenInteractor.swift in Sources */,
 				BB9BC32727E4DB3F00029FE5 /* SceneDelegate.swift in Sources */,
 				BBE48E0F27E5822C00C9B905 /* TodayViewController.swift in Sources */,
 				BBE48E0927E5814100C9B905 /* MainViewController.swift in Sources */,

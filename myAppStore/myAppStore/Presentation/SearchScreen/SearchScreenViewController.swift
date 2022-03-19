@@ -9,13 +9,18 @@ import UIKit
 
 class SearchScreenViewController: UIViewController {
 
+    var presenter: SearchScreenPresenterProtocol?
+    
     @IBOutlet weak var searchResultTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Log.Debug(.UI, "")
         configuration()
+        
+        presenter?.onViewDidLoad()
     }
     
     private func configuration() {

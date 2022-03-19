@@ -9,8 +9,17 @@ import UIKit
 
 class SearchDetailScreenViewController: UIViewController {
     
+    var presenter: SearchDetailScreenPresenterProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Log.Debug(.UI, "")
         
+        configuration()
+        presenter?.onViewDidLoad()
+    }
+    
+    private func configuration() {
+
     }
 }
