@@ -9,18 +9,18 @@ import UIKit
 
 class SearchScreenViewController: UIViewController {
 
-    var presenter: SearchScreenPresenterProtocol?
+    private var viewModel: SearchScreenViewModelProtocol?
     
     @IBOutlet weak var searchResultView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         Log.Debug(.UI, "")
-        configuration()
+        super.viewDidLoad()
         
-        presenter?.onViewDidLoad()
+        configuration()
+        viewModel?.onViewDidLoad()
     }
     
     private func configuration() {
@@ -29,11 +29,21 @@ class SearchScreenViewController: UIViewController {
         
         let nib = UINib(nibName: "SearchResultCell", bundle: nil)
         searchResultView.register(nib, forCellWithReuseIdentifier: "SearchResultCell")
+        
+        viewModel = SearchScreenViewModel()
     }
 }
 
 extension SearchScreenViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.itemSelected(indexPath: indexPath)
+
+        let next = SearchDetailScreenViewController()
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
 }
 
 extension SearchScreenViewController: UICollectionViewDataSource {

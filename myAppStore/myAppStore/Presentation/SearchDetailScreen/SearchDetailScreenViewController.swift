@@ -9,17 +9,17 @@ import UIKit
 
 class SearchDetailScreenViewController: UIViewController {
     
-    var presenter: SearchDetailScreenPresenterProtocol?
+    var viewModel: SearchDetailScreenViewModelProtocol?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         Log.Debug(.UI, "")
+        super.viewDidLoad()
         
         configuration()
-        presenter?.onViewDidLoad()
+        viewModel?.onViewDidLoad()
     }
     
     private func configuration() {
-
+        viewModel = SearchDetailScreenViewModel()
     }
 }

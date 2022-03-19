@@ -16,6 +16,6 @@ class MainViewController: UITabBarController {
     }
     
     private func configuration() {
-        _ = SearchScreenRouter().create()
+
     }
 }
