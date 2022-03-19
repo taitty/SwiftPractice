@@ -12,5 +12,10 @@ class MainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Log.Debug(.UI, "")
+        configuration()
+    }
+    
+    private func configuration() {
+        _ = SearchScreenRouter().create()
     }
 }

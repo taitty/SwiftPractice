@@ -19,6 +19,8 @@
 		BBC12D5F27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC12D5E27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift */; };
 		BBC12D6127E614430037B0B6 /* SearchDetailScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC12D6027E614430037B0B6 /* SearchDetailScreenInteractor.swift */; };
 		BBC12D6327E614520037B0B6 /* SearchDetailScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC12D6227E614520037B0B6 /* SearchDetailScreenRouter.swift */; };
+		BBC12D6627E621910037B0B6 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC12D6427E621910037B0B6 /* SearchResultCell.swift */; };
+		BBC12D6727E621910037B0B6 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC12D6527E621910037B0B6 /* SearchResultCell.xib */; };
 		BBE48E0227E5809500C9B905 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE48E0127E5809500C9B905 /* Main.storyboard */; };
 		BBE48E0527E580FA00C9B905 /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE48E0427E580FA00C9B905 /* SearchScreenViewController.swift */; };
 		BBE48E0727E5810A00C9B905 /* SearchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE48E0627E5810A00C9B905 /* SearchScreen.storyboard */; };
@@ -33,8 +35,6 @@
 		BBE48E1E27E586DD00C9B905 /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE48E1D27E586DD00C9B905 /* AppViewController.swift */; };
 		BBE48E2127E5872500C9B905 /* UpdateScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBE48E2027E5872500C9B905 /* UpdateScreen.storyboard */; };
 		BBE48E2327E5875C00C9B905 /* UpdateScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE48E2227E5875C00C9B905 /* UpdateScreenViewController.swift */; };
-		BBE48E2727E5947800C9B905 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE48E2527E5947800C9B905 /* SearchResultCell.swift */; };
-		BBE48E2827E5947800C9B905 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBE48E2627E5947800C9B905 /* SearchResultCell.xib */; };
 		BBE48E2A27E59EDC00C9B905 /* Cosmos.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE48E2927E59EDB00C9B905 /* Cosmos.xcframework */; };
 		BBE48E2B27E59EDC00C9B905 /* Cosmos.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BBE48E2927E59EDB00C9B905 /* Cosmos.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BBE48E2D27E5A4EC00C9B905 /* SearchScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE48E2C27E5A4EC00C9B905 /* SearchScreenPresenter.swift */; };
@@ -91,6 +91,8 @@
 		BBC12D5E27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreenPresenter.swift; sourceTree = "<group>"; };
 		BBC12D6027E614430037B0B6 /* SearchDetailScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreenInteractor.swift; sourceTree = "<group>"; };
 		BBC12D6227E614520037B0B6 /* SearchDetailScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailScreenRouter.swift; sourceTree = "<group>"; };
+		BBC12D6427E621910037B0B6 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		BBC12D6527E621910037B0B6 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		BBE48E0127E5809500C9B905 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BBE48E0427E580FA00C9B905 /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		BBE48E0627E5810A00C9B905 /* SearchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,8 +107,6 @@
 		BBE48E1D27E586DD00C9B905 /* AppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		BBE48E2027E5872500C9B905 /* UpdateScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdateScreen.storyboard; sourceTree = "<group>"; };
 		BBE48E2227E5875C00C9B905 /* UpdateScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateScreenViewController.swift; sourceTree = "<group>"; };
-		BBE48E2527E5947800C9B905 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		BBE48E2627E5947800C9B905 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		BBE48E2927E59EDB00C9B905 /* Cosmos.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Cosmos.xcframework; path = myAppStore/Frameworks/Cosmos.xcframework; sourceTree = "<group>"; };
 		BBE48E2C27E5A4EC00C9B905 /* SearchScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenPresenter.swift; sourceTree = "<group>"; };
 		BBE48E2E27E5A51E00C9B905 /* SearchScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenInteractor.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 		BBE48E0327E580D100C9B905 /* SearchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				BBE48E2427E5943000C9B905 /* TableCell */,
+				BBE48E2427E5943000C9B905 /* Cell */,
 				BBE48E0627E5810A00C9B905 /* SearchScreen.storyboard */,
 				BBE48E0427E580FA00C9B905 /* SearchScreenViewController.swift */,
 				BBE48E2C27E5A4EC00C9B905 /* SearchScreenPresenter.swift */,
@@ -274,13 +274,13 @@
 			path = UpdateScreen;
 			sourceTree = "<group>";
 		};
-		BBE48E2427E5943000C9B905 /* TableCell */ = {
+		BBE48E2427E5943000C9B905 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				BBE48E2527E5947800C9B905 /* SearchResultCell.swift */,
-				BBE48E2627E5947800C9B905 /* SearchResultCell.xib */,
+				BBC12D6427E621910037B0B6 /* SearchResultCell.swift */,
+				BBC12D6527E621910037B0B6 /* SearchResultCell.xib */,
 			);
-			path = TableCell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BBE48E3227E5A94F00C9B905 /* Presentation */ = {
@@ -462,10 +462,10 @@
 				BBE48E0727E5810A00C9B905 /* SearchScreen.storyboard in Resources */,
 				BBE48E0227E5809500C9B905 /* Main.storyboard in Resources */,
 				BB9BC33127E4DB4100029FE5 /* LaunchScreen.storyboard in Resources */,
-				BBE48E2827E5947800C9B905 /* SearchResultCell.xib in Resources */,
 				BBE48E2127E5872500C9B905 /* UpdateScreen.storyboard in Resources */,
 				BBE48E1C27E586BF00C9B905 /* AppScreen.storyboard in Resources */,
 				BB9BC32E27E4DB4100029FE5 /* Assets.xcassets in Resources */,
+				BBC12D6727E621910037B0B6 /* SearchResultCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,12 +494,12 @@
 				BBC12D5F27E6131F0037B0B6 /* SearchDetailScreenPresenter.swift in Sources */,
 				BBE48E1927E5863B00C9B905 /* GameViewController.swift in Sources */,
 				BBE48E1327E5828400C9B905 /* SearchDetailScreenViewController.swift in Sources */,
+				BBC12D6627E621910037B0B6 /* SearchResultCell.swift in Sources */,
 				BBE48E3127E5A53F00C9B905 /* SearchScreenRouter.swift in Sources */,
 				BBE48E3D27E5AA7E00C9B905 /* OSLog.swift in Sources */,
 				BBE48E1E27E586DD00C9B905 /* AppViewController.swift in Sources */,
 				BBC12D6327E614520037B0B6 /* SearchDetailScreenRouter.swift in Sources */,
 				BB9BC32527E4DB3F00029FE5 /* AppDelegate.swift in Sources */,
-				BBE48E2727E5947800C9B905 /* SearchResultCell.swift in Sources */,
 				BBE48E0527E580FA00C9B905 /* SearchScreenViewController.swift in Sources */,
 				BBE48E2D27E5A4EC00C9B905 /* SearchScreenPresenter.swift in Sources */,
 				BBC12D6127E614430037B0B6 /* SearchDetailScreenInteractor.swift in Sources */,

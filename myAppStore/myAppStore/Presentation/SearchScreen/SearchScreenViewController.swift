@@ -11,7 +11,7 @@ class SearchScreenViewController: UIViewController {
 
     var presenter: SearchScreenPresenterProtocol?
     
-    @IBOutlet weak var searchResultTableView: UITableView!
+    @IBOutlet weak var searchResultView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIButton!
     
@@ -24,29 +24,27 @@ class SearchScreenViewController: UIViewController {
     }
     
     private func configuration() {
-        searchResultTableView.delegate = self
-        searchResultTableView.dataSource = self
+        searchResultView.delegate = self
+        searchResultView.dataSource = self
         
         let nib = UINib(nibName: "SearchResultCell", bundle: nil)
-        searchResultTableView.register(nib, forCellReuseIdentifier: "SearchResultCell")
+        searchResultView.register(nib, forCellWithReuseIdentifier: "SearchResultCell")
     }
 }
 
-extension SearchScreenViewController: UITableViewDelegate {
+extension SearchScreenViewController: UICollectionViewDelegate {
     
 }
 
-extension SearchScreenViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+extension SearchScreenViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 11
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchResultCell", for: indexPath)
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250.0
-    }
+
 }
