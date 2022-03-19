@@ -1,1 +1,2 @@
 github "ReactiveCocoa/ReactiveSwift" ~> 6.1
+github "evgenyneu/Cosmos" ~> 23.0
