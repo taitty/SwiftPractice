@@ -11,7 +11,11 @@ import UIKit
 class LabelCollectionCellController: GenericCellController<LabelCollectionCell> {
     
     override func configureCellContent(_ cell: LabelCollectionCell, data: searchDetailScreenDataModel?) {
-
+        cell.labelCollection.delegate = cell
+        cell.labelCollection.dataSource = cell
+//        cell.data = data
+        let cellFactory = SearchDetailScreenCollectionCellFactory()
+        cell.cellController = cellFactory.registerCells(collectionView: cell.labelCollection, data: layoutData)
     }
     
     override func getCellHeight() -> CGFloat {
