@@ -12,10 +12,7 @@ class ImageCollectionCellController: GenericCellController<ImageCollectionCell> 
     override func configureCellContent(_ cell: ImageCollectionCell, data: searchDetailScreenDataModel?) {
         cell.imageCollection.delegate = cell
         cell.imageCollection.dataSource = cell
-    //        cell.data = data
-        let layoutData: [String] = ["previewListCell"]
-        let cellFactory = SearchDetailScreenCollectionCellFactory()
-        cell.cellController = cellFactory.registerCells(collectionView: cell.imageCollection, data: layoutData)
+        cell.viewData = []
     }
     
     override func getCellHeight() -> CGFloat {

@@ -11,18 +11,17 @@ class ImageCollectionCell: UITableViewCell {
 
     @IBOutlet weak var imageCollection: UICollectionView!
     
-    var data: [String]?
-    var cellController: [CellController<UICollectionView>]?
+    var viewData: [SearchModel]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let nib = UINib(nibName: "PreviewListCell", bundle: nil)
+        imageCollection.register(nib, forCellWithReuseIdentifier: "PreviewListCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
@@ -34,7 +33,7 @@ extension ImageCollectionCell: UICollectionViewDelegate {
 extension ImageCollectionCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let data = data else {
+        guard let data = viewData else {
             Log.Debug(.UI, "there is no data...")
             return 0
         }
@@ -42,11 +41,16 @@ extension ImageCollectionCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cellController = cellController, let data = data else {
-            Log.Debug(.UI, "there is no data...")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PreviewListCell", for: indexPath) as? PreviewListCell else {
+            Log.Debug(.UI, "Cell is not registered...")
             return UICollectionViewCell()
         }
-        return cellController[indexPath.row].cellFromReusableCellHolder(collectionView, data: data[indexPath.row], forIndexPath: indexPath)
+        if let data = viewData,
+           let imgUrl = URL(string: data[indexPath.row].previewImage?[indexPath.row] ?? ""),
+           let data = try? Data(contentsOf: imgUrl) {
+            cell.previewImage.image = UIImage(data: data)
+        }
+        return cell
     }
     
 }

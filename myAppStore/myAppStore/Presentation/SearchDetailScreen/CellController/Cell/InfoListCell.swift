@@ -13,6 +13,7 @@ class InfoListCell: UICollectionViewCell {
     @IBOutlet weak var middleLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var iconImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

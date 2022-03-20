@@ -11,19 +11,17 @@ class LabelCollectionCell: UITableViewCell {
 
     @IBOutlet weak var labelCollection: UICollectionView!
     
-    var viewData: [String]?
-    var layoutData: [String]?
-    var cellController: [CellController<UICollectionView>]?
+    var viewData: [SearchModel]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let nib = UINib(nibName: "InfoListCell", bundle: nil)
+        labelCollection.register(nib, forCellWithReuseIdentifier: "InfoListCell")
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
@@ -43,11 +41,16 @@ extension LabelCollectionCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cellController = cellController, let data = viewData else {
-            Log.Debug(.UI, "there is no data...")
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoListCell", for: indexPath) as? InfoListCell else {
+            Log.Debug(.UI, "Cell is not registered...")
             return UICollectionViewCell()
         }
-        return cellController[indexPath.row].cellFromReusableCellHolder(collectionView, data: data[indexPath.row], forIndexPath: indexPath)
+        if let data = viewData {
+            cell.topLabel.text = data[indexPath.row].info?[indexPath.row].text_1st
+            cell.middleLabel.text = data[indexPath.row].info?[indexPath.row].text_2nd
+            cell.bottomLabel.text = data[indexPath.row].info?[indexPath.row].text_3rd
+        }
+        return cell
     }
     
 }
