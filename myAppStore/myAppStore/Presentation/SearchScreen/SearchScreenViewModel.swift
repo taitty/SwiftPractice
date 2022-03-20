@@ -7,16 +7,7 @@
 
 import UIKit
 
-protocol SearchScreenViewModelProtocol {
-    func onViewDidLoad()
-    func itemSelected(indexPath: IndexPath)
-}
-
 class SearchScreenViewModel {
-    
-}
-
-extension SearchScreenViewModel: SearchScreenViewModelProtocol {
     
     func onViewDidLoad() {
         
@@ -25,4 +16,5 @@ extension SearchScreenViewModel: SearchScreenViewModelProtocol {
     func itemSelected(indexPath: IndexPath) {
         
     }
+    
 }

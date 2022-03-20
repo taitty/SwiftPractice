@@ -9,7 +9,7 @@ import UIKit
 
 class SearchScreenViewController: UIViewController {
 
-    private var viewModel: SearchScreenViewModelProtocol?
+    private var viewModel = SearchScreenViewModel()
     
     @IBOutlet weak var searchResultView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,7 +20,7 @@ class SearchScreenViewController: UIViewController {
         super.viewDidLoad()
         
         configuration()
-        viewModel?.onViewDidLoad()
+        viewModel.onViewDidLoad()
     }
     
     private func configuration() {
@@ -29,19 +29,18 @@ class SearchScreenViewController: UIViewController {
         
         let nib = UINib(nibName: "SearchResultCell", bundle: nil)
         searchResultView.register(nib, forCellWithReuseIdentifier: "SearchResultCell")
-        
-        viewModel = SearchScreenViewModel()
     }
 }
 
 extension SearchScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel?.itemSelected(indexPath: indexPath)
+        viewModel.itemSelected(indexPath: indexPath)
 
-        let next = SearchDetailScreenViewController()
+        let storyboard = UIStoryboard(name: "SearchDetailScreen", bundle: Bundle.main)
+        let nextVC = storyboard.instantiateViewController(withIdentifier: "SearchDetailScreen")
         DispatchQueue.main.async {
-            self.navigationController?.pushViewController(next, animated: true)
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
 }
