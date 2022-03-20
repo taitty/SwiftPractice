@@ -61,32 +61,20 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcW-6l-Ex2" userLabel="Star" customClass="CosmosView" customModule="Cosmos">
-                                                <rect key="frame" x="0.0" y="50" width="100" height="25"/>
+                                                <rect key="frame" x="0.0" y="50" width="165" height="25"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="yH0-ZB-nRn"/>
-                                                </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdJ-b0-OMb" userLabel="Rating">
-                                                <rect key="frame" x="100" y="50" width="65" height="25"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="TdJ-b0-OMb" firstAttribute="top" secondItem="4lP-ov-KpS" secondAttribute="bottom" id="5vf-7X-bBe"/>
                                             <constraint firstItem="zcW-6l-Ex2" firstAttribute="leading" secondItem="scZ-7Y-J7t" secondAttribute="leading" id="Ajb-jJ-c5L"/>
-                                            <constraint firstAttribute="bottom" secondItem="TdJ-b0-OMb" secondAttribute="bottom" id="Eig-kM-MzB"/>
                                             <constraint firstItem="I6D-Rb-8Jr" firstAttribute="top" secondItem="scZ-7Y-J7t" secondAttribute="top" id="SC0-lQ-yle"/>
                                             <constraint firstItem="4lP-ov-KpS" firstAttribute="top" secondItem="I6D-Rb-8Jr" secondAttribute="bottom" id="TU8-QW-g0U"/>
                                             <constraint firstItem="4lP-ov-KpS" firstAttribute="leading" secondItem="scZ-7Y-J7t" secondAttribute="leading" id="WOc-Dm-zP7"/>
                                             <constraint firstAttribute="bottom" secondItem="zcW-6l-Ex2" secondAttribute="bottom" id="fZE-Te-fMe"/>
-                                            <constraint firstAttribute="trailing" secondItem="TdJ-b0-OMb" secondAttribute="trailing" id="fat-3n-CAu"/>
                                             <constraint firstItem="I6D-Rb-8Jr" firstAttribute="leading" secondItem="scZ-7Y-J7t" secondAttribute="leading" id="haw-ch-jGn"/>
                                             <constraint firstItem="zcW-6l-Ex2" firstAttribute="top" secondItem="4lP-ov-KpS" secondAttribute="bottom" id="se5-Hc-WA0"/>
-                                            <constraint firstItem="TdJ-b0-OMb" firstAttribute="leading" secondItem="zcW-6l-Ex2" secondAttribute="trailing" id="uQF-rF-une"/>
+                                            <constraint firstAttribute="trailing" secondItem="zcW-6l-Ex2" secondAttribute="trailing" id="vwy-kY-YsY"/>
                                             <constraint firstAttribute="trailing" secondItem="4lP-ov-KpS" secondAttribute="trailing" id="xR4-D3-XE9"/>
                                             <constraint firstAttribute="trailing" secondItem="I6D-Rb-8Jr" secondAttribute="trailing" id="yzm-c0-B1S"/>
                                         </constraints>
@@ -198,7 +186,6 @@
                 <outlet property="appIcon" destination="OQW-AR-THb" id="EwV-rm-jXr"/>
                 <outlet property="appSummary" destination="4lP-ov-KpS" id="5XF-sG-uCh"/>
                 <outlet property="appTitle" destination="I6D-Rb-8Jr" id="Kia-6J-2be"/>
-                <outlet property="rating" destination="TdJ-b0-OMb" id="ffT-yN-4kF"/>
                 <outlet property="ratingStar" destination="zcW-6l-Ex2" id="bht-JX-fle"/>
                 <outletCollection property="preview" destination="lkm-NA-TX7" collectionClass="NSMutableArray" id="NJY-PQ-EkP"/>
                 <outletCollection property="preview" destination="J8c-6i-NXg" collectionClass="NSMutableArray" id="vZW-w1-46h"/>

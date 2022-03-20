@@ -12,6 +12,10 @@
 		BB84FAF227E75145002DB863 /* InfoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB84FAF027E75145002DB863 /* InfoListCell.swift */; };
 		BB84FAF327E75145002DB863 /* InfoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB84FAF127E75145002DB863 /* InfoListCell.xib */; };
 		BB84FAFF27E774C7002DB863 /* SearchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB84FAFE27E774C7002DB863 /* SearchEntity.swift */; };
+		BB84FB0127E7A11E002DB863 /* RequestSearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB84FB0027E7A11E002DB863 /* RequestSearchUseCase.swift */; };
+		BB84FB0327E7A33E002DB863 /* AppStoreDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB84FB0227E7A33E002DB863 /* AppStoreDataSourceProtocol.swift */; };
+		BB84FB0527E7A4DA002DB863 /* AppStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB84FB0427E7A4DA002DB863 /* AppStoreDataSource.swift */; };
+		BB84FB0827E7AB57002DB863 /* MockAppStoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB84FB0727E7AB57002DB863 /* MockAppStoreData.swift */; };
 		BB9BC32527E4DB3F00029FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BC32427E4DB3F00029FE5 /* AppDelegate.swift */; };
 		BB9BC32727E4DB3F00029FE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9BC32627E4DB3F00029FE5 /* SceneDelegate.swift */; };
 		BB9BC32E27E4DB4100029FE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9BC32D27E4DB4100029FE5 /* Assets.xcassets */; };
@@ -104,6 +108,10 @@
 		BB84FAF027E75145002DB863 /* InfoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoListCell.swift; sourceTree = "<group>"; };
 		BB84FAF127E75145002DB863 /* InfoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoListCell.xib; sourceTree = "<group>"; };
 		BB84FAFE27E774C7002DB863 /* SearchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEntity.swift; sourceTree = "<group>"; };
+		BB84FB0027E7A11E002DB863 /* RequestSearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSearchUseCase.swift; sourceTree = "<group>"; };
+		BB84FB0227E7A33E002DB863 /* AppStoreDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreDataSourceProtocol.swift; sourceTree = "<group>"; };
+		BB84FB0427E7A4DA002DB863 /* AppStoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreDataSource.swift; sourceTree = "<group>"; };
+		BB84FB0727E7AB57002DB863 /* MockAppStoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppStoreData.swift; sourceTree = "<group>"; };
 		BB9BC32127E4DB3F00029FE5 /* myAppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9BC32427E4DB3F00029FE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB9BC32627E4DB3F00029FE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +227,14 @@
 				BBC12D8427E6512C0037B0B6 /* DescriptionCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		BB84FB0627E7AB38002DB863 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				BB84FB0727E7AB57002DB863 /* MockAppStoreData.swift */,
+			);
+			path = MockData;
 			sourceTree = "<group>";
 		};
 		BB9BC31827E4DB3F00029FE5 = {
@@ -434,6 +450,7 @@
 		BBE48E3627E5A9AA00C9B905 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				BB84FB0027E7A11E002DB863 /* RequestSearchUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -441,6 +458,8 @@
 		BBE48E3727E5A9B100C9B905 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				BB84FB0627E7AB38002DB863 /* MockData */,
+				BB84FB0227E7A33E002DB863 /* AppStoreDataSourceProtocol.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -448,6 +467,7 @@
 		BBE48E3827E5A9C900C9B905 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				BB84FB0427E7A4DA002DB863 /* AppStoreDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -611,12 +631,15 @@
 				BBC12D5F27E6131F0037B0B6 /* SearchDetailScreenViewModel.swift in Sources */,
 				BBE48E1927E5863B00C9B905 /* GameViewController.swift in Sources */,
 				BB84FAFF27E774C7002DB863 /* SearchEntity.swift in Sources */,
+				BB84FB0127E7A11E002DB863 /* RequestSearchUseCase.swift in Sources */,
 				BBC12D8527E6512C0037B0B6 /* DescriptionCell.swift in Sources */,
 				BBE48E1327E5828400C9B905 /* SearchDetailScreenViewController.swift in Sources */,
 				BBC12DA327E65FEB0037B0B6 /* DescriptionCellController.swift in Sources */,
 				BBC12D9427E65D360037B0B6 /* UICollectionView.swift in Sources */,
 				BBC12D6627E621910037B0B6 /* SearchResultCell.swift in Sources */,
 				BBC12D8127E64E600037B0B6 /* ImageCollectionCell.swift in Sources */,
+				BB84FB0527E7A4DA002DB863 /* AppStoreDataSource.swift in Sources */,
+				BB84FB0327E7A33E002DB863 /* AppStoreDataSourceProtocol.swift in Sources */,
 				BBC12D9027E65D130037B0B6 /* UITableView.swift in Sources */,
 				BBE48E3D27E5AA7E00C9B905 /* OSLog.swift in Sources */,
 				BBC12D9927E65DAA0037B0B6 /* CellController.swift in Sources */,
@@ -625,6 +648,7 @@
 				BB9BC32527E4DB3F00029FE5 /* AppDelegate.swift in Sources */,
 				BBC12D7827E64A210037B0B6 /* LabelCollectionCell.swift in Sources */,
 				BBE48E0527E580FA00C9B905 /* SearchScreenViewController.swift in Sources */,
+				BB84FB0827E7AB57002DB863 /* MockAppStoreData.swift in Sources */,
 				BBC12D6C27E642030037B0B6 /* TitleCell.swift in Sources */,
 				BBE48E2D27E5A4EC00C9B905 /* SearchScreenViewModel.swift in Sources */,
 				BBC12D9D27E65F250037B0B6 /* LabelCollectionCellController.swift in Sources */,

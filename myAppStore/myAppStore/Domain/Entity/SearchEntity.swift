@@ -19,7 +19,7 @@ class SearchModel {
     var appIcon: String?
     var appTitle: String?
     var summary: String?
-    var rating: String?
+    var rating: Double?
     var preview: [String]?
     
     var info: [AppInfo]?
@@ -32,4 +32,42 @@ class SearchModel {
     
     var guide: String?
     var companyName: String?
+    
+    init(type: String? = nil,
+         appIcon: String? = nil,
+         appTitle: String? = nil,
+         summary: String? = nil,
+         rating: Double? = nil,
+         preview: [String]? = nil,
+         info: [AppInfo]? = nil,
+         version: String? = nil,
+         updateDate: String? = nil,
+         history: String? = nil,
+         previewImage: [String]? = nil,
+         guide: String? = nil,
+         companyName: String? = nil) {
+        self.type = type
+        self.appIcon = appIcon
+        self.appTitle = appTitle
+        self.summary = summary
+        self.rating = rating
+        self.preview = preview
+        self.info = info
+        self.version = version
+        self.updateDate = updateDate
+        self.history = history
+        self.previewImage = previewImage
+        self.guide = guide
+        self.companyName = companyName
+    }
+}
+
+class TraceError: Error {
+    public let message: String
+    public let code: String
+    
+    public init(message: String = "", code: String = "") {
+        self.message = message
+        self.code = code
+    }
 }

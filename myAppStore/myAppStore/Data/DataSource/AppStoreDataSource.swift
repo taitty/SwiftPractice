@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import ReactiveSwift
+
+class AppStoreDataSource: AppStoreDataSourceProtocol {
+    
+}

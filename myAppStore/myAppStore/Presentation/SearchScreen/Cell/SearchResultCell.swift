@@ -14,12 +14,21 @@ class SearchResultCell: UICollectionViewCell {
     @IBOutlet weak var appTitle: UILabel!
     @IBOutlet weak var appSummary: UILabel!
     @IBOutlet weak var ratingStar: CosmosView!
-    @IBOutlet weak var rating: UILabel!
     @IBOutlet var preview: [UIImageView]!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        configuration()
+    }
+    
+    private func configuration() {
+        ratingStar.settings.updateOnTouch = false
+        ratingStar.settings.starSize = 15
+        ratingStar.settings.starMargin = 1
+        ratingStar.settings.filledColor = .gray
+        ratingStar.settings.emptyBorderColor = .gray
+        ratingStar.settings.filledBorderColor = .gray
     }
 
 }
