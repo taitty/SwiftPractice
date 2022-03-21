@@ -10,7 +10,7 @@ import UIKit
 class DescriptionCellController: GenericCellController<DescriptionCell> {
     
     override func configureCellContent(_ cell: DescriptionCell, data: SearchModel?) {
-        cell.summary.text = data?.summary
+        cell.summary.text = data?.guide
         cell.developer.text = data?.companyName
     }
     

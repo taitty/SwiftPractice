@@ -48,13 +48,21 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzZ-Pw-ugY" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="0.0" y="60" width="100" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jzZ-Pw-ugY" firstAttribute="top" secondItem="PRo-6w-qoY" secondAttribute="top" id="2nQ-48-s8h"/>
                             <constraint firstAttribute="trailing" secondItem="uBz-mp-7OH" secondAttribute="trailing" id="3Wj-fB-O4a"/>
                             <constraint firstItem="svB-aZ-CIR" firstAttribute="leading" secondItem="Scr-qU-RD4" secondAttribute="leading" id="AV0-yh-tnI"/>
                             <constraint firstItem="vXi-HN-tpf" firstAttribute="leading" secondItem="Scr-qU-RD4" secondAttribute="leading" id="Bxs-EW-R9V"/>
                             <constraint firstItem="PRo-6w-qoY" firstAttribute="leading" secondItem="Scr-qU-RD4" secondAttribute="leading" id="Gec-hC-LGH"/>
+                            <constraint firstAttribute="trailing" secondItem="jzZ-Pw-ugY" secondAttribute="trailing" id="L0J-ux-bIZ"/>
+                            <constraint firstItem="jzZ-Pw-ugY" firstAttribute="leading" secondItem="Scr-qU-RD4" secondAttribute="leading" id="Z4x-rn-oZK"/>
+                            <constraint firstItem="PRo-6w-qoY" firstAttribute="bottom" secondItem="jzZ-Pw-ugY" secondAttribute="bottom" id="aMc-ik-RZq"/>
                             <constraint firstItem="vXi-HN-tpf" firstAttribute="centerY" secondItem="Scr-qU-RD4" secondAttribute="centerY" id="bwI-ea-Ndw"/>
                             <constraint firstItem="uBz-mp-7OH" firstAttribute="top" secondItem="Scr-qU-RD4" secondAttribute="top" id="c6d-yj-NQM"/>
                             <constraint firstItem="PRo-6w-qoY" firstAttribute="top" secondItem="svB-aZ-CIR" secondAttribute="bottom" id="ctr-BE-a4d"/>
@@ -80,6 +88,7 @@
                 <outlet property="bottomLabel" destination="PRo-6w-qoY" id="kDf-Co-AqF"/>
                 <outlet property="iconImage" destination="vXi-HN-tpf" id="e1R-xF-ZKI"/>
                 <outlet property="middleLabel" destination="svB-aZ-CIR" id="uAe-RI-SPR"/>
+                <outlet property="starRating" destination="jzZ-Pw-ugY" id="Xmw-CP-Yz8"/>
                 <outlet property="topLabel" destination="uBz-mp-7OH" id="tVL-3y-39X"/>
             </connections>
             <point key="canvasLocation" x="168.11594202898553" y="113.16964285714285"/>

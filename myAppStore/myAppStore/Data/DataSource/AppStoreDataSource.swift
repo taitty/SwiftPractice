@@ -8,37 +8,39 @@
 import Foundation
 import ReactiveSwift
 
-class MoreInfo: Decodable {
-    var text_1st: String?
-    var text_2nd: String?
-    var text_3rd: String?
-}
-
 class AppStoreSearchApiModel: Decodable {
     var appTitle: String?
     var appIcon: String?
     var summary: String?
     var rating: Double?
-    var info: [MoreInfo]?
     var version: String?
     var updateDate: String?
     var history: String?
     var previewImage: [String]?
     var guide: String?
     var companyName: String?
+    var age: String?
+    var vote: Int?
+    var rank: String?
+    var genre: String?
+    var lang: [String]?
     
     enum CodingKeys: String, CodingKey {
         case appTitle = "trackName"
         case appIcon = "artworkUrl100"
         case summary = "sellerName"
         case rating = "averageUserRating"
-        case info
         case version
         case updateDate = "currentVersionReleaseDate"
         case history = "releaseNotes"
         case previewImage = "screenshotUrls"
         case guide = "description"
         case companyName = "artistName"
+        case age = "contentAdvisoryRating"
+        case vote = "userRatingCount"
+        case rank = "trackContentRating"
+        case genre = "primaryGenreName"
+        case lang = "languageCodesISO2A"
     }
 }
 
@@ -47,24 +49,29 @@ class AppStoreSearchApiResponse: Decodable {
 }
 
 class AppStoreDataSource: AppStoreDataSourceProtocol {
-    
+
     private func convertData(from: [AppStoreSearchApiModel]) -> [SearchModel] {
         from.compactMap {
-            SearchModel(appIcon: $0.appIcon,
-                        appTitle: $0.appTitle,
-                        summary: $0.summary,
-                        rating: $0.rating,
-                        info: $0.info?.compactMap {
-                            AppInfo(top: $0.text_1st,
-                                    middle: $0.text_2nd,
-                                    bottom: $0.text_3rd)
-                        },
-                        version: $0.version,
-                        updateDate: $0.updateDate,
-                        history: $0.history,
-                        previewImage: $0.previewImage,
-                        guide: $0.guide,
-                        companyName: $0.companyName)
+            var appInfo: [AppInfo]? = []
+            let rating = round(($0.rating ?? 0) * 10) / 10
+            appInfo?.append(AppInfo(type: "rating", top: "평가", middle: String(rating), rating: rating))
+            appInfo?.append(AppInfo(type: "age", top: "연령", middle: $0.age, bottom: "세"))
+            appInfo?.append(AppInfo(type: "chart", top: "차트", middle: $0.rank, bottom: $0.genre))
+            appInfo?.append(AppInfo(type: "dev", top: "개발자", bottom: $0.companyName))
+            if let lang = $0.lang, !lang.isEmpty {
+                appInfo?.append(AppInfo(type: "lang", top: "언어", middle: lang[0]))
+            }
+            return SearchModel(appIcon: $0.appIcon,
+                               appTitle: $0.appTitle,
+                               summary: $0.summary,
+                               rating: $0.rating,
+                               info: appInfo,
+                               version: $0.version,
+                               updateDate: $0.updateDate,
+                               history: $0.history,
+                               previewImage: $0.previewImage,
+                               guide: $0.guide,
+                               companyName: $0.companyName)
         }
     }
     

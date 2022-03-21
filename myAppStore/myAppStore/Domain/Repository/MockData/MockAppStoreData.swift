@@ -16,11 +16,11 @@ class MockAppStoreData {
                     summary: "Mock Data 용 Sample",
                     rating: 3.0,
                     info: [
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test")
+                        AppInfo(type: "rating", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "age", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "chart", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "dev", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "lang", top: "Test", middle: "Test", bottom: "Test", rating: 3.0)
                     ],
                     version: "0.0.1",
                     updateDate: "2022-03-21",
@@ -39,11 +39,11 @@ class MockAppStoreData {
                     summary: "Mock Data 용 Sample",
                     rating: 3.0,
                     info: [
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test")
+                        AppInfo(type: "rating", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "age", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "chart", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "dev", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "lang", top: "Test", middle: "Test", bottom: "Test", rating: 3.0)
                     ],
                     version: "0.0.1",
                     updateDate: "2022-03-21",
@@ -62,11 +62,11 @@ class MockAppStoreData {
                     summary: "Mock Data 용 Sample",
                     rating: 3.0,
                     info: [
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test")
+                        AppInfo(type: "rating", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "age", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "chart", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "dev", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "lang", top: "Test", middle: "Test", bottom: "Test", rating: 3.0)
                     ],
                     version: "0.0.1",
                     updateDate: "2022-03-21",
@@ -85,11 +85,11 @@ class MockAppStoreData {
                     summary: "Mock Data 용 Sample",
                     rating: 3.0,
                     info: [
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test")
+                        AppInfo(type: "rating", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "age", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "chart", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "dev", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "lang", top: "Test", middle: "Test", bottom: "Test", rating: 3.0)
                     ],
                     version: "0.0.1",
                     updateDate: "2022-03-21",
@@ -108,11 +108,11 @@ class MockAppStoreData {
                     summary: "Mock Data 용 Sample",
                     rating: 3.0,
                     info: [
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test")
+                        AppInfo(type: "rating", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "age", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "chart", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "dev", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "lang", top: "Test", middle: "Test", bottom: "Test", rating: 3.0)
                     ],
                     version: "0.0.1",
                     updateDate: "2022-03-21",
@@ -131,11 +131,11 @@ class MockAppStoreData {
                     summary: "Mock Data 용 Sample",
                     rating: 3.0,
                     info: [
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test")
+                        AppInfo(type: "rating", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "age", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "chart", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "dev", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "lang", top: "Test", middle: "Test", bottom: "Test", rating: 3.0)
                     ],
                     version: "0.0.1",
                     updateDate: "2022-03-21",
@@ -154,11 +154,11 @@ class MockAppStoreData {
                     summary: "Mock Data 용 Sample",
                     rating: 3.0,
                     info: [
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test"),
-                        AppInfo(top: "Test", middle: "Test", bottom: "Test")
+                        AppInfo(type: "rating", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "age", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "chart", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "dev", top: "Test", middle: "Test", bottom: "Test", rating: 3.0),
+                        AppInfo(type: "lang", top: "Test", middle: "Test", bottom: "Test", rating: 3.0)
                     ],
                     version: "0.0.1",
                     updateDate: "2022-03-21",

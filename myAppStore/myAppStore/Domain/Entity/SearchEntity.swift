@@ -8,14 +8,18 @@
 import Foundation
 
 class AppInfo {
+    var type: String
     var text_1st: String?
     var text_2nd: String?
     var text_3rd: String?
+    var rating: Double?
     
-    init(top: String?, middle: String?, bottom: String?) {
+    init(type: String, top: String? = nil, middle: String? = nil, bottom: String? = nil, rating: Double? = nil) {
+        self.type = type
         self.text_1st = top
         self.text_2nd = middle
         self.text_3rd = bottom
+        self.rating = rating
     }
 }
 
