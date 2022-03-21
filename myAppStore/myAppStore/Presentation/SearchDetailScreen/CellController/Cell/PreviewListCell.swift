@@ -13,7 +13,8 @@ class PreviewListCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        previewImage.layer.cornerRadius = 10
     }
 
 }

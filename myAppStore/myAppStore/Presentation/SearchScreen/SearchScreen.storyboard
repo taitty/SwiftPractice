@@ -27,19 +27,28 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색결과가 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0T-Ez-vgZ">
+                                <rect key="frame" x="128" y="436.5" width="158" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2X2-H5-69H" secondAttribute="bottom" id="0c1-WL-DRF"/>
+                            <constraint firstItem="d0T-Ez-vgZ" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="8Rm-WH-mmu"/>
                             <constraint firstItem="2X2-H5-69H" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="IeR-Ir-Vag"/>
                             <constraint firstItem="2X2-H5-69H" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="JZ5-DK-Su9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2X2-H5-69H" secondAttribute="trailing" constant="10" id="ahK-9C-5Ni"/>
+                            <constraint firstItem="d0T-Ez-vgZ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="eKh-Ee-vQH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oRN-Sf-mut"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="noResultLabel" destination="d0T-Ez-vgZ" id="JS1-Dc-Mwc"/>
                         <outlet property="searchResultView" destination="2X2-H5-69H" id="xin-Ot-Ddr"/>
                     </connections>
                 </viewController>

@@ -18,6 +18,7 @@ class SearchScreenViewController: UIViewController {
     private var disposables = CompositeDisposable()
     
     @IBOutlet weak var searchResultView: UICollectionView!
+    @IBOutlet weak var noResultLabel: UILabel!
     
     deinit {
         disposables.dispose()
@@ -36,6 +37,8 @@ class SearchScreenViewController: UIViewController {
         searchResultView.delegate = self
         searchResultView.dataSource = self
         
+        noResultLabel.isHidden = true
+        
         registerCell()
         setupObserver()
         setupSearchBar()
@@ -47,8 +50,9 @@ class SearchScreenViewController: UIViewController {
     }
     
     private func setupObserver() {
-        disposables += viewModel.viewData.producer.skip(while: { $0.isEmpty }).startWithValues { _ in
+        disposables += viewModel.viewData.signal.observeValues { data in
             DispatchQueue.main.async {
+                self.noResultLabel.isHidden = !data.isEmpty
                 self.searchResultView.reloadData()
             }
         }
@@ -101,10 +105,12 @@ extension SearchScreenViewController: UICollectionViewDataSource {
         }
         cell.appTitle.text = data.appTitle
         cell.appSummary.text = data.summary
-        cell.ratingStar.rating = data.rating ?? 0.0
-        cell.ratingStar.text = String(data.rating ?? 0)
+        let rating = round((data.rating ?? 0) * 10) / 10
+        cell.ratingStar.rating = rating
+        cell.ratingStar.text = String(rating)
         if let thumbnail = data.previewImage {
-            for i in 0...2 {
+            let max = thumbnail.count > 3 ? 3 : thumbnail.count
+            for i in 0..<max {
                 if let imgUrl = URL(string: thumbnail[i]), let data = try? Data(contentsOf: imgUrl) {
                     cell.thumbnail[i].image = UIImage(data: data)
                 }

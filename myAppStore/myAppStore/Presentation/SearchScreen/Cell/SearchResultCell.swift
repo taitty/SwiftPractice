@@ -29,6 +29,11 @@ class SearchResultCell: UICollectionViewCell {
         ratingStar.settings.filledColor = .gray
         ratingStar.settings.emptyBorderColor = .gray
         ratingStar.settings.filledBorderColor = .gray
+        
+        appIcon.layer.cornerRadius = 10
+        for i in 0...2 {
+            thumbnail[i].layer.cornerRadius = 10
+        }
     }
 
 }
