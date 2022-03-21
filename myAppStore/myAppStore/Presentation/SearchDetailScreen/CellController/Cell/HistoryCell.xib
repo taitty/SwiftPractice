@@ -18,22 +18,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gO6-lB-aaA" userLabel="Title">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                        <rect key="frame" x="0.0" y="5" width="320" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 기능" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdT-0y-UO8">
-                                <rect key="frame" x="0.0" y="0.0" width="230" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="230" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="blY-1T-LIL"/>
+                                    <constraint firstAttribute="height" constant="20" id="blY-1T-LIL"/>
                                     <constraint firstAttribute="width" constant="230" id="hul-51-7LU"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPu-cz-iea">
-                                <rect key="frame" x="0.0" y="39" width="230" height="21"/>
+                                <rect key="frame" x="0.0" y="40" width="230" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="NBb-aN-xrT"/>
+                                    <constraint firstAttribute="height" constant="20" id="NBb-aN-xrT"/>
                                     <constraint firstAttribute="width" constant="230" id="a5j-lj-coy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,18 +41,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4일 전" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1K-1S-VAx">
-                                <rect key="frame" x="230" y="39" width="90" height="21"/>
+                                <rect key="frame" x="230" y="40" width="90" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="xYH-IL-0XQ"/>
+                                    <constraint firstAttribute="height" constant="20" id="xYH-IL-0XQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub3-go-AMf">
-                                <rect key="frame" x="230" y="0.0" width="90" height="25"/>
+                                <rect key="frame" x="230" y="0.0" width="90" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="6vr-63-AN9"/>
+                                    <constraint firstAttribute="height" constant="20" id="6vr-63-AN9"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="버전 기록" titleAlignment="trailing">
@@ -76,10 +76,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-vk-Okq" userLabel="History">
-                        <rect key="frame" x="0.0" y="65" width="320" height="105"/>
+                        <rect key="frame" x="0.0" y="70" width="320" height="100"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="84C-cv-5kg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -97,7 +97,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gO6-lB-aaA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MRV-5N-gXA"/>
+                    <constraint firstItem="gO6-lB-aaA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="MRV-5N-gXA"/>
                     <constraint firstAttribute="trailing" secondItem="gO6-lB-aaA" secondAttribute="trailing" id="Wpu-i6-RJr"/>
                     <constraint firstItem="u1V-vk-Okq" firstAttribute="top" secondItem="gO6-lB-aaA" secondAttribute="bottom" constant="5" id="gCl-dQ-uEA"/>
                     <constraint firstAttribute="trailing" secondItem="u1V-vk-Okq" secondAttribute="trailing" id="gX5-3j-QsS"/>

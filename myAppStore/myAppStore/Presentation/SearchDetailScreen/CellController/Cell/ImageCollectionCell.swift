@@ -11,10 +11,13 @@ class ImageCollectionCell: UITableViewCell {
 
     @IBOutlet weak var imageCollection: UICollectionView!
     
-    var viewData: [SearchModel]?
+    var viewData: [String]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        imageCollection.delegate = self
+        imageCollection.dataSource = self
         
         let nib = UINib(nibName: "PreviewListCell", bundle: nil)
         imageCollection.register(nib, forCellWithReuseIdentifier: "PreviewListCell")
@@ -46,7 +49,7 @@ extension ImageCollectionCell: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         if let data = viewData,
-           let imgUrl = URL(string: data[indexPath.row].previewImage?[indexPath.row] ?? ""),
+           let imgUrl = URL(string: data[indexPath.row]),
            let data = try? Data(contentsOf: imgUrl) {
             cell.previewImage.image = UIImage(data: data)
         }

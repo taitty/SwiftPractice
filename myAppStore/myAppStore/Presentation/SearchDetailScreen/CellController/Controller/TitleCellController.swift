@@ -9,8 +9,13 @@ import UIKit
 
 class TitleCellController: GenericCellController<TitleCell> {
     
-    override func configureCellContent(_ cell: TitleCell, data: searchDetailScreenDataModel?) {
-        
+    override func configureCellContent(_ cell: TitleCell, data: SearchModel?) {
+        if let imgUrl = URL(string: data?.appIcon ?? ""),
+           let data = try? Data(contentsOf: imgUrl) {
+            cell.appIcon.image = UIImage(data: data)
+        }
+        cell.appTitle.text = data?.appTitle
+        cell.appCompany.text = data?.companyName
     }
     
     override func getCellHeight() -> CGFloat {

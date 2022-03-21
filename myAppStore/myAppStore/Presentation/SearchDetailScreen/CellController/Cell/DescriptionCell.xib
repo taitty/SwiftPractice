@@ -42,13 +42,13 @@
                         <rect key="frame" x="0.0" y="90" width="320" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="회사명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apt-au-Ig0">
-                                <rect key="frame" x="0.0" y="16" width="39" height="18"/>
+                                <rect key="frame" x="0.0" y="21" width="39" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="tintColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개발자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YY1-Jb-kn3">
-                                <rect key="frame" x="0.0" y="47" width="34" height="16"/>
+                                <rect key="frame" x="0.0" y="42" width="34" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -62,10 +62,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YY1-Jb-kn3" firstAttribute="leading" secondItem="zKW-kp-lzA" secondAttribute="leading" id="AJu-Cw-EDI"/>
-                            <constraint firstAttribute="centerY" secondItem="apt-au-Ig0" secondAttribute="centerY" constant="15" id="Tku-H3-Qbe"/>
+                            <constraint firstAttribute="centerY" secondItem="apt-au-Ig0" secondAttribute="centerY" constant="10" id="Tku-H3-Qbe"/>
                             <constraint firstItem="tzg-WT-cPW" firstAttribute="centerY" secondItem="zKW-kp-lzA" secondAttribute="centerY" id="hAc-UN-Xb3"/>
                             <constraint firstItem="apt-au-Ig0" firstAttribute="leading" secondItem="zKW-kp-lzA" secondAttribute="leading" id="iys-rM-VnS"/>
-                            <constraint firstItem="YY1-Jb-kn3" firstAttribute="centerY" secondItem="zKW-kp-lzA" secondAttribute="centerY" constant="15" id="ltm-gP-lBk"/>
+                            <constraint firstItem="YY1-Jb-kn3" firstAttribute="centerY" secondItem="zKW-kp-lzA" secondAttribute="centerY" constant="10" id="ltm-gP-lBk"/>
                             <constraint firstAttribute="trailing" secondItem="tzg-WT-cPW" secondAttribute="trailing" id="rnU-qg-dja"/>
                         </constraints>
                     </view>

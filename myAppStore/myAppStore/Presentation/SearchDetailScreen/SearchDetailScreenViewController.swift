@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 class SearchDetailScreenViewController: UIViewController {
     
@@ -15,7 +16,7 @@ class SearchDetailScreenViewController: UIViewController {
     private var cellFactory = SearchDetailScreenTableCellFactory()
     private var viewLayout: [String] = []
     private var controllers: [CellController<UITableView>] = []
-    private var viewData: searchDetailScreenDataModel?
+    private var disposables = CompositeDisposable()
     
     weak var delegate: SearchScreenDelegate?
     
@@ -29,9 +30,21 @@ class SearchDetailScreenViewController: UIViewController {
     private func configuration() {
         detailTable.delegate = self
         detailTable.dataSource = self
-        
         viewLayout = viewModel.getViewLayout()
+        registerCell()
+        setupObserver()
+    }
+    
+    private func registerCell() {
         controllers = cellFactory.registerCells(tableView: detailTable, data: viewLayout)
+    }
+    
+    private func setupObserver() {
+        disposables += viewModel.viewData.producer.skip(while: { $0 == nil }).startWithValues { _ in
+            DispatchQueue.main.async {
+                self.detailTable.reloadData()
+            }
+        }
     }
 }
 
@@ -46,7 +59,7 @@ extension SearchDetailScreenViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return controllers[indexPath.row].cellFromReusableCellHolder(tableView, data: viewData, forIndexPath: indexPath)
+        return controllers[indexPath.row].cellFromReusableCellHolder(tableView, data: viewModel.viewData.value, forIndexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

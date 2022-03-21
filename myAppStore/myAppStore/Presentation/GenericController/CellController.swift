@@ -26,7 +26,7 @@ protocol CellControllerProtocol {
     associatedtype CollectionType: ReusableCellHolder
 
     static func registerCell(on reusableCellHolder: CollectionType)
-    func cellFromReusableCellHolder(_ reusableCellHolder: CollectionType, data: searchDetailScreenDataModel?, forIndexPath indexPath: IndexPath) -> CollectionType.CellType
+    func cellFromReusableCellHolder(_ reusableCellHolder: CollectionType, data: SearchModel?, forIndexPath indexPath: IndexPath) -> CollectionType.CellType
     func didSelectCell()
     func getCellHeight() -> CGFloat
 }
@@ -47,13 +47,13 @@ class CellController<T: ReusableCellHolder>: CellControllerProtocol {
         reusableCellHolder.register(nib, forCellWithReuseIdentifier: cellIdentifier)
     }
 
-    final func cellFromReusableCellHolder(_ reusableCellHolder: T, data: searchDetailScreenDataModel?, forIndexPath indexPath: IndexPath) -> T.CellType {
+    final func cellFromReusableCellHolder(_ reusableCellHolder: T, data: SearchModel?, forIndexPath indexPath: IndexPath) -> T.CellType {
         let cell = reusableCellHolder.dequeueReusableCell(withReuseIdentifier: type(of: self).cellIdentifier, for: indexPath)
         configureCell(cell, data: data)
         return cell
     }
 
-    func configureCell(_ cell: T.CellType, data: searchDetailScreenDataModel?) {
+    func configureCell(_ cell: T.CellType, data: SearchModel?) {
         // To be defined by children. By default do nothing.
     }
     

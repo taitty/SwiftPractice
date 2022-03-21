@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ReactiveSwift
 
 private let searchDetailScreenLayoutData = [
     "titleCell",
@@ -15,38 +16,24 @@ private let searchDetailScreenLayoutData = [
     "descriptionCell"
 ]
 
-class searchDetailScreenDataModel: Codable {
-    var title: String
-    var type: String
-}
-
 class SearchDetailScreenViewModel {
     
-    func onViewDidLoad(item: String?) {
-        Log.Debug(.UI, item ?? "item is empty")
+    var viewData = MutableProperty<SearchModel?>(nil)
+    
+    func onViewDidLoad(item: SearchModel?) {
+        guard let item = item else {
+            Log.Debug(.UI, "item is empty")
+            return
+        }
+        updateData(item: item)
     }
     
     func getViewLayout() -> [String] {
         return searchDetailScreenLayoutData
     }
     
-    func getViewData() -> [searchDetailScreenDataModel] {
-        let decoder = JSONDecoder()
-        let data = searchDetailScreenData.data(using: .utf8)
-        guard let data = data else {
-            print("failed to load viewData")
-            return []
-        }
-        
-        if let data = try? decoder.decode([searchDetailScreenDataModel].self, from: data) {
-            return data
-        } else {
-            print("failed to load viewData")
-            return []
-        }
+    private func updateData(item: SearchModel) {
+        viewData.value = item
     }
     
 }
-
-let searchDetailScreenData = """
-"""

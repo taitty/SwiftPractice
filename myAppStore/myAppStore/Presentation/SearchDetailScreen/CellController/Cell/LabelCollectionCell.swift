@@ -11,10 +11,13 @@ class LabelCollectionCell: UITableViewCell {
 
     @IBOutlet weak var labelCollection: UICollectionView!
     
-    var viewData: [SearchModel]?
+    var viewData: [AppInfo]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        labelCollection.delegate = self
+        labelCollection.dataSource = self
         
         let nib = UINib(nibName: "InfoListCell", bundle: nil)
         labelCollection.register(nib, forCellWithReuseIdentifier: "InfoListCell")
@@ -46,9 +49,10 @@ extension LabelCollectionCell: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         if let data = viewData {
-            cell.topLabel.text = data[indexPath.row].info?[indexPath.row].text_1st
-            cell.middleLabel.text = data[indexPath.row].info?[indexPath.row].text_2nd
-            cell.bottomLabel.text = data[indexPath.row].info?[indexPath.row].text_3rd
+            cell.topLabel.text = data[indexPath.row].text_1st
+            cell.middleLabel.text = data[indexPath.row].text_2nd
+            cell.bottomLabel.text = data[indexPath.row].text_3rd
+            cell.iconImage.isHidden = true
         }
         return cell
     }

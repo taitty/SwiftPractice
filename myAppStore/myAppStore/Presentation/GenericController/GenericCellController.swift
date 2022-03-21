@@ -16,12 +16,12 @@ class GenericCellController<T: ReusableCell>: CellController<T.CellHolder> {
         return T.self
     }
 
-    final override func configureCell(_ cell: BaseReusableCell, data: searchDetailScreenDataModel?) {
+    final override func configureCell(_ cell: BaseReusableCell, data: SearchModel?) {
         let cell = cell as! T
         configureCellContent(cell, data: data)
     }
 
-    func configureCellContent(_ cell: T, data: searchDetailScreenDataModel?) {
+    func configureCellContent(_ cell: T, data: SearchModel?) {
         // By default do nothing.
     }
 

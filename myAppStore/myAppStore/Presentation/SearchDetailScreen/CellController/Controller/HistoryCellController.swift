@@ -9,8 +9,11 @@ import UIKit
 
 class HistoryCellController: GenericCellController<HistoryCell> {
     
-    override func configureCellContent(_ cell: HistoryCell, data: searchDetailScreenDataModel?) {
-
+    override func configureCellContent(_ cell: HistoryCell, data: SearchModel?) {
+//        cell.title.text = data?.appTitle
+        cell.version.text = data?.version
+        cell.updateTime.text = data?.updateDate
+        cell.history.text = data?.history
     }
     
     override func getCellHeight() -> CGFloat {

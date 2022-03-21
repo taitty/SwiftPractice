@@ -9,12 +9,12 @@ import Foundation
 import ReactiveSwift
 
 protocol AppStoreDataSourceProtocol {
-    func startSearch(keyword: String) -> SignalProducer<[SearchModel], TraceError>
+    func getData(keyword: String) -> SignalProducer<[SearchModel], TraceError>
 }
 
 extension AppStoreDataSourceProtocol {
     
-    func startSearch(keyword: String) -> SignalProducer<[SearchModel], TraceError> {
+    func getData(keyword: String) -> SignalProducer<[SearchModel], TraceError> {
         Log.Debug(.SERVER, "not implemented...")
         return SignalProducer { observer, _ in
             let mockDataSource = MockAppStoreData()

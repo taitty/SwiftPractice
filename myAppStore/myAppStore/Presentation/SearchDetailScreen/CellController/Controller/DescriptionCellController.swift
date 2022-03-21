@@ -9,8 +9,9 @@ import UIKit
 
 class DescriptionCellController: GenericCellController<DescriptionCell> {
     
-    override func configureCellContent(_ cell: DescriptionCell, data: searchDetailScreenDataModel?) {
-        
+    override func configureCellContent(_ cell: DescriptionCell, data: SearchModel?) {
+        cell.summary.text = data?.summary
+        cell.developer.text = data?.companyName
     }
     
     override func getCellHeight() -> CGFloat {

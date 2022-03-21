@@ -9,7 +9,7 @@ import UIKit
 import ReactiveSwift
 
 protocol SearchScreenDelegate: AnyObject {
-    func getSelectedItem() -> String?
+    func getSelectedItem() -> SearchModel?
 }
 
 class SearchScreenViewController: UIViewController {
@@ -57,7 +57,6 @@ class SearchScreenViewController: UIViewController {
     private func setupSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
-        searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "게임, 앱, 스토리 등"
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
@@ -104,24 +103,16 @@ extension SearchScreenViewController: UICollectionViewDataSource {
         cell.appSummary.text = data.summary
         cell.ratingStar.rating = data.rating ?? 0.0
         cell.ratingStar.text = String(data.rating ?? 0)
-        if let preview = data.preview {
-            for (index, imgPath) in preview.enumerated() {
-                if let imgUrl = URL(string: imgPath), let data = try? Data(contentsOf: imgUrl) {
-                    cell.preview[index].image = UIImage(data: data)
+        if let thumbnail = data.previewImage {
+            for i in 0...2 {
+                if let imgUrl = URL(string: thumbnail[i]), let data = try? Data(contentsOf: imgUrl) {
+                    cell.thumbnail[i].image = UIImage(data: data)
                 }
             }
         }
         return cell
     }
 
-}
-
-extension SearchScreenViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        Log.Debug(.UI, searchController.searchBar.text ?? "")
-    }
-    
 }
 
 extension SearchScreenViewController: UISearchBarDelegate {
@@ -137,7 +128,7 @@ extension SearchScreenViewController: UISearchBarDelegate {
 
 extension SearchScreenViewController: SearchScreenDelegate {
     
-    func getSelectedItem() -> String? {
+    func getSelectedItem() -> SearchModel? {
         return viewModel.getSelectedItem()
     }
 }

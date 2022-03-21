@@ -14,7 +14,7 @@ class SearchResultCell: UICollectionViewCell {
     @IBOutlet weak var appTitle: UILabel!
     @IBOutlet weak var appSummary: UILabel!
     @IBOutlet weak var ratingStar: CosmosView!
-    @IBOutlet var preview: [UIImageView]!
+    @IBOutlet var thumbnail: [UIImageView]!
     
     override func awakeFromNib() {
         super.awakeFromNib()

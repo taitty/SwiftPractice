@@ -10,10 +10,8 @@ import UIKit
 
 class LabelCollectionCellController: GenericCellController<LabelCollectionCell> {
     
-    override func configureCellContent(_ cell: LabelCollectionCell, data: searchDetailScreenDataModel?) {
-        cell.labelCollection.delegate = cell
-        cell.labelCollection.dataSource = cell
-        cell.viewData = []
+    override func configureCellContent(_ cell: LabelCollectionCell, data: SearchModel?) {
+        cell.viewData = data?.info
     }
     
     override func getCellHeight() -> CGFloat {

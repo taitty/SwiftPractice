@@ -11,34 +11,31 @@ class AppInfo {
     var text_1st: String?
     var text_2nd: String?
     var text_3rd: String?
+    
+    init(top: String?, middle: String?, bottom: String?) {
+        self.text_1st = top
+        self.text_2nd = middle
+        self.text_3rd = bottom
+    }
 }
 
-class SearchModel {
-    var type: String?
-    
+class SearchModel {   
     var appIcon: String?
     var appTitle: String?
     var summary: String?
     var rating: Double?
-    var preview: [String]?
-    
     var info: [AppInfo]?
-    
     var version: String?
     var updateDate: String?
     var history: String?
-    
     var previewImage: [String]?
-    
     var guide: String?
     var companyName: String?
     
-    init(type: String? = nil,
-         appIcon: String? = nil,
+    init(appIcon: String? = nil,
          appTitle: String? = nil,
          summary: String? = nil,
          rating: Double? = nil,
-         preview: [String]? = nil,
          info: [AppInfo]? = nil,
          version: String? = nil,
          updateDate: String? = nil,
@@ -46,12 +43,10 @@ class SearchModel {
          previewImage: [String]? = nil,
          guide: String? = nil,
          companyName: String? = nil) {
-        self.type = type
         self.appIcon = appIcon
         self.appTitle = appTitle
         self.summary = summary
         self.rating = rating
-        self.preview = preview
         self.info = info
         self.version = version
         self.updateDate = updateDate

@@ -8,28 +8,12 @@
 import UIKit
 import ReactiveSwift
 
-class SearchScreenViewData {
-    var appIcon: String?
-    var appTitle: String?
-    var summary: String?
-    var rating: Double?
-    var preview: [String]?
-    
-    init(appIcon: String?, appTitle: String?, summary: String?, rating: Double?, preview: [String]?) {
-        self.appIcon = appIcon
-        self.appTitle = appTitle
-        self.summary = summary
-        self.rating = rating
-        self.preview = preview
-    }
-}
-
 class SearchScreenViewModel {
     
-    var viewData = MutableProperty<[SearchScreenViewData]>([])
+    var viewData = MutableProperty<[SearchModel]>([])
     
     private var disposables = CompositeDisposable()
-    private var selectedItem: String?
+    private var selectedItem: SearchModel?
     
     deinit {
         disposables.dispose()
@@ -42,10 +26,10 @@ class SearchScreenViewModel {
     
     func setSelectedItem(index: Int) {
         Log.Debug(.UI, "")
-        selectedItem = viewData.value[index].appTitle
+        selectedItem = viewData.value[index]
     }
     
-    func getSelectedItem() -> String? {
+    func getSelectedItem() -> SearchModel? {
         return selectedItem
     }
     
@@ -59,18 +43,16 @@ class SearchScreenViewModel {
             }
             switch result {
             case .success(let data):
-                Log.Debug(.UI, "")
-                self.convertData(data: data)
+                Log.Debug(.UI, "success to get data")
+                self.updateData(data: data)
             case .failure(let error):
                 Log.Debug(.UI, error.message)
             }
         }
     }
     
-    private func convertData(data: [SearchModel]) {
-        viewData.value = data.compactMap {
-            SearchScreenViewData(appIcon: $0.appIcon, appTitle: $0.appTitle, summary: $0.summary, rating: $0.rating, preview: $0.preview)
-        }
+    private func updateData(data: [SearchModel]) {
+        viewData.value = data
     }
     
 }

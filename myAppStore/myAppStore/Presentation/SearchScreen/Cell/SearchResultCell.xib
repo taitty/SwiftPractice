@@ -187,9 +187,9 @@
                 <outlet property="appSummary" destination="4lP-ov-KpS" id="5XF-sG-uCh"/>
                 <outlet property="appTitle" destination="I6D-Rb-8Jr" id="Kia-6J-2be"/>
                 <outlet property="ratingStar" destination="zcW-6l-Ex2" id="bht-JX-fle"/>
-                <outletCollection property="preview" destination="lkm-NA-TX7" collectionClass="NSMutableArray" id="NJY-PQ-EkP"/>
-                <outletCollection property="preview" destination="J8c-6i-NXg" collectionClass="NSMutableArray" id="vZW-w1-46h"/>
-                <outletCollection property="preview" destination="shE-JI-bY0" collectionClass="NSMutableArray" id="pP9-uI-WcX"/>
+                <outletCollection property="thumbnail" destination="lkm-NA-TX7" collectionClass="NSMutableArray" id="LCM-xy-3Hl"/>
+                <outletCollection property="thumbnail" destination="J8c-6i-NXg" collectionClass="NSMutableArray" id="afA-GY-6T9"/>
+                <outletCollection property="thumbnail" destination="shE-JI-bY0" collectionClass="NSMutableArray" id="c7o-hQ-XNN"/>
             </connections>
             <point key="canvasLocation" x="-178.2608695652174" y="-42.857142857142854"/>
         </collectionViewCell>
