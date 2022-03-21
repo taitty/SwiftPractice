@@ -29,6 +29,7 @@ class SearchScreenViewModel {
     var viewData = MutableProperty<[SearchScreenViewData]>([])
     
     private var disposables = CompositeDisposable()
+    private var selectedItem: String?
     
     deinit {
         disposables.dispose()
@@ -39,8 +40,13 @@ class SearchScreenViewModel {
         Log.Debug(.UI, "")
     }
     
-    func itemSelected(indexPath: IndexPath) {
+    func setSelectedItem(index: Int) {
         Log.Debug(.UI, "")
+        selectedItem = viewData.value[index].appTitle
+    }
+    
+    func getSelectedItem() -> String? {
+        return selectedItem
     }
     
     func requestSearch(keyword: String) {

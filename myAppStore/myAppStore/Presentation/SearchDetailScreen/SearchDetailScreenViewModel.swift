@@ -22,8 +22,8 @@ class searchDetailScreenDataModel: Codable {
 
 class SearchDetailScreenViewModel {
     
-    func onViewDidLoad() {
-        Log.Debug(.UI, "")
+    func onViewDidLoad(item: String?) {
+        Log.Debug(.UI, item ?? "item is empty")
     }
     
     func getViewLayout() -> [String] {

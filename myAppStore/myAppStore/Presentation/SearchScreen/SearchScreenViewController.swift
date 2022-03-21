@@ -8,6 +8,10 @@
 import UIKit
 import ReactiveSwift
 
+protocol SearchScreenDelegate: AnyObject {
+    func getSelectedItem() -> String?
+}
+
 class SearchScreenViewController: UIViewController {
 
     private var viewModel = SearchScreenViewModel()
@@ -66,10 +70,14 @@ class SearchScreenViewController: UIViewController {
 extension SearchScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.itemSelected(indexPath: indexPath)
+        viewModel.setSelectedItem(index: indexPath.row)
 
         let storyboard = UIStoryboard(name: "SearchDetailScreen", bundle: Bundle.main)
-        let nextVC = storyboard.instantiateViewController(withIdentifier: "SearchDetailScreen")
+        guard let nextVC = storyboard.instantiateViewController(withIdentifier: "SearchDetailScreen") as? SearchDetailScreenViewController else {
+            Log.Debug(.UI, "SearchDetailScreen is invalid...")
+            return
+        }
+        nextVC.delegate = self
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
@@ -125,4 +133,11 @@ extension SearchScreenViewController: UISearchBarDelegate {
         }
     }
     
+}
+
+extension SearchScreenViewController: SearchScreenDelegate {
+    
+    func getSelectedItem() -> String? {
+        return viewModel.getSelectedItem()
+    }
 }

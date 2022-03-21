@@ -17,10 +17,12 @@ class SearchDetailScreenViewController: UIViewController {
     private var controllers: [CellController<UITableView>] = []
     private var viewData: searchDetailScreenDataModel?
     
+    weak var delegate: SearchScreenDelegate?
+    
     override func viewDidLoad() {
         Log.Debug(.UI, "")
         super.viewDidLoad()
-        viewModel.onViewDidLoad()
+        viewModel.onViewDidLoad(item: delegate?.getSelectedItem())
         configuration()
     }
     
