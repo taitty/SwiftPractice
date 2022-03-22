@@ -41,7 +41,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4일 전" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1K-1S-VAx">
-                                <rect key="frame" x="230" y="40" width="90" height="20"/>
+                                <rect key="frame" x="230" y="40" width="85" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="xYH-IL-0XQ"/>
                                 </constraints>
@@ -63,7 +63,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="O1K-1S-VAx" secondAttribute="bottom" id="0Mi-O6-lug"/>
-                            <constraint firstAttribute="trailing" secondItem="O1K-1S-VAx" secondAttribute="trailing" id="3We-IZ-EEg"/>
+                            <constraint firstAttribute="trailing" secondItem="O1K-1S-VAx" secondAttribute="trailing" constant="5" id="3We-IZ-EEg"/>
                             <constraint firstItem="SPu-cz-iea" firstAttribute="leading" secondItem="gO6-lB-aaA" secondAttribute="leading" id="6u9-R9-xf1"/>
                             <constraint firstItem="jdT-0y-UO8" firstAttribute="top" secondItem="gO6-lB-aaA" secondAttribute="top" id="8fY-g8-S3V"/>
                             <constraint firstItem="Ub3-go-AMf" firstAttribute="leading" secondItem="jdT-0y-UO8" secondAttribute="trailing" id="8mk-rD-MlS"/>
@@ -78,21 +78,44 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-vk-Okq" userLabel="History">
                         <rect key="frame" x="0.0" y="70" width="320" height="100"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="84C-cv-5kg">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84C-cv-5kg">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="4" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUH-xd-gvb">
+                                <rect key="frame" x="265" y="78" width="50" height="20"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="L6A-1x-Rdg"/>
+                                    <constraint firstAttribute="width" constant="50" id="Wzg-mA-b4h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="더 보기"/>
+                                <connections>
+                                    <action selector="pressMore:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6gp-P4-FHd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="84C-cv-5kg" firstAttribute="top" secondItem="u1V-vk-Okq" secondAttribute="top" id="DpB-GO-jqf"/>
                             <constraint firstAttribute="bottom" secondItem="84C-cv-5kg" secondAttribute="bottom" id="QdG-CD-GX8"/>
+                            <constraint firstAttribute="trailing" secondItem="lUH-xd-gvb" secondAttribute="trailing" constant="5" id="STp-gB-2Lf"/>
                             <constraint firstItem="84C-cv-5kg" firstAttribute="leading" secondItem="u1V-vk-Okq" secondAttribute="leading" id="Tvw-fl-CPN"/>
                             <constraint firstAttribute="trailing" secondItem="84C-cv-5kg" secondAttribute="trailing" id="YpE-fO-aE5"/>
+                            <constraint firstAttribute="bottom" secondItem="lUH-xd-gvb" secondAttribute="bottom" constant="2" id="omD-cR-08O"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -109,6 +132,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="history" destination="84C-cv-5kg" id="1Nt-WP-nBL"/>
+                <outlet property="moreButton" destination="lUH-xd-gvb" id="cVL-e7-9D7"/>
                 <outlet property="title" destination="jdT-0y-UO8" id="KGu-Vf-dM3"/>
                 <outlet property="updateTime" destination="O1K-1S-VAx" id="0zh-UF-nKJ"/>
                 <outlet property="version" destination="SPu-cz-iea" id="9ro-4m-I13"/>

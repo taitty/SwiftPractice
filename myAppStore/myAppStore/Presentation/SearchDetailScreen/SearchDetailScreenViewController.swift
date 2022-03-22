@@ -36,7 +36,7 @@ class SearchDetailScreenViewController: UIViewController {
     }
     
     private func registerCell() {
-        controllers = cellFactory.registerCells(tableView: detailTable, data: viewLayout)
+        controllers = cellFactory.registerCells(delegate: self, tableView: detailTable, data: viewLayout)
     }
     
     private func setupObserver() {
@@ -64,6 +64,16 @@ extension SearchDetailScreenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return controllers[indexPath.row].getCellHeight()
+    }
+    
+}
+
+extension SearchDetailScreenViewController: SearchDetailScreenDelegate {
+    
+    func updateTable() {
+        DispatchQueue.main.async {
+            self.detailTable.reloadData()
+        }
     }
     
 }

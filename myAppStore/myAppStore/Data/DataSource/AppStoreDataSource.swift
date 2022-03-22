@@ -71,7 +71,8 @@ class AppStoreDataSource: AppStoreDataSourceProtocol {
                                history: $0.history,
                                previewImage: $0.previewImage,
                                guide: $0.guide,
-                               companyName: $0.companyName)
+                               companyName: $0.companyName,
+                               vote: $0.vote)
         }
     }
     

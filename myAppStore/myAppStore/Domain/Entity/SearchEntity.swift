@@ -35,6 +35,7 @@ class SearchModel {
     var previewImage: [String]?
     var guide: String?
     var companyName: String?
+    var vote: Int?
     
     init(appIcon: String? = nil,
          appTitle: String? = nil,
@@ -46,7 +47,8 @@ class SearchModel {
          history: String? = nil,
          previewImage: [String]? = nil,
          guide: String? = nil,
-         companyName: String? = nil) {
+         companyName: String? = nil,
+         vote: Int? = nil) {
         self.appIcon = appIcon
         self.appTitle = appTitle
         self.summary = summary
@@ -58,6 +60,7 @@ class SearchModel {
         self.previewImage = previewImage
         self.guide = guide
         self.companyName = companyName
+        self.vote = vote
     }
 }
 

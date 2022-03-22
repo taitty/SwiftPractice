@@ -47,14 +47,16 @@ enum SearchDetailScreenTableCell: String, CaseIterable {
 
 class SearchDetailScreenTableCellFactory {
     
-    func registerCells(tableView: UITableView, data: [String]) -> [CellController<UITableView>] {
+    func registerCells(delegate: SearchDetailScreenViewController, tableView: UITableView, data: [String]) -> [CellController<UITableView>] {
         data.compactMap { item in
             guard let cell = SearchDetailScreenTableCell(rawValue: item) else {
                 Log.Debug(.UI, "\(item) is not supported cell...")
                 return nil
             }
             cell.type.registerCell(on: tableView)
-            return cell.controller
+            let controller = cell.controller
+            controller.delegate = delegate
+            return controller
         }
     }
     

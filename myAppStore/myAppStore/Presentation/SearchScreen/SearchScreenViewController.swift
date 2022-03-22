@@ -107,7 +107,8 @@ extension SearchScreenViewController: UICollectionViewDataSource {
         cell.appSummary.text = data.summary
         let rating = round((data.rating ?? 0) * 10) / 10
         cell.ratingStar.rating = rating
-        cell.ratingStar.text = String(rating)
+        let vote = (data.vote ?? 0) / 10000
+        cell.ratingStar.text = String(vote)+"만"
         if let thumbnail = data.previewImage {
             let max = thumbnail.count > 3 ? 3 : thumbnail.count
             for i in 0..<max {

@@ -9,6 +9,13 @@ import UIKit
 
 class HistoryCellController: GenericCellController<HistoryCell> {
     
+    private var cellHeight = 170.0 {
+        didSet {
+            delegate.updateTable()
+        }
+    }
+    private var prevValue = 0.0
+
     private func convertDate(updated: String) -> Int {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR_POSIX")
@@ -30,10 +37,15 @@ class HistoryCellController: GenericCellController<HistoryCell> {
         }
         cell.version.text = data?.version
         cell.history.text = data?.history
+        cell.expandedHeight.signal.observeValues { value in
+            if value == self.prevValue { return }
+            self.prevValue = value
+            self.cellHeight += value
+        }
     }
     
     override func getCellHeight() -> CGFloat {
-        return 170.0
+        return cellHeight
     }
 
 }

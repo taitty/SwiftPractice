@@ -31,8 +31,14 @@ protocol CellControllerProtocol {
     func getCellHeight() -> CGFloat
 }
 
+protocol SearchDetailScreenDelegate {
+    func updateTable()
+}
+
 class CellController<T: ReusableCellHolder>: CellControllerProtocol {
 
+    var delegate: SearchDetailScreenDelegate!
+    
     class var cellClass: AnyClass {
         fatalError("Must be implemented by children")
     }
