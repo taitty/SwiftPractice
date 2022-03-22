@@ -1,5 +1,5 @@
 //
-//  SearchScreenViewController.swift
+//  SearchResultScreenViewController.swift
 //  myAppStore
 //
 //  Created by 김희수 on 2022/03/19.
@@ -8,11 +8,7 @@
 import UIKit
 import ReactiveSwift
 
-protocol SearchScreenDelegate: AnyObject {
-    func getSelectedItem() -> SearchModel?
-}
-
-class SearchScreenViewController: UIViewController {
+class SearchResultScreenViewController: UIViewController {
 
     private var viewModel = SearchScreenViewModel()
     private var disposables = CompositeDisposable()
@@ -70,7 +66,7 @@ class SearchScreenViewController: UIViewController {
     
 }
 
-extension SearchScreenViewController: UICollectionViewDelegate {
+extension SearchResultScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.setSelectedItem(index: indexPath.row)
@@ -80,14 +76,16 @@ extension SearchScreenViewController: UICollectionViewDelegate {
             Log.Debug(.UI, "SearchDetailScreen is invalid...")
             return
         }
-        nextVC.delegate = self
+//        let nextViewModel = SearchDetailScreenViewModel()
+//        nextViewModel.viewData.value = viewModel.viewData.value[indexPath.row]
+        
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
 }
 
-extension SearchScreenViewController: UICollectionViewDataSource {
+extension SearchResultScreenViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.viewData.value.count
@@ -122,7 +120,7 @@ extension SearchScreenViewController: UICollectionViewDataSource {
 
 }
 
-extension SearchScreenViewController: UISearchBarDelegate {
+extension SearchResultScreenViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         Log.Debug(.UI, searchBar.text ?? "")
@@ -131,11 +129,4 @@ extension SearchScreenViewController: UISearchBarDelegate {
         }
     }
     
-}
-
-extension SearchScreenViewController: SearchScreenDelegate {
-    
-    func getSelectedItem() -> SearchModel? {
-        return viewModel.getSelectedItem()
-    }
 }

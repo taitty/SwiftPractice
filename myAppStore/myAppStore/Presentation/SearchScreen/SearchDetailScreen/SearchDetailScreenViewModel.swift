@@ -18,14 +18,10 @@ private let searchDetailScreenLayoutData = [
 
 class SearchDetailScreenViewModel {
     
-    var viewData = MutableProperty<SearchModel?>(nil)
+    let viewData = MutableProperty<SearchModel?>(nil)
     
-    func onViewDidLoad(item: SearchModel?) {
-        guard let item = item else {
-            Log.Debug(.UI, "item is empty")
-            return
-        }
-        updateData(item: item)
+    func onViewDidLoad() {
+        Log.Debug(.UI, "")
     }
     
     func getViewLayout() -> [String] {

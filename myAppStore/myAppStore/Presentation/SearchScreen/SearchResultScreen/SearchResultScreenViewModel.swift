@@ -10,7 +10,7 @@ import ReactiveSwift
 
 class SearchScreenViewModel {
     
-    var viewData = MutableProperty<[SearchModel]>([])
+    let viewData = MutableProperty<[SearchModel]>([])
     
     private var disposables = CompositeDisposable()
     private var selectedItem: SearchModel?
