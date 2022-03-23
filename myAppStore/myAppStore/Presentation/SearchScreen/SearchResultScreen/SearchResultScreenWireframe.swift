@@ -55,8 +55,8 @@ extension SearchResultScreenWireframe: SearchResultScreenWireframeProtocol {
             Log.Debug(.UI, "SearchResultScreen is not created...")
             return
         }
-        let wireframe = SearchDetailScreenWireframe()
-        wireframe.create(data: data)
+        let wireframe = SearchDetailScreenWireframe(data: data)
+        wireframe.create()
         wireframe.push(from: view)
     }
 }

@@ -14,8 +14,13 @@ protocol SearchDetailScreenWireframeProtocol {
 final class SearchDetailScreenWireframe {
 
     private var view: UIViewController?
+    private var data: SearchModel?
     
-    func create(data: SearchModel?) {
+    init(data: SearchModel?) {
+        self.data = data
+    }
+    
+    func create() {
         let presenter = SearchDetailScreenPresenter()
         let interactor = SearchDetailScreenInteractor()
         let storyboard = UIStoryboard(name: "SearchDetailScreen", bundle: Bundle.main)
