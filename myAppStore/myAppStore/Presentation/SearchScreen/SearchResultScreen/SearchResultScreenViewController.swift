@@ -8,25 +8,23 @@
 import UIKit
 import ReactiveSwift
 
-class SearchResultScreenViewController: UIViewController {
+protocol SearchResultScreenViewControllerProtocol: AnyObject {
+    func updateScreen(showMessage: Bool)
+}
 
-    private var viewModel = SearchScreenViewModel()
-    private var disposables = CompositeDisposable()
+final class SearchResultScreenViewController: UIViewController {
+
+    var presenter: SearchResultScreenPresenterProtocol?
     
     @IBOutlet weak var searchResultView: UICollectionView!
     @IBOutlet weak var noResultLabel: UILabel!
-    
-    deinit {
-        disposables.dispose()
-        Log.Debug(.UI, "")
-    }
     
     override func viewDidLoad() {
         Log.Debug(.UI, "")
         super.viewDidLoad()
         
         configuration()
-        viewModel.onViewDidLoad()
+        presenter?.onViewDidLoad()
     }
     
     private func configuration() {
@@ -34,24 +32,13 @@ class SearchResultScreenViewController: UIViewController {
         searchResultView.dataSource = self
         
         noResultLabel.isHidden = true
-        
         registerCell()
-        setupObserver()
         setupSearchBar()
     }
     
     private func registerCell() {
         let nib = UINib(nibName: "SearchResultCell", bundle: nil)
         searchResultView.register(nib, forCellWithReuseIdentifier: "SearchResultCell")
-    }
-    
-    private func setupObserver() {
-        disposables += viewModel.viewData.signal.observeValues { data in
-            DispatchQueue.main.async {
-                self.noResultLabel.isHidden = !data.isEmpty
-                self.searchResultView.reloadData()
-            }
-        }
     }
     
     private func setupSearchBar() {
@@ -66,29 +53,28 @@ class SearchResultScreenViewController: UIViewController {
     
 }
 
+extension SearchResultScreenViewController: SearchResultScreenViewControllerProtocol {
+    
+    func updateScreen(showMessage: Bool) {
+        DispatchQueue.main.async {
+            self.noResultLabel.isHidden = showMessage
+            self.searchResultView.reloadData()
+        }
+    }
+    
+}
+
 extension SearchResultScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.setSelectedItem(index: indexPath.row)
-
-        let storyboard = UIStoryboard(name: "SearchDetailScreen", bundle: Bundle.main)
-        guard let nextVC = storyboard.instantiateViewController(withIdentifier: "SearchDetailScreen") as? SearchDetailScreenViewController else {
-            Log.Debug(.UI, "SearchDetailScreen is invalid...")
-            return
-        }
-//        let nextViewModel = SearchDetailScreenViewModel()
-//        nextViewModel.viewData.value = viewModel.viewData.value[indexPath.row]
-        
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(nextVC, animated: true)
-        }
+        presenter?.itemSelected(index: indexPath.row)
     }
 }
 
 extension SearchResultScreenViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.viewData.value.count
+        return presenter?.getNumOfData() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -96,7 +82,11 @@ extension SearchResultScreenViewController: UICollectionViewDataSource {
             Log.Debug(.UI, "SearchResultCell is not registered...")
             return UICollectionViewCell()
         }
-        let data = viewModel.viewData.value[indexPath.row]
+        guard let data = presenter?.getCellData(index: indexPath.row) else {
+            Log.Debug(.UI, "data is empty...")
+            return UICollectionViewCell()
+        }
+        
         if let imgUrl = URL(string: data.appIcon ?? ""),
            let data = try? Data(contentsOf: imgUrl) {
             cell.appIcon.image = UIImage(data: data)
@@ -125,7 +115,7 @@ extension SearchResultScreenViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         Log.Debug(.UI, searchBar.text ?? "")
         if let text = searchBar.text {
-            viewModel.requestSearch(keyword: text)
+            presenter?.requestSearch(keyword: text)
         }
     }
     

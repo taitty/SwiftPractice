@@ -5,6 +5,7 @@
 //  Created by 김희수 on 2022/03/19.
 //
 
+import ReactiveSwift
 import XCTest
 @testable import myAppStore
 
@@ -18,9 +19,55 @@ class myAppStoreTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSearchUseCaseWithMock() throws {
+        let promise = expectation(description: "get mock data rightly")
+        
+        let useCase = RequestSearchUseCase(dataSource: MockAppStoreDataSource())
+        useCase.execute(keyword: "카카오").startWithResult { result in
+            promise.fulfill()
+            switch result {
+            case .success(let data):
+                XCTAssert(!data.isEmpty, "data is empty")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        wait(for: [promise], timeout: 5)
+    }
+    
+    func testSearchUseCaseEmptyResultWithReal() throws {
+        let promise = expectation(description: "get empty data")
+        
+        let useCase = RequestSearchUseCase(dataSource: AppStoreDataSource())
+        useCase.execute(keyword: "asdfasdfasdfa").startWithResult { result in
+            promise.fulfill()
+            switch result {
+            case .success(let data):
+                XCTAssert(data.isEmpty, "data is not empty")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        wait(for: [promise], timeout: 5)
+    }
+    
+    func testSearchUseCaseGetResultWithReal() throws {
+        let promise = expectation(description: "get data rightly")
+        
+        let useCase = RequestSearchUseCase(dataSource: AppStoreDataSource())
+        useCase.execute(keyword: "카카오").startWithResult { result in
+            promise.fulfill()
+            switch result {
+            case .success(let data):
+                XCTAssert(!data.isEmpty, "data is empty")
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        
+        wait(for: [promise], timeout: 5)
     }
 
     func testPerformanceExample() throws {

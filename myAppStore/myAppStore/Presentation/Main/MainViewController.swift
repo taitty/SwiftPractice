@@ -17,15 +17,16 @@ enum TabBarConfig: CaseIterable {
     var controller: UIViewController {
         switch self {
         case .today:
-            return TodayTabViewController()
+            return TodayScreenWireframe().create()
         case .game:
-            return GameTabViewController()
+            return GameScreenWireframe().create()
         case .apps:
-            return AppsTabViewController()
+            return AppScreenWireframe().create()
         case .update:
-            return UpdateTabViewController()
+            return UpdateScreenWireframe().create()
         case .search:
-            return SearchTabViewController()
+            let dataSource = SearchScreenContext.real.dataSource
+            return SearchResultScreenWireframe(dataSource: dataSource).create()
         }
     }
     
@@ -68,18 +69,14 @@ class MainViewController: UITabBarController {
         
         let controllers: [UIViewController] = TabBarConfig.allCases.map {
             let controller = $0.controller
-            controller.tabBarItem = UITabBarItem(title: $0.title, image: UIImage(named: $0.icon), selectedImage: UIImage(named: $0.icon))
+            controller.tabBarItem = UITabBarItem(title: $0.title, image: UIImage(systemName: $0.icon), selectedImage: UIImage(systemName: $0.icon))
             return controller
         }
-        let tabControllers: [UINavigationController] = controllers.map {
-            UINavigationController(rootViewController: $0)
-        }
-        setViewControllers(tabControllers, animated: true)
+        setViewControllers(controllers, animated: true)
         configuration()
     }
     
     private func configuration() {
-//        tabBar.backgroundColor = .gray
         selectedIndex = 4
     }
 }

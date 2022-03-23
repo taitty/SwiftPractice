@@ -1,5 +1,5 @@
 //
-//  MockAppStoreData.swift
+//  MockAppStoreDataSource.swift
 //  myAppStore
 //
 //  Created by 김희수 on 2022/03/21.
@@ -8,8 +8,21 @@
 import Foundation
 import ReactiveSwift
 
-class MockAppStoreData {
+class MockAppStoreDataSource: AppStoreDataSourceProtocol {
+    
+    func getData(keyword: String) -> SignalProducer<[SearchModel], TraceError> {
+        Log.Debug(.SERVER, "not implemented...")
+        return SignalProducer { observer, _ in
+            let mockDataSource = MockAppStoreData()
+            observer.send(value: mockDataSource.getData())
+            observer.sendCompleted()
+        }
+    }
+    
+}
 
+class MockAppStoreData {
+    
     private let dummy_searchModel: [SearchModel] = [
         SearchModel(appIcon: "https://i.pinimg.com/originals/27/bb/a2/27bba208a1f0a54544aed6a66e5e3331.png",
                     appTitle: "Sample",
