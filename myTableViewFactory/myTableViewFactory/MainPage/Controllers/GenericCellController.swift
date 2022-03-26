@@ -18,8 +18,7 @@ class GenericCellController {
         return String(describing: cellClass)
     }
     
-    func getCell(tableView: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: type(of: self).cellIdentifier, for: indexPath)
-        return cell
+    func configurationCell(on: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }

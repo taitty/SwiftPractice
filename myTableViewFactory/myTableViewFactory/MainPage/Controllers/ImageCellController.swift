@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 class ImageCellController: GenericCellController {
     
     override class var cellClass: AnyClass {
         return self
+    }
+    
+    override func configurationCell(on: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell {
+        let cell = on.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
+        cell.previewView.image = UIImage(named: data.imgPath)
+        return cell
     }
 }
 

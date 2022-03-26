@@ -6,7 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 class LabelCellController: GenericCellController {
+    
+    override class var cellClass: AnyClass {
+        return self
+    }
+    
+    override func configurationCell(on: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell {
+        let cell = on.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath) as! LabelCell
+        cell.firstLabel.text = data.firstString
+        cell.secondLabel.text = data.secondString
+        return cell
+    }
     
 }
