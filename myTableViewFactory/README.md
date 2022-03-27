@@ -4,6 +4,7 @@
 
 
 # Before
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myTableViewFactory/before-layout.drawio.svg">
 
 
 # After
