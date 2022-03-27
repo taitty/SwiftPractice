@@ -7,4 +7,4 @@
 
 
 # After
-<img src="https://github.com/taitty/SwiftPractice/blob/master/myTableViewFactory/class-layout.drawio.svg">
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myTableViewFactory/after-layout.drawio.svg">
