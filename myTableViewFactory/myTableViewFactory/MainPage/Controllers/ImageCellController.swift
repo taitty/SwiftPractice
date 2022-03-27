@@ -16,8 +16,12 @@ class ImageCellController: GenericCellController {
     
     override func configurationCell(on: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell {
         let cell = on.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
-        cell.previewView.image = UIImage(named: data.imgPath)
+        cell.previewView.image = UIImage(systemName: data.imgPath)
         return cell
+    }
+    
+    override func getHeightForCell() -> CGFloat {
+        return 160.0
     }
 }
 

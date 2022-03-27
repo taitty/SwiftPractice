@@ -34,6 +34,7 @@ enum CellType: String, CaseIterable {
 protocol CellFactoryProtocol {
     func registerCell(on: UITableView)
     func configurationCell(on: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell?
+    func getHeightForCell(type: String) -> CGFloat
 }
 
 class CellFactory: CellFactoryProtocol {
@@ -48,5 +49,10 @@ class CellFactory: CellFactoryProtocol {
     func configurationCell(on: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell? {
         let type = CellType(rawValue: data.type)
         return type?.controller.configurationCell(on: on, data: data, indexPath: indexPath)
+    }
+    
+    func getHeightForCell(type: String) -> CGFloat {
+        let type = CellType(rawValue: type)
+        return type?.controller.getHeightForCell() ?? 0.0
     }
 }

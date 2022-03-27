@@ -24,7 +24,7 @@ class MainPageViewController: UIViewController {
     let viewData: [CellData] = [
         CellData(type: "labelCell", firstString: "text1", secondString: "text2", imgPath: ""),
         CellData(type: "labelCell", firstString: "string1", secondString: "string2", imgPath: ""),
-        CellData(type: "imageCell", firstString: "", secondString: "", imgPath: "home/test.jpg"),
+        CellData(type: "imageCell", firstString: "", secondString: "", imgPath: "pencil"),
     ]
 
     override func viewDidLoad() {
@@ -48,6 +48,10 @@ extension MainPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return cellFactory?.configurationCell(on: tableView, data: viewData[indexPath.row], indexPath: indexPath) ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return cellFactory?.getHeightForCell(type: viewData[indexPath.row].type) ?? 0.0
     }
     
 }

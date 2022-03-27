@@ -21,4 +21,8 @@ class LabelCellController: GenericCellController {
         return cell
     }
     
+    override func getHeightForCell() -> CGFloat {
+        return 120.0
+    }
+    
 }

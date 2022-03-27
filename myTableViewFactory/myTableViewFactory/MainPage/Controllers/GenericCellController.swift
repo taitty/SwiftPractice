@@ -21,4 +21,8 @@ class GenericCellController {
     func configurationCell(on: UITableView, data: CellData, indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+    
+    func getHeightForCell() -> CGFloat {
+        return 0.0
+    }
 }
