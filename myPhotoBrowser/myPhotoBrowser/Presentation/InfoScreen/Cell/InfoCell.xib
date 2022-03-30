@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InfoCell" id="gTV-IL-0wX" customClass="InfoCell" customModule="myPhotoBrowser" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fpR-VS-TaH">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtg-Jb-LHc">
+                                <rect key="frame" x="5" y="7" width="21" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdA-aa-SS8">
+                                <rect key="frame" x="5" y="26.5" width="34" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="mdA-aa-SS8" firstAttribute="centerY" secondItem="fpR-VS-TaH" secondAttribute="centerY" constant="10" id="TGm-94-Mcu"/>
+                            <constraint firstItem="qtg-Jb-LHc" firstAttribute="leading" secondItem="fpR-VS-TaH" secondAttribute="leading" constant="5" id="klv-h6-2fy"/>
+                            <constraint firstItem="qtg-Jb-LHc" firstAttribute="centerY" secondItem="fpR-VS-TaH" secondAttribute="centerY" constant="-10" id="kyt-iX-QDx"/>
+                            <constraint firstItem="mdA-aa-SS8" firstAttribute="leading" secondItem="fpR-VS-TaH" secondAttribute="leading" constant="5" id="zMV-y7-Diy"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fpR-VS-TaH" secondAttribute="trailing" id="MzL-xT-WaN"/>
+                <constraint firstItem="fpR-VS-TaH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XEk-qR-tlu"/>
+                <constraint firstAttribute="bottom" secondItem="fpR-VS-TaH" secondAttribute="bottom" id="j65-Nn-BoP"/>
+                <constraint firstItem="fpR-VS-TaH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lNm-1v-wE3"/>
+            </constraints>
+            <size key="customSize" width="150" height="50"/>
+            <connections>
+                <outlet property="keyLabel" destination="qtg-Jb-LHc" id="4hU-2e-j3d"/>
+                <outlet property="valueLabel" destination="mdA-aa-SS8" id="153-Tl-b6h"/>
+            </connections>
+            <point key="canvasLocation" x="204.34782608695653" y="79.6875"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
