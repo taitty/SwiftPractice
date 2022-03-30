@@ -62,7 +62,7 @@ extension BrowseScreenWireframe: BrowseScreenWireframeProtocol {
             return
         }
         let wireframe = DetailScreenWireframe(dataSource: dataSource, content: content)
-        wireframe.setup()
+        _ = wireframe.setup()
         wireframe.push(from: view)
     }
 }

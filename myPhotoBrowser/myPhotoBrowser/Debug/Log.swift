@@ -8,6 +8,16 @@
 import Foundation
 import os
 
+class TraceError: Error {
+    public let message: String
+    public let code: String
+    
+    public init(message: String = "", code: String = "") {
+        self.message = message
+        self.code = code
+    }
+}
+
 enum ServiceType: String {
     case UI = "UI"
     case SERVER = "SERVER"

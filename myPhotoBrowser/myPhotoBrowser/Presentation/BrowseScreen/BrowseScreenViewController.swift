@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 final class BrowseScreenViewController: UIViewController {
     
     var presenter: BrowseScreenPresenterProtocol?
-    var viewModel: [PhotoInfo] = []
+    private var viewData: [PhotoInfo] = []
+    private var cancellable = Set<AnyCancellable>()
     
     @IBOutlet weak var imageListView: UICollectionView!
     
@@ -22,6 +24,9 @@ final class BrowseScreenViewController: UIViewController {
         
         registerCell()
         configSearchBar()
+        setObserver()
+        
+        presenter?.onViewDidLoad()
     }
     
     private func registerCell() {
@@ -36,6 +41,20 @@ final class BrowseScreenViewController: UIViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationItem.searchController = searchController
     }
+    
+    private func setObserver() {
+        let dataObserver = presenter?.dataChecker
+        dataObserver?.sink {
+            if !$0.isEmpty {
+                Log.Debug(.UI, "new data is updated")
+                self.viewData = $0
+                DispatchQueue.main.async {
+                    self.imageListView.reloadData()
+                }
+            }
+        }.store(in: &cancellable)
+    }
+    
 }
 
 extension BrowseScreenViewController: UISearchBarDelegate {
@@ -52,14 +71,15 @@ extension BrowseScreenViewController: UISearchBarDelegate {
 extension BrowseScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.cellSelected(id: viewModel[indexPath.row].id)
+        presenter?.cellSelected(id: viewData[indexPath.row].id)
     }
+    
 }
 
 extension BrowseScreenViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -73,4 +93,5 @@ extension BrowseScreenViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: imageListView.frame.size.width  , height:  imageListView.frame.height)
     }
+    
 }
