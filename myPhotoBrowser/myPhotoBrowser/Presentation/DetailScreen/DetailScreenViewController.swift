@@ -25,6 +25,18 @@ final class DetailScreenViewController: UIViewController {
         detailListView.dataSource = self
         
         registerCell()
+        configuration()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            self?.artistLabel.text = self?.viewData?[self?.currentIdx ?? 0].artist
+            self?.detailListView.scrollToItem(at: IndexPath(row: self?.currentIdx ?? 0, section: 0), at: .centeredVertically, animated: false)
+        }
+    }
+    
+    private func configuration() {
+
     }
     
     private func registerCell() {
@@ -50,6 +62,14 @@ extension DetailScreenViewController: UICollectionViewDelegate {
         self.infoButton.isHidden = !self.infoButton.isHidden
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        for cell in detailListView.visibleCells {
+            let indexPath = detailListView.indexPath(for: cell)
+            if let index = indexPath?.row {
+                artistLabel.text = viewData?[index].artist
+            }
+        }
+    }
 }
 
 extension DetailScreenViewController: UICollectionViewDataSource {
@@ -64,7 +84,6 @@ extension DetailScreenViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        artistLabel.text = cellData.artist
         if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
             cell.imageView.image = UIImage(data: data)
         }
