@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol DetailScreenWireframeProtocol {
-
+    func routeToInfoScreen(id: String)
 }
 
 final class DetailScreenWireframe {
@@ -38,7 +38,6 @@ final class DetailScreenWireframe {
         presenter.interactor = interactor
         presenter.wireframe = self
         interactor.dataSource = self.dataSource
-        interactor.currentIdx = self.currentIdx
         
         guard let view = view else {
             Log.Debug(.UI, "failed to setup DetailScreen...")
@@ -57,4 +56,16 @@ final class DetailScreenWireframe {
     }
 }
 
-extension DetailScreenWireframe: DetailScreenWireframeProtocol {}
+extension DetailScreenWireframe: DetailScreenWireframeProtocol {
+    
+    func routeToInfoScreen(id: String) {
+        guard let view = self.view else {
+            Log.Debug(.UI, "DetailScreen is not created...")
+            return
+        }
+        
+        let wireframe = InfoScreenWireframe(dataSource: dataSource, id: id)
+        _ = wireframe.setup()
+        wireframe.push(from: view)
+    }
+}

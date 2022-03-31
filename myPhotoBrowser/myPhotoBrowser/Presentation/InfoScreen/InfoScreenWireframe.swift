@@ -14,11 +14,13 @@ protocol InfoScreenWireframeProtocol {
 
 final class InfoScreenWireframe {
     
-    private var dataSource: String?
+    private var dataSource: UnsplashDataSourceProtocol
     private var view: UIViewController?
+    private var contentId: String
     
-    init(dataSource: String?) {
+    init(dataSource: UnsplashDataSourceProtocol, id: String) {
         self.dataSource = dataSource
+        self.contentId = id
     }
     
     func setup() -> UIViewController {
@@ -32,6 +34,7 @@ final class InfoScreenWireframe {
         presenter.interactor = interactor
         presenter.wireframe = self
         interactor.dataSource = dataSource
+        interactor.contentId = contentId
         
         guard let view = view else {
             Log.Debug(.UI, "failed to setup InfoScreen...")

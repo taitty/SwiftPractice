@@ -7,7 +7,9 @@
 
 import Foundation
 
-protocol DetailScreenPresenterProtocol {}
+protocol DetailScreenPresenterProtocol {
+    func pressInfoButton(contentId: String)
+}
 
 final class DetailScreenPresenter {
     
@@ -15,4 +17,9 @@ final class DetailScreenPresenter {
     var wireframe: DetailScreenWireframeProtocol?
 }
 
-extension DetailScreenPresenter: DetailScreenPresenterProtocol {}
+extension DetailScreenPresenter: DetailScreenPresenterProtocol {
+    
+    func pressInfoButton(contentId: String) {
+        wireframe?.routeToInfoScreen(id: contentId)
+    }
+}

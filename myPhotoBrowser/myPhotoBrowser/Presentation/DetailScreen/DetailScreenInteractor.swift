@@ -12,7 +12,7 @@ protocol DetailScreenInteractorProtocol {}
 final class DetailScreenInteractor {
     
     var dataSource: UnsplashDataSourceProtocol?
-    var currentIdx: Int?
+    
 }
 
 extension DetailScreenInteractor: DetailScreenInteractorProtocol {}

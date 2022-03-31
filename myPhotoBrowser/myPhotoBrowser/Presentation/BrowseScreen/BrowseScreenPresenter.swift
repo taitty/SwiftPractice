@@ -10,6 +10,7 @@ import Combine
 
 protocol BrowseScreenPresenterProtocol {
     var dataChecker: Published<[PhotoInfo]>.Publisher { get }
+    
     func cellSelected(index: Int)
     func onViewDidLoad()
 }

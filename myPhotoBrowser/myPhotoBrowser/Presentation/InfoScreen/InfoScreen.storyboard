@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNg-DU-fYn" userLabel="Header View">
-                                <rect key="frame" x="0.0" y="332" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="282" width="414" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgg-tZ-A25">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -50,10 +50,31 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1J-8a-lMZ" userLabel="Header Line">
-                                <rect key="frame" x="0.0" y="361" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="311" width="414" height="1"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="LoP-2S-sSt"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7o-MN-xiJ" userLabel="Description View">
+                                <rect key="frame" x="0.0" y="312" width="414" height="50"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mud-Ps-S73">
+                                        <rect key="frame" x="10" y="0.0" width="394" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="mud-Ps-S73" firstAttribute="top" secondItem="H7o-MN-xiJ" secondAttribute="top" id="M81-3K-b5c"/>
+                                    <constraint firstAttribute="trailing" secondItem="mud-Ps-S73" secondAttribute="trailing" constant="10" id="PlA-Tc-dHV"/>
+                                    <constraint firstItem="mud-Ps-S73" firstAttribute="leading" secondItem="H7o-MN-xiJ" secondAttribute="leading" constant="10" id="Zci-jn-Q4v"/>
+                                    <constraint firstAttribute="bottom" secondItem="mud-Ps-S73" secondAttribute="bottom" id="liG-94-iGe"/>
+                                    <constraint firstAttribute="height" constant="50" id="xpr-ix-kUt"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OuA-3h-Thv" userLabel="Map Container View">
@@ -124,19 +145,24 @@
                             <constraint firstItem="n1J-8a-lMZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8uZ-js-jd2"/>
                             <constraint firstItem="z9e-f3-o35" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="10" id="9cf-Td-ngQ"/>
                             <constraint firstItem="JNg-DU-fYn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9x0-UW-Ef6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="H7o-MN-xiJ" secondAttribute="trailing" id="9zM-fC-w6h"/>
+                            <constraint firstItem="H7o-MN-xiJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AgD-Hj-5Sq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JNg-DU-fYn" secondAttribute="trailing" id="EyL-oD-h2V"/>
                             <constraint firstItem="k7W-hb-Oe6" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="HBr-KU-L9P"/>
-                            <constraint firstItem="OuA-3h-Thv" firstAttribute="top" secondItem="JNg-DU-fYn" secondAttribute="bottom" id="MQd-jx-9WB"/>
+                            <constraint firstItem="OuA-3h-Thv" firstAttribute="top" secondItem="H7o-MN-xiJ" secondAttribute="bottom" id="MQd-jx-9WB"/>
                             <constraint firstItem="OuA-3h-Thv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PR7-2d-L02"/>
                             <constraint firstItem="k7W-hb-Oe6" firstAttribute="top" secondItem="OuA-3h-Thv" secondAttribute="bottom" id="ZIC-sg-Kgf"/>
                             <constraint firstItem="z9e-f3-o35" firstAttribute="bottom" secondItem="k7W-hb-Oe6" secondAttribute="top" id="bbq-KS-frW"/>
                             <constraint firstItem="k7W-hb-Oe6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="drn-rV-6DX"/>
+                            <constraint firstItem="H7o-MN-xiJ" firstAttribute="top" secondItem="n1J-8a-lMZ" secondAttribute="bottom" id="qU1-E9-gYJ"/>
                             <constraint firstItem="k7W-hb-Oe6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qkN-gR-LJc"/>
                             <constraint firstAttribute="trailing" secondItem="z9e-f3-o35" secondAttribute="trailing" constant="10" id="syK-UD-ABJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="mud-Ps-S73" id="elv-Pw-82f"/>
                         <outlet property="infoListView" destination="58J-s2-gq5" id="fWy-02-f94"/>
+                        <outlet property="locationLabel" destination="aTA-ed-YGH" id="PCA-fF-Opx"/>
                         <outlet property="mapContainerView" destination="OuA-3h-Thv" id="4vg-Lp-6bf"/>
                         <outlet property="mapView" destination="Zyg-e3-QBR" id="975-AW-fRP"/>
                     </connections>

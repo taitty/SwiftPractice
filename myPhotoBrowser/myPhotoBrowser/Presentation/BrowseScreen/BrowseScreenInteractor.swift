@@ -10,6 +10,7 @@ import Combine
 
 protocol BrowseScreenInteractorProtocol {
     var dataPublisher: Published<[PhotoInfo]>.Publisher { get }
+    
     func getHomeData()
 }
 

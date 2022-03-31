@@ -45,9 +45,8 @@ final class DetailScreenViewController: UIViewController {
     }
     
     @IBAction func pressInfoButton(_ sender: UIButton) {
-        let wireframe = InfoScreenWireframe(dataSource: "test")
-        _ = wireframe.setup()
-        wireframe.push(from: self)
+        guard let idx = currentIdx, let id = viewData?[idx].id else { return }
+        presenter?.pressInfoButton(contentId: id)
     }
     
     @IBAction func pressCloseButton(_ sender: UIButton) {
@@ -66,6 +65,7 @@ extension DetailScreenViewController: UICollectionViewDelegate {
         for cell in detailListView.visibleCells {
             let indexPath = detailListView.indexPath(for: cell)
             if let index = indexPath?.row {
+                currentIdx = index
                 artistLabel.text = viewData?[index].artist
             }
         }

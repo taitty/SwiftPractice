@@ -14,6 +14,7 @@ class GetDetailDataUseCase: Publisher {
     typealias Failure = TraceError
     
     private var dataSource: UnsplashDataSourceProtocol
+    private var status = false
     private var id: String
     
     var cancellable = Set<AnyCancellable>()
@@ -39,6 +40,7 @@ class GetDetailDataUseCase: Publisher {
             },
             receiveValue: { value in
                 _ = subscriber.receive(value)
+                self.status = true
             }
         ).store(in: &cancellable)
     }
