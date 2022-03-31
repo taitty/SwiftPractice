@@ -28,7 +28,7 @@ final class DetailScreenViewController: UIViewController {
         configuration()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async { [weak self] in
             self?.artistLabel.text = self?.viewData?[self?.currentIdx ?? 0].artist
             self?.detailListView.scrollToItem(at: IndexPath(row: self?.currentIdx ?? 0, section: 0), at: .centeredVertically, animated: false)
