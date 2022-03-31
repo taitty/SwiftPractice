@@ -83,7 +83,17 @@ extension BrowseScreenViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCell else {
+            return UICollectionViewCell()
+        }
+        
+        let cellData = viewData[indexPath.row]
+        cell.artist.text = cellData.artist
+        if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
+            cell.imageView.image = UIImage(data: data)
+        }
+        
+        return cell
     }
     
 }
@@ -91,7 +101,11 @@ extension BrowseScreenViewController: UICollectionViewDataSource {
 extension BrowseScreenViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: imageListView.frame.size.width  , height:  imageListView.frame.height)
+        let photoWidth = CGFloat(viewData[indexPath.row].width ?? 1)
+        let photoHeight = CGFloat(viewData[indexPath.row].height ?? 1)
+        let ratio = photoHeight / photoWidth
+        let height = imageListView.frame.width * ratio
+        return CGSize(width: imageListView.frame.size.width, height: height)
     }
     
 }

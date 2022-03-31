@@ -124,11 +124,15 @@ struct UnsplashPhotoListItem: Decodable {
     var id: String?
     var artist: UnsplashUser?
     var imgUrl: UnsplashUrls?
+    var width: Int?
+    var height: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
         case artist = "user"
         case imgUrl = "urls"
+        case width
+        case height
     }
 }
 
@@ -188,7 +192,7 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
             }
             .map {
                 $0.compactMap {
-                    PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
+                    PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small, width: $0.width, height: $0.height)
                 }
             }
             .eraseToAnyPublisher()
@@ -263,7 +267,7 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
             }
             .map {
                 $0.results?.compactMap {
-                    PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
+                    PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small, width: $0.width, height: $0.height)
                 } ?? []
             }
             .eraseToAnyPublisher()

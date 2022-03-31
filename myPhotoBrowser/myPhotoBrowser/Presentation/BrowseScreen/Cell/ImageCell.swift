@@ -10,6 +10,7 @@ import UIKit
 class ImageCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var artist: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

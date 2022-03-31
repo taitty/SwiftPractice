@@ -38,4 +38,6 @@ struct PhotoInfo {
     var id: String?
     var artist: String?
     var smlImgUrl: String?
+    var width: Int?
+    var height: Int?
 }
