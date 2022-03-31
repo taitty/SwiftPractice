@@ -14,13 +14,15 @@ protocol DetailScreenWireframeProtocol {
 
 final class DetailScreenWireframe {
     
-    private var dataSource: UnsplashDataSourceProtocol?
+    private var dataSource: UnsplashDataSourceProtocol
     private var view: UIViewController?
-    private var contentId: String?
+    private var currentIdx: Int
+    private var data: [PhotoInfo]
     
-    init(dataSource: UnsplashDataSourceProtocol?, content: String?) {
+    init(dataSource: UnsplashDataSourceProtocol, data: [PhotoInfo], currentIdx: Int) {
         self.dataSource = dataSource
-        self.contentId = content
+        self.currentIdx = currentIdx
+        self.data = data
     }
     
     func setup() -> UIViewController {
@@ -31,10 +33,12 @@ final class DetailScreenWireframe {
         
         self.view = view
         view?.presenter = presenter
+        view?.viewData = self.data
+        view?.currentIdx = self.currentIdx
         presenter.interactor = interactor
         presenter.wireframe = self
         interactor.dataSource = self.dataSource
-        interactor.contentId = self.contentId
+        interactor.currentIdx = self.currentIdx
         
         guard let view = view else {
             Log.Debug(.UI, "failed to setup DetailScreen...")

@@ -11,7 +11,7 @@ import Combine
 final class BrowseScreenViewController: UIViewController {
     
     var presenter: BrowseScreenPresenterProtocol?
-    private var viewData: [PhotoInfo] = []
+    private var viewData: [PhotoInfo]?
     private var cancellable = Set<AnyCancellable>()
     
     @IBOutlet weak var imageListView: UICollectionView!
@@ -71,7 +71,7 @@ extension BrowseScreenViewController: UISearchBarDelegate {
 extension BrowseScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.cellSelected(id: viewData[indexPath.row].id)
+        presenter?.cellSelected(index: indexPath.row)
     }
     
 }
@@ -79,15 +79,15 @@ extension BrowseScreenViewController: UICollectionViewDelegate {
 extension BrowseScreenViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewData.count
+        return viewData?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as? ImageCell,
+              let cellData = viewData?[indexPath.row]  else {
             return UICollectionViewCell()
         }
-        
-        let cellData = viewData[indexPath.row]
+
         cell.artist.text = cellData.artist
         if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
             cell.imageView.image = UIImage(data: data)
@@ -101,8 +101,8 @@ extension BrowseScreenViewController: UICollectionViewDataSource {
 extension BrowseScreenViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let photoWidth = CGFloat(viewData[indexPath.row].width ?? 1)
-        let photoHeight = CGFloat(viewData[indexPath.row].height ?? 1)
+        let photoWidth = CGFloat(viewData?[indexPath.row].width ?? 1)
+        let photoHeight = CGFloat(viewData?[indexPath.row].height ?? 1)
         let ratio = photoHeight / photoWidth
         let height = imageListView.frame.width * ratio
         return CGSize(width: imageListView.frame.size.width, height: height)

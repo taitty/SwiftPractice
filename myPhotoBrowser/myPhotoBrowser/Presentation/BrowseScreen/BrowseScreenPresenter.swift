@@ -10,7 +10,7 @@ import Combine
 
 protocol BrowseScreenPresenterProtocol {
     var dataChecker: Published<[PhotoInfo]>.Publisher { get }
-    func cellSelected(id: String?)
+    func cellSelected(index: Int)
     func onViewDidLoad()
 }
 
@@ -31,8 +31,8 @@ final class BrowseScreenPresenter {
 
 extension BrowseScreenPresenter: BrowseScreenPresenterProtocol {
     
-    func cellSelected(id: String?) {
-        wireframe?.routeToDetailScreen(content: id)
+    func cellSelected(index: Int) {
+        wireframe?.routeToDetailScreen(index: index, data: data)
     }
     
     func onViewDidLoad() {

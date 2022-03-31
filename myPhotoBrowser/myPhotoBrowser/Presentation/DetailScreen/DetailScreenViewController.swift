@@ -10,10 +10,13 @@ import UIKit
 final class DetailScreenViewController: UIViewController {
     
     var presenter: DetailScreenPresenterProtocol?
+    var viewData: [PhotoInfo]?
+    var currentIdx: Int?
     
     @IBOutlet weak var detailListView: UICollectionView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var artistLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,6 @@ final class DetailScreenViewController: UIViewController {
     }
     
     @IBAction func pressCloseButton(_ sender: UIButton) {
-        
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -53,11 +55,21 @@ extension DetailScreenViewController: UICollectionViewDelegate {
 extension DetailScreenViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewData?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCell", for: indexPath) as? DetailCell,
+              let cellData = viewData?[indexPath.row]  else {
+            return UICollectionViewCell()
+        }
+
+        artistLabel.text = cellData.artist
+        if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
+            cell.imageView.image = UIImage(data: data)
+        }
+        
+        return cell
     }
     
 }

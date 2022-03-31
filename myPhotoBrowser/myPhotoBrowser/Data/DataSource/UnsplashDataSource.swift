@@ -179,6 +179,7 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
 
 //        print("\(url.absoluteString)")
         return URLSession.shared.dataTaskPublisher(for: url)
+//            .print()
             .mapError {
                 TraceError(message: $0.localizedDescription)
             }

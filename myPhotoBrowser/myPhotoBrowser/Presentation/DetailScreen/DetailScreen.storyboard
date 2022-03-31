@@ -98,6 +98,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="artistLabel" destination="jKq-I8-tQs" id="xnW-bV-qmP"/>
                         <outlet property="detailListView" destination="tSf-Gm-c4q" id="iEF-53-mhT"/>
                         <outlet property="headerView" destination="QVr-La-AcB" id="eTy-U2-jB1"/>
                         <outlet property="infoButton" destination="hTb-r7-aZW" id="sAD-G7-OdI"/>

@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 protocol BrowseScreenWireframeProtocol {
-    func routeToDetailScreen(content: String?)
+    func routeToDetailScreen(index: Int, data: [PhotoInfo])
 }
 
 final class BrowseScreenWireframe {
     
-    private var dataSource: UnsplashDataSourceProtocol?
+    private var dataSource: UnsplashDataSourceProtocol
     private var view: UIViewController?
     
     init(dataSource: UnsplashDataSourceProtocol) {
@@ -52,16 +52,13 @@ final class BrowseScreenWireframe {
 
 extension BrowseScreenWireframe: BrowseScreenWireframeProtocol {
     
-    func routeToDetailScreen(content: String?) {
-        guard let view = self.view, let dataSource = self.dataSource else {
+    func routeToDetailScreen(index: Int, data: [PhotoInfo]) {
+        guard let view = self.view else {
             Log.Debug(.UI, "BrowseScreen is not created...")
             return
         }
-        guard let content = content else {
-            Log.Debug(.UI, "content is empty...")
-            return
-        }
-        let wireframe = DetailScreenWireframe(dataSource: dataSource, content: content)
+
+        let wireframe = DetailScreenWireframe(dataSource: dataSource, data: data, currentIdx: index)
         _ = wireframe.setup()
         wireframe.push(from: view)
     }
