@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        let dataSource = ServerContext.mock.dataSource
+        let dataSource = ServerContext.real.dataSource
         let wireframe = BrowseScreenWireframe(dataSource: dataSource)
         let view = wireframe.setup()
         let nav = UINavigationController(rootViewController: view)

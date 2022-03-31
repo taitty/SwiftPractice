@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Combine
 
 protocol UnsplashDataSourceProtocol {
-    func getPhotoList() -> [PhotoInfo]
-    func getPhotoDetail() -> PhotoDetail
-    func getSearchResult() -> [PhotoInfo]
+    func getPhotoList() -> AnyPublisher<[PhotoInfo], TraceError>
+    func getPhotoDetail(id: String) -> AnyPublisher<PhotoDetail, TraceError>
+    func getSearchResult(keyword: String) -> AnyPublisher<[PhotoInfo], TraceError>
 }

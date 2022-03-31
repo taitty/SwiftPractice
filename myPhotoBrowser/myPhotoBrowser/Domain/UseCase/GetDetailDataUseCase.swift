@@ -13,10 +13,14 @@ class GetDetailDataUseCase: Publisher {
     typealias Output = PhotoDetail
     typealias Failure = TraceError
     
-    private var dataSource: UnsplashDataSourceProtocol?
+    private var dataSource: UnsplashDataSourceProtocol
+    private var id: String
     
-    init(dataSource: UnsplashDataSourceProtocol) {
+    var cancellable = Set<AnyCancellable>()
+    
+    init(dataSource: UnsplashDataSourceProtocol, photoId: String) {
         self.dataSource = dataSource
+        self.id = photoId
     }
     
     deinit {
@@ -24,14 +28,19 @@ class GetDetailDataUseCase: Publisher {
     }
     
     func receive<S>(subscriber: S) where S : Subscriber, TraceError == S.Failure, PhotoDetail == S.Input {
-        DispatchQueue.global(qos: .background).async {
-            guard let dataSource = self.dataSource else {
-                subscriber.receive(completion: .failure(TraceError(message: "dataSource is not created...")))
-                return
+        dataSource.getPhotoDetail(id: id).sink(
+            receiveCompletion: { result in
+                switch result {
+                case .finished:
+                    subscriber.receive(completion: .finished)
+                case .failure(let error):
+                    subscriber.receive(completion: .failure(TraceError(message: error.message)))
+                }
+            },
+            receiveValue: { value in
+                _ = subscriber.receive(value)
             }
-            let data = dataSource.getPhotoDetail()
-            _ = subscriber.receive(data)
-            subscriber.receive(completion: .finished)
-        }
+        ).store(in: &cancellable)
     }
+    
 }

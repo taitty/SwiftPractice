@@ -13,10 +13,14 @@ class GetSearchDataUseCase: Publisher {
     typealias Output = [PhotoInfo]
     typealias Failure = TraceError
     
-    private var dataSource: UnsplashDataSourceProtocol?
+    private var dataSource: UnsplashDataSourceProtocol
+    private var keyword: String
     
-    init(dataSource: UnsplashDataSourceProtocol) {
+    var cancellable = Set<AnyCancellable>()
+    
+    init(dataSource: UnsplashDataSourceProtocol, keyword: String) {
         self.dataSource = dataSource
+        self.keyword = keyword
     }
     
     deinit {
@@ -24,14 +28,18 @@ class GetSearchDataUseCase: Publisher {
     }
     
     func receive<S>(subscriber: S) where S : Subscriber, TraceError == S.Failure, [PhotoInfo] == S.Input {
-        DispatchQueue.global(qos: .background).async {
-            guard let dataSource = self.dataSource else {
-                subscriber.receive(completion: .failure(TraceError(message: "dataSource is not created...")))
-                return
+        dataSource.getSearchResult(keyword: keyword).sink(
+            receiveCompletion: { result in
+                switch result {
+                case .finished:
+                    subscriber.receive(completion: .finished)
+                case .failure(let error):
+                    subscriber.receive(completion: .failure(TraceError(message: error.message)))
+                }
+            },
+            receiveValue: { value in
+                _ = subscriber.receive(value)
             }
-            let data = dataSource.getSearchResult()
-            _ = subscriber.receive(data)
-            subscriber.receive(completion: .finished)
-        }
+        ).store(in: &cancellable)
     }
 }

@@ -16,12 +16,12 @@ protocol BrowseScreenInteractorProtocol {
 final class BrowseScreenInteractor {
     
     var dataSource: UnsplashDataSourceProtocol?
-    var cancellable: Cancellable?
+    var cancellable = Set<AnyCancellable>()
     var dataPublisher: Published<[PhotoInfo]>.Publisher { $viewData }
     @Published var viewData: [PhotoInfo] = []
     
     deinit {
-        cancellable?.cancel()
+        Log.Debug(.UI, "")
     }
 }
 
@@ -34,7 +34,7 @@ extension BrowseScreenInteractor: BrowseScreenInteractorProtocol {
         }
         
         let useCase = GetHomeDataUseCase(dataSource: dataSource)
-        self.cancellable = useCase.sink(receiveCompletion: { result in
+        useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
                 Log.Debug(.UI, "done to get homeData...")
@@ -43,7 +43,7 @@ extension BrowseScreenInteractor: BrowseScreenInteractorProtocol {
             }
         }, receiveValue: { value in
             self.viewData = value
-        })
+        }).store(in: &cancellable)
     }
     
 }

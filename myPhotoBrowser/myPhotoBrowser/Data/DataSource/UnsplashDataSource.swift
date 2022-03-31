@@ -144,12 +144,6 @@ final class UnsplashDataSource {
     
     var cancellable = Set<AnyCancellable>()
     
-    private func convertHomeData(data: [UnsplashPhotoListItem]) -> [PhotoInfo] {
-        data.compactMap {
-            PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
-        }
-    }
-    
     private func request<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, TraceError> {
         return URLSession.shared.dataTaskPublisher(for: request)
             .print()
@@ -158,53 +152,121 @@ final class UnsplashDataSource {
                 type: T.self,
                 decoder: JSONDecoder()
             )
-            .mapError ({ error in
-                switch error {
-                case is URLError:
-                    return TraceError(message: "request failed")
-                case is DecodingError:
-                    return TraceError(message: "invalid response")
-                default:
-                    return TraceError(message: "unknown")
-                }
-            })
+            .mapError { error in
+                TraceError(message: error.localizedDescription)
+            }
             .eraseToAnyPublisher()
     }
 }
 
 extension UnsplashDataSource: UnsplashDataSourceProtocol {
     
-    func getPhotoList() -> [PhotoInfo] {
-        var urlComponents = URLComponents(string: BaseUrl.endPoint.url)
-        let key = URLQueryItem(name: "client_id", value: BaseUrl.key.url)
-        urlComponents?.queryItems?.append(key)
+    func getPhotoList() -> AnyPublisher<[PhotoInfo], TraceError> {
+        let baseUrl = BaseUrl.endPoint.url.appending(UnsplashApi.photoList.url)
+        var urlComponents = URLComponents(string: baseUrl)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "client_id", value: BaseUrl.key.url)
+        ]
         
         guard let url = urlComponents?.url else {
-            Log.Debug(.SERVER, "failed to create url request...")
-            return []
+            let fail = Fail<[PhotoInfo], TraceError>(error: TraceError(message: "failed to create url request..."))
+            return fail.eraseToAnyPublisher()
+        }
+
+//        print("\(url.absoluteString)")
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .mapError {
+                TraceError(message: $0.localizedDescription)
+            }
+            .map { $0.data }
+            .decode(
+                type: [UnsplashPhotoListItem].self,
+                decoder: JSONDecoder()
+            )
+            .mapError {
+                TraceError(message: $0.localizedDescription)
+            }
+            .map {
+                $0.compactMap {
+                    PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
+                }
+            }
+            .eraseToAnyPublisher()
+    }
+    
+    func getPhotoDetail(id: String) -> AnyPublisher<PhotoDetail, TraceError> {
+        let baseUrl = BaseUrl.endPoint.url.appending(UnsplashApi.photoDetail.url)
+        let requestUrl = baseUrl.appending("/").appending(id)
+        var urlComponents = URLComponents(string: requestUrl)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "client_id", value: BaseUrl.key.url)
+        ]
+        
+        guard let url = urlComponents?.url else {
+            let fail = Fail<PhotoDetail, TraceError>(error: TraceError(message: "failed to create url request..."))
+            return fail.eraseToAnyPublisher()
         }
         
-        let final = URLRequest(url: url)
-        request(final).print().sink(receiveCompletion: { result in
-            switch result {
-            case .finished:
-                print()
-            case .failure(let error):
-                print(error.message)
+//        print("\(url.absoluteString)")
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(
+                type: UnsplashPhotoDetail.self,
+                decoder: JSONDecoder()
+            )
+            .mapError { error in
+                TraceError(message: error.localizedDescription)
             }
-        }, receiveValue: { (value: [UnsplashPhotoListItem]) in
-            let result: [UnsplashPhotoListItem] = value
-            print(result)
-        }).store(in: &cancellable)
-        return []
+            .map {
+                PhotoDetail(id: $0.id,
+                            artist: $0.artist?.name,
+                            smlImgUrl: $0.imgUrl?.small,
+                            regImgUrl: $0.imgUrl?.regular,
+                            location: PhotoLocation(location: $0.location?.location,
+                                                    latitude: $0.location?.coordinate?.latitude,
+                                                    longitude: $0.location?.coordinate?.longitude,
+                                                    description: $0.description),
+                            exif: PhotoExif(maker: $0.exif?.maker,
+                                            focalLength: $0.exif?.focalLength,
+                                            model: $0.exif?.model,
+                                            iso: $0.exif?.iso,
+                                            shutterSpeed: $0.exif?.shutterSpeed,
+                                            dimension: String($0.dimension_width ?? 0).appending(" x ").appending(String($0.dimension_height ?? 0)),
+                                            aperture: $0.exif?.aperture,
+                                            published: $0.published))
+            }
+            .eraseToAnyPublisher()
     }
     
-    func getPhotoDetail() -> PhotoDetail {
-        return PhotoDetail()
-    }
-    
-    func getSearchResult() -> [PhotoInfo] {
-        return []
+    func getSearchResult(keyword: String) -> AnyPublisher<[PhotoInfo], TraceError> {
+        let baseUrl = BaseUrl.endPoint.url.appending(UnsplashApi.search.url)
+        var urlComponents = URLComponents(string: baseUrl)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "client_id", value: BaseUrl.key.url),
+            URLQueryItem(name: "query", value: keyword)
+        ]
+        
+        guard let url = urlComponents?.url else {
+            let fail = Fail<[PhotoInfo], TraceError>(error: TraceError(message: "failed to create url request..."))
+            return fail.eraseToAnyPublisher()
+        }
+        
+//        print("\(url.absoluteString)")
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .map { $0.data }
+            .decode(
+                type: UnsplashSearchList.self,
+                decoder: JSONDecoder()
+            )
+            .mapError { error in
+                TraceError(message: error.localizedDescription)
+            }
+            .map {
+                $0.results?.compactMap {
+                    PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
+                } ?? []
+            }
+            .eraseToAnyPublisher()
     }
     
 }

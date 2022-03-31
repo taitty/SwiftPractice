@@ -13,7 +13,10 @@ class GetHomeDataUseCase: Publisher {
     typealias Output = [PhotoInfo]
     typealias Failure = TraceError
     
-    private var dataSource: UnsplashDataSourceProtocol?
+    private var dataSource: UnsplashDataSourceProtocol
+    private var status = false
+    
+    var cancellable = Set<AnyCancellable>()
     
     init(dataSource: UnsplashDataSourceProtocol) {
         self.dataSource = dataSource
@@ -24,13 +27,20 @@ class GetHomeDataUseCase: Publisher {
     }
     
     func receive<S>(subscriber: S) where S : Subscriber, TraceError == S.Failure, [PhotoInfo] == S.Input {
-        DispatchQueue.global(qos: .background).async {
-            guard let data = self.dataSource?.getPhotoList() else {
-                subscriber.receive(completion: .failure(TraceError(message: "failed to get data")))
-                return
+        dataSource.getPhotoList().sink(
+            receiveCompletion: { result in
+                switch result {
+                case .finished:
+                    subscriber.receive(completion: .finished)
+                case .failure(let error):
+                    subscriber.receive(completion: .failure(TraceError(message: error.message)))
+                }
+            },
+            receiveValue: { value in
+                _ = subscriber.receive(value)
+                self.status = true
             }
-            _ = subscriber.receive(data)
-            subscriber.receive(completion: .finished)
-        }
+        ).store(in: &cancellable)
     }
+    
 }

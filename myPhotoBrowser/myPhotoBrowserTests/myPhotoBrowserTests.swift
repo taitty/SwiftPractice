@@ -22,9 +22,10 @@ class myPhotoBrowserTests: XCTestCase {
 
     func testGetHomeDataUseCaseFromMock() throws {
         let promise = expectation(description: "get HomeData from Mock")
-
+        var cancellable = Set<AnyCancellable>()
+        
         let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource())
-        _ = useCase.sink(receiveCompletion: { result in
+        useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
                 Log.Debug(.UI, "done to get homeData...")
@@ -34,16 +35,17 @@ class myPhotoBrowserTests: XCTestCase {
         }, receiveValue: { value in
             promise.fulfill()
             XCTAssertTrue(!value.isEmpty)
-        })
+        }).store(in: &cancellable)
 
         wait(for: [promise], timeout: 5)
     }
 
     func testGetDetailDataUseCaseFromMock() throws {
         let promise = expectation(description: "get DetailData from Mock")
-
-        let useCase = GetDetailDataUseCase(dataSource: MockUnsplashDataSource())
-        _ = useCase.sink(receiveCompletion: { result in
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = GetDetailDataUseCase(dataSource: MockUnsplashDataSource(), photoId: "0VEDrQXxrQo")
+        useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
                 Log.Debug(.UI, "done to get detailData...")
@@ -52,16 +54,17 @@ class myPhotoBrowserTests: XCTestCase {
             }
         }, receiveValue: { value in
             promise.fulfill()
-        })
+        }).store(in: &cancellable)
 
         wait(for: [promise], timeout: 5)
     }
 
     func testGetSearchDataUseCaseFromMock() throws {
         let promise = expectation(description: "get SearchData from Mock")
+        var cancellable = Set<AnyCancellable>()
         
-        let useCase = GetSearchDataUseCase(dataSource: MockUnsplashDataSource())
-        _ = useCase.sink(receiveCompletion: { result in
+        let useCase = GetSearchDataUseCase(dataSource: MockUnsplashDataSource(), keyword: "ocean")
+        useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
                 Log.Debug(.UI, "done to get SearchData...")
@@ -71,7 +74,7 @@ class myPhotoBrowserTests: XCTestCase {
         }, receiveValue: { value in
             promise.fulfill()
             XCTAssertTrue(!value.isEmpty)
-        })
+        }).store(in: &cancellable)
         
         wait(for: [promise], timeout: 5)
     }
@@ -95,4 +98,44 @@ class myPhotoBrowserTests: XCTestCase {
 
         wait(for: [promise], timeout: 5)
     }
+    
+    func testGetDetailDataUseCaseFromReal() throws {
+        let promise = expectation(description: "get DetailData from Real")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = GetDetailDataUseCase(dataSource: UnsplashDataSource(), photoId: "0VEDrQXxrQo")
+        useCase.sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                Log.Debug(.UI, "done to get detailData...")
+            case .failure(let error):
+                XCTFail(error.message)
+            }
+        }, receiveValue: { value in
+            promise.fulfill()
+        }).store(in: &cancellable)
+
+        wait(for: [promise], timeout: 5)
+    }
+
+    func testGetSearchDataUseCaseFromReal() throws {
+        let promise = expectation(description: "get SearchData from Real")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = GetSearchDataUseCase(dataSource: UnsplashDataSource(), keyword: "ocean")
+        useCase.sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                Log.Debug(.UI, "done to get SearchData...")
+            case .failure(let error):
+                XCTFail(error.message)
+            }
+        }, receiveValue: { value in
+            promise.fulfill()
+            XCTAssertTrue(!value.isEmpty)
+        }).store(in: &cancellable)
+        
+        wait(for: [promise], timeout: 5)
+    }
+    
 }

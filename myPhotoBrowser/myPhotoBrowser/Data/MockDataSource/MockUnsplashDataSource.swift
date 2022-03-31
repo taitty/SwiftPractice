@@ -6,69 +6,82 @@
 //
 
 import Foundation
+import Combine
 
 final class MockUnsplashDataSource {
-    
-    private func convertHomeData(data: [UnsplashPhotoListItem]) -> [PhotoInfo] {
-        data.compactMap {
-            PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
-        }
-    }
-    
-    private func convertDetailData(data: UnsplashPhotoDetail) -> PhotoDetail {
-            PhotoDetail(id: data.id,
-                        artist: data.artist?.name,
-                        smlImgUrl: data.imgUrl?.small,
-                        regImgUrl: data.imgUrl?.regular,
-                        location: PhotoLocation(location: data.location?.location,
-                                                latitude: data.location?.coordinate?.latitude,
-                                                longitude: data.location?.coordinate?.longitude,
-                                                description: data.description),
-                        exif: PhotoExif(maker: data.exif?.maker,
-                                        focalLength: data.exif?.focalLength,
-                                        model: data.exif?.model,
-                                        iso: data.exif?.iso,
-                                        shutterSpeed: data.exif?.shutterSpeed,
-                                        dimension: String(data.dimension_width ?? 0).appending(" x ").appending(String(data.dimension_height ?? 0)),
-                                        aperture: data.exif?.aperture,
-                                        published: data.published))
-    }
     
 }
 
 extension MockUnsplashDataSource: UnsplashDataSourceProtocol {
 
-    func getPhotoList() -> [PhotoInfo] {
+    func getPhotoList() -> AnyPublisher<[PhotoInfo], TraceError> {
         let decoder = JSONDecoder()
         let result = try? decoder.decode([UnsplashPhotoListItem].self, from: homeData)
         
         guard let result = result else {
-            Log.Debug(.SERVER, "failed to decode homeData...")
-            return []
+            return Fail<[PhotoInfo], TraceError>(error: TraceError(message: "failed to decode homeData...")).eraseToAnyPublisher()
         }
-        return convertHomeData(data: result)
+        
+        return Just(result).tryMap {
+            $0.compactMap {
+                PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
+            }
+        }
+        .mapError {
+            TraceError(message: $0.localizedDescription)
+        }
+        .eraseToAnyPublisher()
     }
     
-    func getPhotoDetail() -> PhotoDetail {
+    func getPhotoDetail(id: String) -> AnyPublisher<PhotoDetail, TraceError> {
         let decoder = JSONDecoder()
         let result = try? decoder.decode(UnsplashPhotoDetail.self, from: detailData)
         
         guard let result = result else {
-            Log.Debug(.SERVER, "failed to decode detailData...")
-            return PhotoDetail()
+            return Fail<PhotoDetail, TraceError>(error: TraceError(message: "failed to decode detailData...")).eraseToAnyPublisher()
         }
-        return convertDetailData(data: result)
+        
+        return Just(result).tryMap {
+            PhotoDetail(id: $0.id,
+                        artist: $0.artist?.name,
+                        smlImgUrl: $0.imgUrl?.small,
+                        regImgUrl: $0.imgUrl?.regular,
+                        location: PhotoLocation(location: $0.location?.location,
+                                                latitude: $0.location?.coordinate?.latitude,
+                                                longitude: $0.location?.coordinate?.longitude,
+                                                description: $0.description),
+                        exif: PhotoExif(maker: $0.exif?.maker,
+                                        focalLength: $0.exif?.focalLength,
+                                        model: $0.exif?.model,
+                                        iso: $0.exif?.iso,
+                                        shutterSpeed: $0.exif?.shutterSpeed,
+                                        dimension: String($0.dimension_width ?? 0).appending(" x ").appending(String($0.dimension_height ?? 0)),
+                                        aperture: $0.exif?.aperture,
+                                        published: $0.published))
+        }
+        .mapError {
+            TraceError(message: $0.localizedDescription)
+        }
+        .eraseToAnyPublisher()
     }
 
-    func getSearchResult() -> [PhotoInfo] {
+    func getSearchResult(keyword: String) -> AnyPublisher<[PhotoInfo], TraceError> {
         let decoder = JSONDecoder()
         let result = try? decoder.decode(UnsplashSearchList.self, from: searchData)
         
         guard let result = result?.results else {
-            Log.Debug(.SERVER, "failed to decode searchData...")
-            return []
+            return Fail<[PhotoInfo], TraceError>(error: TraceError(message: "failed to decode searchData...")).eraseToAnyPublisher()
         }
-        return convertHomeData(data: result)
+        
+        return Just(result).tryMap {
+            $0.compactMap {
+                PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
+            }
+        }
+        .mapError {
+            TraceError(message: $0.localizedDescription)
+        }
+        .eraseToAnyPublisher()
     }
     
 }

@@ -10,11 +10,9 @@ import os
 
 class TraceError: Error {
     public let message: String
-    public let code: String
     
-    public init(message: String = "", code: String = "") {
+    public init(message: String = "") {
         self.message = message
-        self.code = code
     }
 }
 
