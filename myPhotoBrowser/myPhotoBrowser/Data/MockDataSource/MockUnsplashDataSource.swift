@@ -5,13 +5,6 @@
 //  Created by 김희수 on 2022/03/30.
 //
 
-/*
- https://api.unsplash.com/photos?page=1
- https://api.unsplash.com/photos?client_id=BqjaIa_WxbA-Tblyibu_hVXXaj4BN2nBMkyVWD6Wsj8
- https://api.unsplash.com/photos/oQl0eVYd_n8?client_id=BqjaIa_WxbA-Tblyibu_hVXXaj4BN2nBMkyVWD6Wsj8
- https://api.unsplash.com/search/photos?query=ocean&client_id=BqjaIa_WxbA-Tblyibu_hVXXaj4BN2nBMkyVWD6Wsj8
- */
-
 import Foundation
 
 final class MockUnsplashDataSource {

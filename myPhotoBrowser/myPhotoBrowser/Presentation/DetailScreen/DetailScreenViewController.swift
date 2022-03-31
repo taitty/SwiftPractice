@@ -31,7 +31,7 @@ final class DetailScreenViewController: UIViewController {
     
     @IBAction func pressInfoButton(_ sender: UIButton) {
         let wireframe = InfoScreenWireframe(dataSource: "test")
-        wireframe.setup()
+        _ = wireframe.setup()
         wireframe.push(from: self)
     }
     

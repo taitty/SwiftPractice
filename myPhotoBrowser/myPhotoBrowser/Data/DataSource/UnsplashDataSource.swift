@@ -6,6 +6,39 @@
 //
 
 import Foundation
+import Combine
+import UIKit
+
+enum UnsplashApi {
+    case photoList
+    case photoDetail
+    case search
+    
+    var url: String {
+        switch self {
+        case .photoList:
+            return "/photos"
+        case .photoDetail:
+            return "/photos"
+        case .search:
+            return "/search/photos"
+        }
+    }
+}
+
+enum BaseUrl {
+    case key
+    case endPoint
+    
+    var url: String {
+        switch self {
+        case .key:
+            return "BqjaIa_WxbA-Tblyibu_hVXXaj4BN2nBMkyVWD6Wsj8"
+        case .endPoint:
+            return "https://api.unsplash.com"
+        }
+    }
+}
 
 struct UnsplashExif: Decodable {
     var maker: String?
@@ -109,16 +142,60 @@ struct UnsplashSearchList: Decodable {
 
 final class UnsplashDataSource {
     
+    var cancellable = Set<AnyCancellable>()
+    
     private func convertHomeData(data: [UnsplashPhotoListItem]) -> [PhotoInfo] {
         data.compactMap {
             PhotoInfo(id: $0.id, artist: $0.artist?.name, smlImgUrl: $0.imgUrl?.small)
         }
+    }
+    
+    private func request<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, TraceError> {
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .print()
+            .map(\.data)
+            .decode(
+                type: T.self,
+                decoder: JSONDecoder()
+            )
+            .mapError ({ error in
+                switch error {
+                case is URLError:
+                    return TraceError(message: "request failed")
+                case is DecodingError:
+                    return TraceError(message: "invalid response")
+                default:
+                    return TraceError(message: "unknown")
+                }
+            })
+            .eraseToAnyPublisher()
     }
 }
 
 extension UnsplashDataSource: UnsplashDataSourceProtocol {
     
     func getPhotoList() -> [PhotoInfo] {
+        var urlComponents = URLComponents(string: BaseUrl.endPoint.url)
+        let key = URLQueryItem(name: "client_id", value: BaseUrl.key.url)
+        urlComponents?.queryItems?.append(key)
+        
+        guard let url = urlComponents?.url else {
+            Log.Debug(.SERVER, "failed to create url request...")
+            return []
+        }
+        
+        let final = URLRequest(url: url)
+        request(final).print().sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                print()
+            case .failure(let error):
+                print(error.message)
+            }
+        }, receiveValue: { (value: [UnsplashPhotoListItem]) in
+            let result: [UnsplashPhotoListItem] = value
+            print(result)
+        }).store(in: &cancellable)
         return []
     }
     
