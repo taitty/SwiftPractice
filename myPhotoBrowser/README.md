@@ -17,11 +17,6 @@
 
 
 # Environment
-
-
-
-
-
 - Swift, Storyboard, Combine
 - VIPER, Clean Architecture
 
