@@ -96,7 +96,7 @@
     func testGetHomeDataUseCaseFromMock() throws {
         let promise = expectation(description: "get HomeData from Mock")
         var cancellable = Set<AnyCancellable>()
-        
+        <span style="color:blue">some *blue* text</span>.
 >        let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
 혹은,
 >        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
