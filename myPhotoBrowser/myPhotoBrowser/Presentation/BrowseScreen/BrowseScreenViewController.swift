@@ -37,6 +37,7 @@ final class BrowseScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        guard let data = viewData, !data.isEmpty else { return }
         if let focus = currentIdx {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -52,17 +53,18 @@ final class BrowseScreenViewController: UIViewController {
     
     private func setObserver() {
         presenter?.dataObserver.dropFirst().sink {
-            if !$0.isEmpty {
+//            if !$0.isEmpty {
                 Log.Debug(.UI, "new data is updated")
                 self.viewData = $0
                 DispatchQueue.main.async {
                     self.imageListView.reloadData()
                 }
-            }
+//            }
         }.store(in: &cancellable)
         
         presenter?.screenModeObserver.dropFirst().sink { _ in
             self.currentIdx = 0
+            guard let data = self.viewData, !data.isEmpty else { return }
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
                 self.imageListView.scrollToItem(at: IndexPath(row: self.currentIdx ?? 0, section: 0), at: .top, animated: false)

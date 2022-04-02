@@ -39,6 +39,9 @@ final class DetailScreenViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let data = viewData, !data.isEmpty else { return }
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.artistLabel.text = self.viewData?[self.currentIdx ?? 0].artist
