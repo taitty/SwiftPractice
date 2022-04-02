@@ -31,8 +31,29 @@
 
 
 # Dependency Injection
+### Screen 이동 시, 해당 Screen 에서 사용해야할 Data Source Instance 를 주입
+    let dataSource = ServerContext.real.dataSource
+    let wireframe = BrowseScreenWireframe(dataSource: dataSource)
 
-
+### 주입받은 Instance 는, 해당 Screen 의 각 Controller 에서 사용하도록 재주입
+    func setup() -> UIViewController {
+        let storyboard = UIStoryboard(name: "BrowseScreen", bundle: Bundle.main)
+        let view = storyboard.instantiateViewController(withIdentifier: "BrowseScreen") as? BrowseScreenViewController
+        let presenter = BrowseScreenPresenter()
+        let interactor = BrowseScreenInteractor()
+        
+        self.view = view
+        view?.presenter = presenter
+        presenter.interactor = interactor
+        presenter.wireframe = self
+        interactor.dataSource = dataSource
+        
+        guard let view = view else {
+            Log.Debug(.UI, "failed to setup BrowseScreen...")
+            return UIViewController()
+        }
+        return view
+    }
 
 
 # Testable Code
