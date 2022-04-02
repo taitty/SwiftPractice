@@ -71,7 +71,7 @@
 # Testable Code
 ### 테스트/실사용 목정에 따라, Context 를 구분하여 생성/전달
 - Dependency Context 를 enum 으로 선언
-```
+```Swift
     enum ServerContext {
         case real
         case mock
@@ -88,13 +88,13 @@
 ```
 
 - 실사용 시,
-```
+```Swift
     let dataSource = ServerContext.real.dataSource
     let wireframe = BrowseScreenWireframe(dataSource: dataSource)
 ```
 
 - 테스트 시,
-```
+```Swift
     let dataSource = ServerContext.mock.dataSource
     let wireframe = BrowseScreenWireframe(dataSource: dataSource)
 ```
@@ -103,11 +103,13 @@
 - 주입되는 dataSource 에 따라, Mock/Real 구분하여 진행
 
 > let useCase = GetHomeDataUseCase(dataSource: _MockUnsplashDataSource()_, dataMode: .initialData)
+
 > 혹은,
+
 > let useCase = GetHomeDataUseCase(dataSource: _UnsplashDataSource()_, dataMode: .initialData)
 
 - Example
-```
+```Swift
     func testGetHomeDataUseCaseFromMock() throws {
         let promise = expectation(description: "get HomeData from Mock")
         var cancellable = Set<AnyCancellable>()
