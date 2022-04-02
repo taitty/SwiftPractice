@@ -18,6 +18,7 @@ final class BrowseScreenViewController: UIViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var imageListView: UICollectionView!
+    @IBOutlet weak var noResultLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ final class BrowseScreenViewController: UIViewController {
         
         searchBar.delegate = self
         searchBar.placeholder = "Search Photos"
+        
+        noResultLabel.isHidden = true
         
         registerCell()
         setObserver()
@@ -53,13 +56,18 @@ final class BrowseScreenViewController: UIViewController {
     
     private func setObserver() {
         presenter?.dataObserver.dropFirst().sink {
-//            if !$0.isEmpty {
-                Log.Debug(.UI, "new data is updated")
-                self.viewData = $0
-                DispatchQueue.main.async {
-                    self.imageListView.reloadData()
-                }
-//            }
+            Log.Debug(.UI, "new data is updated")
+            self.viewData = $0
+            
+            var hideMessage = false
+            if let data = self.viewData, !data.isEmpty {
+                hideMessage = true
+            }
+            
+            DispatchQueue.main.async {
+                self.noResultLabel.isHidden = hideMessage
+                self.imageListView.reloadData()
+            }
         }.store(in: &cancellable)
         
         presenter?.screenModeObserver.dropFirst().sink { _ in

@@ -34,6 +34,12 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Result" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gn-FU-Tt7">
+                                <rect key="frame" x="170.5" y="437.5" width="73.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -41,6 +47,8 @@
                             <constraint firstItem="9DB-Nc-DSj" firstAttribute="top" secondItem="rGz-3o-UIa" secondAttribute="bottom" id="96n-1t-rEY"/>
                             <constraint firstItem="rGz-3o-UIa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="GZF-Yj-lR7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="9DB-Nc-DSj" secondAttribute="bottom" id="QAz-q0-ncp"/>
+                            <constraint firstItem="7gn-FU-Tt7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="RCr-br-Rlu"/>
+                            <constraint firstItem="7gn-FU-Tt7" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="SAT-aV-XAe"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="9DB-Nc-DSj" secondAttribute="trailing" id="ljR-yA-C6o"/>
                             <constraint firstAttribute="trailing" secondItem="rGz-3o-UIa" secondAttribute="trailing" id="nAR-vG-7Ji"/>
                             <constraint firstItem="rGz-3o-UIa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vqz-Fd-Hdb"/>
@@ -49,6 +57,7 @@
                     </view>
                     <connections>
                         <outlet property="imageListView" destination="9DB-Nc-DSj" id="hcB-Sk-R6b"/>
+                        <outlet property="noResultLabel" destination="7gn-FU-Tt7" id="A4L-sE-ZqM"/>
                         <outlet property="searchBar" destination="rGz-3o-UIa" id="S3j-RL-QMf"/>
                     </connections>
                 </viewController>
