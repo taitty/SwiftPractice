@@ -98,7 +98,7 @@
         var cancellable = Set<AnyCancellable>()
         
 >        let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
->        혹은,
+혹은,
 >        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
 
         useCase.sink(receiveCompletion: { result in
