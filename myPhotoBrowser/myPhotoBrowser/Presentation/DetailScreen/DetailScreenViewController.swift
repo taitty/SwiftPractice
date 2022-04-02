@@ -7,11 +7,18 @@
 
 import UIKit
 
+protocol DetailScreenDataDelegate {
+    func getCurrentPosition() -> Int
+    func setCurrentPosition(position: Int)
+    func getViewData() -> [PhotoInfo]?
+}
+
 final class DetailScreenViewController: UIViewController {
     
     var presenter: DetailScreenPresenterProtocol?
     var viewData: [PhotoInfo]?
     var currentIdx: Int?
+    var dataDelegate: DetailScreenDataDelegate?
     
     @IBOutlet weak var detailListView: UICollectionView!
     @IBOutlet weak var headerView: UIView!
@@ -24,24 +31,28 @@ final class DetailScreenViewController: UIViewController {
         detailListView.delegate = self
         detailListView.dataSource = self
         
+        viewData = dataDelegate?.getViewData()
+        currentIdx = dataDelegate?.getCurrentPosition()
+        
         registerCell()
         configuration()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async { [weak self] in
-            self?.artistLabel.text = self?.viewData?[self?.currentIdx ?? 0].artist
-            self?.detailListView.scrollToItem(at: IndexPath(row: self?.currentIdx ?? 0, section: 0), at: .centeredVertically, animated: false)
+            guard let self = self else { return }
+            self.artistLabel.text = self.viewData?[self.currentIdx ?? 0].artist
+            self.detailListView.scrollToItem(at: IndexPath(row: self.currentIdx ?? 0, section: 0), at: .left, animated: false)
         }
-    }
-    
-    private func configuration() {
-
     }
     
     private func registerCell() {
         let name = UINib(nibName: "DetailCell", bundle: Bundle.main)
         detailListView.register(name, forCellWithReuseIdentifier: "DetailCell")
+    }
+    
+    private func configuration() {
+
     }
     
     @IBAction func pressInfoButton(_ sender: UIButton) {
@@ -50,7 +61,8 @@ final class DetailScreenViewController: UIViewController {
     }
     
     @IBAction func pressCloseButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        dataDelegate?.setCurrentPosition(position: currentIdx ?? 0)
+        presenter?.pressCloseButton()
     }
 }
 
@@ -87,7 +99,6 @@ extension DetailScreenViewController: UICollectionViewDataSource {
         if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
             cell.imageView.image = UIImage(data: data)
         }
-        
         return cell
     }
     

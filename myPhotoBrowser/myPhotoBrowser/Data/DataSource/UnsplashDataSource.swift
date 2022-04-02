@@ -59,8 +59,8 @@ struct UnsplashExif: Decodable {
 }
 
 struct UnsplashPosition: Decodable {
-    var latitude: Float?
-    var longitude: Float?
+    var latitude: Double?
+    var longitude: Double?
     
     enum CodingKeys: String, CodingKey {
         case latitude
@@ -147,43 +147,45 @@ struct UnsplashSearchList: Decodable {
 final class UnsplashDataSource {
     
     var cancellable = Set<AnyCancellable>()
-    
-    private func request<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, TraceError> {
-        return URLSession.shared.dataTaskPublisher(for: request)
-            .print()
-            .map(\.data)
-            .decode(
-                type: T.self,
-                decoder: JSONDecoder()
-            )
-            .mapError { error in
-                TraceError(message: error.localizedDescription)
-            }
-            .eraseToAnyPublisher()
-    }
+
+    static var totalBrowsePage = 1
+    static var totalSearchPage = 1
+
 }
 
 extension UnsplashDataSource: UnsplashDataSourceProtocol {
     
-    func getPhotoList() -> AnyPublisher<[PhotoInfo], TraceError> {
+    func getPhotoList(mode: DataRequestMode) -> AnyPublisher<[PhotoInfo], TraceError> {
+        
+        if mode == .initialData {
+            UnsplashDataSource.totalBrowsePage = 1
+        } else {
+            UnsplashDataSource.totalBrowsePage += 1
+        }
+        
         let baseUrl = BaseUrl.endPoint.url.appending(UnsplashApi.photoList.url)
         var urlComponents = URLComponents(string: baseUrl)
         urlComponents?.queryItems = [
-            URLQueryItem(name: "client_id", value: BaseUrl.key.url)
+            URLQueryItem(name: "client_id", value: BaseUrl.key.url),
+            URLQueryItem(name: "page", value: "\(UnsplashDataSource.totalBrowsePage)"),
+            URLQueryItem(name: "per_page", value: "10")
         ]
         
         guard let url = urlComponents?.url else {
             let fail = Fail<[PhotoInfo], TraceError>(error: TraceError(message: "failed to create url request..."))
             return fail.eraseToAnyPublisher()
         }
-
-//        print("\(url.absoluteString)")
+        
         return URLSession.shared.dataTaskPublisher(for: url)
-//            .print()
-            .mapError {
-                TraceError(message: $0.localizedDescription)
+            .print()
+            .tryMap { data, response in
+                guard let httpURLResponse = response as? HTTPURLResponse,
+                   let info = httpURLResponse.value(forHTTPHeaderField: "Link"),
+                   info.contains("next") else {
+                       throw URLError(.dataLengthExceedsMaximum)
+                    }
+                return data
             }
-            .map { $0.data }
             .decode(
                 type: [UnsplashPhotoListItem].self,
                 decoder: JSONDecoder()
@@ -211,8 +213,7 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
             let fail = Fail<PhotoDetail, TraceError>(error: TraceError(message: "failed to create url request..."))
             return fail.eraseToAnyPublisher()
         }
-        
-//        print("\(url.absoluteString)")
+
         return URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
             .decode(
@@ -243,11 +244,20 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
             .eraseToAnyPublisher()
     }
     
-    func getSearchResult(keyword: String) -> AnyPublisher<[PhotoInfo], TraceError> {
+    func getSearchResult(keyword: String, mode: DataRequestMode) -> AnyPublisher<[PhotoInfo], TraceError> {
+        
+        if mode == .initialData {
+            UnsplashDataSource.totalBrowsePage = 1
+        } else {
+            UnsplashDataSource.totalBrowsePage += 1
+        }
+        
         let baseUrl = BaseUrl.endPoint.url.appending(UnsplashApi.search.url)
         var urlComponents = URLComponents(string: baseUrl)
         urlComponents?.queryItems = [
             URLQueryItem(name: "client_id", value: BaseUrl.key.url),
+            URLQueryItem(name: "page", value: "\(UnsplashDataSource.totalSearchPage)"),
+            URLQueryItem(name: "per_page", value: "30"),
             URLQueryItem(name: "query", value: keyword)
         ]
         
@@ -256,8 +266,8 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
             return fail.eraseToAnyPublisher()
         }
         
-//        print("\(url.absoluteString)")
         return URLSession.shared.dataTaskPublisher(for: url)
+            .print()
             .map { $0.data }
             .decode(
                 type: UnsplashSearchList.self,

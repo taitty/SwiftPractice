@@ -20,6 +20,7 @@ enum ServiceType: String {
     case UI = "UI"
     case SERVER = "SERVER"
     case DOMAIN = "DOMAIN"
+    case UNTEST = "UNITTEST"
     case NONE = ""
 }
 

@@ -9,6 +9,7 @@ import Foundation
 
 protocol DetailScreenPresenterProtocol {
     func pressInfoButton(contentId: String)
+    func pressCloseButton()
 }
 
 final class DetailScreenPresenter {
@@ -21,5 +22,9 @@ extension DetailScreenPresenter: DetailScreenPresenterProtocol {
     
     func pressInfoButton(contentId: String) {
         wireframe?.routeToInfoScreen(id: contentId)
+    }
+    
+    func pressCloseButton() {
+        wireframe?.routeToBrowseScreen()
     }
 }

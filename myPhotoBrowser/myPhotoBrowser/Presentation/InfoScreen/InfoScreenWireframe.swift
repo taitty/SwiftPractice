@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 protocol InfoScreenWireframeProtocol {
-
+    func closeScreen()
 }
 
 final class InfoScreenWireframe {
     
     private var dataSource: UnsplashDataSourceProtocol
-    private var view: UIViewController?
+    private var view: InfoScreenViewController?
     private var contentId: String
     
     init(dataSource: UnsplashDataSourceProtocol, id: String) {
@@ -50,6 +50,12 @@ final class InfoScreenWireframe {
         }
         from.present(view, animated: true, completion: nil)
     }
+    
 }
 
-extension InfoScreenWireframe: InfoScreenWireframeProtocol {}
+extension InfoScreenWireframe: InfoScreenWireframeProtocol {
+    
+    func closeScreen() {
+        self.view?.dismiss(animated: true, completion: nil)
+    }
+}

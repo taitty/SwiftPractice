@@ -18,9 +18,10 @@ final class InfoScreenInteractor {
     
     var dataSource: UnsplashDataSourceProtocol?
     var contentId: String?
-    var cancellable = Set<AnyCancellable>()
     var dataPublisher: Published<PhotoDetail>.Publisher { $viewData }
     @Published var viewData = PhotoDetail()
+    
+    private var cancellable = Set<AnyCancellable>()
     
     deinit {
         Log.Debug(.UI, "")
@@ -46,6 +47,7 @@ extension InfoScreenInteractor: InfoScreenInteractorProtocol {
             }
         }, receiveValue: { value in
             self.viewData = value
+            Log.Debug(.UI, "\(self.viewData)")
         }).store(in: &cancellable)
     }
     

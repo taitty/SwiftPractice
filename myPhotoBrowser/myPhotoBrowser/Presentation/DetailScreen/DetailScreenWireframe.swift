@@ -10,19 +10,18 @@ import UIKit
 
 protocol DetailScreenWireframeProtocol {
     func routeToInfoScreen(id: String)
+    func routeToBrowseScreen()
 }
 
 final class DetailScreenWireframe {
     
     private var dataSource: UnsplashDataSourceProtocol
-    private var view: UIViewController?
-    private var currentIdx: Int
-    private var data: [PhotoInfo]
+    private var view: DetailScreenViewController?
+    private var delegate: DetailScreenDataDelegate?
     
-    init(dataSource: UnsplashDataSourceProtocol, data: [PhotoInfo], currentIdx: Int) {
+    init(dataSource: UnsplashDataSourceProtocol, dataDelegate: DetailScreenDataDelegate) {
         self.dataSource = dataSource
-        self.currentIdx = currentIdx
-        self.data = data
+        self.delegate = dataDelegate
     }
     
     func setup() -> UIViewController {
@@ -33,8 +32,7 @@ final class DetailScreenWireframe {
         
         self.view = view
         view?.presenter = presenter
-        view?.viewData = self.data
-        view?.currentIdx = self.currentIdx
+        view?.dataDelegate = self.delegate
         presenter.interactor = interactor
         presenter.wireframe = self
         interactor.dataSource = self.dataSource
@@ -67,5 +65,9 @@ extension DetailScreenWireframe: DetailScreenWireframeProtocol {
         let wireframe = InfoScreenWireframe(dataSource: dataSource, id: id)
         _ = wireframe.setup()
         wireframe.push(from: view)
+    }
+    
+    func routeToBrowseScreen() {
+        self.view?.dismiss(animated: true, completion: nil)
     }
 }

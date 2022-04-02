@@ -19,9 +19,8 @@ class MainViewController: UIViewController {
         let dataSource = ServerContext.real.dataSource
         let wireframe = BrowseScreenWireframe(dataSource: dataSource)
         let view = wireframe.setup()
-        let nav = UINavigationController(rootViewController: view)
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: false, completion: nil)
+        view.modalPresentationStyle = .fullScreen
+        self.present(view, animated: false, completion: nil)
     }
     
     private func configuration() {

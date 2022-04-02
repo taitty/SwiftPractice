@@ -9,24 +9,25 @@ import Foundation
 import Combine
 
 protocol InfoScreenPresenterProtocol {
-    var dataChecker: Published<PhotoDetail>.Publisher { get }
+    var dataObserver: Published<PhotoDetail>.Publisher { get }
     
     func onViewDidLoad()
+    func pressCloseButton()
 }
 
 final class InfoScreenPresenter {
     
     var interactor: InfoScreenInteractorProtocol?
     var wireframe: InfoScreenWireframeProtocol?
-    var cancellable = Set<AnyCancellable>()
-    var dataChecker: Published<PhotoDetail>.Publisher { $data }
+    var dataObserver: Published<PhotoDetail>.Publisher { $data }
     @Published var data = PhotoDetail()
     
+    private var cancellable = Set<AnyCancellable>()
+    
     private func setObserver() {
-        let dataObserver = interactor?.dataPublisher
-        dataObserver?.sink {
+        interactor?.dataPublisher.dropFirst().sink {
             self.data = $0
-            Log.Debug(.UI, "new data is updated")
+            Log.Debug(.UI, "new data is updated...")
         }.store(in: &cancellable)
     }
     
@@ -37,6 +38,10 @@ extension InfoScreenPresenter: InfoScreenPresenterProtocol {
     func onViewDidLoad() {
         setObserver()
         interactor?.getDetailData()
+    }
+    
+    func pressCloseButton() {
+        wireframe?.closeScreen()
     }
     
 }

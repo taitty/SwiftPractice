@@ -14,13 +14,16 @@ class GetSearchDataUseCase: Publisher {
     typealias Failure = TraceError
     
     private var dataSource: UnsplashDataSourceProtocol
+    private var dataMode: DataRequestMode
     private var keyword: String
+    private var status = false
     
     var cancellable = Set<AnyCancellable>()
     
-    init(dataSource: UnsplashDataSourceProtocol, keyword: String) {
+    init(dataSource: UnsplashDataSourceProtocol, keyword: String, dataMode: DataRequestMode) {
         self.dataSource = dataSource
         self.keyword = keyword
+        self.dataMode = dataMode
     }
     
     deinit {
@@ -28,7 +31,7 @@ class GetSearchDataUseCase: Publisher {
     }
     
     func receive<S>(subscriber: S) where S : Subscriber, TraceError == S.Failure, [PhotoInfo] == S.Input {
-        dataSource.getSearchResult(keyword: keyword).sink(
+        dataSource.getSearchResult(keyword: keyword, mode: dataMode).sink(
             receiveCompletion: { result in
                 switch result {
                 case .finished:
@@ -39,6 +42,7 @@ class GetSearchDataUseCase: Publisher {
             },
             receiveValue: { value in
                 _ = subscriber.receive(value)
+                self.status = true
             }
         ).store(in: &cancellable)
     }

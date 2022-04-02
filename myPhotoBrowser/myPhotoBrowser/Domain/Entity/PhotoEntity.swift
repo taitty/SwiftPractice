@@ -20,8 +20,8 @@ struct PhotoExif {
 
 struct PhotoLocation {
     var location: String?
-    var latitude: Float?
-    var longitude: Float?
+    var latitude: Double?
+    var longitude: Double?
     var description: String?
 }
 

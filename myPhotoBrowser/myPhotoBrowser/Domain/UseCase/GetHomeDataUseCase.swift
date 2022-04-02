@@ -14,12 +14,14 @@ class GetHomeDataUseCase: Publisher {
     typealias Failure = TraceError
     
     private var dataSource: UnsplashDataSourceProtocol
+    private var dataMode: DataRequestMode
     private var status = false
     
     var cancellable = Set<AnyCancellable>()
     
-    init(dataSource: UnsplashDataSourceProtocol) {
+    init(dataSource: UnsplashDataSourceProtocol, dataMode: DataRequestMode) {
         self.dataSource = dataSource
+        self.dataMode = dataMode
     }
     
     deinit {
@@ -27,7 +29,7 @@ class GetHomeDataUseCase: Publisher {
     }
     
     func receive<S>(subscriber: S) where S : Subscriber, TraceError == S.Failure, [PhotoInfo] == S.Input {
-        dataSource.getPhotoList().sink(
+        dataSource.getPhotoList(mode: dataMode).sink(
             receiveCompletion: { result in
                 switch result {
                 case .finished:

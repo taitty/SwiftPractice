@@ -24,11 +24,11 @@ class myPhotoBrowserTests: XCTestCase {
         let promise = expectation(description: "get HomeData from Mock")
         var cancellable = Set<AnyCancellable>()
         
-        let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource())
+        let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                Log.Debug(.UI, "done to get homeData...")
+                Log.Debug(.UNTEST, "done to get homeData...")
             case .failure(let error):
                 XCTFail(error.message)
             }
@@ -48,7 +48,7 @@ class myPhotoBrowserTests: XCTestCase {
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                Log.Debug(.UI, "done to get detailData...")
+                Log.Debug(.UNTEST, "done to get detailData...")
             case .failure(let error):
                 XCTFail(error.message)
             }
@@ -63,11 +63,11 @@ class myPhotoBrowserTests: XCTestCase {
         let promise = expectation(description: "get SearchData from Mock")
         var cancellable = Set<AnyCancellable>()
         
-        let useCase = GetSearchDataUseCase(dataSource: MockUnsplashDataSource(), keyword: "ocean")
+        let useCase = GetSearchDataUseCase(dataSource: MockUnsplashDataSource(), keyword: "ocean", dataMode: .initialData)
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                Log.Debug(.UI, "done to get SearchData...")
+                Log.Debug(.UNTEST, "done to get SearchData...")
             case .failure(let error):
                 XCTFail(error.message)
             }
@@ -83,16 +83,17 @@ class myPhotoBrowserTests: XCTestCase {
         let promise = expectation(description: "get HomeData from Real")
         var cancellable = Set<AnyCancellable>()
         
-        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource())
+        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                Log.Debug(.UI, "done to get homeData...")
+                Log.Debug(.UNTEST, "done to get homeData...")
             case .failure(let error):
                 XCTFail(error.message)
             }
         }, receiveValue: { value in
             promise.fulfill()
+            Log.Debug(.UNTEST, "num of item : \(value.count)")
             XCTAssertTrue(!value.isEmpty)
         }).store(in: &cancellable)
 
@@ -107,7 +108,7 @@ class myPhotoBrowserTests: XCTestCase {
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                Log.Debug(.UI, "done to get detailData...")
+                Log.Debug(.UNTEST, "done to get detailData...")
             case .failure(let error):
                 XCTFail(error.message)
             }
@@ -122,11 +123,11 @@ class myPhotoBrowserTests: XCTestCase {
         let promise = expectation(description: "get SearchData from Real")
         var cancellable = Set<AnyCancellable>()
         
-        let useCase = GetSearchDataUseCase(dataSource: UnsplashDataSource(), keyword: "ocean")
+        let useCase = GetSearchDataUseCase(dataSource: UnsplashDataSource(), keyword: "ocean", dataMode: .initialData)
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                Log.Debug(.UI, "done to get SearchData...")
+                Log.Debug(.UNTEST, "done to get SearchData...")
             case .failure(let error):
                 XCTFail(error.message)
             }

@@ -14,7 +14,7 @@ final class MockUnsplashDataSource {
 
 extension MockUnsplashDataSource: UnsplashDataSourceProtocol {
 
-    func getPhotoList() -> AnyPublisher<[PhotoInfo], TraceError> {
+    func getPhotoList(mode: DataRequestMode) -> AnyPublisher<[PhotoInfo], TraceError> {
         let decoder = JSONDecoder()
         let result = try? decoder.decode([UnsplashPhotoListItem].self, from: homeData)
         
@@ -65,7 +65,7 @@ extension MockUnsplashDataSource: UnsplashDataSourceProtocol {
         .eraseToAnyPublisher()
     }
 
-    func getSearchResult(keyword: String) -> AnyPublisher<[PhotoInfo], TraceError> {
+    func getSearchResult(keyword: String, mode: DataRequestMode) -> AnyPublisher<[PhotoInfo], TraceError> {
         let decoder = JSONDecoder()
         let result = try? decoder.decode(UnsplashSearchList.self, from: searchData)
         

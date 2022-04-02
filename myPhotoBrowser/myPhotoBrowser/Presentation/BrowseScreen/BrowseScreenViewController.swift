@@ -11,9 +11,12 @@ import Combine
 final class BrowseScreenViewController: UIViewController {
     
     var presenter: BrowseScreenPresenterProtocol?
+    
+    private var currentIdx: Int?
     private var viewData: [PhotoInfo]?
     private var cancellable = Set<AnyCancellable>()
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var imageListView: UICollectionView!
     
     override func viewDidLoad() {
@@ -22,11 +25,24 @@ final class BrowseScreenViewController: UIViewController {
         imageListView.delegate = self
         imageListView.dataSource = self
         
+        searchBar.delegate = self
+        searchBar.placeholder = "Search Photos"
+        
         registerCell()
-        configSearchBar()
         setObserver()
         
         presenter?.onViewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let focus = currentIdx {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.imageListView.scrollToItem(at: IndexPath(row: focus, section: 0), at: .top, animated: false)
+            }
+        }
     }
     
     private func registerCell() {
@@ -34,17 +50,8 @@ final class BrowseScreenViewController: UIViewController {
         imageListView.register(name, forCellWithReuseIdentifier: "ImageCell")
     }
     
-    private func configSearchBar() {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.delegate = self
-        searchController.searchBar.placeholder = "Search Photos"
-        self.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationItem.searchController = searchController
-    }
-    
     private func setObserver() {
-        let dataObserver = presenter?.dataChecker
-        dataObserver?.sink {
+        presenter?.dataObserver.dropFirst().sink {
             if !$0.isEmpty {
                 Log.Debug(.UI, "new data is updated")
                 self.viewData = $0
@@ -53,16 +60,40 @@ final class BrowseScreenViewController: UIViewController {
                 }
             }
         }.store(in: &cancellable)
+        
+        presenter?.screenModeObserver.dropFirst().sink { _ in
+            self.currentIdx = 0
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.imageListView.scrollToItem(at: IndexPath(row: self.currentIdx ?? 0, section: 0), at: .top, animated: false)
+            }
+        }.store(in: &cancellable)
     }
     
 }
 
 extension BrowseScreenViewController: UISearchBarDelegate {
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         Log.Debug(.UI, searchBar.text ?? "")
         if let text = searchBar.text {
-//            presenter?.requestSearch(keyword: text)
+            presenter?.requestSearch(keyword: text)
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        Log.Debug(.UI, "search canceled...")
+        self.searchBar.showsCancelButton = false
+        presenter?.searchCanceled()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            presenter?.searchCanceled()
         }
     }
     
@@ -71,7 +102,17 @@ extension BrowseScreenViewController: UISearchBarDelegate {
 extension BrowseScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter?.cellSelected(index: indexPath.row)
+        currentIdx = indexPath.row
+        presenter?.itemSelected()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        for cell in imageListView.visibleCells {
+            let indexPath = imageListView.indexPath(for: cell)
+            if let index = indexPath?.row, let count = viewData?.count, index > (count - 5) {
+                presenter?.reachedLastItem()
+            }
+        }
     }
     
 }
@@ -92,7 +133,6 @@ extension BrowseScreenViewController: UICollectionViewDataSource {
         if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
             cell.imageView.image = UIImage(data: data)
         }
-        
         return cell
     }
     
@@ -108,4 +148,20 @@ extension BrowseScreenViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: imageListView.frame.size.width, height: height)
     }
     
+}
+
+extension BrowseScreenViewController: DetailScreenDataDelegate {
+    
+    func getCurrentPosition() -> Int {
+        return self.currentIdx ?? 0
+    }
+    
+    func setCurrentPosition(position: Int) {
+        self.currentIdx = position
+    }
+    
+    func getViewData() -> [PhotoInfo]? {
+        return self.viewData
+    }
+
 }

@@ -9,10 +9,14 @@ import Foundation
 import Combine
 
 protocol BrowseScreenPresenterProtocol {
-    var dataChecker: Published<[PhotoInfo]>.Publisher { get }
+    var dataObserver: Published<[PhotoInfo]>.Publisher { get }
+    var screenModeObserver: Published<ScreenMode>.Publisher { get }
     
-    func cellSelected(index: Int)
+    func itemSelected()
     func onViewDidLoad()
+    func requestSearch(keyword: String)
+    func searchCanceled()
+    func reachedLastItem()
 }
 
 final class BrowseScreenPresenter {
@@ -20,25 +24,43 @@ final class BrowseScreenPresenter {
     var interactor: BrowseScreenInteractorProtocol?
     var wireframe: BrowseScreenWireframeProtocol?
     var cancellable = Set<AnyCancellable>()
-    var dataChecker: Published<[PhotoInfo]>.Publisher { $data }
+    var dataObserver: Published<[PhotoInfo]>.Publisher { $data }
+    var screenModeObserver: Published<ScreenMode>.Publisher { $screenMode }
+    
     @Published var data: [PhotoInfo] = []
+    @Published var screenMode: ScreenMode = .browse
     
     private func setObserver() {
-        let dataObserver = interactor?.dataPublisher
-        dataObserver?.sink { self.data = $0 }.store(in: &cancellable)
+        interactor?.dataPublisher.dropFirst().sink {
+            self.data = $0
+        }.store(in: &cancellable)
     }
     
 }
 
 extension BrowseScreenPresenter: BrowseScreenPresenterProtocol {
     
-    func cellSelected(index: Int) {
-        wireframe?.routeToDetailScreen(index: index, data: data)
+    func itemSelected() {
+        wireframe?.routeToDetailScreen()
     }
     
     func onViewDidLoad() {
         setObserver()
-        interactor?.getHomeData()
+        interactor?.getHomeData(mode: .initialData)
+    }
+    
+    func requestSearch(keyword: String) {
+        screenMode = .search
+        interactor?.requestSearch(keyword: keyword, mode: .initialData)
+    }
+    
+    func searchCanceled() {
+        screenMode = .browse
+        interactor?.getHomeData(mode: .initialData)
+    }
+    
+    func reachedLastItem() {
+        interactor?.requestMoreData(screenMode: screenMode, dataMode: .continueData)
     }
     
 }

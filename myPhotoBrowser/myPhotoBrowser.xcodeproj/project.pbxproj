@@ -45,6 +45,7 @@
 		A5928A8B27F44E52000F0AFA /* UnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5928A8A27F44E52000F0AFA /* UnsplashDataSource.swift */; };
 		A5928A8D27F44E62000F0AFA /* MockUnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5928A8C27F44E62000F0AFA /* MockUnsplashDataSource.swift */; };
 		A5928A9027F450E2000F0AFA /* ServerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5928A8F27F450E2000F0AFA /* ServerDependency.swift */; };
+		BB76DC9227F76967000CDDB3 /* ScreenStateContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76DC9127F76966000CDDB3 /* ScreenStateContext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		A5928A8A27F44E52000F0AFA /* UnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDataSource.swift; sourceTree = "<group>"; };
 		A5928A8C27F44E62000F0AFA /* MockUnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUnsplashDataSource.swift; sourceTree = "<group>"; };
 		A5928A8F27F450E2000F0AFA /* ServerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDependency.swift; sourceTree = "<group>"; };
+		BB76DC9127F76966000CDDB3 /* ScreenStateContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				A5928A8027F43F45000F0AFA /* PhotoEntity.swift */,
+				BB76DC9127F76966000CDDB3 /* ScreenStateContext.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				A5928A5027F3E9AB000F0AFA /* BrowseScreenInteractor.swift in Sources */,
 				A5928A6F27F41AEA000F0AFA /* InfoScreenPresenter.swift in Sources */,
 				A5928A5727F3F22B000F0AFA /* DetailScreenViewController.swift in Sources */,
+				BB76DC9227F76967000CDDB3 /* ScreenStateContext.swift in Sources */,
 				A5928A5527F3ECF2000F0AFA /* Log.swift in Sources */,
 				A5928A8527F44DE7000F0AFA /* GetDetailDataUseCase.swift in Sources */,
 				A5928A7327F41AFF000F0AFA /* InfoScreenWireframe.swift in Sources */,
