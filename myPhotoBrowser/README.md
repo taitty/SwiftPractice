@@ -36,7 +36,8 @@
 
 ### Data Injection
 - BrowseScreen 과 DetailScreen 은 Delegate 를 통해 Data 를 공유
-<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Delegate.svg" width="800px">
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Delegate.svg" width="400px">
+
 
 # Dependency Injection
 #### Screen 이동 시, 해당 Screen 에서 사용해야할 Data Source Instance 를 주입
