@@ -57,7 +57,27 @@
 
 
 # Testable Code
+### 테스트/실사용 목정에 따라, Context 를 구분하여 생성/전달
+    enum ServerContext {
+        case real
+        case mock
 
+        var dataSource: UnsplashDataSourceProtocol {
+            switch self {
+            case .real:
+                return UnsplashDataSource()
+            case .mock:
+                return MockUnsplashDataSource()
+            }
+        }
+    }
+
+- 실사용 시,
+    let dataSource = ServerContext.real.dataSource
+    let wireframe = BrowseScreenWireframe(dataSource: dataSource)
+- 테스트 시,
+    let dataSource = ServerContext.mock.dataSource
+    let wireframe = BrowseScreenWireframe(dataSource: dataSource)
 
 
 # Data Flow
