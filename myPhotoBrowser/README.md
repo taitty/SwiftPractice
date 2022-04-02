@@ -101,7 +101,7 @@
         let promise = expectation(description: "get HomeData from Mock")
         var cancellable = Set<AnyCancellable>()
 
-        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
+        let useCase = GetHomeDataUseCase(dataSource: **UnsplashDataSource()** , dataMode: .initialData)
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
