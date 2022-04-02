@@ -24,10 +24,10 @@
 # Layout
 
 ### Presentation
-<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Presentation.svg">
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Presentation.svg" width="800px">
 
 ### Control Flow
-<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Layout.svg">
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Layout.svg" width="800px">
 
 
 # Dependency Injection
@@ -73,14 +73,12 @@
     }
 
 - 실사용 시,
-
     let dataSource = ServerContext.real.dataSource
     let wireframe = BrowseScreenWireframe(dataSource: dataSource)
 
 - 테스트 시,
 
-    let dataSource = ServerContext.mock.dataSource
-    let wireframe = BrowseScreenWireframe(dataSource: dataSource)
+
 
 
 # Data Flow
