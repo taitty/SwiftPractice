@@ -1,7 +1,7 @@
 # Summary
-- Unsplash 앱 Clone Coding Test
-- 진입 시에는 Editorial Contents, Search 수행 시에는 결과 Contents 들이 보여짐
-- Combine 을 사용한 Reactive Programming 도전
+- Unsplash 앱 Clone Coding
+- Editorial Contents 와 Search Result Contents 가, 하나의 View 를 사용
+- Keyword 검색 여부에 따라, 화면이 구성됨
 
 
 # Screenshot
@@ -24,11 +24,19 @@
 # Layout
 
 ### Presentation
+- VIPER Pattern 적용
+- Combine 을 사용하여 Controller 간의 Signal 전달
 <img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Presentation.svg" width="800px">
 
 ### Control Flow
+- Data 는, Entity 에 정의된 Data Structure 에 따라, Data -> Domain -> Presentation Layer 방향으로 이동
+- Data Source 는 Repository 에 정의된 Protocol 을 채택하여 구현
+- 각 Screen 의 Interactor 는, UseCase 를 통해 필요한 Data 를 요청
 <img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Layout.svg" width="800px">
 
+### Data Injection
+- BrowseScreen 과 DetailScreen 은 Delegate 를 통해 Data 를 공유
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Delegate.svg" width="800px">
 
 # Dependency Injection
 #### Screen 이동 시, 해당 Screen 에서 사용해야할 Data Source Instance 를 주입
