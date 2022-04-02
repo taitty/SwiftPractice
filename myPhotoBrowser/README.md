@@ -22,8 +22,7 @@
 
 
 # Layout
-
-
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Layout.svg">
 
 
 # Dependency Injection
