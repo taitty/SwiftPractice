@@ -31,11 +31,11 @@
 
 
 # Dependency Injection
-### Screen 이동 시, 해당 Screen 에서 사용해야할 Data Source Instance 를 주입
+#### Screen 이동 시, 해당 Screen 에서 사용해야할 Data Source Instance 를 주입
     let dataSource = ServerContext.real.dataSource
     let wireframe = BrowseScreenWireframe(dataSource: dataSource)
 
-### 주입받은 Instance 는, 해당 Screen 의 각 Controller 에서 사용하도록 재주입
+#### 주입받은 Instance 는, 해당 Screen 의 각 Controller 에서 사용하도록 재주입
     func setup() -> UIViewController {
         let storyboard = UIStoryboard(name: "BrowseScreen", bundle: Bundle.main)
         let view = storyboard.instantiateViewController(withIdentifier: "BrowseScreen") as? BrowseScreenViewController
@@ -79,7 +79,6 @@
 #### 테스트 시,
     let dataSource = ServerContext.mock.dataSource
     let wireframe = BrowseScreenWireframe(dataSource: dataSource)
-
 
 
 # Data Flow
