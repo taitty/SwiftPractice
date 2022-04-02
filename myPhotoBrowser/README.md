@@ -93,8 +93,6 @@
 
 ## Unit Test
 ##### 주입되는 dataSource 에 따라, Mock/Real 구분하여 진행
-<span style="color:blue">some *blue* text</span>.
-> <span style="color:blue">some *blue* text</span>.
 >   let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
 혹은,
 >   let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
