@@ -93,9 +93,9 @@
 
 ## Unit Test
 ##### 주입되는 dataSource 에 따라, Mock/Real 구분하여 진행
->   let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
+let useCase = GetHomeDataUseCase(dataSource: __MockUnsplashDataSource()__, dataMode: .initialData)
 혹은,
->   let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
+let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
 
     func testGetHomeDataUseCaseFromMock() throws {
         let promise = expectation(description: "get HomeData from Mock")
