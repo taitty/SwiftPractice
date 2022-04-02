@@ -58,6 +58,7 @@
 
 # Testable Code
 ### 테스트/실사용 목정에 따라, Context 를 구분하여 생성/전달
+#### Dependency Context 를 enum 으로 선언
     enum ServerContext {
         case real
         case mock
