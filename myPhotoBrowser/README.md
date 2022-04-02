@@ -93,14 +93,17 @@
 
 ## Unit Test
 ##### 주입되는 dataSource 에 따라, Mock/Real 구분하여 진행
+<span style="color:blue">some *blue* text</span>.
+> <span style="color:blue">some *blue* text</span>.
+>   let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
+혹은,
+>   let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
+
     func testGetHomeDataUseCaseFromMock() throws {
         let promise = expectation(description: "get HomeData from Mock")
         var cancellable = Set<AnyCancellable>()
-        <span style="color:blue">some *blue* text</span>.
->        let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
-혹은,
->        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
 
+        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
         useCase.sink(receiveCompletion: { result in
             switch result {
             case .finished:
