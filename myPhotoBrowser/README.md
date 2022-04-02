@@ -13,8 +13,7 @@
 # Demo
 |Browsing|Searching|
 |---|---|
-|![Simulator Screen Recording - iPhone 11 - 2022-04-02 at 22 26 59](https://user-images.githubusercontent.com/30424849/161385476-2437d274-c2cf-4837-9015-fb13a4bfa176.gif)||
-
+|![Simulator Screen Recording - iPhone 11 - 2022-04-02 at 22 26 59](https://user-images.githubusercontent.com/30424849/161385476-2437d274-c2cf-4837-9015-fb13a4bfa176.gif)|![Simulator Screen Recording - iPhone 11 - 2022-04-02 at 22 29 17](https://user-images.githubusercontent.com/30424849/161385540-a60e8994-e0b3-4b36-96e8-2f02810ec379.gif)|
 
 
 # Environment
