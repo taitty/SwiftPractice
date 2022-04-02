@@ -25,7 +25,7 @@
 
 ### Presentation
 - VIPER Pattern 적용
-- Combine 을 사용하여 Controller 간의 Signal 전달
+- Combine 을 사용하여 Class 간의 Signal 전달
 <img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Presentation.svg" width="800px">
 
 ### Control Flow
