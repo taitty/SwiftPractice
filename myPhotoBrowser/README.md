@@ -34,8 +34,8 @@
 - 각 Screen 의 Interactor 는, UseCase 를 통해 필요한 Data 를 요청
 <img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Layout.svg" width="800px">
 
-### Data Injection
-- BrowseScreen 과 DetailScreen 은 Delegate 를 통해 Data 를 공유
+### Data Transfer
+- BrowseScreen 과 DetailScreen 은 Delegate 를 통해 Data 를 전달
 <img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Delegate.svg" width="350px">
 
 
