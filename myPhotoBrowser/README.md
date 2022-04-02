@@ -80,3 +80,27 @@
     let dataSource = ServerContext.mock.dataSource
     let wireframe = BrowseScreenWireframe(dataSource: dataSource)
 
+
+### Unit Test
+##### 주입되는 dataSource 에 따라, Mock/Real 구분하여 진행
+    func testGetHomeDataUseCaseFromMock() throws {
+        let promise = expectation(description: "get HomeData from Mock")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), dataMode: .initialData)
+        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), dataMode: .initialData)
+        useCase.sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                Log.Debug(.UNTEST, "done to get homeData...")
+            case .failure(let error):
+                XCTFail(error.message)
+            }
+        }, receiveValue: { value in
+            promise.fulfill()
+            XCTAssertTrue(!value.isEmpty)
+        }).store(in: &cancellable)
+
+        wait(for: [promise], timeout: 5)
+    }
+
