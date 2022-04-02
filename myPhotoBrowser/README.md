@@ -22,7 +22,12 @@
 
 
 # Layout
+
+### Presentation
 <img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Presentation.svg">
+
+### Control Flow
+<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Layout.svg">
 
 
 # Dependency Injection
