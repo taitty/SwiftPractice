@@ -91,6 +91,7 @@ extension BrowseScreenViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         Log.Debug(.UI, searchBar.text ?? "")
         if let text = searchBar.text {
+            self.searchBar.endEditing(true)
             presenter?.requestSearch(keyword: text)
         }
     }
@@ -98,13 +99,8 @@ extension BrowseScreenViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         Log.Debug(.UI, "search canceled...")
         self.searchBar.showsCancelButton = false
+        self.searchBar.endEditing(true)
         presenter?.searchCanceled()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            presenter?.searchCanceled()
-        }
     }
     
 }
@@ -113,7 +109,7 @@ extension BrowseScreenViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentIdx = indexPath.row
-        presenter?.itemSelected()
+        presenter?.itemSelected(selected: currentIdx ?? 0)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -140,9 +136,7 @@ extension BrowseScreenViewController: UICollectionViewDataSource {
         }
 
         cell.artist.text = cellData.artist
-        if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
-            cell.imageView.image = UIImage(data: data)
-        }
+        cell.imageView.getImage(urlString: cellData.smlImgUrl ?? "")
         return cell
     }
     
@@ -162,16 +156,8 @@ extension BrowseScreenViewController: UICollectionViewDelegateFlowLayout {
 
 extension BrowseScreenViewController: DetailScreenDataDelegate {
     
-    func getCurrentPosition() -> Int {
-        return self.currentIdx ?? 0
-    }
-    
     func setCurrentPosition(position: Int) {
         self.currentIdx = position
-    }
-    
-    func getViewData() -> [PhotoInfo]? {
-        return self.viewData
     }
 
 }

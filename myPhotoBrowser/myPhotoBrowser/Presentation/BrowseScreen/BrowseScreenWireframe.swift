@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol BrowseScreenWireframeProtocol {
-    func routeToDetailScreen()
+    func routeToDetailScreen(data: [PhotoInfo], position: Int)
 }
 
 final class BrowseScreenWireframe {
@@ -52,13 +52,13 @@ final class BrowseScreenWireframe {
 
 extension BrowseScreenWireframe: BrowseScreenWireframeProtocol {
     
-    func routeToDetailScreen() {
+    func routeToDetailScreen(data: [PhotoInfo], position: Int) {
         guard let view = self.view else {
             Log.Debug(.UI, "BrowseScreen is not created...")
             return
         }
 
-        let wireframe = DetailScreenWireframe(dataSource: dataSource, dataDelegate: view)
+        let wireframe = DetailScreenWireframe(dataSource: dataSource, dataDelegate: view, data: data, position: position)
         _ = wireframe.setup()
         wireframe.push(from: view)
     }

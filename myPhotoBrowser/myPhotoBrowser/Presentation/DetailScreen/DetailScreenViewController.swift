@@ -8,9 +8,7 @@
 import UIKit
 
 protocol DetailScreenDataDelegate {
-    func getCurrentPosition() -> Int
     func setCurrentPosition(position: Int)
-    func getViewData() -> [PhotoInfo]?
 }
 
 final class DetailScreenViewController: UIViewController {
@@ -30,9 +28,6 @@ final class DetailScreenViewController: UIViewController {
         
         detailListView.delegate = self
         detailListView.dataSource = self
-        
-        viewData = dataDelegate?.getViewData()
-        currentIdx = dataDelegate?.getCurrentPosition()
         
         registerCell()
         configuration()
@@ -99,9 +94,7 @@ extension DetailScreenViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        if let imageUrl = URL(string: cellData.smlImgUrl ?? ""), let data = try? Data(contentsOf: imageUrl) {
-            cell.imageView.image = UIImage(data: data)
-        }
+        cell.imageView.getImage(urlString: cellData.smlImgUrl ?? "")
         return cell
     }
     

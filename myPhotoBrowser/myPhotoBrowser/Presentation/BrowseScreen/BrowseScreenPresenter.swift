@@ -12,7 +12,7 @@ protocol BrowseScreenPresenterProtocol {
     var dataObserver: Published<[PhotoInfo]>.Publisher { get }
     var screenModeObserver: Published<ScreenMode>.Publisher { get }
     
-    func itemSelected()
+    func itemSelected(selected: Int)
     func onViewDidLoad()
     func requestSearch(keyword: String)
     func searchCanceled()
@@ -40,8 +40,8 @@ final class BrowseScreenPresenter {
 
 extension BrowseScreenPresenter: BrowseScreenPresenterProtocol {
     
-    func itemSelected() {
-        wireframe?.routeToDetailScreen()
+    func itemSelected(selected: Int) {
+        wireframe?.routeToDetailScreen(data: data, position: selected)
     }
     
     func onViewDidLoad() {

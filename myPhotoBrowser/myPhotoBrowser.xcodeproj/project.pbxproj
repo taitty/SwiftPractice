@@ -45,6 +45,7 @@
 		A5928A8B27F44E52000F0AFA /* UnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5928A8A27F44E52000F0AFA /* UnsplashDataSource.swift */; };
 		A5928A8D27F44E62000F0AFA /* MockUnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5928A8C27F44E62000F0AFA /* MockUnsplashDataSource.swift */; };
 		A5928A9027F450E2000F0AFA /* ServerDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5928A8F27F450E2000F0AFA /* ServerDependency.swift */; };
+		A5928A9A27FB03C8000F0AFA /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5928A9927FB03C8000F0AFA /* UIImageView.swift */; };
 		BB76DC9227F76967000CDDB3 /* ScreenStateContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76DC9127F76966000CDDB3 /* ScreenStateContext.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		A5928A8A27F44E52000F0AFA /* UnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDataSource.swift; sourceTree = "<group>"; };
 		A5928A8C27F44E62000F0AFA /* MockUnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUnsplashDataSource.swift; sourceTree = "<group>"; };
 		A5928A8F27F450E2000F0AFA /* ServerDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDependency.swift; sourceTree = "<group>"; };
+		A5928A9927FB03C8000F0AFA /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		BB76DC9127F76966000CDDB3 /* ScreenStateContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateContext.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,6 +260,7 @@
 		A5928A6927F41A95000F0AFA /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				A5928A9827FB03A7000F0AFA /* Extension */,
 				A5928A5E27F407BD000F0AFA /* InfoScreen */,
 				A5928A4627F3E924000F0AFA /* DetailScreen */,
 				A5928A4527F3E916000F0AFA /* BrowseScreen */,
@@ -343,6 +346,14 @@
 				A5928A8F27F450E2000F0AFA /* ServerDependency.swift */,
 			);
 			path = Dependency;
+			sourceTree = "<group>";
+		};
+		A5928A9827FB03A7000F0AFA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A5928A9927FB03C8000F0AFA /* UIImageView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,6 +495,7 @@
 				A5928A8D27F44E62000F0AFA /* MockUnsplashDataSource.swift in Sources */,
 				A5928A4C27F3E98D000F0AFA /* BrowseScreenViewController.swift in Sources */,
 				A5928A5927F3F234000F0AFA /* DetailScreenPresenter.swift in Sources */,
+				A5928A9A27FB03C8000F0AFA /* UIImageView.swift in Sources */,
 				A5928A4E27F3E99D000F0AFA /* BrowseScreenPresenter.swift in Sources */,
 				A5928A5D27F3F248000F0AFA /* DetailScreenWireframe.swift in Sources */,
 				A5928A1A27F3E893000F0AFA /* MainViewController.swift in Sources */,

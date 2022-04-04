@@ -168,7 +168,7 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
         urlComponents?.queryItems = [
             URLQueryItem(name: "client_id", value: BaseUrl.key.url),
             URLQueryItem(name: "page", value: "\(UnsplashDataSource.totalBrowsePage)"),
-            URLQueryItem(name: "per_page", value: "10")
+            URLQueryItem(name: "per_page", value: "30")
         ]
         
         guard let url = urlComponents?.url else {
@@ -177,7 +177,7 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
         }
         
         return URLSession.shared.dataTaskPublisher(for: url)
-            .print()
+//            .print()
             .tryMap { data, response in
                 guard let httpURLResponse = response as? HTTPURLResponse,
                    let info = httpURLResponse.value(forHTTPHeaderField: "Link"),
@@ -267,7 +267,7 @@ extension UnsplashDataSource: UnsplashDataSourceProtocol {
         }
         
         return URLSession.shared.dataTaskPublisher(for: url)
-            .print()
+//            .print()
             .map { $0.data }
             .decode(
                 type: UnsplashSearchList.self,

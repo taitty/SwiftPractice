@@ -18,10 +18,14 @@ final class DetailScreenWireframe {
     private var dataSource: UnsplashDataSourceProtocol
     private var view: DetailScreenViewController?
     private var delegate: DetailScreenDataDelegate?
+    private var data: [PhotoInfo]?
+    private var position: Int?
     
-    init(dataSource: UnsplashDataSourceProtocol, dataDelegate: DetailScreenDataDelegate) {
+    init(dataSource: UnsplashDataSourceProtocol, dataDelegate: DetailScreenDataDelegate, data: [PhotoInfo], position: Int) {
         self.dataSource = dataSource
         self.delegate = dataDelegate
+        self.data = data
+        self.position = position
     }
     
     func setup() -> UIViewController {
@@ -33,6 +37,8 @@ final class DetailScreenWireframe {
         self.view = view
         view?.presenter = presenter
         view?.dataDelegate = self.delegate
+        view?.viewData = self.data
+        view?.currentIdx = self.position
         presenter.interactor = interactor
         presenter.wireframe = self
         interactor.dataSource = self.dataSource
