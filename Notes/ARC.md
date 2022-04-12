@@ -5,9 +5,9 @@
 - Complie Time 에 필요한 곳에 retail (count 증가) /release (count 감소) 를 Compiler 가 자동으로 삽입
 
 
-# GC 와의 차이점
+# GC(Java) 와의 차이점
 ||GC|RC|
 |---|---|---|
-|계산시점|Run Time|Build Time|
+|계산시점|Run Time|Complie Time|
 |장점|RC 에 비해 해제될 확률이 높음|Run Time 에 추가적인 Resource 가 필요하지 않음|
-|단점|Run Time 에 추적하기 때문에 추가 Resource 필요.성능저하|순환참조 발생 시, 영구적으로 해제되지 않음|
+|단점|Run Time 에 추적하기 때문에 추가 Resource 필요(성능저하)|순환참조 발생 시, 영구적으로 해제되지 않음|
