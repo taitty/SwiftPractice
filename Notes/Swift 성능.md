@@ -10,5 +10,16 @@
 2. Reference Counting
 3. Method Dispatch
 
+# Allocation
+
+
+
+
+# Reference Counting
+
+
+
+
+# Method Dispatch
 
 
