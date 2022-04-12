@@ -10,7 +10,7 @@
 - data 를 복사하는 것과 참조하는 것에 성능 차이가 있나?
 
 # 성능에 영향을 주는 3요소
-1. Allocation
+###1. Allocation
   - 기본적으로 struct 는 stack 에, class 는 heap 에 저장
   - stack 은 구조가 단순해서, 접근이 빠름
   - heap 은 여러 Thread 가 동시에 접근이 가능하기에, 동시성에 대한 고려가 필요 (ex. Lock)
