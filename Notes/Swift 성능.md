@@ -21,9 +21,13 @@
     - 이런 property 가 여러 개 존재할 경우, class 보다 더 많은 Over-Head 가 발생함
       -> 가능하다면, stack 에 저장될 수 있도록 String 대신, 다른 struct 혹은 enum 을 선언해서 사용해야 함
       
-2. Reference Counting
+### 2. Reference Counting
 
-3. Method Dispatch
+
+
+### 3. Method Dispatch
+
+
 
 # Allocation
 
