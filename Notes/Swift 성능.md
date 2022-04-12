@@ -25,11 +25,12 @@
   - class 는 heap 에 저장되므로, Reference Count 가 증가하고, Instance 내부에 RC Value 를 갖고 있음
   - Reference Count 의 증가/감소 동작이 Thread-Safe 를 보장해야 하므로, 이에 대한 Over-Head 가 발생함
   
-  - 단, struct 내부에 class 을 property 로 갖거나, String 을 갖는다면?
+> struct 내부에 class 을 property 로 갖거나, String 을 갖는다면?
+
     - String 이나 Array 도 class 와 마찬가지로 heap 에 저장됨
     - 때문에, stack 에서 heap 영역을 참조하는 상황이 발생
     - 이런 property 가 여러 개 존재할 경우, class 보다 더 많은 Over-Head 가 발생함
-      -> 가능하다면, stack 에 저장될 수 있도록 String 대신, 다른 struct 혹은 enum 을 선언해서 사용해야 함
+    - 가능하다면, stack 에 저장될 수 있도록 String 대신, 다른 struct 혹은 enum 을 선언해서 사용해야 함
       
       
 ### 3. Method Dispatch
@@ -39,5 +40,6 @@
     ex) 다형성을 이용한 Factory Pattern, Template Pattern 적용 등...
   - 이 경우, Compiler 에 의한 최적화를 방해하기 때문에, Run Time 시의 수행 시간이 증가할 수 있음
   - class 는 Method 를 기본적으로 Dynamic Dispatch 함
-    -> 작성 시, 명시적으로 final keyword 를 사용한다면, Compiler 가 Static Dispatch 를 수행할 수 
+
+        작성 시, 명시적으로 final keyword 를 사용한다면, Compiler 가 Static Dispatch 를 수행할 수 
 
