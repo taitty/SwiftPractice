@@ -32,6 +32,12 @@
     - 이런 property 가 여러 개 존재할 경우, class 보다 더 많은 Over-Head 가 발생함
     - 가능하다면, stack 에 저장될 수 있도록 String 대신, 다른 struct 혹은 enum 을 선언해서 사용해야 함
       
+> struct 내부에 String 등의 Reference Type 의 Property 가 존재한다면, class 를 사용해야 하나?
+
+    - copy-on-write 기능에 의해, 단순 복사의 경우에는 stack 내에 heap 위치 참조를 위한 변수만 할당
+    - 실제 heap 내에 신규 영역 할당은, 복사된 변수에 값을 변경하는 경우에 발생
+    - 때문에, data 변경이 발생하지 않는다면, struct 를 사용하는 것이 빠름
+    
       
 ### 3. Method Dispatch
   - Compiler 시점에 호출될 Method 를 알 수 있고, 해당 반환값을 알 수 있다면, 최적화 기능을 통해 값을 바로 반환하도록 대체됨 (Inlining)
