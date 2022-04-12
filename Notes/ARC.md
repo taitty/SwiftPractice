@@ -11,3 +11,9 @@
 |계산시점|Run Time|Complie Time|
 |장점|RC 에 비해 해제될 확률이 높음|Run Time 에 추가적인 Resource 가 필요하지 않음|
 |단점|Run Time 에 추적하기 때문에 추가 Resource 필요(성능저하)|순환참조 발생 시, 영구적으로 해제되지 않음|
+
+
+# weak, unowned
+- 강한 참조를 피하기 위해 사용
+- weak : nil 이 될 수 있는 경우에 사용
+- unowned : 절대 nil 이 될 가능성이 없다는 보장이 있을 때 
