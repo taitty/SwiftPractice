@@ -12,4 +12,5 @@
 > 1 ~ 10, 11 ~ 20, ... 으로 세분화해서 실행
 
 
-
+# GCD
+- https://github.com/taitty/SwiftPractice/blob/master/Notes/GCD.md
