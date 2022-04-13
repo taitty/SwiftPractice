@@ -16,7 +16,14 @@
 - https://github.com/taitty/SwiftPractice/blob/master/Notes/GCD.md
 
 
-# Swift Concurrency
-
+# Swift Concurrency vs GCD
+||GCD|Swift Concurrency|
+|---|---|---|
+|도입|Object-C 에서부터 사용|21년에 소개된 신규 Programming API|
+|문법|중첩된 Completion Handler 로 인해, 구조가 복잡해짐|async/await Keyword 도입으로 가독성이 좋아짐|
+|Error|Completion Handler 에 Error 와 Data 를 같이 보냄|throw 를 통해 전달|
+|Data Race|Compiler Time 에 알 수 없음|Compiler 가 Error 로 알려줌|
+|성능|Thread Explosion 으로 과도한 Context Switching 발생 및 Dead-Lock 발생 우려가 있음|await 로 중단 시, 동일 Thread 내의 다음 함수가 수행됨. 추가적인 Context Switching 이 발생하지 않음|
+|우선순위역전|FIFO 구조이므로, 우선순위가 높아도 먼저 추가된 Task 가 먼저 실행됨|FIFO 구조가 아님. 우선순위가 높은 Task 가 먼저 수행됨|
 
 
