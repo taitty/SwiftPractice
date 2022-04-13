@@ -5,8 +5,8 @@
 
 # DispatchQueue
 - GCD 를 구현한 Swift class
-- OS 에서 관리하는 Queue 에 Task 를 반영하여, Code 를 동시적(Concurrently)으로 실행시킬 수 있음
-- OS 에서 등록된 Task 에 대해서, Thread 생성/분배/삭제를 관리
+- OS 에서 관리하는 Queue 에 Block (closure) 단위로 Task 를 쉽게 등록 가능
+-등록된 Task 는  OS 에서 Thread 생성/분배/삭제를 관리
 
 ### Options
 
