@@ -21,3 +21,7 @@ suspend() 메소드: task를 일시중지 (인스턴스 생성시 초기값은 s
 일시정지: cancel(byProducingResumeData:) `byProducingResumeData`클로저에서 진행중인 data를 얻고 이 data를 기록
 취소: cancel()
 재개: 기존에 저장해둔 데이터가 있을땐 `urlSession.downloadTask(withResumeData:)`, 없을땐 `urlSession.downloadTask(with:)`
+
+
+https://o-o-wl.tistory.com/50
+새로운 유저의 쿼리를 위해서, 우리는 이미 진행되던 dataTask를 취소합니다. 왜냐하면 우리는 dataTask객체를 새로운 쿼리를 위해 재사용하기를 원하기 때문입니다.
