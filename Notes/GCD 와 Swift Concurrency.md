@@ -51,6 +51,15 @@
         > Task-A 가 완료된 후에, Task-B 가 수행됨  
         > Task-C 는 Task-A/B 와 상관없이 수행됨
      
+## DispatchWorkItem
+- DispatchQueue 에 할당할 Task 를 정의할 수 있음
+- QoS 를 설정하여, 우선순위 지정이 가능
+
+## DispatchGroup
+- 여러 Queue 를 하나의 그룹으로 묶을 수 있음
+- 그룹에 포함된 Queue 의 모든 Task 완료 여부를 확인할 수 있음
+- Group 의 모든 Task 들이 완료된 후에 어떤 작업을 수행하도록 추가 가능
+- enter/leave/wait 혹은 enter/leave/notify 혹은 Task 할당 시 Param 으로 group 지정 후, notify 에서 
 
 # Concurrent vs Parallel
 - 사전적 의미
