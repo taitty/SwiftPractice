@@ -54,6 +54,9 @@
 ## DispatchWorkItem
 - DispatchQueue 에 할당할 Task 를 정의할 수 있음
 - QoS 를 설정하여, 우선순위 지정이 가능
+- 설정된 Work Item 에 대한 Cancel 기능 제공
+  - Queue 의 대기열에 있는 경우에는 Delete
+  - 이미 실행 중인 경우에는 isCancelled 값을 true 로 변경 -> 이후, 해당 값을 확인해서 종료 
 
 ## DispatchGroup
 - 여러 Queue 에서 실행되는 Task 들을 하나의 그룹으로 묶을 수 있음
