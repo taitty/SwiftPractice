@@ -30,6 +30,27 @@
       - sync : 등록된 작업이 끝날 때까지 기다림
       - async : 등록만 시키고, 작업은 계속 진행
 
+- Serial Queue 의 async 와 Concurrent Queue 의 async  
+  - Case1:
+
+        let queue = DispatchQueue.global()
+        queue.async { Task-A }
+        queue.async { Task-B }
+        Task-C
+
+        > Task-A/B 의 완료 순서는 보장되지 않음  
+        > Task-C 는 Task-A/B 와 상관없이 수행됨  
+
+  - Case2:
+
+        let queue = DispatchQueue(label: "serial")
+        queue.async { Task-A }
+        queue.async { Task-B }
+        Task-C
+
+        > Task-A 가 완료된 후에, Task-B 가 수행됨  
+        > Task-C 는 Task-A/B 와 상관없이 수행됨
+     
 
 # Concurrent vs Parallel
 - 사전적 의미
