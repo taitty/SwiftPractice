@@ -1,4 +1,4 @@
-# 
+# 요약
 - UIKit 의 속성이 광대해서, 모든 기능을 Thread-safe 하게 설계하면 성능이 느려짐
 - Thread-safe 하지 않게 설계한 것은 애플의 의도
 - 때문에, Background Thread 가 UI 를 업데이트하면, View 가 제멋대로 동작할 수 있음
