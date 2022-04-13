@@ -4,9 +4,9 @@
 
 
 # DispatchQueue
-- GCD 를 구현한 Swift class
+- GCD 를 구현한 Swift 의 Programming API
 - OS 에서 관리하는 Queue 에 Block (closure) 단위로 Task 를 쉽게 등록 가능
--등록된 Task 는  OS 에서 Thread 생성/분배/삭제를 관리
+- 등록된 Task 는  OS 에서 Thread 생성/분배/삭제를 관리
 
 ### Options
 
