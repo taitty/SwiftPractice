@@ -16,6 +16,15 @@
 		BB3E0887281C23950058859C /* myPhotoBrowser2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E0886281C23950058859C /* myPhotoBrowser2Tests.swift */; };
 		BB3E0891281C23950058859C /* myPhotoBrowser2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E0890281C23950058859C /* myPhotoBrowser2UITests.swift */; };
 		BB3E0893281C23950058859C /* myPhotoBrowser2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E0892281C23950058859C /* myPhotoBrowser2UITestsLaunchTests.swift */; };
+		BB3E08A2281C242E0058859C /* PhotoEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08A1281C242E0058859C /* PhotoEntity.swift */; };
+		BB3E08A5281C267A0058859C /* GetHomeDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08A4281C267A0058859C /* GetHomeDataUseCase.swift */; };
+		BB3E08A8281C26BD0058859C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08A7281C26BD0058859C /* Log.swift */; };
+		BB3E08AA281C27430058859C /* GetDetailDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08A9281C27430058859C /* GetDetailDataUseCase.swift */; };
+		BB3E08AC281C27620058859C /* GetSearchDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08AB281C27620058859C /* GetSearchDataUseCase.swift */; };
+		BB3E08AF281C30770058859C /* UnsplashDataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08AE281C30770058859C /* UnsplashDataSourceProtocol.swift */; };
+		BB3E08B1281C30BF0058859C /* ScreenStateContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08B0281C30BF0058859C /* ScreenStateContext.swift */; };
+		BB3E08B5281D8B610058859C /* UnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08B4281D8B610058859C /* UnsplashDataSource.swift */; };
+		BB3E08B8281D8B8E0058859C /* MockUnsplashDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E08B7281D8B8E0058859C /* MockUnsplashDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +58,15 @@
 		BB3E088C281C23950058859C /* myPhotoBrowser2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myPhotoBrowser2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB3E0890281C23950058859C /* myPhotoBrowser2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPhotoBrowser2UITests.swift; sourceTree = "<group>"; };
 		BB3E0892281C23950058859C /* myPhotoBrowser2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myPhotoBrowser2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BB3E08A1281C242E0058859C /* PhotoEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEntity.swift; sourceTree = "<group>"; };
+		BB3E08A4281C267A0058859C /* GetHomeDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHomeDataUseCase.swift; sourceTree = "<group>"; };
+		BB3E08A7281C26BD0058859C /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		BB3E08A9281C27430058859C /* GetDetailDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDetailDataUseCase.swift; sourceTree = "<group>"; };
+		BB3E08AB281C27620058859C /* GetSearchDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSearchDataUseCase.swift; sourceTree = "<group>"; };
+		BB3E08AE281C30770058859C /* UnsplashDataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDataSourceProtocol.swift; sourceTree = "<group>"; };
+		BB3E08B0281C30BF0058859C /* ScreenStateContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenStateContext.swift; sourceTree = "<group>"; };
+		BB3E08B4281D8B610058859C /* UnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashDataSource.swift; sourceTree = "<group>"; };
+		BB3E08B7281D8B8E0058859C /* MockUnsplashDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUnsplashDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +117,9 @@
 		BB3E086E281C23910058859C /* myPhotoBrowser2 */ = {
 			isa = PBXGroup;
 			children = (
+				BB3E08A6281C26B30058859C /* Debug */,
+				BB3E089F281C23FB0058859C /* Domain */,
+				BB3E08B2281D8B1F0058859C /* Data */,
 				BB3E086F281C23910058859C /* AppDelegate.swift */,
 				BB3E0871281C23910058859C /* SceneDelegate.swift */,
 				BB3E0873281C23910058859C /* ViewController.swift */,
@@ -125,6 +146,76 @@
 				BB3E0892281C23950058859C /* myPhotoBrowser2UITestsLaunchTests.swift */,
 			);
 			path = myPhotoBrowser2UITests;
+			sourceTree = "<group>";
+		};
+		BB3E089F281C23FB0058859C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08A0281C24050058859C /* Entity */,
+				BB3E08A3281C265A0058859C /* UseCase */,
+				BB3E08AD281C30420058859C /* Repository */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		BB3E08A0281C24050058859C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08A1281C242E0058859C /* PhotoEntity.swift */,
+				BB3E08B0281C30BF0058859C /* ScreenStateContext.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		BB3E08A3281C265A0058859C /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08A4281C267A0058859C /* GetHomeDataUseCase.swift */,
+				BB3E08A9281C27430058859C /* GetDetailDataUseCase.swift */,
+				BB3E08AB281C27620058859C /* GetSearchDataUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		BB3E08A6281C26B30058859C /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08A7281C26BD0058859C /* Log.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		BB3E08AD281C30420058859C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08AE281C30770058859C /* UnsplashDataSourceProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		BB3E08B2281D8B1F0058859C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08B6281D8B7D0058859C /* Mock */,
+				BB3E08B3281D8B460058859C /* DataSource */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		BB3E08B3281D8B460058859C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08B4281D8B610058859C /* UnsplashDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		BB3E08B6281D8B7D0058859C /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				BB3E08B7281D8B8E0058859C /* MockUnsplashDataSource.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +350,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB3E0874281C23910058859C /* ViewController.swift in Sources */,
+				BB3E08AA281C27430058859C /* GetDetailDataUseCase.swift in Sources */,
 				BB3E0870281C23910058859C /* AppDelegate.swift in Sources */,
+				BB3E08A8281C26BD0058859C /* Log.swift in Sources */,
 				BB3E0872281C23910058859C /* SceneDelegate.swift in Sources */,
+				BB3E08B5281D8B610058859C /* UnsplashDataSource.swift in Sources */,
+				BB3E08AF281C30770058859C /* UnsplashDataSourceProtocol.swift in Sources */,
+				BB3E08A5281C267A0058859C /* GetHomeDataUseCase.swift in Sources */,
+				BB3E08AC281C27620058859C /* GetSearchDataUseCase.swift in Sources */,
+				BB3E08A2281C242E0058859C /* PhotoEntity.swift in Sources */,
+				BB3E08B8281D8B8E0058859C /* MockUnsplashDataSource.swift in Sources */,
+				BB3E08B1281C30BF0058859C /* ScreenStateContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +543,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,7 +555,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -471,6 +572,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -482,7 +584,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
