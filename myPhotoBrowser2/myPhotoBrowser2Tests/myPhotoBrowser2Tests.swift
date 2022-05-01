@@ -6,6 +6,8 @@
 //
 
 import XCTest
+import Combine
+
 @testable import myPhotoBrowser2
 
 class myPhotoBrowser2Tests: XCTestCase {
@@ -18,19 +20,123 @@ class myPhotoBrowser2Tests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testGetHomeDataUseCaseFromMock() throws {
+        let promise = expectation(description: "get HomeData from Mock")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = GetHomeDataUseCase(dataSource: MockUnsplashDataSource(), page: 1)
+        useCase.execute().sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                Log.Debug(.UNTEST, "done to get homeData...")
+            case .failure(let error):
+                XCTFail(error.message)
+            }
+        }, receiveValue: { value in
+            promise.fulfill()
+            XCTAssertTrue(!value.isEmpty)
+        }).store(in: &cancellable)
+
+        wait(for: [promise], timeout: 5)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testGetDetailDataUseCaseFromMock() throws {
+        let promise = expectation(description: "get DetailData from Mock")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = GetDetailDataUseCase(dataSource: MockUnsplashDataSource(), photoId: "0VEDrQXxrQo")
+        useCase.execute().sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                Log.Debug(.UNTEST, "done to get detailData...")
+            case .failure(let error):
+                XCTFail(error.message)
+            }
+        }, receiveValue: { value in
+            promise.fulfill()
+        }).store(in: &cancellable)
+
+        wait(for: [promise], timeout: 5)
     }
+
+    func testGetSearchDataUseCaseFromMock() throws {
+        let promise = expectation(description: "get SearchData from Mock")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = GetSearchDataUseCase(dataSource: MockUnsplashDataSource(), keyword: "ocean", page: 1)
+        useCase.execute().sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                Log.Debug(.UNTEST, "done to get SearchData...")
+            case .failure(let error):
+                XCTFail(error.message)
+            }
+        }, receiveValue: { value in
+            promise.fulfill()
+            XCTAssertTrue(!value.isEmpty)
+        }).store(in: &cancellable)
+        
+        wait(for: [promise], timeout: 5)
+    }
+    
+//    func testGetHomeDataUseCaseFromReal() throws {
+//        let promise = expectation(description: "get HomeData from Real")
+//        var cancellable = Set<AnyCancellable>()
+//
+//        let useCase = GetHomeDataUseCase(dataSource: UnsplashDataSource(), page: 1)
+//        useCase.execute().sink(receiveCompletion: { result in
+//            switch result {
+//            case .finished:
+//                Log.Debug(.UNTEST, "done to get homeData...")
+//            case .failure(let error):
+//                XCTFail(error.message)
+//            }
+//        }, receiveValue: { value in
+//            promise.fulfill()
+//            Log.Debug(.UNTEST, "num of item : \(value.count)")
+//            XCTAssertTrue(!value.isEmpty)
+//        }).store(in: &cancellable)
+//
+//        wait(for: [promise], timeout: 5)
+//    }
+    
+//    func testGetDetailDataUseCaseFromReal() throws {
+//        let promise = expectation(description: "get DetailData from Real")
+//        var cancellable = Set<AnyCancellable>()
+//
+//        let useCase = GetDetailDataUseCase(dataSource: UnsplashDataSource(), photoId: "0VEDrQXxrQo")
+//        useCase.execute().sink(receiveCompletion: { result in
+//            switch result {
+//            case .finished:
+//                Log.Debug(.UNTEST, "done to get detailData...")
+//            case .failure(let error):
+//                XCTFail(error.message)
+//            }
+//        }, receiveValue: { value in
+//            promise.fulfill()
+//        }).store(in: &cancellable)
+//
+//        wait(for: [promise], timeout: 5)
+//    }
+
+//    func testGetSearchDataUseCaseFromReal() throws {
+//        let promise = expectation(description: "get SearchData from Real")
+//        var cancellable = Set<AnyCancellable>()
+//
+//        let useCase = GetSearchDataUseCase(dataSource: UnsplashDataSource(), keyword: "ocean", page: 1)
+//        useCase.execute().sink(receiveCompletion: { result in
+//            switch result {
+//            case .finished:
+//                Log.Debug(.UNTEST, "done to get SearchData...")
+//            case .failure(let error):
+//                XCTFail(error.message)
+//            }
+//        }, receiveValue: { value in
+//            promise.fulfill()
+//            XCTAssertTrue(!value.isEmpty)
+//        }).store(in: &cancellable)
+//
+//        wait(for: [promise], timeout: 5)
+//    }
 
 }
