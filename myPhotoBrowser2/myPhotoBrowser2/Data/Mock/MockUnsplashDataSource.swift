@@ -14,19 +14,20 @@ struct MockUnsplashDataSource: UnsplashDataSourceProtocol {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode([UnsplashPhotoListItem].self, from: homeData)
-            return Just(result).tryMap {
-                $0.compactMap {
-                    PhotoInfo(id: $0.id,
-                              artist: $0.artist.name,
-                              smlImgUrl: $0.imgUrl.small,
-                              width: $0.width,
-                              height: $0.height)
+            return Just(result)
+                .tryMap {
+                    $0.compactMap {
+                        PhotoInfo(id: $0.id,
+                                  artist: $0.artist.name,
+                                  smlImgUrl: $0.imgUrl.small,
+                                  width: $0.width,
+                                  height: $0.height)
+                    }
                 }
-            }
-            .mapError {
-                TraceError(message: $0.localizedDescription)
-            }
-            .eraseToAnyPublisher()
+                .mapError {
+                    TraceError(message: $0.localizedDescription)
+                }
+                .eraseToAnyPublisher()
         } catch {
             return Fail<[PhotoInfo], TraceError>(error: TraceError(message: "\(error)")).eraseToAnyPublisher()
         }
@@ -36,28 +37,29 @@ struct MockUnsplashDataSource: UnsplashDataSourceProtocol {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(UnsplashPhotoDetail.self, from: detailData)
-            return Just(result).tryMap {
-                PhotoDetail(id: $0.id,
-                            artist: $0.artist.name,
-                            smlImgUrl: $0.imgUrl.small,
-                            regImgUrl: $0.imgUrl.regular,
-                            location: PhotoLocation(location: $0.location.location ?? "",
-                                                    latitude: $0.location.coordinate.latitude ?? 0.0,
-                                                    longitude: $0.location.coordinate.longitude ?? 0.0,
-                                                    description: $0.description ?? ""),
-                            exif: PhotoExif(maker: $0.exif.maker,
-                                            focalLength: $0.exif.focalLength,
-                                            model: $0.exif.model,
-                                            iso: $0.exif.iso,
-                                            shutterSpeed: $0.exif.shutterSpeed,
-                                            dimension: String($0.dimension_width).appending(" x ").appending(String($0.dimension_height)),
-                                            aperture: $0.exif.aperture,
-                                            published: $0.published))
-            }
-            .mapError {
-                TraceError(message: $0.localizedDescription)
-            }
-            .eraseToAnyPublisher()
+            return Just(result)
+                .tryMap {
+                    PhotoDetail(id: $0.id,
+                                artist: $0.artist.name,
+                                smlImgUrl: $0.imgUrl.small,
+                                regImgUrl: $0.imgUrl.regular,
+                                location: PhotoLocation(location: $0.location.location ?? "",
+                                                        latitude: $0.location.coordinate.latitude ?? 0.0,
+                                                        longitude: $0.location.coordinate.longitude ?? 0.0,
+                                                        description: $0.description ?? ""),
+                                exif: PhotoExif(maker: $0.exif.maker,
+                                                focalLength: $0.exif.focalLength,
+                                                model: $0.exif.model,
+                                                iso: $0.exif.iso,
+                                                shutterSpeed: $0.exif.shutterSpeed,
+                                                dimension: String($0.dimension_width).appending(" x ").appending(String($0.dimension_height)),
+                                                aperture: $0.exif.aperture,
+                                                published: $0.published))
+                }
+                .mapError {
+                    TraceError(message: $0.localizedDescription)
+                }
+                .eraseToAnyPublisher()
         } catch {
             return Fail<PhotoDetail, TraceError>(error: TraceError(message: "\(error)")).eraseToAnyPublisher()
         }
@@ -67,19 +69,20 @@ struct MockUnsplashDataSource: UnsplashDataSourceProtocol {
         do {
             let decoder = JSONDecoder()
             let result = try decoder.decode(UnsplashSearchList.self, from: searchData)
-            return Just(result.results).tryMap {
-                $0.compactMap {
-                    PhotoInfo(id: $0.id,
-                              artist: $0.artist.name,
-                              smlImgUrl: $0.imgUrl.small,
-                              width: $0.width,
-                              height: $0.height)
+            return Just(result.results)
+                .tryMap {
+                    $0.compactMap {
+                        PhotoInfo(id: $0.id,
+                                  artist: $0.artist.name,
+                                  smlImgUrl: $0.imgUrl.small,
+                                  width: $0.width,
+                                  height: $0.height)
+                    }
                 }
-            }
-            .mapError {
-                TraceError(message: $0.localizedDescription)
-            }
-            .eraseToAnyPublisher()
+                .mapError {
+                    TraceError(message: $0.localizedDescription)
+                }
+                .eraseToAnyPublisher()
         } catch {
             return Fail<[PhotoInfo], TraceError>(error: TraceError(message: "\(error)")).eraseToAnyPublisher()
         }
