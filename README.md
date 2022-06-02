@@ -37,3 +37,10 @@
   * View 생성 방법 변경
 * UseCase 간소화
 * Server Request Page 관리를 Presenter 에서 하도록 개선
+
+### [myVIPER](https://github.com/taitty/SwiftPractice/tree/master/myVIPER)
+* VIPER Template
+* View 생성 방법 개선
+* 각 Component 간 Protocol 사용하지 않음
+* Instance 를 let 으로 선언하여, 생성 시점에 반드시 초기화하도록 함
+
