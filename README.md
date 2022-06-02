@@ -29,3 +29,11 @@
 ### [myPhotoBrowser](https://github.com/taitty/SwiftPractice/tree/master/myPhotoBrowser)
 * Unsplash Clone Coding
 * Home Browse 와 Search 를 한 화면에서 구현
+
+###[myPhotoBrowser2](https://github.com/taitty/SwiftPractice/tree/master/myPhotoBrowser2)
+* myPhotoBrowser 개선
+* VIPER Pattern 변경
+  * Protocol 을 사용하지 않고 작성
+  * View 생성 방법 변경
+* UseCase 간소화
+* Server Request Page 관리를 Presenter 에서 하도록 개선
