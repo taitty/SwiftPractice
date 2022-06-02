@@ -30,7 +30,7 @@
 * Unsplash Clone Coding
 * Home Browse 와 Search 를 한 화면에서 구현
 
-###[myPhotoBrowser2](https://github.com/taitty/SwiftPractice/tree/master/myPhotoBrowser2)
+### [myPhotoBrowser2](https://github.com/taitty/SwiftPractice/tree/master/myPhotoBrowser2)
 * myPhotoBrowser 개선
 * VIPER Pattern 변경
   * Protocol 을 사용하지 않고 작성
