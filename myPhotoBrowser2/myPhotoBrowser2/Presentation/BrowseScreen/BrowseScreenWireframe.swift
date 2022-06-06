@@ -7,9 +7,10 @@
 
 import UIKit
 
-struct BrowseScreenWireframe {
+final class BrowseScreenWireframe {
     
     private let dataSource: UnsplashDataSourceProtocol
+    private var view: BrowseScreenView?
     
     init(dataSource: UnsplashDataSourceProtocol) {
         self.dataSource = dataSource
@@ -22,10 +23,15 @@ struct BrowseScreenWireframe {
         let view = storyboard.instantiateViewController(identifier: "BrowseScreen", creator: { coder -> BrowseScreenView? in
             return .init(coder: coder, presenter: presenter)
         })
+        self.view = view
         return view
     }
     
     func routeToDetailScreen(data: [PhotoInfo], position: Int) {
-
+        guard let view = self.view else { return }
+        let wireframe = DetailScreenWireframe(dataSource: self.dataSource, dataDelegate: view, data: data, position: position)
+        let next = wireframe.setup()
+        next.modalPresentationStyle = .fullScreen
+        view.present(next, animated: true)
     }
 }

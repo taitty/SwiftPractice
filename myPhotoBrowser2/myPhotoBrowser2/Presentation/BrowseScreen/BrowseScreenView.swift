@@ -10,15 +10,15 @@ import Combine
 
 final class BrowseScreenView: UIViewController {
     
-    private var presenter: BrowseScreenPresenter
+    private let presenter: BrowseScreenPresenter
     private var cancellable = Set<AnyCancellable>()
-    private var currentIdx: Int?
+    private var currentIdx: Int = 0
     
     @IBOutlet weak var imageList: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var noResult: UILabel!
     
-    var viewData: [PhotoInfo] = [] {
+    private var viewData: [PhotoInfo] = [] {
         didSet {
             let hideMessage = self.viewData.isEmpty ? false : true
             DispatchQueue.main.async {
@@ -54,6 +54,16 @@ final class BrowseScreenView: UIViewController {
         presenter.onViewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        guard viewData.isNotEmpty else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.imageList.scrollToItem(at: IndexPath(row: self.currentIdx, section: 0), at: .top, animated: false)
+        }
+    }
+    
     private func registerCell() {
         let name = UINib(nibName: "ImageCell", bundle: Bundle.main)
         imageList.register(name, forCellWithReuseIdentifier: "ImageCell")
@@ -70,7 +80,7 @@ final class BrowseScreenView: UIViewController {
                 if self.viewData.isEmpty { return }
                 DispatchQueue.main.async { [weak self] in
                     guard let self = self else { return }
-                    self.imageList.scrollToItem(at: IndexPath(row: self.currentIdx ?? 0, section: 0), at: .top, animated: false)
+                    self.imageList.scrollToItem(at: IndexPath(row: self.currentIdx, section: 0), at: .top, animated: false)
                 }
             }
             .store(in: &cancellable)
@@ -105,7 +115,7 @@ extension BrowseScreenView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         currentIdx = indexPath.row
-        presenter.itemSelected(selected: currentIdx ?? 0)
+        presenter.itemSelected(selected: currentIdx)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -149,10 +159,10 @@ extension BrowseScreenView: UICollectionViewDelegateFlowLayout {
     
 }
 
-//extension BrowseScreenView: DetailScreenDataDelegate {
-//    
-//    func setCurrentPosition(position: Int) {
-//        self.currentIdx = position
-//    }
-//
-//}
+extension BrowseScreenView: DetailScreenDataDelegate {
+    
+    func setCurrentPosition(position: Int) {
+        self.currentIdx = position
+    }
+
+}

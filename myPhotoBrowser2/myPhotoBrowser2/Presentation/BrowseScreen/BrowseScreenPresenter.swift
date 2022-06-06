@@ -7,7 +7,7 @@
 
 import Combine
 
-class BrowseScreenPresenter {
+final class BrowseScreenPresenter {
     
     private let interactor: BrowseScreenInteractor
     private let wireframe: BrowseScreenWireframe
