@@ -47,9 +47,7 @@
   - 이 경우, Compiler 에 의한 최적화를 방해하기 때문에, Run Time 시의 수행 시간이 증가할 수 있음
   - class 는 Method 를 기본적으로 Dynamic Dispatch 함
 
-        작성 시, 명시적으로 final keyword 를 사용한다면, Compiler 가 Static Dispatch 를 수행할 수 
-
-읽어볼  ㅁ  
-    ㅏ  
-    ㄴ  
-      
+        작성 시, final keyword 를 사용한다면, Compiler 가 Static Dispatch 를 수행할 수 있음
+        
+### 읽어볼 만한 내용
+- https://velog.io/@yohanblessyou/Struct와-Class-중-무엇을-쓸까
