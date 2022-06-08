@@ -49,10 +49,18 @@
 
         작성 시, final keyword 를 사용한다면, Compiler 가 Static Dispatch 를 수행할 수 있음
         
-# 읽어볼 만한 내용
+## 읽어볼 만한 내용 #1
 - https://velog.io/@yohanblessyou/Struct와-Class-중-무엇을-쓸까
 
 > 1. 기본적으로 struct를 사용합니다 <br>
 > 2. Objective-C 코드와 연계가 필요하면 class를 사용합니다 <br>
 > 3. Data의 identity를 다뤄야 한다면 class를 사용합니다 (참조방식) <br>
 > 4. 상속이 필요하면 struct + protocol 조합을 사용합니다 <br>
+
+## 읽어볼 만한 내용 #2
+- https://velog.io/@yohanblessyou/Apple-Understanding-Swift-Performance
+> map 사용 시, Key 를 String 으로 정의하지 않고, Struct or enum 으로 정의
+
+## 읽어볼 만한 내용 #3
+- https://babbab2.tistory.com/83
+> Closure 와 ARC 관계
