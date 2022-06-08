@@ -15,8 +15,8 @@
 ### 1. Allocation
   - 기본적으로 struct 는 stack 에, class 는 heap 에 저장
   - stack 은 구조가 단순해서, 접근이 빠름
-  - heap 은 여러 Thread 가 동시에 접근이 가능하기에, 동시성에 대한 고려가 필요 (ex. Lock)
-    - 때문에, stack 보다 성능이 느림
+  - heap 은 여러 Thread 가 동시에 접근이 가능하기에, 동시성에 대한 고려가 필요 (ex. Lock) <br>
+    때문에, stack 보다 성능이 느림
 
       
 ### 2. Reference Counting
@@ -42,8 +42,8 @@
 ### 3. Method Dispatch
   - Compiler 시점에 호출될 Method 를 알 수 있고, 해당 반환값을 알 수 있다면, 최적화 기능을 통해 값을 바로 반환하도록 대체됨 (Inlining)
   - 이를 Static Dispatch 라고 함
-  - 반대로, Compile Time 에 알 수 없는 경우, Run Time 시에 해당 구현 지점으로 JUMP 하게 되는데, 이를 Dynamic Dispatch 라고 함
-    - ex) 다형성을 이용한 Factory Pattern, Template Pattern 적용 등...
+  - 반대로, Compile Time 에 알 수 없는 경우, Run Time 시에 해당 구현 지점으로 JUMP 하게 되는데, 이를 Dynamic Dispatch 라고 함<br>
+    ex) 다형성을 이용한 Factory Pattern, Template Pattern 적용 등...
   - 이 경우, Compiler 에 의한 최적화를 방해하기 때문에, Run Time 시의 수행 시간이 증가할 수 있음
   - class 는 Method 를 기본적으로 Dynamic Dispatch 함
 
@@ -51,3 +51,8 @@
         
 # 읽어볼 만한 내용
 - https://velog.io/@yohanblessyou/Struct와-Class-중-무엇을-쓸까
+
+> 1. 기본적으로 struct를 사용합니다 <br>
+> 2. Objective-C 코드와 연계가 필요하면 class를 사용합니다 <br>
+> 3. Data의 identity를 다뤄야 한다면 class를 사용합니다 (참조방식) <br>
+> 4. 상속이 필요하면 struct + protocol 조합을 사용합니다 <br>
