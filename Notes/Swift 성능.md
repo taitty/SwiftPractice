@@ -49,5 +49,5 @@
 
         작성 시, final keyword 를 사용한다면, Compiler 가 Static Dispatch 를 수행할 수 있음
         
-### 읽어볼 만한 내용
+# 읽어볼 만한 내용
 - https://velog.io/@yohanblessyou/Struct와-Class-중-무엇을-쓸까
