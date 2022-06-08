@@ -43,9 +43,13 @@
   - Compiler 시점에 호출될 Method 를 알 수 있고, 해당 반환값을 알 수 있다면, 최적화 기능을 통해 값을 바로 반환하도록 대체됨 (Inlining)
   - 이를 Static Dispatch 라고 함
   - 반대로, Compile Time 에 알 수 없는 경우, Run Time 시에 해당 구현 지점으로 JUMP 하게 되는데, 이를 Dynamic Dispatch 라고 함
-    ex) 다형성을 이용한 Factory Pattern, Template Pattern 적용 등...
+    - ex) 다형성을 이용한 Factory Pattern, Template Pattern 적용 등...
   - 이 경우, Compiler 에 의한 최적화를 방해하기 때문에, Run Time 시의 수행 시간이 증가할 수 있음
   - class 는 Method 를 기본적으로 Dynamic Dispatch 함
 
         작성 시, 명시적으로 final keyword 를 사용한다면, Compiler 가 Static Dispatch 를 수행할 수 
 
+읽어볼  ㅁ  
+    ㅏ  
+    ㄴ  
+      
