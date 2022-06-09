@@ -18,4 +18,5 @@
 
 
 # 결국...
-- Protocol 채택만으로 필요한 기능을 사용할 수 있도록 하는 것
+- Swift 는 하나의 Class 상속만 가능하기에, Super Class 가 비대해지는 문제가 있음
+- 이를 개선하기 위해, Protocol + Protocol Extension + Protocol 다중 채택의 방법으로 대응하도록 함
