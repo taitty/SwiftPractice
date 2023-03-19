@@ -15,7 +15,7 @@ struct RequestSearchUsecase {
         self.dataSource = dataSource
     }
     
-    func execute(keyword: String) -> AnyPublisher<AppStoreSearchApiResponse, TraceError> {
+    func execute(keyword: String) -> AnyPublisher<[AppInfo], TraceError> {
         Log.Debug(.DOMAIN, "keyword : \(keyword)")
         return dataSource.requestSearch(keyword: keyword)
     }

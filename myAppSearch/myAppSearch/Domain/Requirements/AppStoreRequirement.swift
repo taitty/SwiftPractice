@@ -9,13 +9,13 @@ import Foundation
 import Combine
 
 protocol AppStoreRequirement {
-    func requestSearch(keyword: String) -> AnyPublisher<AppStoreSearchApiResponse, TraceError>
+    func requestSearch(keyword: String) -> AnyPublisher<[AppInfo], TraceError>
     func cancelSearch()
 }
 
 extension AppStoreRequirement {
-    func requestSearch(keyword: String) -> AnyPublisher<AppStoreSearchApiResponse, TraceError> {
-        let fail = Fail<AppStoreSearchApiResponse, TraceError>(error: TraceError(message: "not implemented"))
+    func requestSearch(keyword: String) -> AnyPublisher<[AppInfo], TraceError> {
+        let fail = Fail<[AppInfo], TraceError>(error: TraceError(message: "not implemented"))
         return fail.eraseToAnyPublisher()
     }
     

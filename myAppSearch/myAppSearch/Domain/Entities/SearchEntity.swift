@@ -9,9 +9,9 @@ import Foundation
 
 struct AppDescription: Codable {
     let type: String
-    let text_1st: String
-    let text_2nd: String
-    let text_3rd: String
+    let top: String
+    let middle: String
+    let bottom: String
     let rating: Double
 }
 

@@ -9,10 +9,10 @@ import Foundation
 import Combine
 
 struct MockAppStoreDataSource: AppStoreRequirement {
-    func requestSearch(keyword: String) -> AnyPublisher<AppStoreSearchApiResponse, TraceError> {
+    func requestSearch(keyword: String) -> AnyPublisher<[AppInfo], TraceError> {
         Log.Debug(.INFRA, "keyword : \(keyword)")
         
-        let fail = Fail<AppStoreSearchApiResponse, TraceError>(error: TraceError(message: "failed to create url request..."))
+        let fail = Fail<[AppInfo], TraceError>(error: TraceError(message: "failed to create url request..."))
         return fail.eraseToAnyPublisher()
     }
 }

@@ -19,7 +19,7 @@ struct SearchViewModel {
             receiveCompletion: { result in
                 switch result {
                 case .finished:
-                    Log.Debug(.UI, "finish to get search result")
+                    Log.Debug(.UI, "success to get search result")
                 case .failure(let error):
                     Log.Debug(.UI, "\(error.message)")
                 }
