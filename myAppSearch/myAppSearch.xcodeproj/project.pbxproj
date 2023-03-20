@@ -13,6 +13,7 @@
 		BBA3CB8729C8B01700287F37 /* SearchKeyword.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA3CB8629C8B01700287F37 /* SearchKeyword.xib */; };
 		BBA3CB8929C8B03500287F37 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB8829C8B03500287F37 /* SearchResult.swift */; };
 		BBA3CB8B29C8B05C00287F37 /* SearchKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB8A29C8B05C00287F37 /* SearchKeyword.swift */; };
+		BBA3CB8F29C8CC3300287F37 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB8E29C8CC3300287F37 /* Extensions.swift */; };
 		BBC348BE29C743D000B6A43D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC348BD29C743D000B6A43D /* AppDelegate.swift */; };
 		BBC348C029C743D000B6A43D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC348BF29C743D000B6A43D /* SceneDelegate.swift */; };
 		BBC348C229C743D000B6A43D /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC348C129C743D000B6A43D /* Search.swift */; };
@@ -73,6 +74,7 @@
 		BBA3CB8629C8B01700287F37 /* SearchKeyword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchKeyword.xib; sourceTree = "<group>"; };
 		BBA3CB8829C8B03500287F37 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		BBA3CB8A29C8B05C00287F37 /* SearchKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeyword.swift; sourceTree = "<group>"; };
+		BBA3CB8E29C8CC3300287F37 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BBC348BA29C743D000B6A43D /* myAppSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAppSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC348BD29C743D000B6A43D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC348BF29C743D000B6A43D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				BBC348F729C74D4C00B6A43D /* Log.swift */,
 				BBC3491C29C76BCA00B6A43D /* AppContext.swift */,
+				BBA3CB8E29C8CC3300287F37 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				BBA3CB8929C8B03500287F37 /* SearchResult.swift in Sources */,
 				BBC348BE29C743D000B6A43D /* AppDelegate.swift in Sources */,
 				BBC348F829C74D4C00B6A43D /* Log.swift in Sources */,
+				BBA3CB8F29C8CC3300287F37 /* Extensions.swift in Sources */,
 				BBC348F529C749EB00B6A43D /* SearchDetail.swift in Sources */,
 				BBC3492129C76C9600B6A43D /* MockAppStoreDataSource.swift in Sources */,
 				BBC3491B29C76A8A00B6A43D /* AppStoreRequirement.swift in Sources */,

@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 struct SearchResultEntity {
-    let icon: String
-    let title: String
-    let subTitle: String
-    let rating: String
-    let user: String
-    let preview: [String]
+    let appIcon: String
+    let appTitle: String
+    let summary: String
+    let rating: Double
+    let vote: Int
+    let previewImage: [String]
 }
 
 class SearchViewModel {
@@ -36,6 +36,9 @@ class SearchViewModel {
             },
             receiveValue: { searchData in
                 Log.Debug(.UI, "\(searchData)")
+                self.viewData = searchData.compactMap { data in
+                    return SearchResultEntity(appIcon: data.appIcon, appTitle: data.appTitle, summary: data.summary, rating: data.rating, vote: data.vote, previewImage: data.previewImage)
+                }
             })
         .store(in: &cancellable)
     }

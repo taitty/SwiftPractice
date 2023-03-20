@@ -37,8 +37,6 @@ class Search: UIViewController {
         configuration()
         setupSearchBar()
         setObserver()
-        
-        searchKeywordView.isHidden = true
     }
     
     private func configuration() {
@@ -71,7 +69,18 @@ class Search: UIViewController {
     
     private func setObserver() {
         viewModel.$viewData.sink(receiveValue: { data in
-            
+            Log.Debug(.UI, "\(data)")
+            DispatchQueue.main.async {
+                if data.isEmpty {
+                    self.searchResultView.isHidden = true
+                    self.searchKeywordView.isHidden = false
+                    self.searchKeywordView.reloadData()
+                } else {
+                    self.searchResultView.isHidden = false
+                    self.searchKeywordView.isHidden = true
+                    self.searchResultView.reloadData()
+                }
+            }
         }).store(in: &cancellable)
     }
 }
@@ -95,7 +104,7 @@ extension Search: UITableViewDelegate {
 extension Search: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         Log.Debug(.UI, "\(tableView.tag)")
-        return ViewType(rawValue: tableView.tag) == .SearchResult ? 3 : 2
+        return ViewType(rawValue: tableView.tag) == .SearchResult ? viewModel.viewData.count : 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,6 +114,7 @@ extension Search: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResult", for: indexPath) as? SearchResult else {
                 return UITableViewCell()
             }
+            cell.setupCell(data: viewModel.viewData[indexPath.row])
             return cell
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchKeyword", for: indexPath) as? SearchKeyword else {
