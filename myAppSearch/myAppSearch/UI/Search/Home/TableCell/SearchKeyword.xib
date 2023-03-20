@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="50" id="2a1-R2-jmq" customClass="SearchKeyword" customModule="myAppSearch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2a1-R2-jmq" id="UfZ-Ro-PKz">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvf-Uz-ThG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lFD-YJ-NVG">
+                                <rect key="frame" x="20" y="15.999999999999996" width="20" height="18.333333333333332"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="x8x-Um-WZQ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yog-17-DEc">
+                                <rect key="frame" x="60" y="14.666666666666664" width="313" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="lFD-YJ-NVG" secondAttribute="bottom" constant="15" id="7Rn-XZ-pRw"/>
+                            <constraint firstItem="lFD-YJ-NVG" firstAttribute="centerY" secondItem="jvf-Uz-ThG" secondAttribute="centerY" id="Nfp-RK-lFd"/>
+                            <constraint firstAttribute="trailing" secondItem="yog-17-DEc" secondAttribute="trailing" constant="20" id="Yzx-cX-nC7"/>
+                            <constraint firstItem="lFD-YJ-NVG" firstAttribute="leading" secondItem="jvf-Uz-ThG" secondAttribute="leading" constant="20" id="fK4-M4-TAz"/>
+                            <constraint firstItem="yog-17-DEc" firstAttribute="centerY" secondItem="jvf-Uz-ThG" secondAttribute="centerY" id="hgB-r3-Q6O"/>
+                            <constraint firstItem="lFD-YJ-NVG" firstAttribute="top" secondItem="jvf-Uz-ThG" secondAttribute="top" constant="15" id="iQF-pS-Ndk"/>
+                            <constraint firstItem="yog-17-DEc" firstAttribute="leading" secondItem="lFD-YJ-NVG" secondAttribute="trailing" constant="20" id="onk-E7-XhQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="jvf-Uz-ThG" firstAttribute="top" secondItem="UfZ-Ro-PKz" secondAttribute="top" id="P2C-Av-TpK"/>
+                    <constraint firstAttribute="bottom" secondItem="jvf-Uz-ThG" secondAttribute="bottom" id="TBs-zS-qc2"/>
+                    <constraint firstItem="jvf-Uz-ThG" firstAttribute="leading" secondItem="UfZ-Ro-PKz" secondAttribute="leading" id="jA7-WE-xNm"/>
+                    <constraint firstAttribute="trailing" secondItem="jvf-Uz-ThG" secondAttribute="trailing" id="yyd-Rl-IGA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-379.38931297709922" y="-5.6338028169014089"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

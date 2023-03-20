@@ -17,37 +17,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7y-zK-a5M">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="330" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gzR-pa-fXR" userLabel="Search Table View">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Kij-NF-fgx" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Kij-NF-fgx" firstAttribute="leading" secondItem="RDJ-eH-0DP" secondAttribute="leading" id="EFv-t8-jgE"/>
-                                    <constraint firstItem="Kij-NF-fgx" firstAttribute="width" secondItem="prr-LB-hPg" secondAttribute="width" id="GJa-PS-QWW"/>
-                                    <constraint firstItem="Kij-NF-fgx" firstAttribute="bottom" secondItem="RDJ-eH-0DP" secondAttribute="bottom" id="Jtg-Ft-Bmp"/>
-                                    <constraint firstItem="Kij-NF-fgx" firstAttribute="height" secondItem="prr-LB-hPg" secondAttribute="height" priority="250" id="QEA-aD-rPs"/>
-                                    <constraint firstItem="Kij-NF-fgx" firstAttribute="top" secondItem="RDJ-eH-0DP" secondAttribute="top" id="YGo-xq-PNz"/>
-                                    <constraint firstItem="Kij-NF-fgx" firstAttribute="trailing" secondItem="RDJ-eH-0DP" secondAttribute="trailing" id="j1C-r8-a5d"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="RDJ-eH-0DP"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="prr-LB-hPg"/>
-                            </scrollView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8p9-tF-aer" userLabel="Keyword Table View">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q7y-zK-a5M" secondAttribute="bottom" id="DgL-wk-1lb"/>
-                            <constraint firstItem="Q7y-zK-a5M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fLR-U3-brv"/>
-                            <constraint firstItem="Q7y-zK-a5M" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iOL-7n-eD3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q7y-zK-a5M" secondAttribute="trailing" id="vYa-Ng-OXX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8p9-tF-aer" secondAttribute="bottom" id="34Z-Da-woS"/>
+                            <constraint firstItem="8p9-tF-aer" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="L5H-cd-bDM"/>
+                            <constraint firstItem="8p9-tF-aer" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pq2-GP-adh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gzR-pa-fXR" secondAttribute="bottom" id="XkK-Ai-4EB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8p9-tF-aer" secondAttribute="trailing" id="gCC-cN-WEf"/>
+                            <constraint firstItem="gzR-pa-fXR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hQj-nV-taW"/>
+                            <constraint firstItem="gzR-pa-fXR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mcL-Fc-9FR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gzR-pa-fXR" secondAttribute="trailing" id="tRy-Ay-xyc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JZr-CF-cit"/>
                     <connections>
-                        <outlet property="contentView" destination="Kij-NF-fgx" id="guc-Qd-cnk"/>
+                        <outlet property="searchKeywordView" destination="8p9-tF-aer" id="f1y-BH-Oe8"/>
+                        <outlet property="searchResultView" destination="gzR-pa-fXR" id="hJr-G4-uQ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

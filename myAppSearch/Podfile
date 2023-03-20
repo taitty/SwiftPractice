@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'myAppSearch' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for myAppSearch
+  pod 'Cosmos', '~> 23.0'
+
+  target 'myAppSearchTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'myAppSearchUITests' do
+    # Pods for testing
+  end
+
+end

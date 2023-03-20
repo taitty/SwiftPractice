@@ -8,10 +8,20 @@
 import Foundation
 import Combine
 
-struct SearchViewModel {
-    var cancellable = Set<AnyCancellable>()
+struct SearchResultEntity {
+    let icon: String
+    let title: String
+    let subTitle: String
+    let rating: String
+    let user: String
+    let preview: [String]
+}
+
+class SearchViewModel {
+    @Published var viewData = [SearchResultEntity]()
+    private var cancellable = Set<AnyCancellable>()
     
-    mutating func requestSearch(keyword: String) {
+    func requestSearch(keyword: String) {
         Log.Debug(.UI, "keyword : \(keyword)")
         
         let usecase = RequestSearchUsecase(dataSource: AppContext.real.dataSource)
