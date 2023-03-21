@@ -14,6 +14,14 @@
 		BBA3CB8929C8B03500287F37 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB8829C8B03500287F37 /* SearchResult.swift */; };
 		BBA3CB8B29C8B05C00287F37 /* SearchKeyword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB8A29C8B05C00287F37 /* SearchKeyword.swift */; };
 		BBA3CB8F29C8CC3300287F37 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB8E29C8CC3300287F37 /* Extensions.swift */; };
+		BBA3CB9429C9E06200287F37 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB9329C9E06200287F37 /* TitleView.swift */; };
+		BBA3CB9629C9E09F00287F37 /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA3CB9529C9E09F00287F37 /* TitleView.xib */; };
+		BBA3CB9829C9E93D00287F37 /* InfoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB9729C9E93C00287F37 /* InfoScrollView.swift */; };
+		BBA3CB9A29C9E95200287F37 /* InfoScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA3CB9929C9E95200287F37 /* InfoScrollView.xib */; };
+		BBA3CB9C29C9F42900287F37 /* NewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA3CB9B29C9F42900287F37 /* NewFeatureView.xib */; };
+		BBA3CB9E29C9F44200287F37 /* NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CB9D29C9F44200287F37 /* NewFeatureView.swift */; };
+		BBA3CBA029C9F82800287F37 /* PreviewListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA3CB9F29C9F82800287F37 /* PreviewListView.xib */; };
+		BBA3CBA229C9F83900287F37 /* PreviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA3CBA129C9F83900287F37 /* PreviewListView.swift */; };
 		BBC348BE29C743D000B6A43D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC348BD29C743D000B6A43D /* AppDelegate.swift */; };
 		BBC348C029C743D000B6A43D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC348BF29C743D000B6A43D /* SceneDelegate.swift */; };
 		BBC348C229C743D000B6A43D /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC348C129C743D000B6A43D /* Search.swift */; };
@@ -75,6 +83,14 @@
 		BBA3CB8829C8B03500287F37 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		BBA3CB8A29C8B05C00287F37 /* SearchKeyword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeyword.swift; sourceTree = "<group>"; };
 		BBA3CB8E29C8CC3300287F37 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		BBA3CB9329C9E06200287F37 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		BBA3CB9529C9E09F00287F37 /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		BBA3CB9729C9E93C00287F37 /* InfoScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoScrollView.swift; sourceTree = "<group>"; };
+		BBA3CB9929C9E95200287F37 /* InfoScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoScrollView.xib; sourceTree = "<group>"; };
+		BBA3CB9B29C9F42900287F37 /* NewFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewFeatureView.xib; sourceTree = "<group>"; };
+		BBA3CB9D29C9F44200287F37 /* NewFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFeatureView.swift; sourceTree = "<group>"; };
+		BBA3CB9F29C9F82800287F37 /* PreviewListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviewListView.xib; sourceTree = "<group>"; };
+		BBA3CBA129C9F83900287F37 /* PreviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewListView.swift; sourceTree = "<group>"; };
 		BBC348BA29C743D000B6A43D /* myAppSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAppSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC348BD29C743D000B6A43D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBC348BF29C743D000B6A43D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +178,21 @@
 			path = TableCell;
 			sourceTree = "<group>";
 		};
+		BBA3CB9029C9E01100287F37 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				BBA3CB9529C9E09F00287F37 /* TitleView.xib */,
+				BBA3CB9329C9E06200287F37 /* TitleView.swift */,
+				BBA3CB9929C9E95200287F37 /* InfoScrollView.xib */,
+				BBA3CB9729C9E93C00287F37 /* InfoScrollView.swift */,
+				BBA3CB9B29C9F42900287F37 /* NewFeatureView.xib */,
+				BBA3CB9D29C9F44200287F37 /* NewFeatureView.swift */,
+				BBA3CB9F29C9F82800287F37 /* PreviewListView.xib */,
+				BBA3CBA129C9F83900287F37 /* PreviewListView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		BBC348B129C743D000B6A43D = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +261,7 @@
 		BBC348EE29C7475E00B6A43D /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				BBA3CB9029C9E01100287F37 /* SubView */,
 				BBC348F229C749DD00B6A43D /* SearchDetail.storyboard */,
 				BBC348F429C749EB00B6A43D /* SearchDetail.swift */,
 			);
@@ -481,12 +513,16 @@
 			files = (
 				BBC3490E29C7506B00B6A43D /* Arcade.storyboard in Resources */,
 				BBC3490629C74FDE00B6A43D /* Game.storyboard in Resources */,
+				BBA3CB9629C9E09F00287F37 /* TitleView.xib in Resources */,
 				BBC348CA29C743D200B6A43D /* LaunchScreen.storyboard in Resources */,
+				BBA3CB9C29C9F42900287F37 /* NewFeatureView.xib in Resources */,
 				BBC3490229C74F5A00B6A43D /* Today.storyboard in Resources */,
 				BBC348C729C743D200B6A43D /* Assets.xcassets in Resources */,
 				BBC3490A29C7502400B6A43D /* App.storyboard in Resources */,
 				BBA3CB8529C8AF9400287F37 /* SearchResult.xib in Resources */,
 				BBA3CB8729C8B01700287F37 /* SearchKeyword.xib in Resources */,
+				BBA3CB9A29C9E95200287F37 /* InfoScrollView.xib in Resources */,
+				BBA3CBA029C9F82800287F37 /* PreviewListView.xib in Resources */,
 				BBC348C529C743D000B6A43D /* Search.storyboard in Resources */,
 				BBC348F329C749DD00B6A43D /* SearchDetail.storyboard in Resources */,
 			);
@@ -616,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBA3CB9E29C9F44200287F37 /* NewFeatureView.swift in Sources */,
 				BBC3491429C763EA00B6A43D /* SearchViewModel.swift in Sources */,
 				BBC3492329C76DA400B6A43D /* CancelSearchUsecase.swift in Sources */,
 				BBC3491829C7680500B6A43D /* RequestSearchUsecase.swift in Sources */,
@@ -627,6 +664,7 @@
 				BBC348C229C743D000B6A43D /* Search.swift in Sources */,
 				BBC3491029C7508A00B6A43D /* Arcade.swift in Sources */,
 				BBA3CB8929C8B03500287F37 /* SearchResult.swift in Sources */,
+				BBA3CB9829C9E93D00287F37 /* InfoScrollView.swift in Sources */,
 				BBC348BE29C743D000B6A43D /* AppDelegate.swift in Sources */,
 				BBC348F829C74D4C00B6A43D /* Log.swift in Sources */,
 				BBA3CB8F29C8CC3300287F37 /* Extensions.swift in Sources */,
@@ -635,7 +673,9 @@
 				BBC3491B29C76A8A00B6A43D /* AppStoreRequirement.swift in Sources */,
 				BBC3490429C74F6600B6A43D /* Today.swift in Sources */,
 				BBC3491F29C76C8400B6A43D /* AppStoreDataSource.swift in Sources */,
+				BBA3CB9429C9E06200287F37 /* TitleView.swift in Sources */,
 				BBC348C029C743D000B6A43D /* SceneDelegate.swift in Sources */,
+				BBA3CBA229C9F83900287F37 /* PreviewListView.swift in Sources */,
 				BBC3490829C74FFC00B6A43D /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

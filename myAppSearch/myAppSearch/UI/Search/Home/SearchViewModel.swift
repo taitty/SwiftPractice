@@ -19,6 +19,7 @@ struct SearchResultEntity {
 
 class SearchViewModel {
     @Published var viewData = [SearchResultEntity]()
+    var baseData = [AppInfo]()
     private var cancellable = Set<AnyCancellable>()
     
     func requestSearch(keyword: String) {
@@ -36,6 +37,7 @@ class SearchViewModel {
             },
             receiveValue: { searchData in
                 Log.Debug(.UI, "\(searchData)")
+                self.baseData = searchData
                 self.viewData = searchData.compactMap { data in
                     return SearchResultEntity(appIcon: data.appIcon, appTitle: data.appTitle, summary: data.summary, rating: data.rating, vote: data.vote, previewImage: data.previewImage)
                 }

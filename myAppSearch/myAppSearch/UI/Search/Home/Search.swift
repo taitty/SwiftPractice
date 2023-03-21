@@ -98,6 +98,18 @@ extension Search: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Log.Debug(.UI, "\(tableView.tag)")
         Log.Debug(.UI, "\(indexPath.row)")
+        
+        if ViewType(rawValue: tableView.tag) == .SearchResult {
+            let storyboard = UIStoryboard(name: "SearchDetail", bundle: Bundle.main)
+            guard let controller = storyboard.instantiateViewController(withIdentifier: "SearchDetail") as? SearchDetail else {
+                Log.Debug(.UI, "failed to get controller")
+                return
+            }
+            controller.viewData = viewModel.baseData[indexPath.row]
+            self.navigationController?.pushViewController(controller, animated: true)
+        } else {
+            Log.Debug(.UI, "")
+        }
     }
 }
 

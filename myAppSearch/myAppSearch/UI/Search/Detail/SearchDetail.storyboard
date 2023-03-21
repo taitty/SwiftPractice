@@ -17,17 +17,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="981-9I-bcX">
-                                <rect key="frame" x="175" y="416" width="44" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNo-Cb-g0K">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LUi-su-HNV" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LUi-su-HNV" firstAttribute="height" secondItem="m2q-M4-EVC" secondAttribute="height" priority="250" id="4C7-8z-8Gp"/>
+                                    <constraint firstItem="LUi-su-HNV" firstAttribute="width" secondItem="m2q-M4-EVC" secondAttribute="width" id="Rwz-s8-wvQ"/>
+                                    <constraint firstItem="LUi-su-HNV" firstAttribute="trailing" secondItem="xGU-0I-xKB" secondAttribute="trailing" id="iNB-gG-4T1"/>
+                                    <constraint firstItem="LUi-su-HNV" firstAttribute="leading" secondItem="xGU-0I-xKB" secondAttribute="leading" id="kJQ-ab-3hw"/>
+                                    <constraint firstItem="xGU-0I-xKB" firstAttribute="top" secondItem="LUi-su-HNV" secondAttribute="top" id="osF-QN-4fE"/>
+                                    <constraint firstItem="LUi-su-HNV" firstAttribute="bottom" secondItem="xGU-0I-xKB" secondAttribute="bottom" id="wYy-qC-fca"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="xGU-0I-xKB"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="m2q-M4-EVC"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GNo-Cb-g0K" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="TyD-jN-YCg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GNo-Cb-g0K" secondAttribute="trailing" id="Xc5-gz-uA8"/>
+                            <constraint firstItem="GNo-Cb-g0K" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="foh-iG-KWQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="GNo-Cb-g0K" secondAttribute="bottom" id="p5U-2w-AUB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="LUi-su-HNV" id="mkn-6W-H32"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
