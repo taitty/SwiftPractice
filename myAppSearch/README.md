@@ -19,20 +19,6 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 - Swift, Storyboard, Combine, Cosmos
 - MVVM, Clean Architecture
 
-
-# Layout
-
-### Control Flow
-- Data 는, Entity 에 정의된 Data Structure 에 따라, Data -> Domain -> Presentation Layer 방향으로 이동
-- Data Source 는 Repository 에 정의된 Protocol 을 채택하여 구현
-- 각 Screen 의 Interactor 는, UseCase 를 통해 필요한 Data 를 요청
-<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Layout.svg" width="800px">
-
-### Data Transfer
-- BrowseScreen 과 DetailScreen 은 Delegate 를 통해 Data 를 전달
-<img src="https://github.com/taitty/SwiftPractice/blob/master/myPhotoBrowser/Note/Delegate.svg" width="350px">
-
-
 # Dependency Injection
 - Screen 이동 시, 해당 Screen 에서 사용해야할 Data Source Instance 를 주입
 ```Swift
@@ -66,19 +52,19 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 ### 테스트/실사용 목정에 따라, Context 를 구분하여 생성/전달
 - Dependency Context 를 enum 으로 선언
 ```Swift
-    enum ServerContext {
-        case real
-        case mock
+        enum AppContext {
+            case test
+            case real
 
-        var dataSource: UnsplashDataSourceProtocol {
-            switch self {
-            case .real:
-                return UnsplashDataSource()
-            case .mock:
-                return MockUnsplashDataSource()
+            var dataSource: AppStoreRequirement {
+                switch self {
+                case .real:
+                    return AppStoreDataSource()
+                case .test:
+                    return MockAppStoreDataSource()
+                }
             }
         }
-    }
 ```
 
 - 실사용 시,
