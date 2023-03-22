@@ -30,8 +30,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WO0-gx-Amd" userLabel="Icon">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gamecontroller" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ePB-fr-ndD">
-                                        <rect key="frame" x="10" y="11.666666666666664" width="80" height="77"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xbox.logo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ePB-fr-ndD">
+                                        <rect key="frame" x="10" y="10.666666666666664" width="80" height="79"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -159,16 +159,11 @@
             <point key="canvasLocation" x="-430" y="181"/>
         </tableViewCell>
     </objects>
-    <designables>
-        <designable name="QRr-Cs-UvZ">
-            <size key="intrinsicContentSize" width="120" height="20"/>
-        </designable>
-    </designables>
     <resources>
-        <image name="gamecontroller" catalog="system" width="128" height="79"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil.tip" catalog="system" width="99" height="128"/>
         <image name="trash" catalog="system" width="117" height="128"/>
+        <image name="xbox.logo" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

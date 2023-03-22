@@ -33,11 +33,7 @@ class SearchResult: UITableViewCell {
     }
     
     func setupCell(data: SearchResultEntity) {
-        if let imgUrl = URL(string: data.appIcon),
-           let data = try? Data(contentsOf: imgUrl) {
-            appIcon.image = UIImage(data: data)
-        }
-        
+        appIcon.getImage(urlString: data.appIcon)
         appTitle.text = data.appTitle
         summary.text = data.summary
         
@@ -48,10 +44,7 @@ class SearchResult: UITableViewCell {
         
         let maxItem = data.previewImage.count > 3 ? 3 : data.previewImage.count
         for i in 0..<maxItem {
-            if let imgUrl = URL(string: data.previewImage[i]),
-               let data = try? Data(contentsOf: imgUrl) {
-                previewImage[i].image = UIImage(data: data)
-            }
+            previewImage[i].getImage(urlString: data.previewImage[i])
         }
     }
 }

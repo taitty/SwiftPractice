@@ -67,7 +67,7 @@
                                 <constraint firstAttribute="height" constant="20" id="gJE-n4-CqO"/>
                             </constraints>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="더보기"/>
+                            <buttonConfiguration key="configuration" style="filled" title="더보기"/>
                             <connections>
                                 <action selector="buttonPressed:" destination="-1" eventType="touchUpInside" id="EHi-e5-J37"/>
                             </connections>

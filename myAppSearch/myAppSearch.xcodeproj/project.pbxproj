@@ -51,7 +51,6 @@
 		BBC3491D29C76BCA00B6A43D /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3491C29C76BCA00B6A43D /* AppContext.swift */; };
 		BBC3491F29C76C8400B6A43D /* AppStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3491E29C76C8400B6A43D /* AppStoreDataSource.swift */; };
 		BBC3492129C76C9600B6A43D /* MockAppStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3492029C76C9600B6A43D /* MockAppStoreDataSource.swift */; };
-		BBC3492329C76DA400B6A43D /* CancelSearchUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3492229C76DA400B6A43D /* CancelSearchUsecase.swift */; };
 		BBC3492529C76F2700B6A43D /* SearchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC3492429C76F2700B6A43D /* SearchEntity.swift */; };
 		CF23BB3DCF773FA97585D5B9 /* Pods_myAppSearch_myAppSearchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB91BCD6C3BE21F280677B /* Pods_myAppSearch_myAppSearchUITests.framework */; };
 /* End PBXBuildFile section */
@@ -126,7 +125,6 @@
 		BBC3491C29C76BCA00B6A43D /* AppContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
 		BBC3491E29C76C8400B6A43D /* AppStoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreDataSource.swift; sourceTree = "<group>"; };
 		BBC3492029C76C9600B6A43D /* MockAppStoreDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppStoreDataSource.swift; sourceTree = "<group>"; };
-		BBC3492229C76DA400B6A43D /* CancelSearchUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelSearchUsecase.swift; sourceTree = "<group>"; };
 		BBC3492429C76F2700B6A43D /* SearchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEntity.swift; sourceTree = "<group>"; };
 		C743AD90A41047D8F2CF9EDB /* Pods-myAppSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAppSearch.release.xcconfig"; path = "Target Support Files/Pods-myAppSearch/Pods-myAppSearch.release.xcconfig"; sourceTree = "<group>"; };
 		DEDB4DAA48F67FE1C837D462 /* Pods_myAppSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAppSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,7 +380,6 @@
 			isa = PBXGroup;
 			children = (
 				BBC3491729C7680500B6A43D /* RequestSearchUsecase.swift */,
-				BBC3492229C76DA400B6A43D /* CancelSearchUsecase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -662,7 +659,6 @@
 				BBA3CB9E29C9F44200287F37 /* NewFeatureView.swift in Sources */,
 				BBC3491429C763EA00B6A43D /* SearchViewModel.swift in Sources */,
 				BBA3CBA629CA216900287F37 /* RecentKeyword.swift in Sources */,
-				BBC3492329C76DA400B6A43D /* CancelSearchUsecase.swift in Sources */,
 				BBC3491829C7680500B6A43D /* RequestSearchUsecase.swift in Sources */,
 				BBC3490C29C7504200B6A43D /* App.swift in Sources */,
 				BBC3492529C76F2700B6A43D /* SearchEntity.swift in Sources */,

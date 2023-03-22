@@ -8,10 +8,6 @@
 import UIKit
 import Combine
 
-protocol SearchScreenRequirement {
-    func configCell()
-}
-
 class Search: UIViewController {
     enum ScreenType: Int {
         case SearchResultType = 0
@@ -62,10 +58,6 @@ class Search: UIViewController {
         recentKeywordView.delegate = self
         recentKeywordView.dataSource = self
         
-        registerCell()
-    }
-    
-    private func registerCell() {
         let result = UINib(nibName: "SearchResult", bundle: nil)
         searchResultView.register(result, forCellReuseIdentifier: "SearchResult")
         
@@ -152,8 +144,6 @@ extension Search: UISearchBarDelegate {
 extension Search: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Log.Debug(.UI, "\(tableView.tag)")
-        Log.Debug(.UI, "\(indexPath.row)")
-        
         if ScreenType(rawValue: tableView.tag) == .SearchResultType {
             let storyboard = UIStoryboard(name: "SearchDetail", bundle: Bundle.main)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "SearchDetail") as? SearchDetail else {
@@ -205,9 +195,8 @@ extension Search: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         Log.Debug(.UI, "\(tableView.tag)")
-        
         if ScreenType(rawValue: tableView.tag) == .SearchResultType {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResult", for: indexPath) as? SearchResult else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResult", for: indexPath) as? SearchResult, viewModel.viewData.isNotEmpty else {
                 return UITableViewCell()
             }
             cell.setupCell(data: viewModel.viewData[indexPath.row])

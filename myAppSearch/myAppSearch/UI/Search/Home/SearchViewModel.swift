@@ -54,8 +54,10 @@ class SearchViewModel {
     }
     
     func requestClear() {
-        baseData.removeAll()
-        viewData.removeAll()
+        DispatchQueue.main.async {
+            self.baseData.removeAll()
+            self.viewData.removeAll()
+        }
     }
     
     func searchKeyword(text: String) {

@@ -35,14 +35,11 @@ class PreviewListView: UIView {
     
     func configuration(data: PreviewListViewRequirement) {
         data.imagePath.forEach {
-            if let imgUrl = URL(string: $0),
-               let data = try? Data(contentsOf: imgUrl),
-               let image = UIImage(data: data) {
-                let imageView = UIImageView(image: image)
-                imageView.widthAnchor.constraint(equalToConstant: 120.0).isActive = true
-                imageView.contentMode = .scaleAspectFit
-                previewListView.addArrangedSubview(imageView)
-            }
+            let imageView = UIImageView()
+            imageView.getImage(urlString: $0)
+            imageView.widthAnchor.constraint(equalToConstant: 120.0).isActive = true
+            imageView.contentMode = .scaleAspectFit
+            previewListView.addArrangedSubview(imageView)
         }
     }
 }

@@ -39,10 +39,7 @@ class TitleView: UIView {
     }
     
     func configuration(data: TitleViewRequirement) {
-        if let imgUrl = URL(string: data.appIcon),
-           let data = try? Data(contentsOf: imgUrl) {
-            appIcon.image = UIImage(data: data)
-        }
+        appIcon.getImage(urlString: data.appIcon)
         self.appTitle.text = data.appTitle
         self.subTitle.text = data.subTitle
     }
