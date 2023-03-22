@@ -65,7 +65,7 @@ final class myAppSearchTests: XCTestCase {
         let promise = expectation(description: "test real case")
         var cancellable = Set<AnyCancellable>()
         
-        let useCase = RequestSearchUsecase(dataSource: AppContext.test.dataSource)
+        let useCase = RequestSearchUsecase(dataSource: AppContext.real.dataSource)
         useCase.execute(keyword: "카카오뱅크").sink(receiveCompletion: { result in
             switch result {
             case .finished:
