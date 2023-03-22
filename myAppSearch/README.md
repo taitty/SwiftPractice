@@ -9,6 +9,7 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 
 # Screenshot
 진입화면|검색결과|세부항목
+---|---|---
 
 Home Screen|Detail Screen|Info Screen
 
