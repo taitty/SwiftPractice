@@ -9,4 +9,6 @@ import UIKit
 
 class SearchKeyword: UITableViewCell {
     
+    @IBOutlet weak var searchKeyword: UILabel!
+    
 }

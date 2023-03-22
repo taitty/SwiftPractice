@@ -159,6 +159,11 @@
             <point key="canvasLocation" x="-430" y="181"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="QRr-Cs-UvZ">
+            <size key="intrinsicContentSize" width="120" height="20"/>
+        </designable>
+    </designables>
     <resources>
         <image name="gamecontroller" catalog="system" width="128" height="79"/>
         <image name="pencil" catalog="system" width="128" height="113"/>

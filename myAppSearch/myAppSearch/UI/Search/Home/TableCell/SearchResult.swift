@@ -46,7 +46,8 @@ class SearchResult: UITableViewCell {
         let vote = data.vote / 10000
         rating.text = String(vote)+"만"
         
-        for i in 0..<previewImage.count {
+        let maxItem = data.previewImage.count > 3 ? 3 : data.previewImage.count
+        for i in 0..<maxItem {
             if let imgUrl = URL(string: data.previewImage[i]),
                let data = try? Data(contentsOf: imgUrl) {
                 previewImage[i].image = UIImage(data: data)

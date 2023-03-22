@@ -19,11 +19,19 @@ struct SearchResultEntity {
 
 class SearchViewModel {
     @Published var viewData = [SearchResultEntity]()
+    @Published var matchKeyword = [String]()
+    
     var baseData = [AppInfo]()
+    var searchHistory = [String]()
+    
     private var cancellable = Set<AnyCancellable>()
     
     func requestSearch(keyword: String) {
         Log.Debug(.UI, "keyword : \(keyword)")
+        
+        if !searchHistory.contains(keyword) {
+            searchHistory.append(keyword)
+        }
         
         let usecase = RequestSearchUsecase(dataSource: AppContext.real.dataSource)
         usecase.execute(keyword: keyword).sink(
@@ -43,5 +51,19 @@ class SearchViewModel {
                 }
             })
         .store(in: &cancellable)
+    }
+    
+    func requestClear() {
+        baseData.removeAll()
+        viewData.removeAll()
+    }
+    
+    func searchKeyword(text: String) {
+        matchKeyword.removeAll()
+        searchHistory.forEach {
+            if $0.starts(with: text) {
+                matchKeyword.append($0)
+            }
+        }
     }
 }
