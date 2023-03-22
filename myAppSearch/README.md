@@ -3,7 +3,7 @@
 - iTunes Search API 를 사용
 https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
 
-# how to build
+# How to build
 1. pod install
 2. open *.xcworkspace
 
