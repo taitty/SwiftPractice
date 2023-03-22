@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Combine
 @testable import myAppSearch
 
 final class myAppSearchTests: XCTestCase {
@@ -18,12 +19,67 @@ final class myAppSearchTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testRequestSearchUsecaseFailCaseWithMock() throws {
+        let promise = expectation(description: "test fail case with mock")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = RequestSearchUsecase(dataSource: AppContext.test.dataSource)
+        useCase.execute(keyword: "오류").sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                XCTAssert(false, "success")
+            case .failure(let error):
+                promise.fulfill()
+                XCTAssert(true, "\(error)")
+            }
+        }, receiveValue: { data in
+            XCTAssert(data.isEmpty)
+        })
+        .store(in: &cancellable)
+        
+        wait(for: [promise], timeout: 5)
+    }
+    
+    func testRequestSearchUsecasePassCaseWithMock() throws {
+        let promise = expectation(description: "test pass case with mock")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = RequestSearchUsecase(dataSource: AppContext.test.dataSource)
+        useCase.execute(keyword: "카카오").sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                promise.fulfill()
+                XCTAssert(true, "success")
+            case .failure(let error):
+                XCTAssert(false, "\(error)")
+            }
+        }, receiveValue: { data in
+            XCTAssert(!data.isEmpty)
+        })
+        .store(in: &cancellable)
+        
+        wait(for: [promise], timeout: 5)
+    }
+    
+    func testRequestSearchUsecasePassCaseWithReal() throws {
+        let promise = expectation(description: "test real case")
+        var cancellable = Set<AnyCancellable>()
+        
+        let useCase = RequestSearchUsecase(dataSource: AppContext.test.dataSource)
+        useCase.execute(keyword: "카카오뱅크").sink(receiveCompletion: { result in
+            switch result {
+            case .finished:
+                promise.fulfill()
+                XCTAssert(true, "success")
+            case .failure(let error):
+                XCTAssert(false, "\(error)")
+            }
+        }, receiveValue: { data in
+            XCTAssert(!data.isEmpty)
+        })
+        .store(in: &cancellable)
+        
+        wait(for: [promise], timeout: 5)
     }
 
     func testPerformanceExample() throws {
