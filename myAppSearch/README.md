@@ -10,7 +10,7 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 # Screenshot
 |Home Screen|Detail Screen|Info Screen|
 |추천 검색어|연관 검색어|검색 결과|세부 항목|
-|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 44](https://user-images.githubusercontent.com/30424849/226810233-570d203b-b55b-40af-a400-4bbb75ba5c6a.png)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 55](https://user-images.githubusercontent.com/30424849/226810328-0d3b1554-6866-420c-a496-5fcf5b126d3b.png)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 01](https://user-images.githubusercontent.com/30424849/226810411-068ab7ee-2abf-46d1-bd2e-9f2a2838e33a.png)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 04](https://user-images.githubusercontent.com/30424849/226810561-89d9b6f5-ba57-4c9e-a941-efaed7f2c9ea.png)|
+|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 44](https://user-images.githubusercontent.com/30424849/226813136-75b0a60b-f65b-46d5-bd6d-8639725aa6d6.jpeg)|
 
 # Demo
 |https://user-images.githubusercontent.com/30424849/226812174-cc364726-43aa-46e7-bb28-305b5ea338b0.mov|
