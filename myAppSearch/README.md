@@ -10,7 +10,7 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 # Screenshot
 |Home Screen|Detail Screen|Info Screen|
 |추천 검색어|연관 검색어|검색 결과|세부 항목|
-|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 44](https://user-images.githubusercontent.com/30424849/226813136-75b0a60b-f65b-46d5-bd6d-8639725aa6d6.jpeg)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 55](https://user-images.githubusercontent.com/30424849/226813374-2109af05-6e93-4d96-93bf-c784010aa29f.png)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 01](https://user-images.githubusercontent.com/30424849/226813394-35a67a1a-de84-4e13-aad1-2a1bb3a5f6d7.png)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 04](https://user-images.githubusercontent.com/30424849/226813413-ed002822-d649-4625-b9e9-44bf0bdbe723.jpeg)|
+|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 44](https://user-images.githubusercontent.com/30424849/226813615-cb02390e-4898-4e2a-8ec3-616482b15988.jpeg)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 55](https://user-images.githubusercontent.com/30424849/226813643-4bf32ff5-2b54-4a46-811c-1cc708c74737.jpeg)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 01](https://user-images.githubusercontent.com/30424849/226813670-4ece4d36-c1b8-4d5d-8459-0d31e0b722b0.jpeg)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 04](https://user-images.githubusercontent.com/30424849/226813716-f2cd91a7-14a0-42aa-a6ab-c5ef1e5bd597.jpeg)|
 
 # Demo
 |https://user-images.githubusercontent.com/30424849/226812174-cc364726-43aa-46e7-bb28-305b5ea338b0.mov|
