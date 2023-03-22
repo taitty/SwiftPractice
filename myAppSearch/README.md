@@ -9,7 +9,7 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 
 # Screenshot
 추천 검색어|연관 검색어|검색 결과|세부 항목
----|---|---
+---|---|---|---
 ![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 44](https://user-images.githubusercontent.com/30424849/226813615-cb02390e-4898-4e2a-8ec3-616482b15988.jpeg)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 25 55](https://user-images.githubusercontent.com/30424849/226813643-4bf32ff5-2b54-4a46-811c-1cc708c74737.jpeg)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 01](https://user-images.githubusercontent.com/30424849/226813670-4ece4d36-c1b8-4d5d-8459-0d31e0b722b0.jpeg)|![Simulator Screen Shot - iPhone 14 Pro - 2023-03-22 at 14 26 04](https://user-images.githubusercontent.com/30424849/226813716-f2cd91a7-14a0-42aa-a6ab-c5ef1e5bd597.jpeg)
 
 # Demo
