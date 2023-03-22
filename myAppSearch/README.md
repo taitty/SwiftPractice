@@ -20,31 +20,25 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 - MVVM, Clean Architecture
 
 # Dependency Injection
-- Screen 이동 시, 해당 Screen 에서 사용해야할 Data Source Instance 를 주입
+- Instance 생성 시, 사용해야할 Data Source Instance 를 주입
 ```Swift
-    let dataSource = ServerContext.real.dataSource
-    let wireframe = BrowseScreenWireframe(dataSource: dataSource)
+    let dataSource = AppContext.real.dataSource
+    let usecase = RequestSearchUsecase(dataSource: dataSource)
 ```
 
-- 주입받은 Instance 는, 해당 Screen 의 각 Controller 에서 사용하도록 재주입
+- 주입받은 Instance 는, 실제 Data 를 보유하고 있는 Repository(or Data Source) 로 사용
 ```Swift
-    func setup() -> UIViewController {
-        let storyboard = UIStoryboard(name: "BrowseScreen", bundle: Bundle.main)
-        let view = storyboard.instantiateViewController(withIdentifier: "BrowseScreen") as? BrowseScreenViewController
-        let presenter = BrowseScreenPresenter()
-        let interactor = BrowseScreenInteractor()
-        
-        self.view = view
-        view?.presenter = presenter
-        presenter.interactor = interactor
-        presenter.wireframe = self
-        interactor.dataSource = dataSource
-        
-        guard let view = view else {
-            Log.Debug(.UI, "failed to setup BrowseScreen...")
-            return UIViewController()
+    struct RequestSearchUsecase {
+        private let dataSource: AppStoreRequirement
+
+        init(dataSource: AppStoreRequirement) {
+            self.dataSource = dataSource
         }
-        return view
+
+        func execute(keyword: String) -> AnyPublisher<[AppInfo], TraceError> {
+            Log.Debug(.DOMAIN, "keyword : \(keyword)")
+            return dataSource.requestSearch(keyword: keyword)
+        }
     }
 ```
 
@@ -52,61 +46,62 @@ https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-serv
 ### 테스트/실사용 목정에 따라, Context 를 구분하여 생성/전달
 - Dependency Context 를 enum 으로 선언
 ```Swift
-        enum AppContext {
-            case test
-            case real
+    enum AppContext {
+        case test
+        case real
 
-            var dataSource: AppStoreRequirement {
-                switch self {
-                case .real:
-                    return AppStoreDataSource()
-                case .test:
-                    return MockAppStoreDataSource()
-                }
+        var dataSource: AppStoreRequirement {
+            switch self {
+            case .real:
+                return AppStoreDataSource()
+            case .test:
+                return MockAppStoreDataSource()
             }
         }
+    }
 ```
 
 - 실사용 시,
 ```Swift
-    let dataSource = ServerContext.real.dataSource
-    let wireframe = BrowseScreenWireframe(dataSource: dataSource)
+    let dataSource = AppContext.real.dataSource
+    let usecase = RequestSearchUsecase(dataSource: dataSource)
 ```
 
 - 테스트 시,
 ```Swift
-    let dataSource = ServerContext.mock.dataSource
-    let wireframe = BrowseScreenWireframe(dataSource: dataSource)
+    let dataSource = AppContext.test.dataSource
+    let usecase = RequestSearchUsecase(dataSource: dataSource)
 ```
 
 # Unit Test
-- 주입되는 dataSource 에 따라, Mock/Real 구분하여 진행
+- 주입되는 dataSource 에 따라, test/real 로 구분
 
-> let useCase = GetHomeDataUseCase(dataSource: `MockUnsplashDataSource()`, dataMode: .initialData) 
+> let usecase = RequestSearchUsecase(dataSource: AppContext.real.dataSource) 
 
 - 혹은,
 
-> let useCase = GetHomeDataUseCase(dataSource: `UnsplashDataSource()`, dataMode: .initialData)
+> let usecase = RequestSearchUsecase(dataSource: AppContext.test.dataSource) 
 
 - Example
 ```Swift
-    func testGetHomeDataUseCaseFromMock() throws {
-        let promise = expectation(description: "get HomeData from Mock")
+    func testRequestSearchUsecaseFailCaseWithMock() throws {
+        let promise = expectation(description: "test fail case with mock")
         var cancellable = Set<AnyCancellable>()
-
-        let useCase = GetHomeDataUseCase(dataSource: _UnsplashDataSource()_, dataMode: .initialData)
-        useCase.sink(receiveCompletion: { result in
+        
+        let useCase = RequestSearchUsecase(dataSource: AppContext.test.dataSource)
+        useCase.execute(keyword: "오류").sink(receiveCompletion: { result in
             switch result {
             case .finished:
-                Log.Debug(.UNTEST, "done to get homeData...")
+                XCTAssert(false, "success")
             case .failure(let error):
-                XCTFail(error.message)
+                promise.fulfill()
+                XCTAssert(true, "\(error)")
             }
-        }, receiveValue: { value in
-            promise.fulfill()
-            XCTAssertTrue(!value.isEmpty)
-        }).store(in: &cancellable)
-
+        }, receiveValue: { data in
+            XCTAssert(data.isEmpty)
+        })
+        .store(in: &cancellable)
+        
         wait(for: [promise], timeout: 5)
     }
 ```
