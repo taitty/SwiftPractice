@@ -27,4 +27,6 @@
 |성능|Thread Explosion 으로 과도한 Context Switching 발생 및 Dead-Lock 발생 우려가 있음|await 로 중단 시, 동일 Thread 내의 다음 함수가 수행됨. 추가적인 Context Switching 이 발생하지 않음|
 |우선순위역전|FIFO 구조이므로, 우선순위가 높아도 먼저 추가된 Task 가 먼저 실행됨|FIFO 구조가 아님. 우선순위가 높은 Task 가 먼저 수행됨|
 
-- Ref : - https://tech.devsisters.com/posts/crunchy-concurrency-swift/
+- Ref : 
+  - https://tech.devsisters.com/posts/crunchy-concurrency-swift/
+  - https://engineering.linecorp.com/ko/blog/about-swift-concurrency
