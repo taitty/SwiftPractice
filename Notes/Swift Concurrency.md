@@ -18,6 +18,7 @@
 
 # Swift Concurrency vs GCD
 - https://tech.devsisters.com/posts/crunchy-concurrency-swift/
+
 ||GCD|Swift Concurrency|
 |---|---|---|
 |도입|Object-C 에서부터 사용|21년에 소개된 신규 Programming API|
