@@ -60,30 +60,18 @@ class ViewController: UIViewController {
         let avAsset = AVURLAsset(url: videoURL)
         let startDate = Date()
         let exportSession = AVAssetExportSession(asset: avAsset, presetName: AVAssetExportPresetPassthrough)
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
         
-        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let myDocPath = NSURL(fileURLWithPath: docDir).appendingPathComponent("temp.mp4")?.absoluteString
-        
-        let docDir2 = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0] as NSURL
-        
-        let filePath = docDir2.appendingPathComponent("rendered-Video.mp4")
+        let filePath = docDir.appendingPathComponent("rendered-Video.mp4")
         deleteFile(filePath!)
-        
-        if FileManager.default.fileExists(atPath: myDocPath!){
-            do{
-                try FileManager.default.removeItem(atPath: myDocPath!)
-            }catch let error{
-                print(error)
-            }
-        }
         
         exportSession?.outputURL = filePath
         exportSession?.outputFileType = AVFileType.mp4
         exportSession?.shouldOptimizeForNetworkUse = true
         
-        let start = CMTimeMakeWithSeconds(0.0, preferredTimescale: 0)
-        let range = CMTimeRange(start: start, duration: avAsset.duration)
-        exportSession?.timeRange = range
+        let start = CMTimeMakeWithSeconds(0, preferredTimescale: 1)
+        let duration = CMTimeMakeWithSeconds(5, preferredTimescale: 1)
+        exportSession?.timeRange = CMTimeRange(start: start, duration: duration)
         
         exportSession!.exportAsynchronously{() -> Void in
             switch exportSession!.status{
@@ -131,4 +119,3 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         self.dismiss(animated: true)
     }
 }
-
